@@ -4,11 +4,13 @@ import {
   AboutSection,
   FeatureCaro,
   HeroSlider,
+  LatestBlog,
   PackageCard,
   PrideCard,
   SectionHead,
   ServiceCard,
   TestimonialCarousel,
+  TestimonialSection,
 } from "@/components";
 import Image from "next/image";
 import { CountryIcon, PrideBg, PrideIcon, SupportIcon } from "@/assets";
@@ -25,7 +27,11 @@ export default function Home() {
       </div>
       <section className="sec-wrap pb-20">
         <div className="app-container">
-          <SectionHead title={t("top_packages_iran")} rightTitle={t('see_all_package')} rightTarget="/" />
+          <SectionHead
+            title={t("top_packages_iran")}
+            rightTitle={t("see_all_package")}
+            rightTarget="/"
+          />
           <div className="grid xl:grid-cols-4 sm:grid-cols-2 gap-8 mt-12">
             <PackageCard />
             <PackageCard />
@@ -88,21 +94,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="sec-padd-sm">
-        <div className="app-container">
-          <SectionHead title={t("happy_clients")} rightTitle={t('more_testimonials')} rightTarget="/" />
-          <div className="h-8"></div>
-          <TestimonialCarousel />
-        </div>
-      </section>
-
-
-      <section className="sec-padd-sm">
-        <div className="app-container">
-          <SectionHead title={t("latest_blog")} rightTitle={t('all_blogs')} rightTarget="/" />
-          <div className="h-8"></div>
-        </div>
-      </section>
+      <TestimonialSection />
+      <LatestBlog />
     </>
   );
 }

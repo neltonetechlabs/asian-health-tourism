@@ -44,3 +44,11 @@ export interface PrideCardProps {
     title: string;
     count: string;
 }
+
+export interface BlogCardProps {
+    id: number;
+    image?: string;
+    title: string;
+    description?: string;
+    slug?: string;
+}
