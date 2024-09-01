@@ -1,0 +1,13 @@
+.prideCountCard {
+  box-shadow: 0px 3px 30px #f5a6041a;
+  @apply bg-white rounded-[10px] pt-7 pb-10 px-9;
+}
+.iconHolder {
+    @apply w-14 h-14 ml-auto mb-3
+}
+.countElm {
+    @apply text-[var(--primary)] text-4xl mb-2
+}
+.titleElm {
+    @apply text-[16px]
+}

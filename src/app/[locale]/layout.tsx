@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Open_Sans } from "next/font/google";
 import "./globals.css";
+import 'swiper/css';
+import "swiper/css/navigation";
+import "swiper/css/effect-fade";
 import { Header, TopBar } from "@/components";
 import { routing } from "@/i18n/routing";
 import { getMessages } from "next-intl/server";

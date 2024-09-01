@@ -3,10 +3,15 @@ import ArrowRight from "./arrow-right.svg";
 import BlueChevron from "./blue_chevron.svg";
 import Chevron from "./chevron.svg";
 import ChatIcon from "./chaticon.svg";
+import CountryIcon from "./country.svg";
 import Logo from "./logo.jpg";
 import PhoneIcon from "./phone.svg";
+import PrideBg from './pride_bg.jpg';
+import PrideIcon from "./prideicon.svg";
+import TestimonialIcon from './testimonial_icon.svg';
 import TickBox from "./tickbox.svg";
 import SearchIcon from "./search.svg";
+import SupportIcon from "./support.svg";
 /* Demo */
 import Slider from "./demo-images/slider.jpg";
 import MobSlider from "./demo-images/slider_mob.jpg";
@@ -30,10 +35,15 @@ export {
   BlueChevron,
   ChatIcon,
   Chevron,
+  CountryIcon,
   Logo,
   PhoneIcon,
+  PrideBg,
+  PrideIcon,
+  TestimonialIcon,
   TickBox,
   SearchIcon,
+  SupportIcon,
   // Demo
   Slider,
   MobSlider,

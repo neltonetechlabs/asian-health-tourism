@@ -5,11 +5,9 @@ import { EffectFade } from "swiper/modules";
 import { useSpring, animated, a } from "@react-spring/web";
 import Image from "next/image";
 
-import { ArrowLeft, ArrowRight, Chevron, MobSlider, Slider } from "@/assets";
+import { ArrowLeft, ArrowRight, Chevron, Demo1, MobSlider, PrideBg, Slider } from "@/assets";
 
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/effect-fade";
+
 import "./slider.css";
 
 import Picture from "../common/picture";

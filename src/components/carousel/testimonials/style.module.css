@@ -1,0 +1,15 @@
+.testiCard {
+    @apply bg-[#F0F9FF] p-10 rounded-lg
+}
+.testimonial{
+    @apply mt-5 mb-9 text-[#000000] text-[18px] font-light
+}
+.profileSec {
+    @apply flex justify-start items-center gap-4
+}
+.profileImage {
+    @apply overflow-hidden rounded-full
+}
+.persona {
+    @apply font-normal
+}

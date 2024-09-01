@@ -25,6 +25,8 @@ export interface FeatureCardProps {
 
 export interface SecHeadTitle {
     title: string;
+    rightTitle?: string;
+    rightTarget?: string;
 }
 
 export interface SectionLink {
@@ -35,4 +37,10 @@ export interface SectionLink {
 export interface StatCardProps {
     count: string;
     title: string;
+}
+
+export interface PrideCardProps {
+    icon?: StaticImageData | string;
+    title: string;
+    count: string;
 }
