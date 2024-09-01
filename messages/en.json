@@ -1,0 +1,24 @@
+{
+  "Common": {
+    "top_packages_iran" : "Top Tour Packages in Iran",
+    "product_name": "Asian Health Tourism Services",
+    "product_tag": "Made Easy And Hassle-Free With The First Specialized Medical Tourism Facilitator In Iran"
+  },
+  "QuickLinks": {
+    "gallery": "Gallery",
+    "faq": "FAQ",
+    "contact": "Contact Us"
+  },
+  "MainMenu": {
+    "home": "Home",
+    "procedure": "Procedures",
+    "packages": "Packages",
+    "destination": "Destinations",
+    "patient": "Patient",
+    "reviews": "Reviews",
+    "blog": "Blog",
+    "about": "About"
+  } 
+}
+
+

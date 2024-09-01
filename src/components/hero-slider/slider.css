@@ -1,0 +1,56 @@
+.hero-slider {
+    @apply relative
+}
+.slider-wrap {
+    @apply relative;
+}
+.slider-caption {
+    top: 50%;
+    transform: translate(0, -50%);
+    @apply text-white absolute w-full
+}
+.caption-content {
+    max-width: 500px;
+    width: 100%;
+}
+.caption-content h3 {
+    font-size: 3rem;
+    line-height: 50px;
+    font-weight: 400;
+}
+.caption-content h6 {
+    font-size: 1em;
+    margin-top: 25px;
+    margin-bottom: 40px;
+    font-weight: 300;
+}
+
+.slider-action {
+    @apply flex gap-5
+}
+
+.slider-page {
+    @apply flex gap-10 mt-6 absolute bottom-3 w-full z-10 bottom-16
+}
+
+@media only screen and (max-width: 576px){
+    .caption-content {
+        text-align: center;
+        padding: 0 15px;
+    }
+    .slider-caption {
+        top: auto;
+        bottom: 50px;
+        transform: translate(0);
+    }
+    .slider-action {
+        @apply justify-center
+    }
+    .caption-content h3 {
+        font-size: 2rem;
+        line-height: 30px;
+    }
+    .slider-page {
+        @apply justify-center
+    }
+}

@@ -1,0 +1,197 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #f5a604;
+  --bluePrimary: #f0f9ff;
+  --blueSecondary: #0078bd;
+  --textBlack: #263036;
+}
+
+html, body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden
+}
+
+.app-container {
+  @apply container mx-auto;
+}
+
+.app-btn {
+  @apply flex w-fit px-4 rounded-md h-[50px] leading-[45px] capitalize items-center gap-4;
+}
+.app-btn.btn-primary {
+  background-color: var(--primary);
+  border: 2px solid var(--primary);
+}
+.app-btn.btn-filled {
+  background-color: var(--btn-bg-color, transparent);
+}
+
+.app-btn.btn-filled-stroke {
+  border: 2px solid var(--btn-bg-color, transparent);
+}
+
+.app-btn.btn-blue {
+  background-color: var(--bluePrimary);
+  color: var(--textBlack);
+}
+.app-btn.btn-stroke {
+  border: 2px solid #fff;
+}
+.app-btn .right-icon {
+  width: 20px;
+}
+.header-actions {
+  @apply flex justify-between items-center gap-6;
+}
+.menu-ul {
+  @apply flex justify-between flex-1;
+}
+.menu-ul li a {
+  font-size: 16px;
+}
+.topbar {
+  background: var(--blueSecondary);
+  @apply flex items-center text-[13px] h-10 text-white relative z-10;
+}
+.top-bar-content {
+  @apply flex justify-end gap-4;
+}
+.top-contact {
+  @apply flex gap-2 items-center;
+}
+.top-quick-links {
+  @apply flex items-center;
+}
+.top-quick-links ul {
+  @apply flex gap-3 items-center;
+}
+.top-quick-links ul li {
+  @apply relative pr-4 last:pr-0;
+}
+.top-quick-links ul li::after {
+  content: "/";
+  position: absolute;
+  right: 0;
+}
+.top-quick-links ul li:last-child::after {
+  display: none;
+}
+.logo-fig {
+  @apply m-0 h-[100px] w-auto;
+}
+.logo-fig > img {
+  @apply object-contain h-full w-full max-h-full max-w-full object-left;
+}
+.feature-sec {
+  @apply py-12;
+}
+.feature-card {
+  @apply flex items-start gap-3;
+}
+.feat-icon {
+  @apply w-6 h-6 min-w-6 relative top-[5px];
+}
+.feature-card h3 {
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+.right-sec {
+  text-align: right;
+}
+.sec-heading h4 {
+  font-size: 2rem;
+  font-weight: 500;
+  color: #373740
+}
+.link-btn {
+  @apply flex w-fit ml-auto gap-3 items-center border-b-2 border-b-[#0078BD] pb-3;
+}
+.link-btn img {
+  @apply relative left-0 transition-all delay-200 ease-in-out
+}
+.link-btn:hover img {
+  @apply left-3
+}
+.parallax-sec {
+  padding-top: 150px;
+  padding-bottom: 100px;
+  background-image: url('../../assets/bg_parallax.jpg');
+  background-size: cover;
+  position: relative;
+}
+.parallax-sec::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  background-color: #000;
+}
+.parallax-sec-content {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+}
+
+.left-sec-content h2 {
+  font-size: 42px;
+  line-height: 50px;
+  font-weight: 400;
+}
+
+.why-content h4 {
+  @apply font-semibold text-[30px] mb-5
+}
+
+.left-sec-content {
+  @apply flex flex-col 
+}
+
+.why-content article {
+  @apply pr-10 text-[20px] font-light
+}
+
+.count-sec {
+  @apply w-[80%] flex justify-between mt-auto
+}
+
+.count-sec h2{
+  @apply font-bold
+}
+
+.sec-padd {
+  @apply py-20
+}
+
+.heading-sec {
+  @apply text-center text-[#373740]
+}
+
+.heading-sec h3 {
+  @apply text-[30px] font-medium
+}
+
+.heading-sec h6 {
+  @apply text-[17px] font-light
+}
+
+
+/*--- Responsive -----*/
+@media only screen and (max-width: 1024px) {
+  .app-container {
+    padding: 0 30px;
+  }
+  .header-actions {
+    justify-content: flex-end;
+  }
+  .header-actions .menu-ul {
+    display: none;
+  }
+}
