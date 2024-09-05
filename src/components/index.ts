@@ -1,10 +1,12 @@
 import AboutSection from "./ui/about-sec";
-import AppButton from "./buttons/button.common";
+import AppButton from "./buttons/button.common"; 
 import BlogCard from "./card/blog";
+import CheckList from "./ui/checklist";
 import Header from "./layout/header";
 import HeroSlider from "./hero-slider/slider";
 import FeatureCard from "./ui/feature.card";
 import FeatureCaro from "./ui/feature-caro";
+import InnerBanner from "./banner";
 import LatestBlog from "./ui/latest-blog";
 import PackageCard from "./card/package";
 import Picture from "./common/picture";
@@ -22,11 +24,13 @@ export {
     AboutSection,
     AppButton,
     BlogCard,
+    CheckList,
     Header,
     HeroSlider,
     FeatureCard,
     FeatureCaro,
     LatestBlog,
+    InnerBanner,   
     PackageCard,
     Picture,
     PrideCard,

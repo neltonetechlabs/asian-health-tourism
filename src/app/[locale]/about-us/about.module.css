@@ -1,0 +1,10 @@
+.blueSec {
+    @apply bg-[var(--blueSecondary)] text-white lg:py-36 py-16
+}
+
+.serviceBack {
+    @apply w-full lg:max-w-[55%] max-w-full lg:text-4xl text-3xl lg:mb-0 mb-5
+}
+.serviceBack h3 {
+    @apply lg:leading-[45px] leading-[38px] font-medium
+}

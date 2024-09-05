@@ -1,7 +1,7 @@
 "use client";
 import classNames from "classnames";
 
-import { ButtonType, ButtonVariant } from "@/enum/enum";
+import { ButtonType } from "@/enum/enum";
 import { UIComponent } from "@/models";
 import Image from "next/image";
 
@@ -21,6 +21,7 @@ const AppButton: React.FC<UIComponent.ButtonProps> = ({
         {
           ["btn-filled"]: type === ButtonType.FILLED,
           ["btn-stroke"]: type === ButtonType.STROKE,
+          ["btn-stroke-sec"]: type === ButtonType.STROKE_ALT,
           ["btn-left-icon"]: leftImage,
           ["btn-right-icon"]: rightImage,
         },
@@ -36,7 +37,7 @@ const AppButton: React.FC<UIComponent.ButtonProps> = ({
       )}
       {title}
       {leftImage && (
-        <span>
+        <span className="left-icon">
           <Image src={leftImage} alt={title} />
         </span>
       )}

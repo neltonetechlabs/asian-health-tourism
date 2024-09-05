@@ -1,6 +1,7 @@
 export enum ButtonType {
     FILLED = 'filled',
     STROKE = 'stroke',
+    STROKE_ALT = "stroke_sec"
 }
 
 export enum ButtonVariant {

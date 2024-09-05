@@ -1,0 +1,12 @@
+.bannerSec {
+    @apply relative h-[400px] bg-[var(--primary)] flex items-center
+}
+.content {
+    @apply text-white
+}
+.content h4 {
+    @apply font-semibold text-white text-5xl
+}
+.content .subTitle {
+    @apply w-1/4 max-w-full mt-2
+}

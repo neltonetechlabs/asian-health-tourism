@@ -2,6 +2,7 @@ import { title } from 'process';
 import { title } from 'process';
 import { StaticImageData } from "next/image";
 import { ButtonType, ButtonVariant } from "@/enum/enum";
+import { ReactNode } from 'react';
 
 export interface PictureCompProps {
     desktopImg: string | StaticImageData;
@@ -51,4 +52,25 @@ export interface BlogCardProps {
     title: string;
     description?: string;
     slug?: string;
+}
+
+export interface BannerProps {
+    image?: string;
+    title?: string;
+    subTitle?: string;
+}
+
+export interface CheckListProps {
+    listItems: string[];
+}
+
+export interface ImageWrapTemplProps {
+    title: string;
+    headerComp?: ReactNode;
+    image: string | StaticImageData;
+    content: string;
+    primaryBtnText?: string;
+    secondaryBtnText?: string;
+    primaryLink?: string;
+    secondaryLink?: string;
 }

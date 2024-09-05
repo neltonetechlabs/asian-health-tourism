@@ -1,0 +1,13 @@
+.imgwrapsec {
+    @apply col-span-10 mx-auto
+}
+.imageWrap {
+    @apply overflow-hidden rounded-xl
+}
+.actionSec {
+    @apply flex gap-5 mt-10
+}
+
+.contentWrap article {
+    @apply font-light text-lg text-[var(--textBlack)] leading-8 mt-4
+}
