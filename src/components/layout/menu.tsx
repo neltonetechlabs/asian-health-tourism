@@ -6,22 +6,17 @@ const main_menu = [
   {
     id: 0,
     title: "home",
-    link: "/",
+    link: "",
   },
   {
     id: 1,
     title: "procedure",
-    link: "",
-  },
-  {
-    id: 2,
-    title: "packages",
-    link: "",
+    link: "procedures",
   },
   {
     id: 3,
     title: "destination",
-    link: "",
+    link: "destinations",
   },
   {
     id: 4,
@@ -29,19 +24,14 @@ const main_menu = [
     link: "",
   },
   {
-    id: 5,
-    title: "reviews",
-    link: "",
-  },
-  {
     id: 6,
     title: "blog",
-    link: "",
+    link: "blog",
   },
   {
     id: 7,
     title: "about",
-    link: "",
+    link: "about-us",
   },
 ];
 

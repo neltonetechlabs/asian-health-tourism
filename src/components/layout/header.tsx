@@ -12,12 +12,12 @@ const Header = () => {
     <header>
       <div className="app-container">
         <div className="grid grid-cols-12 items-center">
-          <div className="xl:col-span-3 col-span-2">
+          <div className="xl:col-span-3 col-span-3">
             <figure className="logo-fig">
               <Image alt={appConfig?.appname} src={Logo} />
             </figure>
           </div>
-          <div className="xl:col-span-9 col-span-10">
+          <div className="xl:col-span-9 col-span-9">
             <div className="header-actions">
               <Menu />
               <Search />

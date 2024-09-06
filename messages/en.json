@@ -13,7 +13,10 @@
     "more_testimonials": "See More Testimonials",
     "latest_blog": "Our Latest Blog",
     "all_blogs": "See All Blogs",
-    "blog_tag": "@ Blog"
+    "blog_tag": "@ Blog",
+    "learn_more": "Learn More",
+    "search_procedures": "Search for procedures",
+    "search_blog": "Search for blog"
   },
   "QuickLinks": {
     "gallery": "Gallery",
@@ -25,8 +28,7 @@
     "procedure": "Procedures",
     "packages": "Packages",
     "destination": "Destinations",
-    "patient": "Patient",
-    "reviews": "Reviews",
+    "patient": "Patient Reviews",
     "blog": "Blog",
     "about": "About"
   } 

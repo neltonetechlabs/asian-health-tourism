@@ -58,10 +58,11 @@ html, body {
   @apply flex justify-between items-center gap-6;
 }
 .menu-ul {
-  @apply flex justify-between flex-1;
+  @apply flex justify-end flex-1 gap-11;
 }
 .menu-ul li a {
   font-size: 16px;
+  font-weight: 500;
 }
 .topbar {
   background: var(--blueSecondary);
@@ -241,6 +242,15 @@ header .app-btn {
   width: fit-content;
 }
 
+.img-fit {
+  @apply w-full h-full min-w-full min-h-full
+}
+.img-fit.cover {
+  @apply object-cover
+}
+.img-fit.obj_center {
+  @apply object-center
+}
 /*--- Responsive -----*/
 @media only screen and (max-width: 1024px) {
   .app-container {

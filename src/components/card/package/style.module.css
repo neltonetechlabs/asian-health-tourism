@@ -11,6 +11,9 @@
   font-size: 1.3rem;
   margin-top: 1rem
 }
+.pckgContent p {
+  @apply mt-4 mb-6
+}
 .pckgFeatures {
   @apply py-6;
 }
@@ -32,4 +35,15 @@
 .pckgFeat h4 {
   @apply text-[#263036] text-[16px] font-medium;
 }
+.pckgimg {
+  @apply rounded-lg overflow-hidden h-60
+}
 
+.destinationCard {
+  box-shadow: 0px 2px 8px #F5A6041A;
+  @apply bg-white
+}
+
+.destinationCard .pckgimg {
+  @apply h-[260px]
+}

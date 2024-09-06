@@ -2,8 +2,13 @@
     @apply col-span-10 mx-auto
 }
 .imageWrap {
-    @apply overflow-hidden rounded-xl
+    @apply overflow-hidden rounded-xl h-[400px]
 }
+
+.imageWrap {
+    @apply object-cover h-full min-h-full w-full min-w-full object-center
+}
+
 .actionSec {
     @apply flex gap-5 mt-10
 }

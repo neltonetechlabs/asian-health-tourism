@@ -1,0 +1,32 @@
+.selectWrap {
+  @apply relative w-[230px];
+}
+.selectFilter {
+  @apply appearance-none h-[65px] border-2 border-[#949FA6] rounded-[5px] bg-white w-full px-6 box-border text-lg;
+}
+.selectWrap::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translate(0, -50%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid black;
+}
+
+.searchInpWrap {
+    @apply relative flex-1
+}
+
+.searchInp {
+    @apply appearance-none w-full h-[65px] border-2 border-[#949FA6] rounded-[5px] px-6 box-border focus:border-[var(--blueSecondary)] outline-none placeholder:text-[#263036]
+}
+
+.searchIcon {
+    transform: translate(0, -50%) ;
+    @apply absolute right-6 top-1/2
+}

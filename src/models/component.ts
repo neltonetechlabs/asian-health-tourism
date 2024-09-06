@@ -28,6 +28,7 @@ export interface SecHeadTitle {
     title: string;
     rightTitle?: string;
     rightTarget?: string;
+    rightSection?: ReactNode;
 }
 
 export interface SectionLink {
@@ -73,4 +74,11 @@ export interface ImageWrapTemplProps {
     secondaryBtnText?: string;
     primaryLink?: string;
     secondaryLink?: string;
+}
+
+export interface ListCardProps {
+    title: string;
+    image: string | StaticImageData;
+    description: string;
+    slug: string;
 }

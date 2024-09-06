@@ -1,7 +1,12 @@
 import { UIComponent } from "@/models";
 import SectionHeadLink from "../buttons/section.link";
 
-const SectionHead: React.FC<UIComponent.SecHeadTitle> = ({ title, rightTitle, rightTarget }) => {
+const SectionHead: React.FC<UIComponent.SecHeadTitle> = ({
+  title,
+  rightTitle,
+  rightTarget,
+  rightSection,
+}) => {
   return (
     <div className="grid grid-cols-2 items-center">
       <div className="left-sec sec-heading">
@@ -12,6 +17,7 @@ const SectionHead: React.FC<UIComponent.SecHeadTitle> = ({ title, rightTitle, ri
           <SectionHeadLink title={rightTitle} to={rightTarget} />
         </div>
       )}
+      <div className="right-sec-elm">{rightSection && rightSection}</div>
     </div>
   );
 };
