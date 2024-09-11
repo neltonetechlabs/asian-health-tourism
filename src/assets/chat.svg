@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60">
+  <g id="chat" transform="translate(0.134 0.108)">
+    <circle id="Ellipse_89" data-name="Ellipse 89" cx="30" cy="30" r="30" transform="translate(-0.134 -0.108)" fill="#f5a604"/>
+    <g id="Group_10834" data-name="Group 10834" transform="translate(14.063 12.854)">
+      <path id="Union_2" data-name="Union 2" d="M10.863,30.763a15.771,15.771,0,1,1,10.158-.117A52.43,52.43,0,0,1,9.482,33.8,13.737,13.737,0,0,0,10.863,30.763Z" transform="translate(0 0)" fill="#fff"/>
+      <path id="Path_9997" data-name="Path 9997" d="M10.733,5c0,2.527-2.4,4.575-5.367,4.575S0,7.527,0,5A13.432,13.432,0,0,0,5.367,6.4,13.432,13.432,0,0,0,10.733,5Z" transform="translate(13.89 16.587)" fill="#f5a604"/>
+    </g>
+  </g>
+</svg>

@@ -3,6 +3,7 @@ import ArrowRight from "./arrow-right.svg";
 import BlueChevron from "./blue_chevron.svg";
 import Chevron from "./chevron.svg";
 import ChatIcon from "./chaticon.svg";
+import ChatPrimary from './chat.svg';
 import CountryIcon from "./country.svg";
 import Logo from "./logo.jpg";
 import PhoneIcon from "./phone.svg";
@@ -12,6 +13,7 @@ import TestimonialIcon from './testimonial_icon.svg';
 import TickBox from "./tickbox.svg";
 import SearchIcon from "./search.svg";
 import SupportIcon from "./support.svg";
+import Whatsapp from './whatsapp.svg';
 /* Demo */
 import Slider from "./demo-images/slider.jpg";
 import MobSlider from "./demo-images/slider_mob.jpg";
@@ -34,6 +36,7 @@ export {
   ArrowRight,
   BlueChevron,
   ChatIcon,
+  ChatPrimary,
   Chevron,
   CountryIcon,
   Logo,
@@ -44,6 +47,7 @@ export {
   TickBox,
   SearchIcon,
   SupportIcon,
+  Whatsapp,
   // Demo
   Slider,
   MobSlider,

@@ -9,11 +9,12 @@
   --textBlack: #263036;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   width: 100%;
   height: 100%;
-  overflow-x: hidden
+  overflow-x: hidden;
 }
 
 .app-container {
@@ -52,7 +53,7 @@ html, body {
   width: 20px;
 }
 .app-btn .left-icon {
-  @apply absolute right-4
+  @apply absolute right-4;
 }
 .header-actions {
   @apply flex justify-between items-center gap-6;
@@ -116,26 +117,26 @@ html, body {
 .sec-heading h4 {
   font-size: 2rem;
   font-weight: 500;
-  color: #373740
+  color: #373740;
 }
 .link-btn {
   @apply flex w-fit ml-auto gap-3 items-center border-b-2 border-b-[#0078BD] pb-3;
 }
 .link-btn img {
-  @apply relative left-0 transition-all delay-200 ease-in-out
+  @apply relative left-0 transition-all delay-200 ease-in-out;
 }
 .link-btn:hover img {
-  @apply left-3
+  @apply left-3;
 }
 .parallax-sec {
   padding-top: 150px;
   padding-bottom: 100px;
-  background-image: url('../../assets/bg_parallax.jpg');
+  background-image: url("../../assets/bg_parallax.jpg");
   background-size: cover;
   position: relative;
 }
 .parallax-sec::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -157,69 +158,69 @@ html, body {
 }
 
 .why-content h4 {
-  @apply font-semibold text-[30px] mb-5
+  @apply font-semibold text-[30px] mb-5;
 }
 
 .left-sec-content {
-  @apply flex flex-col 
+  @apply flex flex-col;
 }
 
 .why-content article {
-  @apply pr-10 text-[20px] font-light
+  @apply pr-10 text-[20px] font-light;
 }
 
 .count-sec {
-  @apply w-[80%] flex justify-between mt-auto
+  @apply w-[80%] flex justify-between mt-auto;
 }
 
-.count-sec h2{
-  @apply font-bold
+.count-sec h2 {
+  @apply font-bold;
 }
 
 .sec-padd {
-  @apply py-20
+  @apply py-20;
 }
 
 .sec-padd-sm {
-  @apply py-16
+  @apply py-16;
 }
 
 .heading-sec {
-  @apply text-center text-[#373740]
+  @apply text-center text-[#373740];
 }
 
 .heading-sec h3 {
-  @apply text-[30px] font-medium
+  @apply text-[30px] font-medium;
 }
 
 .heading-sec h6 {
-  @apply text-[17px] font-light
+  @apply text-[17px] font-light;
 }
 
 .pride-sec {
-  @apply bg-black text-white h-[550px] flex flex-col justify-center relative overflow-hidden mb-[-100px]
+  @apply bg-black text-white h-[550px] flex flex-col justify-center relative overflow-hidden mb-[-100px];
 }
 
 .bg-image {
-  @apply absolute w-full h-full left-0 top-0
+  @apply absolute w-full h-full left-0 top-0;
 }
 
 .bg-image img {
-  @apply h-full min-h-full w-full min-w-full object-cover object-bottom
+  @apply h-full min-h-full w-full min-w-full object-cover object-bottom;
 }
 
 .pride-sec h2 {
-  @apply text-[46px] font-semibold leading-[50px] mb-4
+  @apply text-[46px] font-semibold leading-[50px] mb-4;
 }
 .pride-content {
-  @apply w-1/4 inline-block z-10 relative
+  @apply w-1/4 inline-block z-10 relative;
 }
 .pride-content h6 {
-  @apply text-[18px] font-light
+  @apply text-[18px] font-light;
 }
 
-.pride-count-cards{
-  @apply grid grid-cols-6 gap-4 relative z-10
+.pride-count-cards {
+  @apply grid grid-cols-6 gap-4 relative z-10;
 }
 
 .about-page .left-sec-content > h2 {
@@ -227,15 +228,19 @@ html, body {
 }
 
 .checklist {
-  @apply flex flex-col gap-4
+  @apply flex flex-col gap-4;
 }
 
 .checklist li {
-  @apply flex justify-start gap-5 text-xl
+  @apply flex justify-start gap-5 text-xl;
 }
 
 .large-head {
-  @apply text-5xl font-semibold leading-[55px]
+  @apply text-5xl font-semibold leading-[55px];
+}
+
+header {
+  box-shadow: 0px 3px 10px #0000000d;
 }
 
 header .app-btn {
@@ -243,14 +248,46 @@ header .app-btn {
 }
 
 .img-fit {
-  @apply w-full h-full min-w-full min-h-full
+  @apply w-full h-full min-w-full min-h-full;
 }
 .img-fit.cover {
-  @apply object-cover
+  @apply object-cover;
 }
 .img-fit.obj_center {
-  @apply object-center
+  @apply object-center;
 }
+
+.aside-chat-option {
+  transform: translate(0, -50%);
+  width: 60px;
+  @apply fixed right-1 top-auto left-auto bottom-10;
+}
+
+.blog-image {
+  @apply h-[600px] mb-10;
+}
+.blog-title {
+  @apply mb-8;
+}
+.blog-meta {
+  @apply flex gap-2 mb-4 text-[15px];
+}
+
+.blog-meta .blog-date {
+  color: var(--primary);
+  position: relative;
+}
+.blog-meta span {
+  color: #bebebe;
+}
+.blog-meta .blog-tag {
+  color: #464240;
+}
+
+.blog-title h4 {
+  @apply text-[var(--textBlack)] text-4xl font-medium leading-[40px];
+}
+
 /*--- Responsive -----*/
 @media only screen and (max-width: 1024px) {
   .app-container {

@@ -2,48 +2,45 @@
 import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade } from "swiper/modules";
-import { useSpring, animated, a } from "@react-spring/web";
+import { useSpring, animated } from "@react-spring/web";
 import Image from "next/image";
 
-import { ArrowLeft, ArrowRight, Chevron, Demo1, MobSlider, PrideBg, Slider } from "@/assets";
-
-
+import { ArrowLeft, ArrowRight, Chevron, MobSlider, Slider } from "@/assets";
 import "./slider.css";
 
 import Picture from "../common/picture";
 import { ButtonType, ButtonVariant } from "@/enum/enum";
 import AppButton from "../buttons/button.common";
 
-const SliderCaption: React.FC<{ activeSlide?: number }> = ({ activeSlide }) => {
-  const props = useSpring({
-    from: { opacity: 0 },
-    to: { opacity: 1 },
+const SliderCaption: React.FC<{ activeSlide: number; index: number }> = ({ activeSlide, index }) => {
+  const fadeIn = useSpring({
+    opacity: activeSlide === index ? 1 : 0,
+    transform: activeSlide === index ? "translateY(0)" : "translateY(20px)",
+    config: { tension: 150, friction: 20 },
   });
 
   return (
-    <div className="caption-content">
-      <animated.div style={props} key={activeSlide}>
-        <h3>Cosmetic & Medical Treatments In Iran</h3>
-        <h6>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since
-        </h6>
-        <div className="slider-action">
-          <AppButton
-            title="free consultation"
-            type={ButtonType.FILLED}
-            variant={ButtonVariant.PRIMARY}
-            leftImage={Chevron}
-          />
-          <AppButton title="contact now" type={ButtonType.STROKE} leftImage={Chevron} />
-        </div>
-      </animated.div>
-    </div>
+    <animated.div style={fadeIn} className="caption-content" key={index}>
+      <h3>Cosmetic & Medical Treatments In Iran</h3>
+      <h6>
+        Lorem Ipsum is simply dummy text of the printing and typesetting
+        industry. Lorem Ipsum has been the industry's standard dummy text ever
+        since
+      </h6>
+      <div className="slider-action">
+        <AppButton
+          title="free consultation"
+          type={ButtonType.FILLED}
+          variant={ButtonVariant.PRIMARY}
+          leftImage={Chevron}
+        />
+        <AppButton title="contact now" type={ButtonType.STROKE} leftImage={Chevron} />
+      </div>
+    </animated.div>
   );
 };
 
-const HeroSlider: React.FC<{}> = () => {
+const HeroSlider: React.FC = () => {
   const [swiperInst, setSwiperInst] = useState<any>(null);
   const [activeSlide, setActiveSlide] = useState<number>(0);
 
@@ -62,38 +59,18 @@ const HeroSlider: React.FC<{}> = () => {
         modules={[EffectFade]}
         effect="fade"
       >
-        <SwiperSlide>
-          <div className="slider-wrap">
-            <div className="slider-caption">
-              <div className="app-container">
-                <SliderCaption activeSlide={activeSlide} />
-              </div>
-            </div>
-            <Picture desktopImg={Slider} mobileImg={MobSlider} />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="slider-wrap">
-            <div className="slider-caption">
-              <div className="app-container">
-                <SliderCaption activeSlide={activeSlide} />
-              </div>
-            </div>
-            <Picture desktopImg={Slider} mobileImg={MobSlider} />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="slider-wrap">
-            <div className="slider-caption">
-              <div className="app-container">
-                <div className="caption-content">
-                  <SliderCaption activeSlide={activeSlide} />
+        {[0, 1, 2].map((index) => (
+          <SwiperSlide key={index}>
+            <div className="slider-wrap">
+              <div className="slider-caption">
+                <div className="app-container">
+                  <SliderCaption activeSlide={activeSlide} index={index} />
                 </div>
               </div>
+              <Picture desktopImg={Slider} mobileImg={MobSlider} />
             </div>
-            <Picture desktopImg={Slider} mobileImg={MobSlider} />
-          </div>
-        </SwiperSlide>
+          </SwiperSlide>
+        ))}
       </Swiper>
 
       <div className="app-container">
