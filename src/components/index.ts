@@ -10,6 +10,7 @@ import FeatureCard from "./ui/feature.card";
 import FeatureCaro from "./ui/feature-caro";
 import InnerBanner from "./banner";
 import LatestBlog from "./ui/latest-blog";
+import MotionDiv from "./common/motiondiv";
 import PackageCard from "./card/package";
 import PackageSearch from "./forms/package-search";
 import Picture from "./common/picture";
@@ -42,6 +43,7 @@ export {
     Picture,
     PrideCard,
     ProcedureCard,
+    MotionDiv,
     SectionHead,
     SectionHeadLink,
     ServiceCard,

@@ -10,6 +10,7 @@ import { routing } from "@/i18n/routing";
 import { getMessages } from "next-intl/server";
 import Link from "next/link";
 import { ChatPrimary, Whatsapp } from "@/assets";
+import AppFooter from "@/components/layout/footer";
 
 const opensans = Open_Sans({
   subsets: ["latin"],
@@ -35,7 +36,7 @@ export default async function RootLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale}>
+    <html lang={locale} dir={locale === "ar" ? 'rtl' : 'ltr'}>
       <body className={opensans.className}>
         <TopBar />
         <Header />
@@ -54,6 +55,7 @@ export default async function RootLayout({
             </li>
           </ul>
         </div>
+        <AppFooter />
       </body>
     </html>
   );

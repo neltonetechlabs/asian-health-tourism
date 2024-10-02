@@ -1,38 +1,72 @@
 "use client";
+import Image from "next/image";
 import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css/navigation";
 import TestimonialCard from "./testimonial.card";
 import { useState } from "react";
 import classNames from "classnames";
+import { Testimonial } from "@/models/api.data";
+import useAppLocale from "@/hooks/useAppLocale";
+import { ArrowLeft, BlueChevron } from "@/assets";
+interface TestimonialCarouselProps {
+  data: Testimonial[];
+}
 
-const demo = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-
-const TestimonialCarousel = () => {
+const TestimonialCarousel: React.FC<TestimonialCarouselProps> = ({ data }) => {
   const [swiperIns, setSwiperIns] = useState<SwiperClass | null>(null);
   return (
-    <div>
+    <div className="relative">
       <button
-        className={classNames("caro-icon", {
+        className={classNames("caro-icon nav-btn-slider prev-btn", {
           ["disabled-nav"]: swiperIns?.isBeginning,
         })}
         onClick={() => swiperIns?.slidePrev()}
       >
-        Prev
+        <Image
+          src={BlueChevron}
+          width={60}
+          height={60}
+          alt="Asian Health Tourism"
+        />
       </button>
       <Swiper
         slidesPerView={3}
         spaceBetween={20}
         className="mySwiper"
         onSwiper={(swp) => setSwiperIns(swp)}
+        breakpoints={{
+          640: {
+            slidesPerView: 1,
+            spaceBetween: 10,
+          },
+          768: {
+            slidesPerView: 2,
+            spaceBetween: 10,
+          },
+          1024: {
+            slidesPerView: 3,
+          },
+        }}
       >
-        {demo?.map((item) => (
-          <SwiperSlide key={item}>
-            <TestimonialCard />
-          </SwiperSlide>
-        ))}
+        {data?.length &&
+          data?.map((item) => (
+            <SwiperSlide key={item?.id}>
+              <TestimonialCard testimonial={item} />
+            </SwiperSlide>
+          ))}
       </Swiper>
-      <button onClick={() => swiperIns?.slideNext()}>Next</button>
+      <button
+        onClick={() => swiperIns?.slideNext()}
+        className={classNames("caro-icon nav-btn-slider next-btn")}
+      >
+        <Image
+          src={BlueChevron}
+          width={60}
+          height={60}
+          alt="Asian Health Tourism"
+        />
+      </button>
     </div>
   );
 };

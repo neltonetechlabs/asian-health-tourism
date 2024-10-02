@@ -2,8 +2,11 @@ import { PhoneIcon } from "@/assets";
 import Image from "next/image";
 import LocaleSwitch from "./locale";
 import Link from "next/link";
+import { fetchMasterLangs } from "@/services/cms.service";
 
-const TopBar: React.FC<{}> = () => {
+const TopBar: React.FC<{}> = async () => {
+  const langs = await fetchMasterLangs();
+
   return (
     <div className="topbar">
       <div className="app-container">
@@ -25,7 +28,7 @@ const TopBar: React.FC<{}> = () => {
             <Image alt="090809" src={PhoneIcon} />
             <h6>+91 1234 5678 910</h6>
           </div>
-          <LocaleSwitch />
+          <LocaleSwitch langs={langs} />
         </div>
       </div>
     </div>

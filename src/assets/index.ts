@@ -14,6 +14,11 @@ import TickBox from "./tickbox.svg";
 import SearchIcon from "./search.svg";
 import SupportIcon from "./support.svg";
 import Whatsapp from './whatsapp.svg';
+import Facebook from './facebook.svg';
+import Instagram from './instagram.svg';
+import Youtube from './youtube.svg';
+import Thread from './threads.svg';
+import LinkedIn from './linkedin.svg';
 /* Demo */
 import Slider from "./demo-images/slider.jpg";
 import MobSlider from "./demo-images/slider_mob.jpg";
@@ -48,6 +53,11 @@ export {
   SearchIcon,
   SupportIcon,
   Whatsapp,
+  Facebook,
+  LinkedIn,
+  Instagram,
+  Youtube,
+  Thread,
   // Demo
   Slider,
   MobSlider,

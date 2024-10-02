@@ -6,6 +6,7 @@ import Menu from "./menu";
 import Search from "./search";
 import { ButtonType, ButtonVariant } from "@/enum/enum";
 import AppButton from "../buttons/button.common";
+import { fetchMasterLangs } from "@/services/cms.service";
 
 const Header = () => {
   return (

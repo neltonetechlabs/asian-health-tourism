@@ -51,7 +51,7 @@ const FeatureCaro = () => {
       modules={[Autoplay]}  
     >
       {dummy_feat.map((feat) => (
-        <SwiperSlide>
+        <SwiperSlide key={feat?.id}>
           <FeatureCard key={feat?.id} title={feat?.title} />
         </SwiperSlide>
       ))}

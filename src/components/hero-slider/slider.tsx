@@ -58,6 +58,7 @@ const HeroSlider: React.FC = () => {
         autoplay
         modules={[EffectFade]}
         effect="fade"
+        className="mySwiper"
       >
         {[0, 1, 2].map((index) => (
           <SwiperSlide key={index}>

@@ -1,5 +1,5 @@
 import { link } from "fs";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 
 const main_menu = [
@@ -37,11 +37,12 @@ const main_menu = [
 
 const Menu: React.FC<{}> = () => {
   const t = useTranslations("MainMenu");
+  const locale = useLocale();
   return (
     <ul className="menu-ul">
       {main_menu?.map((menuItem) => (
         <li key={menuItem?.id}>
-          <Link href={menuItem?.link}>{t(menuItem?.title)}</Link>
+          <Link href={`/${locale}/${menuItem?.link}`}>{t(menuItem?.title)}</Link>
         </li>
       ))}
     </ul>

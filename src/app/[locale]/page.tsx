@@ -5,6 +5,7 @@ import {
   FeatureCaro,
   HeroSlider,
   LatestBlog,
+  MotionDiv,
   PackageCard,
   PrideCard,
   SectionHead,
@@ -14,17 +15,19 @@ import {
 } from "@/components";
 import Image from "next/image";
 import { CountryIcon, PrideBg, PrideIcon, SupportIcon } from "@/assets";
+import useAppLocale from "@/hooks/useAppLocale";
 
 export default function Home() {
   const t = useTranslations("Common");
+  const { translate } = useAppLocale();
   return (
     <>
       <HeroSlider />
-      <div className="feature-sec">
+      <MotionDiv className="feature-sec">
         <div className="app-container">
           <FeatureCaro />
         </div>
-      </div>
+      </MotionDiv>
       <section className="sec-wrap pb-20">
         <div className="app-container">
           <SectionHead

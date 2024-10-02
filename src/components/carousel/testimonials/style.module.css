@@ -1,11 +1,11 @@
 .testiCard {
-    @apply bg-[#F0F9FF] p-10 rounded-lg
+    @apply bg-[#F0F9FF] p-10 rounded-lg h-full flex justify-between flex-col
 }
 .testimonial{
     @apply mt-5 mb-9 text-[#000000] text-[18px] font-light
 }
 .profileSec {
-    @apply flex justify-start items-center gap-4
+    @apply flex justify-start items-center gap-4 mt-auto
 }
 .profileImage {
     @apply overflow-hidden rounded-full
@@ -13,3 +13,5 @@
 .persona {
     @apply font-normal
 }
+
+.rtlCard {direction: rtl;}

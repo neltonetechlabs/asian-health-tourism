@@ -1,67 +1,64 @@
 "use client";
-import { Fragment, useState } from 'react'
-import { Listbox, Transition } from '@headlessui/react'
+import { Fragment, useEffect, useState } from "react";
+import {
+  Listbox,
+  ListboxButton,
+  ListboxOption,
+  ListboxOptions,
+  Transition,
+} from "@headlessui/react";
+import { MasterLang } from "@/models/api.data";
+import { API_CLIENT } from "@/services";
+import { useLocale } from "next-intl";
+import { usePathname, useRouter } from "next/navigation";
+import { redirect } from "next/navigation";
+import Link from "next/link";
 
 const people = [
-  { name: "Wade Cooper" },
-  { name: "Arlene Mccoy" },
-  { name: "Devon Webb" },
-  { name: "Tom Cook" },
-  { name: "Tanya Fox" },
-  { name: "Hellen Schmidt" },
+  { id: 1, name: "Durward Reynolds" },
+  { id: 2, name: "Kenton Towne" },
+  { id: 3, name: "Therese Wunsch" },
+  { id: 4, name: "Benedict Kessler" },
+  { id: 5, name: "Katelyn Rohan" },
 ];
-const LocaleSwitch = () => {
-    const [selected, setSelected] = useState(people[0])
+
+interface LocaleSwitchProps {
+  langs: MasterLang[];
+}
+
+const LocaleSwitch: React.FC<LocaleSwitchProps> = ({ langs = [] }) => {
+  const [selectedLang, setSelectedLang] = useState(langs[0]);
+  const locale = useLocale();
+  const pathname = usePathname();
+  const navigate = useRouter();
+
+  useEffect(() => {
+    if (locale) {
+      const currentLang = langs?.find((lang) => lang?.code === locale);
+      if (currentLang) setSelectedLang(currentLang);
+    }
+  }, [locale]);
+
+  const newPathname = pathname.replace(/^\/(en|ar|ru|es|fr|fa)/, "");
 
   return (
-    <div className="">
-      <Listbox value={selected} onChange={setSelected}>
-        <div className="relative">
-          <Listbox.Button className="relative w-full cursor-default rounded-lgpy-2 pl-3 pr-10 text-left">
-            <span className="block truncate">{selected.name}</span>
-            <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
-              adasd
-            </span>
-          </Listbox.Button>
-          <Transition
-            as={Fragment}
-            leave="transition ease-in duration-100"
-            leaveFrom="opacity-100"
-            leaveTo="opacity-0"
+    <Listbox value={selectedLang} onChange={setSelectedLang}>
+      <ListboxButton>{selectedLang.language}</ListboxButton>
+      <ListboxOptions
+        className="bg-white rounded-sm p-2 shadow-sm top-4 z-10"
+        anchor="bottom"
+      >
+        {langs.map((lang) => (
+          <ListboxOption
+            key={lang.id}
+            value={lang}
+            className="group flex gap-2 bg-white data-[focus]:bg-blue-100 py-1 cursor-pointer"
           >
-            <Listbox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black/5 focus:outline-none sm:text-sm">
-              {people.map((person, personIdx) => (
-                <Listbox.Option
-                  key={personIdx}
-                  className={({ active }) =>
-                    `relative cursor-default select-none py-2 pl-10 pr-4 ${
-                      active ? "bg-amber-100 text-amber-900" : "text-gray-900"
-                    }`
-                  }
-                  value={person}
-                >
-                  {({ selected }) => (
-                    <>
-                      <span
-                        className={`block truncate ${
-                          selected ? "font-medium" : "font-normal"
-                        }`}
-                      >
-                        {person.name}
-                      </span>
-                      {selected ? (
-                        <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-amber-600">
-ad                        </span>
-                      ) : null}
-                    </>
-                  )}
-                </Listbox.Option>
-              ))}
-            </Listbox.Options>
-          </Transition>
-        </div>
-      </Listbox>
-    </div>
+            <Link href={`/${lang?.code}/${newPathname}`}>{lang.language}</Link>
+          </ListboxOption>
+        ))}
+      </ListboxOptions>
+    </Listbox>
   );
 };
 

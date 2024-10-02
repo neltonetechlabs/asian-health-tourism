@@ -28,10 +28,7 @@ const BlogCard: React.FC<UIComponent.BlogCardProps> = ({
       <figcaption className={classes.blogDesc}>
         <h4>{title}</h4>
       </figcaption>
-      <div className={classes.blogDt}>
-      22 JUNE, 2024
-      </div>
-      
+      <div className={classes.blogDt}>22 JUNE, 2024</div>
     </div>
   );
 };
