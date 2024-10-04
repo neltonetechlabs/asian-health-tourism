@@ -49,10 +49,11 @@ export interface PrideCardProps {
 
 export interface BlogCardProps {
     id: number;
-    image?: string;
+    image?: string | null;
     title: string;
     description?: string;
     slug?: string;
+    date: string;
 }
 
 export interface BannerProps {
@@ -78,7 +79,11 @@ export interface ImageWrapTemplProps {
 
 export interface ListCardProps {
     title: string;
-    image: string | StaticImageData;
+    image: string | StaticImageData | null;
     description: string;
     slug: string;
+}
+
+export interface DefaultPageParam {
+    params: { locale: string }
 }

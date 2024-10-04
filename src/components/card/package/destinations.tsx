@@ -20,7 +20,7 @@ const DestinationCard: React.FC<UIComponent.ListCardProps> = ({
     <div className={classNames(classes.packagecard, classes.destinationCard)}>
       <div className={classes.cardBody}>
         <figure className={classes.pckgimg}>
-          <Image src={image} alt={title} className="img-fit cover obj_center" />
+          <Image src={image || ""} width={100} height={100} alt={title} className="img-fit cover obj_center" />
         </figure>
         <div className={classes.pckgContent}>
           <h5>{title}</h5>

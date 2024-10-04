@@ -14,7 +14,7 @@ interface TestimonialCardProps {
 }
 
 const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial }) => {
-  const { isArabic, translate } = useAppLocale();
+  const { isArabic, translate } = useAppLocale({});
 
   return (
     <div

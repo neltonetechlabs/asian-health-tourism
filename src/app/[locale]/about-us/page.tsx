@@ -4,6 +4,8 @@ import classNames from "classnames";
 import classes from "./about.module.css";
 import { ImageWrapContent } from "@/components/templates";
 import { Demo } from "@/assets";
+import { NextPage } from "next";
+import { API_CLIENT } from "@/services";
 
 const demoItems = [
   "Patient online services (quote and consultation)",
@@ -13,7 +15,11 @@ const demoItems = [
   "Pre-hospitalization and post-hospitalization high-quality healthcare services",
 ];
 
-export default function About() {
+const demo = async (): Promise<string> => {
+  return ""
+}
+
+const About: NextPage = async () => {
   return (
     <main className="about-page">
       <InnerBanner
@@ -57,3 +63,6 @@ export default function About() {
     </main>
   );
 }
+
+
+export default About;

@@ -10,6 +10,7 @@ const BlogCard: React.FC<UIComponent.BlogCardProps> = ({
   title,
   description,
   slug,
+  date
 }) => {
   const t = useTranslations("Common");
   return (
@@ -17,7 +18,7 @@ const BlogCard: React.FC<UIComponent.BlogCardProps> = ({
       <figure className={classes.blogImage}>
         <Image
           alt={title}
-          src={Demo1}
+          src={image || Demo1}
           height={260}
           width={460}
           priority={false}
@@ -28,7 +29,7 @@ const BlogCard: React.FC<UIComponent.BlogCardProps> = ({
       <figcaption className={classes.blogDesc}>
         <h4>{title}</h4>
       </figcaption>
-      <div className={classes.blogDt}>22 JUNE, 2024</div>
+      <div className={classes.blogDt}>{date}</div>
     </div>
   );
 };

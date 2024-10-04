@@ -1,6 +1,5 @@
 import axios from "axios";
 import { error } from "console";
-import exp from "constants";
 
 const instance = axios.create({
   baseURL: process.env.API_HOST,

@@ -26,7 +26,7 @@ const main_menu = [
   {
     id: 6,
     title: "blog",
-    link: "blog",
+    link: "blogs",
   },
   {
     id: 7,

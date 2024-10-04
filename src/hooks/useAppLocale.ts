@@ -1,13 +1,20 @@
 import { useLocale } from "next-intl";
 
-const useAppLocale = () => {
-  const locale = useLocale();
-  const isArabic = locale === "ar";
+interface useAppLocaleProps {
+  locale?: string | null;
+}
+
+const useAppLocale = ({
+  locale
+}: useAppLocaleProps) => {
+  const localeCode = locale ? locale : useLocale();
+  console.log('localeCode: ', localeCode);
+  const isArabic = localeCode === "ar";
   const translate = (primaryKey: string, data: any): string => {
     try {
       if (primaryKey && data) {
-        if (data[`${primaryKey}_${locale}`]) {
-          return data[`${primaryKey}_${locale}`];
+        if (data[`${primaryKey}_${localeCode}`]) {
+          return data[`${primaryKey}_${localeCode}`];
         } else {
           return data[`${primaryKey}_en`];
         }

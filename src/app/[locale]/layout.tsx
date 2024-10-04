@@ -11,6 +11,7 @@ import { getMessages } from "next-intl/server";
 import Link from "next/link";
 import { ChatPrimary, Whatsapp } from "@/assets";
 import AppFooter from "@/components/layout/footer";
+import { Suspense } from "react";
 
 const opensans = Open_Sans({
   subsets: ["latin"],
@@ -36,26 +37,28 @@ export default async function RootLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} dir={locale === "ar" ? 'rtl' : 'ltr'}>
+    <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
       <body className={opensans.className}>
-        <TopBar />
-        <Header />
-        {children}
-        <div className="aside-chat-option">
-          <ul className="appearance-none flex flex-col gap-4">
-          <li>
-              <Link href="/">
-                <Image src={Whatsapp} alt="ChatNow" />
-              </Link>
-            </li>
-            <li>
-              <Link href="/">
-                <Image src={ChatPrimary} alt="ChatNow" />
-              </Link>
-            </li>
-          </ul>
-        </div>
-        <AppFooter />
+        <Suspense fallback={<p>Sorry We are loading</p>}>
+          <TopBar />
+          <Header />
+          {children}
+          <div className="aside-chat-option">
+            <ul className="appearance-none flex flex-col gap-4">
+              <li>
+                <Link href="/">
+                  <Image src={Whatsapp} alt="ChatNow" />
+                </Link>
+              </li>
+              <li>
+                <Link href="/">
+                  <Image src={ChatPrimary} alt="ChatNow" />
+                </Link>
+              </li>
+            </ul>
+          </div>
+          <AppFooter />
+        </Suspense>
       </body>
     </html>
   );

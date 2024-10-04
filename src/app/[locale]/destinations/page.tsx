@@ -7,9 +7,12 @@ import {
   ProcedureCard,
   SectionHead,
 } from "@/components";
+import useAppLocale from "@/hooks/useAppLocale";
+import { UIComponent } from "@/models";
 import { ListCardProps } from "@/models/component";
+import { API_CLIENT } from "@/services";
 import { NextPage } from "next";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
 const demoProcedures: ListCardProps[] = [
   {
@@ -42,8 +45,13 @@ const demoProcedures: ListCardProps[] = [
   },
 ];
 
-const Procedures: NextPage = () => {
-  const t = useTranslations("Common");
+const DestinationList: NextPage<UIComponent.DefaultPageParam> = async ({
+  params: { locale }
+}) => {
+  const t = await getTranslations("Common");
+  const destinations = await API_CLIENT.fetchDestinations();
+  console.log('destinations: ', destinations);
+  const { translate } = useAppLocale({ locale })
   return (
     <main>
       <InnerBanner
@@ -53,13 +61,13 @@ const Procedures: NextPage = () => {
       <section className="sec-padd">
         <div className="app-container">
           <div className="grid grid-cols-3 gap-7">
-            {demoProcedures?.map((item, index) => (
+            {destinations?.map((destinaion) => (
               <DestinationCard
-                key={index}
-                title={item?.title}
-                image={item?.image}
-                description={item?.description}
-                slug={item?.slug}
+                key={destinaion?.id}
+                title={translate("title", destinaion)}
+                image={destinaion?.image}
+                description={translate("small_description", destinaion)}
+                slug={destinaion?.slug || ""}
               />
             ))}
           </div>
@@ -69,4 +77,4 @@ const Procedures: NextPage = () => {
   );
 };
 
-export default Procedures;
+export default DestinationList;

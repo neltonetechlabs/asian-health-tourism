@@ -16,10 +16,15 @@ import {
 import Image from "next/image";
 import { CountryIcon, PrideBg, PrideIcon, SupportIcon } from "@/assets";
 import useAppLocale from "@/hooks/useAppLocale";
+import { UIComponent } from "@/models";
+import { NextPage } from "next";
+import { getTranslations } from "next-intl/server";
 
-export default function Home() {
-  const t = useTranslations("Common");
-  const { translate } = useAppLocale();
+const Home: NextPage<UIComponent.DefaultPageParam> = async ({
+  params: { locale },
+}) => {
+  const t = await getTranslations("Common");
+  const { translate } = useAppLocale({ locale });
   return (
     <>
       <HeroSlider />
@@ -101,4 +106,6 @@ export default function Home() {
       <LatestBlog />
     </>
   );
-}
+};
+
+export default Home;
