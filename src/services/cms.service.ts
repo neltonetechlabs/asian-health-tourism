@@ -1,6 +1,13 @@
 import { fetchData } from "./api.service";
 import { API_END_POINTS } from "./api.constant";
-import { BlogContent, DestinationList, MasterLang, Testimonial } from "@/models/api.data";
+import {
+  BlogContent,
+  DestinationList,
+  FaqCategoryList,
+  FaqData,
+  MasterLang,
+  Testimonial,
+} from "@/models/api.data";
 
 const getapi = API_END_POINTS.GET_API;
 
@@ -25,10 +32,23 @@ export const fetchBlogs = async () => {
   return blogs || [];
 };
 
-
 export const fetchDestinations = async () => {
   const destinations = await fetchData<DestinationList[]>({
     apiEndPoint: getapi.DESTINATIONS,
   });
   return destinations || [];
+};
+
+export const fetchFaqCategories = async () => {
+  const faqcategories = await fetchData<FaqCategoryList[]>({
+    apiEndPoint: getapi.FAQ_CATEGORY,
+  });
+  return faqcategories || [];
+};
+
+export const fetchFaqByCategory = async (catId?: string) => {
+  const faqdata = await fetchData<FaqData[]>({
+    apiEndPoint: getapi.FAQ_BY_CATEGORY + `/${catId || ""}`,
+  });
+  return faqdata || [];
 };

@@ -3,6 +3,8 @@ export const API_END_POINTS = {
         TESTIMONIALS: "testimonials",
         LANGUAGES: "languages",
         BLOG_LIST: "blogs",
-        DESTINATIONS: "destinations"
+        DESTINATIONS: "destinations",
+        FAQ_CATEGORY: "faq-category",
+        FAQ_BY_CATEGORY: "faqbycategory"
     }
 }

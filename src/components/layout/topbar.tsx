@@ -3,10 +3,13 @@ import Image from "next/image";
 import LocaleSwitch from "./locale";
 import Link from "next/link";
 import { fetchMasterLangs } from "@/services/cms.service";
+import { UIComponent } from "@/models";
+import { NextPage } from "next";
+import { getLocale } from "next-intl/server";
 
 const TopBar: React.FC<{}> = async () => {
   const langs = await fetchMasterLangs();
-
+  const locale = await getLocale();
   return (
     <div className="topbar">
       <div className="app-container">
@@ -17,7 +20,7 @@ const TopBar: React.FC<{}> = async () => {
                 <Link href="/">Gallery</Link>
               </li>
               <li>
-                <Link href="/">FAQ</Link>
+                <Link href={`/${locale}/faq`}>FAQ</Link>
               </li>
               <li>
                 <Link href="/">Contact Us</Link>

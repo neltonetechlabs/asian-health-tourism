@@ -1,0 +1,10 @@
+.faqMenu {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-direction: column;
+}
+
+.activeFaq {
+    color: #F5A604
+}

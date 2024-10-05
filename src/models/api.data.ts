@@ -38,6 +38,15 @@ export interface CommonSmallDescription {
   small_description_ru: string | null;
 }
 
+export interface CommonDescription {
+  description_en: string;
+  description_ar: string | null;
+  description_es: string | null;
+  description_fa: string | null;
+  description_fr: string | null;
+  description_ru: string | null;
+}
+
 export interface Testimonial
   extends CommonLocaleName,
     CommonLocaleContent,
@@ -46,18 +55,23 @@ export interface Testimonial
   star_rating: number | null;
 }
 
-
 export interface MasterLang extends CommonTable {
   language: string;
   code: string;
 }
 
-export interface BlogContent extends CommonTable, CommonLocaleTitle, CommonSmallDescription {
+export interface BlogContent
+  extends CommonTable,
+    CommonLocaleTitle,
+    CommonSmallDescription {
   image: string | null;
   blog_date: string;
 }
 
-export interface BlogDetail extends CommonTable, CommonLocaleTitle, BlogContent {
+export interface BlogDetail
+  extends CommonTable,
+    CommonLocaleTitle,
+    BlogContent {
   blog_content_en: string;
   blog_content_es: string | null;
   blog_content_ar: string | null;
@@ -66,7 +80,17 @@ export interface BlogDetail extends CommonTable, CommonLocaleTitle, BlogContent 
   blog_content_ru: string | null;
 }
 
-export interface DestinationList extends CommonTable, CommonLocaleTitle, CommonSmallDescription {
+export interface DestinationList
+  extends CommonTable,
+    CommonLocaleTitle,
+    CommonSmallDescription {
   image: string | null;
   slug: string;
 }
+
+export interface FaqCategoryList extends CommonTable, CommonLocaleTitle {}
+
+export interface FaqData
+  extends CommonTable,
+    CommonLocaleTitle,
+    CommonDescription {}

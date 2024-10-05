@@ -375,3 +375,6 @@ header .app-btn {
 .nav-btn-slider.next-btn{
   right: -60px;
 }
+.active-accordion {
+  background-color: #f90;
+}
