@@ -8,7 +8,6 @@ const useAppLocale = ({
   locale
 }: useAppLocaleProps) => {
   const localeCode = locale ? locale : useLocale();
-  console.log('localeCode: ', localeCode);
   const isArabic = localeCode === "ar";
   const translate = (primaryKey: string, data: any): string => {
     try {

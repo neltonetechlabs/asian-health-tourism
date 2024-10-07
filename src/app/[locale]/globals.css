@@ -375,12 +375,13 @@ header .app-btn {
   position: absolute;
   top: 50%;
   transform: translate(-50%, 0);
+  width: 15px;
 }
 .nav-btn-slider.prev-btn{
   left: -30px;
 }
 .nav-btn-slider.next-btn{
-  right: -60px;
+  right: -40px;
 }
 .active-accordion {
   background-color: #f90;

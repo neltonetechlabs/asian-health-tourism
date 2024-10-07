@@ -20,8 +20,6 @@ interface FAQPageProps {
 }
 
 const FAQ: NextPage<FAQPageProps> = async ({ params: { locale, slug } }) => {
-  console.log("faqcatid: ", slug);
-  console.log("params", locale);
   const faqcategories = await API_CLIENT.fetchFaqCategories();
   const activeId = slug ? slug[0] : faqcategories[0]?.id.toString();
   const faqList = await API_CLIENT.fetchFaqByCategory(activeId);

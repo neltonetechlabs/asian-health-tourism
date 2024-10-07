@@ -2,12 +2,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import classNames from "classnames";
-import MotionDiv from "@/components/common/motiondiv";
 
 import { UIComponent } from "@/models";
 import { BlueChevron } from "@/assets";
 
 import classes from "./style.module.css";
+import MotionDiv from "@/components/common/motiondiv";
+import { cardVariants } from "@/utils/cardanimate";
 
 const DestinationCard: React.FC<UIComponent.ListCardProps> = ({
   image,
@@ -18,10 +19,19 @@ const DestinationCard: React.FC<UIComponent.ListCardProps> = ({
   const t = useTranslations("Common");
 
   return (
-    <div className={classNames(classes.packagecard, classes.destinationCard)}>
+    <MotionDiv
+      className={classNames(classes.packagecard, classes.destinationCard)}
+      animateScript={cardVariants}
+    >
       <div className={classes.cardBody}>
         <figure className={classes.pckgimg}>
-          <Image src={image || ""} width={100} height={100} alt={title} className="img-fit cover obj_center" />
+          <Image
+            src={image || ""}
+            width={100}
+            height={100}
+            alt={title}
+            className="img-fit cover obj_center"
+          />
         </figure>
         <div className={classes.pckgContent}>
           <h5>{title}</h5>
@@ -36,7 +46,7 @@ const DestinationCard: React.FC<UIComponent.ListCardProps> = ({
           </Link>
         </div>
       </div>
-    </div>
+    </MotionDiv>
   );
 };
 

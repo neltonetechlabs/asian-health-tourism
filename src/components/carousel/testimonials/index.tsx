@@ -8,7 +8,7 @@ import { useState } from "react";
 import classNames from "classnames";
 import { Testimonial } from "@/models/api.data";
 import useAppLocale from "@/hooks/useAppLocale";
-import { ArrowLeft, BlueChevron } from "@/assets";
+import { ArrowLeft, BlueChevron, TestimonialCaroLeft, TestimonialCaroRight } from "@/assets";
 interface TestimonialCarouselProps {
   data: Testimonial[];
 }
@@ -24,7 +24,7 @@ const TestimonialCarousel: React.FC<TestimonialCarouselProps> = ({ data }) => {
         onClick={() => swiperIns?.slidePrev()}
       >
         <Image
-          src={BlueChevron}
+          src={TestimonialCaroLeft}
           width={60}
           height={60}
           alt="Asian Health Tourism"
@@ -39,6 +39,7 @@ const TestimonialCarousel: React.FC<TestimonialCarouselProps> = ({ data }) => {
           640: {
             slidesPerView: 1,
             spaceBetween: 10,
+            autoplay: true,
           },
           768: {
             slidesPerView: 2,
@@ -61,7 +62,7 @@ const TestimonialCarousel: React.FC<TestimonialCarouselProps> = ({ data }) => {
         className={classNames("caro-icon nav-btn-slider next-btn")}
       >
         <Image
-          src={BlueChevron}
+          src={TestimonialCaroRight}
           width={60}
           height={60}
           alt="Asian Health Tourism"

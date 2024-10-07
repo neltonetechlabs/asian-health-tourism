@@ -19,6 +19,8 @@ import Instagram from './instagram.svg';
 import Youtube from './youtube.svg';
 import Thread from './threads.svg';
 import LinkedIn from './linkedin.svg';
+import TestimonialCaroLeft from './testimonial-left.svg';
+import TestimonialCaroRight from './testimonial-right.svg';
 /* Demo */
 import Slider from "./demo-images/slider.jpg";
 import MobSlider from "./demo-images/slider_mob.jpg";
@@ -58,6 +60,8 @@ export {
   Instagram,
   Youtube,
   Thread,
+  TestimonialCaroLeft,
+  TestimonialCaroRight,
   // Demo
   Slider,
   MobSlider,

@@ -1,4 +1,4 @@
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import SectionHead from "./section.head";
 import BlogCard from "../card/blog";
 
@@ -10,21 +10,24 @@ const LatestBlog: React.FC<{}> = () => {
         <SectionHead
           title={t("latest_blog")}
           rightTitle={t("all_blogs")}
-          rightTarget="/"
+          rightTarget="/blogs"
         />
         <div className="h-8"></div>
         <div className="grid grid-cols-3 gap-5">
           <BlogCard
             title="Contrary to popular belief, Lorem Ipsum is not simply random text."
             id={0}
+            date=""
           />
           <BlogCard
             title="Contrary to popular belief, Lorem Ipsum is not simply random text."
             id={0}
+            date=""
           />
           <BlogCard
             title="Contrary to popular belief, Lorem Ipsum is not simply random text."
             id={0}
+            date=""
           />
         </div>
       </div>

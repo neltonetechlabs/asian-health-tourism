@@ -50,7 +50,6 @@ const DestinationList: NextPage<UIComponent.DefaultPageParam> = async ({
 }) => {
   const t = await getTranslations("Common");
   const destinations = await API_CLIENT.fetchDestinations();
-  console.log('destinations: ', destinations);
   const { translate } = useAppLocale({ locale })
   return (
     <main>
@@ -60,7 +59,7 @@ const DestinationList: NextPage<UIComponent.DefaultPageParam> = async ({
       />
       <section className="sec-padd">
         <div className="app-container">
-          <div className="grid grid-cols-3 gap-7">
+          <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-7">
             {destinations?.map((destinaion) => (
               <DestinationCard
                 key={destinaion?.id}

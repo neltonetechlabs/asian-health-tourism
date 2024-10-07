@@ -10,11 +10,10 @@ const Blog: NextPage<UIComponent.DefaultPageParam> = async ({
 }) => {
   const t = await getTranslations("Common");
   const blogs = await API_CLIENT.fetchBlogs();
-  console.log("blogs: ", blogs);
   const { translate } = useAppLocale({ locale });
   return (
     <main>
-      <InnerBanner />
+      <InnerBanner title="Blogs" subTitle="Bluffering" />
       <section className="sec-padd">
         <div className="app-container">
           <div className="grid grid-cols-1">
@@ -24,7 +23,7 @@ const Blog: NextPage<UIComponent.DefaultPageParam> = async ({
             />
           </div>
           <div className="h-10"></div>
-          <div className="grid grid-cols-3 gap-7">
+          <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-7">
             {blogs?.map((blog) => (
               <BlogCard
                 key={blog?.id}

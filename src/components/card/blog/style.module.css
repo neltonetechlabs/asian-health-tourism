@@ -1,6 +1,6 @@
 .blogCard {
     box-shadow: 0px 2px 8px #F5A6041A;
-    @apply px-4 py-5 bg-white rounded-[8px]
+    @apply px-4 py-5 bg-white rounded-[8px] h-full
 }
 .tag {
     @apply text-[var(--primary)] text-sm font-normal my-4

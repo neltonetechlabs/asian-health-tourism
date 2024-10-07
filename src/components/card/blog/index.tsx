@@ -3,6 +3,8 @@ import classes from "./style.module.css";
 import Image from "next/image";
 import { Demo1 } from "@/assets";
 import { useTranslations } from "next-intl";
+import MotionDiv from "@/components/common/motiondiv";
+import { cardVariants } from "@/utils/cardanimate";
 
 const BlogCard: React.FC<UIComponent.BlogCardProps> = ({
   id,
@@ -14,7 +16,7 @@ const BlogCard: React.FC<UIComponent.BlogCardProps> = ({
 }) => {
   const t = useTranslations("Common");
   return (
-    <div className={classes.blogCard}>
+    <MotionDiv className={classes.blogCard} animateScript={cardVariants}>
       <figure className={classes.blogImage}>
         <Image
           alt={title}
@@ -30,7 +32,7 @@ const BlogCard: React.FC<UIComponent.BlogCardProps> = ({
         <h4>{title}</h4>
       </figcaption>
       <div className={classes.blogDt}>{date}</div>
-    </div>
+    </MotionDiv>
   );
 };
 
