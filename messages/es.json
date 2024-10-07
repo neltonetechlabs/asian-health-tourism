@@ -33,7 +33,18 @@
     "patient": "Patient Reviews",
     "blog": "Blog",
     "about": "About"
-  } 
+  },
+  "ContactPg": {
+    "page_head": "Talk To One\nOf Our Experts Today",
+    "address_label": "Address",
+    "phone_label": "Phone",
+    "email": "Email",
+    "social_media": "Social Media",
+    "name_label": "Enter your Name",
+    "phone_inp_label": "Enter your Phone Number",
+    "email_inp_label": "Enter your Email Id",
+    "message": "Message"
+  }
 }
 
 

@@ -23,7 +23,7 @@ const TopBar: React.FC<{}> = async () => {
                 <Link href={`/${locale}/faq`}>FAQ</Link>
               </li>
               <li>
-                <Link href="/">Contact Us</Link>
+                <Link href={`/${locale}/contact`}>Contact Us</Link>
               </li>
             </ul>
           </div>

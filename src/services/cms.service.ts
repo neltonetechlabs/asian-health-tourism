@@ -6,6 +6,7 @@ import {
   FaqCategoryList,
   FaqData,
   MasterLang,
+  SocialMediaLink,
   Testimonial,
 } from "@/models/api.data";
 
@@ -51,4 +52,12 @@ export const fetchFaqByCategory = async (catId?: string) => {
     apiEndPoint: getapi.FAQ_BY_CATEGORY + `/${catId || ""}`,
   });
   return faqdata || [];
+};
+
+export const fetchSocialMedia = async () => {
+  const sociallinks = await fetchData<SocialMediaLink>({
+    apiEndPoint: getapi.SOCIAL_MEDIA_LINKS,
+  });
+
+  return sociallinks || null;
 };

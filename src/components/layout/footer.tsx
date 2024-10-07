@@ -13,10 +13,10 @@ const AppFooter = () => {
       <div className="app-container">
         <div className="top-sec">
           <div className="grid grid-cols-4 items-center">
-            <div className="col-span-2">
+            <div className="md:col-span-2 col-span-4">
               <h4>{t("get_free_consultation")}</h4>
             </div>
-            <div className="col-span-2">
+            <div className="md:col-span-2 col-span-4">
               <div className="flex justify-end gap-4">
                 <AppButton
                   title="free consultation"
@@ -35,8 +35,8 @@ const AppFooter = () => {
           </div>
         </div>
         <div className="main-sec">
-          <div className="grid grid-cols-2">
-            <div className="">
+          <div className="grid md:grid-cols-2 grid-cols-1">
+            <div className="md:col-span-1 col-span-2">
               <div className="footer-item">
                 <h3>Procedures</h3>
                 <div className="grid grid-cols-2">
@@ -93,8 +93,8 @@ const AppFooter = () => {
                 </div>
               </div>
             </div>
-            <div className="grid grid-cols-2">
-              <div className="footer-item">
+            <div className="grid md:grid-cols-2 grid-cols-1">
+              <div className="footer-item md-mt-0 mt-4">
                 <h3>Useful Links</h3>
                 <ul>
                   <li>
@@ -120,15 +120,15 @@ const AppFooter = () => {
                   </li>
                 </ul>
               </div>
-              <div className="footer-item">
+              <div className="footer-item md:mt-0 mt-4">
                 <h3>Contact Us</h3>
                 <div className="footer-sec">
                   <h5>Email:</h5>
-                  <h5>info@asianhealthtourism.com</h5>
+                  <h6>info@asianhealthtourism.com</h6>
                 </div>
                 <div className="footer-sec">
                   <h5>Whatsapp:</h5>
-                  <h5>+990123456789 / +990123456789</h5>
+                  <h6>+990123456789 / +990123456789</h6>
                 </div>
                 <div className="footer-sec">
                   <h5>Follow us:</h5>
@@ -139,11 +139,11 @@ const AppFooter = () => {
           </div>
         </div>
         <div className="copyright-sec">
-          <div className="grid grid-cols-2 items-center">
-            <div>
+          <div className="grid md:grid-cols-2 grid-cols-1 md:grid-flow-row grid-flow-row-dense items-center md:gap-0 gap-5">
+            <div className="md:text-left text-center">
               <h6>Copyright © 2024 Asian Health Tourism. All Rights Reserved.</h6>
             </div>
-            <div className="top-quick-links justify-end">
+            <div className="top-quick-links md:justify-end justify-center">
               <ul>
                 <li><Link href="#">Privacy/Policy</Link></li>
                 <li><Link href="#">Terms & Conditions</Link></li>

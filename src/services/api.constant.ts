@@ -5,6 +5,7 @@ export const API_END_POINTS = {
         BLOG_LIST: "blogs",
         DESTINATIONS: "destinations",
         FAQ_CATEGORY: "faq-category",
-        FAQ_BY_CATEGORY: "faqbycategory"
+        FAQ_BY_CATEGORY: "faqbycategory",
+        SOCIAL_MEDIA_LINKS: "social-media"
     }
 }

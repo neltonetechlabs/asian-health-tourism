@@ -6,5 +6,28 @@
 }
 
 .activeFaq {
-    color: #F5A604
+  color: #f5a604;
+}
+
+.faqcatlist {
+  @apply md:block hidden;
+}
+.faqSelect {
+  @apply md:hidden block;
+}
+
+.arrowbtn {
+  position: relative;
+  padding-left: 20px;
+}
+.arrowbtn::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  border-right: 5px solid #fff;
+  border-top: 5px solid #fff;
+  border-bottom: 6px solid #fff;
+  border-left: 6px solid #f5a604;
+  transform: translate(0, -50%);
 }

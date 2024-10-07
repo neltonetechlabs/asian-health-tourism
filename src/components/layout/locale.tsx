@@ -43,7 +43,7 @@ const LocaleSwitch: React.FC<LocaleSwitchProps> = ({ langs = [] }) => {
 
   return (
     <Listbox value={selectedLang} onChange={setSelectedLang}>
-      <ListboxButton>{selectedLang.language || ''}</ListboxButton>
+      <ListboxButton>{selectedLang?.language || ''}</ListboxButton>
       <ListboxOptions
         className="bg-white rounded-sm p-2 shadow-sm top-4 z-10"
         anchor="bottom"

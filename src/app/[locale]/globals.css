@@ -192,7 +192,7 @@ flex-direction: row-reverse;
 }
 
 .sec-padd {
-  @apply py-20;
+  @apply md:py-20 py-10;
 }
 
 .sec-padd-sm {
@@ -331,19 +331,21 @@ header .app-btn {
 .footer .top-sec h4 { 
   font-size: 2.5rem;
   color: #fff;
-  font-weight: 600;
+  font-weight: bold;
+  @apply md:leading-[auto] leading-[45px] md:text-left text-center md:mb-0 mb-5
 }
 
 .footer-item h3 {
   color: #fff;
   font-weight: 500;
-  margin-bottom: 1.5rem;
+  @apply md:mb-6 mb-4
 }
 
 .footer-item {color: #fff;}
 
 .footer-item ul li {
   margin-bottom: 0.5rem;
+  font-size: 14px;
 }
 
 .footer-sec + .footer-sec { margin-top: 1.5rem; }
@@ -352,12 +354,17 @@ header .app-btn {
   margin-bottom: 0.8rem;
   font-weight: 500;
 }
+.footer-sec h6 {
+  font-size: 14px;
+}
 
 .copyright-sec {
   border-top: 1px dashed #414141;
   color: #fff;
   padding: 30px 0;
   margin-top: 40px;
+  font-weight: 400;
+  font-size: 14px;
 }
 
 .swiper-slide { height: auto !important; }
@@ -377,4 +384,8 @@ header .app-btn {
 }
 .active-accordion {
   background-color: #f90;
+}
+
+.input-big input {
+  height: 60px;
 }

@@ -94,3 +94,12 @@ export interface FaqData
   extends CommonTable,
     CommonLocaleTitle,
     CommonDescription {}
+
+export interface SocialMediaLink extends CommonTable {
+  facebook: string;
+  instagram: string;
+  youtube: string;
+  twitter: string;
+  linkedin: string;
+  thread: string; 
+}

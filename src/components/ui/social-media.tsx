@@ -1,25 +1,49 @@
-"use client";
+import { NextComponentType } from "next";
 import Image from "next/image";
-import { Facebook, Instagram, Youtube, Thread, LinkedIn } from "@/assets";
+import Link from "next/link";
 
-const SocialMedia = () => {
+import { Facebook, Instagram, Youtube, Thread, LinkedIn } from "@/assets";
+import { API_CLIENT } from "@/services";
+
+const SocialMedia: NextComponentType<{}> = async () => {
+  const links = await API_CLIENT.fetchSocialMedia();
   return (
-    <ul className="flex justify-start gap-10 items-center ">
-      <li>
-        <Image src={Facebook} alt="Facebook" />
-      </li>
-      <li>
-        <Image src={Instagram} alt="Instagram" />
-      </li>
-      <li>
-        <Image src={Youtube} alt="Youtube" />
-      </li>
-      <li>
-        <Image src={Thread} alt="Thread" />
-      </li>
-      <li>
-        <Image src={LinkedIn} alt="LinkedIn" />
-      </li>
+    <ul className="flex justify-start gap-10 items-center">
+      {links?.facebook && (
+        <li>
+          <Link href={links?.facebook} target="_blank">
+            <Image src={Facebook} alt="Facebook" />
+          </Link>
+        </li>
+      )}
+      {links?.instagram && (
+        <li>
+          <Link href={links?.instagram} target="_blank">
+            <Image src={Instagram} alt="Instagram" />
+          </Link>
+        </li>
+      )}
+      {links?.youtube && (
+        <li>
+          <Link href={links?.youtube} target="_blank">
+            <Image src={Youtube} alt="Youtube" />
+          </Link>
+        </li>
+      )}
+      {links?.linkedin && (
+        <li>
+          <Link href={links?.thread} target="_blank">
+            <Image src={Thread} alt="Thread" />
+          </Link>
+        </li>
+      )}
+      {links?.linkedin && (
+        <li>
+          <Link href={links?.linkedin} target="_blank">
+            <Image src={LinkedIn} alt="LinkedIn" />
+          </Link>
+        </li>
+      )}
     </ul>
   );
 };
