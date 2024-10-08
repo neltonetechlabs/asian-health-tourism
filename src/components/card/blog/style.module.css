@@ -15,5 +15,5 @@
     @apply text-[#263036] font-medium text-sm border-t border-t-gray-200 pt-4 pb-2 mt-4
 }
 .blogDesc h4 {
-    @apply text-[#373740] text-xl
+    @apply text-[#373740] text-[18px] font-medium
 }

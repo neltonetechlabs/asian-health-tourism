@@ -19,6 +19,7 @@ import useAppLocale from "@/hooks/useAppLocale";
 import { UIComponent } from "@/models";
 import { NextPage } from "next";
 import { getTranslations } from "next-intl/server";
+import { cardVariants } from "@/utils/cardanimate";
 
 const Home: NextPage<UIComponent.DefaultPageParam> = async ({
   params: { locale },
@@ -28,7 +29,7 @@ const Home: NextPage<UIComponent.DefaultPageParam> = async ({
   return (
     <>
       <HeroSlider />
-      <MotionDiv className="feature-sec">
+      <MotionDiv className="feature-sec" animateScript={cardVariants}>
         <div className="app-container">
           <FeatureCaro />
         </div>
@@ -58,7 +59,7 @@ const Home: NextPage<UIComponent.DefaultPageParam> = async ({
 
       <section className="sec-padd">
         <div className="app-container">
-          <div className="heading-sec mb-20">
+          <div className="heading-sec mb-16">
             <h3>{t("product_name")}</h3>
             <h6>{t("product_tag")}</h6>
           </div>
@@ -86,7 +87,7 @@ const Home: NextPage<UIComponent.DefaultPageParam> = async ({
       <section className="pride-count">
         <div className="app-container">
           <div className="pride-count-cards">
-            <div className="col-span-3"></div>
+            <div className="xl:col-span-2 lg:block lg:col-span-1 hidden"></div>
             <PrideCard count="08" title={t("lang_support")} icon={PrideIcon} />
             <PrideCard
               count="1500+"

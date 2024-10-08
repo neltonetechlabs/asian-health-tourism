@@ -10,8 +10,8 @@ const SectionHead: React.FC<UIComponent.SecHeadTitle> = async ({
 }) => {
   const locale = await getLocale();
   return (
-    <div className="grid grid-cols-2 items-center">
-      <div className="left-sec sec-heading">
+    <div className="grid lg:grid-cols-2 md:grid-cols-3 grid-cols-1 items-center md:text-left md:rtl:text-right text-center">
+      <div className="left-sec sec-heading lg:col-auto md:col-span-2 md:mb-0 mb-4">
         <h4>{title}</h4>
       </div>
       {rightTitle && rightTarget && (

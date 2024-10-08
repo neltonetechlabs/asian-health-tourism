@@ -2,7 +2,7 @@
   box-shadow: 0px 3px 10px #f5a6041a;
   background: #fff;
   border-radius: 10px;
-  padding: 65px 25px 40px 25px;
+  padding: 45px 25px 40px 25px;
   overflow: hidden;
   position: relative;
   cursor: pointer;
@@ -66,13 +66,14 @@
 }
 
 .servicecontent {
-  font-size: 18px;
-  line-height: 30px;
+  font-size: 14px;
+  line-height: 22px;
   margin-top: 1rem;
 }
 
 .head {
   font-size: 22px;
+  font-weight: 500;
 }
 
 .servicecard:hover .content {

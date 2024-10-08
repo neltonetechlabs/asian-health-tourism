@@ -8,7 +8,7 @@ const Picture: React.FC<UIComponent.PictureCompProps> = ({
 }) => {
   const common = { alt: "Slider", sizes: "100vw" };
   const {
-    props: { srcSet: desktop },
+    props: { srcSet: desktop, ...rest },
   } = getImageProps({
     ...common,
     width: 1440,
@@ -17,7 +17,7 @@ const Picture: React.FC<UIComponent.PictureCompProps> = ({
     src: desktopImg,
   });
   const {
-    props: { srcSet: mobile, ...rest },
+    props: { srcSet: mobile },
   } = getImageProps({
     ...common,
     width: 750,

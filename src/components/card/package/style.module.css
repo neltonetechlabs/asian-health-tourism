@@ -33,10 +33,19 @@
   @apply flex items-center gap-2 mb-1
 }
 .pckgFeat h4 {
-  @apply text-[#263036] text-[16px] font-medium;
+  @apply text-[#263036] text-[14px] font-normal;
 }
 .pckgimg {
-  @apply rounded-lg overflow-hidden h-[170px]
+  @apply rounded-lg overflow-hidden h-[200px]
+}
+
+.pckgimg img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  min-height: 100%;
+  min-width: 100%;
 }
 
 .destinationCard {

@@ -56,10 +56,10 @@ body {
   @apply absolute right-4;
 }
 html[dir="rtl"] .app-btn {
-  @apply flex-row-reverse
+  @apply flex-row-reverse;
 }
 html[dir="rtl"] .slider-action .app-btn {
-  @apply flex-row
+  @apply flex-row;
 }
 .header-actions {
   @apply flex justify-between items-center gap-6;
@@ -81,6 +81,9 @@ html[dir="rtl"] .slider-action .app-btn {
 .top-contact {
   @apply flex gap-2 items-center;
 }
+.top-contact h6 {
+  @apply md:inline-block hidden;
+}
 .top-quick-links {
   @apply flex items-center;
 }
@@ -88,12 +91,12 @@ html[dir="rtl"] .slider-action .app-btn {
   @apply flex gap-3 items-center;
 }
 .top-quick-links ul li {
-  @apply relative pr-4 last:pr-0;
+  @apply relative ltr:pr-4 rtl:pl-4 last:pr-0;
 }
 .top-quick-links ul li::after {
   content: "/";
   position: absolute;
-  right: 0;
+  @apply right-0 rtl:left-0 rtl:right-auto;
 }
 .top-quick-links ul li:last-child::after {
   display: none;
@@ -105,28 +108,26 @@ html[dir="rtl"] .slider-action .app-btn {
   @apply object-contain h-full w-full max-h-full max-w-full object-left;
 }
 html[dir="rtl"] .logo-fig > img {
-  @apply object-right
+  @apply object-right;
 }
 .feature-sec {
   @apply py-12;
 }
 .feature-card {
-  @apply flex items-start gap-3;
+  @apply flex items-start gap-3 py-3;
 }
 .feat-icon {
-  @apply w-6 h-6 min-w-6 relative top-[5px];
+  @apply w-6 h-6 min-w-6 relative top-[2px];
 }
 .feature-card h3 {
-  font-size: 1.2rem;
-  font-weight: 400;
+  font-size: 1rem;
+  font-weight: 500;
 }
 .right-sec {
-  text-align: right;
+  @apply text-right;
 }
 html[dir="rtl"] .link-btn {
-margin-right: auto;
-margin-left: 0;
-flex-direction: row-reverse;
+  @apply md:mr-auto md:ml-0 flex-row-reverse m-auto
 }
 .sec-heading h4 {
   font-size: 2rem;
@@ -134,7 +135,7 @@ flex-direction: row-reverse;
   color: #373740;
 }
 .link-btn {
-  @apply flex w-fit ml-auto gap-3 items-center border-b-2 border-b-[#0078BD] pb-3;
+  @apply flex w-fit md:m-0 md:ml-auto gap-3 items-center border-b-2 border-b-[#0078BD] pb-3 m-auto font-bold text-sm;
 }
 .link-btn img {
   @apply relative left-0 transition-all delay-200 ease-in-out;
@@ -169,22 +170,25 @@ flex-direction: row-reverse;
   font-size: 42px;
   line-height: 50px;
   font-weight: 500;
+  @apply lg:text-left lg:rtl:text-right text-center;
 }
-
+.why-content {
+  @apply lg:mt-0 mt-5 lg:text-left text-center;
+}
 .why-content h4 {
   @apply font-semibold text-[30px] mb-5;
 }
 
 .left-sec-content {
-  @apply flex flex-col;
+  @apply flex flex-col lg:gap-0 gap-y-4;
 }
 
 .why-content article {
-  @apply pr-10 text-[20px] font-light;
+  @apply lg:pr-10 pr-0 text-[16px] font-light;
 }
 
 .count-sec {
-  @apply w-[80%] flex justify-between mt-auto;
+  @apply lg:w-[80%] w-full flex lg:justify-between justify-around mt-auto md:flex-nowrap md:gap-0 flex-wrap gap-4 md:text-left md:rtl:text-right text-center;
 }
 
 .count-sec h2 {
@@ -227,14 +231,14 @@ flex-direction: row-reverse;
   @apply text-[46px] font-semibold leading-[50px] mb-4;
 }
 .pride-content {
-  @apply w-1/4 inline-block z-10 relative;
+  @apply lg:w-1/4 md:w-1/2 w-full inline-block z-10 relative;
 }
 .pride-content h6 {
   @apply text-[18px] font-light;
 }
 
 .pride-count-cards {
-  @apply grid grid-cols-6 gap-4 relative z-10;
+  @apply grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 grid-cols-1 gap-4 relative z-10;
 }
 
 .about-page .left-sec-content > h2 {
@@ -243,6 +247,9 @@ flex-direction: row-reverse;
 
 .checklist {
   @apply flex flex-col gap-4;
+}
+.checklist span {
+  @apply inline-block min-w-6 min-h-6
 }
 
 .checklist li {
@@ -315,7 +322,6 @@ header .app-btn {
   }
 }
 
-
 /* --- Footer --- */
 .footer {
   background: #263036;
@@ -328,27 +334,31 @@ header .app-btn {
   margin-bottom: 40px;
 }
 
-.footer .top-sec h4 { 
+.footer .top-sec h4 {
   font-size: 2.5rem;
   color: #fff;
   font-weight: bold;
-  @apply md:leading-[auto] leading-[45px] md:text-left text-center md:mb-0 mb-5
+  @apply md:leading-[auto] leading-[45px] md:text-left text-center md:mb-0 mb-5;
 }
 
 .footer-item h3 {
   color: #fff;
   font-weight: 500;
-  @apply md:mb-6 mb-4
+  @apply md:mb-6 mb-4;
 }
 
-.footer-item {color: #fff;}
+.footer-item {
+  color: #fff;
+}
 
 .footer-item ul li {
   margin-bottom: 0.5rem;
   font-size: 14px;
 }
 
-.footer-sec + .footer-sec { margin-top: 1.5rem; }
+.footer-sec + .footer-sec {
+  margin-top: 1.5rem;
+}
 
 .footer-sec h5 {
   margin-bottom: 0.8rem;
@@ -367,9 +377,13 @@ header .app-btn {
   font-size: 14px;
 }
 
-.swiper-slide { height: auto !important; }
+.swiper-slide {
+  height: auto !important;
+}
 
-.mySwiper { direction: ltr !important; }
+.mySwiper {
+  direction: ltr !important;
+}
 
 .nav-btn-slider {
   position: absolute;
@@ -377,10 +391,10 @@ header .app-btn {
   transform: translate(-50%, 0);
   width: 15px;
 }
-.nav-btn-slider.prev-btn{
+.nav-btn-slider.prev-btn {
   left: -30px;
 }
-.nav-btn-slider.next-btn{
+.nav-btn-slider.next-btn {
   right: -40px;
 }
 .active-accordion {

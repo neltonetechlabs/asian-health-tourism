@@ -9,5 +9,5 @@
     @apply text-[var(--primary)] text-4xl mb-2
 }
 .titleElm {
-    @apply text-[16px]
+    @apply text-[16px] font-semibold
 }

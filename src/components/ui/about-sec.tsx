@@ -2,7 +2,7 @@ import StatCard from "./stat.card";
 
 const AboutSection: React.FC<{}> = () => {
   return (
-    <div className="grid grid-cols-2 gap-8">
+    <div className="grid lg:grid-cols-2 grid-cols-1 gap-8">
       <div className="left-sec-content">
         <h2>
           25 Years of doing <br />

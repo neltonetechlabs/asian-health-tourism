@@ -1,14 +1,12 @@
 "use client";
 import Image from "next/image";
 import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
 import "swiper/css/navigation";
 import TestimonialCard from "./testimonial.card";
 import { useState } from "react";
 import classNames from "classnames";
 import { Testimonial } from "@/models/api.data";
-import useAppLocale from "@/hooks/useAppLocale";
-import { ArrowLeft, BlueChevron, TestimonialCaroLeft, TestimonialCaroRight } from "@/assets";
+import { TestimonialCaroLeft, TestimonialCaroRight } from "@/assets";
 interface TestimonialCarouselProps {
   data: Testimonial[];
 }

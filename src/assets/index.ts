@@ -5,6 +5,7 @@ import Chevron from "./chevron.svg";
 import ChatIcon from "./chaticon.svg";
 import ChatPrimary from './chat.svg';
 import CountryIcon from "./country.svg";
+import CheckedBox from './checkedbox.svg';
 import Logo from "./logo.jpg";
 import PhoneIcon from "./phone.svg";
 import PrideBg from './pride_bg.jpg';
@@ -46,6 +47,7 @@ export {
   ChatPrimary,
   Chevron,
   CountryIcon,
+  CheckedBox,
   Logo,
   PhoneIcon,
   PrideBg,

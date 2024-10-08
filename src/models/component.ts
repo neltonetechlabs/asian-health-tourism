@@ -87,3 +87,6 @@ export interface ListCardProps {
 export interface DefaultPageParam {
     params: { locale: string }
 }
+export interface DetailPageParam {
+    params: { locale: string; slug: string }
+}
