@@ -111,7 +111,7 @@ html[dir="rtl"] .logo-fig > img {
   @apply object-right;
 }
 .feature-sec {
-  @apply py-12;
+  @apply py-6;
 }
 .feature-card {
   @apply flex items-start gap-3 py-3;
@@ -403,4 +403,12 @@ header .app-btn {
 
 .input-big input {
   height: 60px;
+}
+
+@media only screen and (min-width: 1536px){
+  .app-container { max-width: 1440px; }
+}
+
+@media only screen and (max-width: 1400px) {
+  .app-container { max-width: 1320px; }
 }

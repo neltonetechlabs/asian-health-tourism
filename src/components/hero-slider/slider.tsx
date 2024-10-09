@@ -11,22 +11,24 @@ import "./slider.css";
 import Picture from "../common/picture";
 import { ButtonType, ButtonVariant } from "@/enum/enum";
 import AppButton from "../buttons/button.common";
+import { SliderImages } from "@/models/api.data";
+import MotionDiv from "../common/motiondiv";
+import { cardVariants } from "@/utils/cardanimate";
+import useAppLocale from "@/hooks/useAppLocale";
 
-const SliderCaption: React.FC<{ activeSlide: number; index: number }> = ({ activeSlide, index }) => {
-  const fadeIn = useSpring({
-    opacity: activeSlide === index ? 1 : 0,
-    transform: activeSlide === index ? "translateY(0)" : "translateY(20px)",
-    config: { tension: 150, friction: 20 },
-  });
-
+const SliderCaption: React.FC<{ slide: SliderImages; index: number }> = ({
+  slide,
+  index,
+}) => {
+  const { translate } = useAppLocale({});
   return (
-    <animated.div style={fadeIn} className="caption-content" key={index}>
-      <h3>Cosmetic & Medical Treatments In Iran</h3>
-      <h6>
-        Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry. Lorem Ipsum has been the industry's standard dummy text ever
-        since
-      </h6>
+    <MotionDiv
+      animateScript={cardVariants}
+      className="caption-content"
+      key={index}
+    >
+      <h3>{translate("title", slide)}</h3>
+      <h6>{translate("description", slide)}</h6>
       <div className="slider-action">
         <AppButton
           title="free consultation"
@@ -34,13 +36,21 @@ const SliderCaption: React.FC<{ activeSlide: number; index: number }> = ({ activ
           variant={ButtonVariant.PRIMARY}
           leftImage={Chevron}
         />
-        <AppButton title="contact now" type={ButtonType.STROKE} leftImage={Chevron} />
+        <AppButton
+          title="contact now"
+          type={ButtonType.STROKE}
+          leftImage={Chevron}
+        />
       </div>
-    </animated.div>
+    </MotionDiv>
   );
 };
 
-const HeroSlider: React.FC = () => {
+interface SliderProps {
+  sliders: SliderImages[];
+}
+
+const HeroSlider: React.FC<SliderProps> = ({ sliders = [] }) => {
   const [swiperInst, setSwiperInst] = useState<any>(null);
   const [activeSlide, setActiveSlide] = useState<number>(0);
 
@@ -60,15 +70,18 @@ const HeroSlider: React.FC = () => {
         effect="fade"
         className="mySwiper"
       >
-        {[0, 1, 2].map((index) => (
-          <SwiperSlide key={index}>
+        {sliders?.map((slider) => (
+          <SwiperSlide key={slider?.id}>
             <div className="slider-wrap">
               <div className="slider-caption">
                 <div className="app-container">
-                  <SliderCaption activeSlide={activeSlide} index={index} />
+                  <SliderCaption slide={slider} index={slider?.id} />
                 </div>
               </div>
-              <Picture desktopImg={Slider} mobileImg={MobSlider} />
+              <Picture
+                desktopImg={slider?.image}
+                mobileImg={slider?.mobile_image}
+              />
             </div>
           </SwiperSlide>
         ))}

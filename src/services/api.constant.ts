@@ -1,11 +1,16 @@
 export const API_END_POINTS = {
     GET_API: {
-        TESTIMONIALS: "testimonials",
+        TESTIMONIALS: "reviews",
         LANGUAGES: "languages",
         BLOG_LIST: "blogs",
         DESTINATIONS: "destinations",
         FAQ_CATEGORY: "faq-category",
         FAQ_BY_CATEGORY: "faqbycategory",
-        SOCIAL_MEDIA_LINKS: "social-media"
+        SOCIAL_MEDIA_LINKS: "social-media",
+        SLIDER: "sliders",
+        SERVICES: "services",
+        HOMECOUNT: "homecount",
+        HOME_SPECIALITY: "speciality",
+        ABOUT_CONTENT: "about"
     }
 }

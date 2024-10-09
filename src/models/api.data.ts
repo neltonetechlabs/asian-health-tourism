@@ -103,3 +103,61 @@ export interface SocialMediaLink extends CommonTable {
   linkedin: string;
   thread: string; 
 }
+
+
+export interface SliderImages extends CommonTable, CommonLocaleTitle, CommonDescription {
+  image: string;
+  mobile_image: string;
+}
+
+export interface ServiceHomePage extends CommonTable, CommonLocaleTitle, CommonDescription {
+  image: string;
+}
+
+export interface HomeCountObject extends CommonTable, CommonLocaleTitle, CommonDescription {
+  languages_supported: string;
+  online_consultations: string;
+  countries: string;
+  image: string;
+}
+
+export interface HomeSpecialities extends CommonTable, CommonLocaleTitle {
+
+}
+
+export interface AboutContent extends CommonTable, CommonLocaleTitle, CommonDescription{
+  caption_en: string;
+  caption_es: string | null;
+  caption_ar: string | null;
+  caption_ru: string | null;
+  caption_fr: string | null;
+  caption_fa: string | null;
+  about_us_en: string;
+  about_us_es: string | null;
+  about_us_ar: string | null;
+  about_us_ru: string | null;
+  about_us_fr: string | null;
+  about_us_fa: string | null;
+  why_us_en: string;
+  why_us_es: string | null;
+  why_us_ar: string | null;
+  why_us_ru: string | null;
+  why_us_fr: string | null;
+  why_us_fa: string | null;
+  description_en: string;
+  description_es: string | null;
+  description_ar: string | null;
+  description_ru: string | null;
+  description_fr: string | null;
+  description_fa: string | null;
+  free_consultation_description_en: string;
+  free_consultation_description_es: string | null;
+  free_consultation_description_ar: string | null;
+  free_consultation_description_ru: string | null;
+  free_consultation_description_fr: string | null;
+  free_consultation_description_fa: string | null;
+  image: string;
+  years_of_experience: string;
+  happy_clients: string;
+  service: string;
+}

@@ -1,21 +1,51 @@
 import Image from "next/image";
-import classes from "./style.module.css";
+
 import { Service } from "@/assets";
-const ServiceCard: React.FC<{}> = () => {
+
+import classes from "./style.module.css";
+import { ServiceHomePage } from "@/models/api.data";
+import useAppLocale from "@/hooks/useAppLocale";
+import { listNumber } from "@/utils/utility";
+import { cardVariants } from "@/utils/cardanimate";
+import MotionDiv from "@/components/common/motiondiv";
+
+interface ServiceCardProps {
+  serviceItem: ServiceHomePage;
+  locale: string;
+  count: number;
+  delay: number;
+}
+
+const ServiceCard: React.FC<ServiceCardProps> = ({
+  serviceItem,
+  locale,
+  count = 0,
+  delay
+}) => {
+  const animateScript = {
+    ...cardVariants,
+    onscreen: {
+      ...cardVariants?.onscreen,
+      transition: {
+        ...cardVariants?.transition,
+        delay: delay
+      }
+    }
+  }
+  const { translate } = useAppLocale({ locale });
   return (
-    <div className={classes.servicecard} tabIndex={0}>
+    <MotionDiv animateScript={animateScript} className={classes.servicecard}>
       <div className={classes.hoverImage}>
-        <Image alt="Service" src={Service} />
+        <Image alt="Service" src={serviceItem?.image} width={200} height={200} />
       </div>
       <div className={classes.content}>
-        <div className={classes.count}>01</div>
-        <h6 className={classes.head}>Online Consultation</h6>
+        <div className={classes.count}>{listNumber(count)}</div>
+        <h6 className={classes.head}>{translate("title", serviceItem)}</h6>
         <p className={classes.servicecontent}>
-          Assessment of patients with undefined symptoms and complaints - to
-          help in diagnosis and treatment recommendations
+          {translate("description", serviceItem)}
         </p>
       </div>
-    </div>
+    </MotionDiv>
   );
 };
 

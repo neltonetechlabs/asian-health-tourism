@@ -8,7 +8,10 @@
     @apply flex justify-start items-center gap-4 mt-auto
 }
 .profileImage {
-    @apply overflow-hidden rounded-full
+    @apply overflow-hidden rounded-full w-14 h-14
+}
+.profileImage img {
+    @apply object-fill object-center h-full w-full min-h-full min-w-full
 }
 .persona {
     @apply font-normal

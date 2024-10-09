@@ -1,32 +1,39 @@
+import useAppLocale from "@/hooks/useAppLocale";
 import StatCard from "./stat.card";
+import { AboutContent } from "@/models/api.data";
 
-const AboutSection: React.FC<{}> = () => {
+interface AboutSectionProps {
+  aboutcontent: AboutContent | null;
+  locale: string;
+}
+
+const AboutSection: React.FC<AboutSectionProps> = ({
+  aboutcontent,
+  locale,
+}) => {
+  const { translate } = useAppLocale({ locale });
   return (
     <div className="grid lg:grid-cols-2 grid-cols-1 gap-8">
       <div className="left-sec-content">
-        <h2>
-          25 Years of doing <br />
-          the impossible
-        </h2>
+        <h2>{translate("caption", aboutcontent)}</h2>
         <div className="count-sec">
-          <StatCard count="14+" title="Years of Experiences" />
-          <StatCard count="648" title="Happy Clients" />
-          <StatCard count="24/7" title="Service" />
+          <StatCard
+            count={`${aboutcontent?.years_of_experience}+`}
+            title="Years of Experiences"
+          />
+          <StatCard
+            count={aboutcontent?.happy_clients.toString() || ""}
+            title="Happy Clients"
+          />
+          <StatCard
+            count={aboutcontent?.service?.toString() || ""}
+            title="Service"
+          />
         </div>
       </div>
       <div className="why-content">
         <h4>Why Asian Health Tourism Iran?</h4>
-        <article>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book. It has survived not only
-          five centuries, but also the leap into electronic typesetting,
-          remaining essentially unchanged. It was popularised in the 1960s with
-          the release of Letraset sheets containing It was popularised in the
-          1960s with the release of Letraset sheets containing containing It was
-          popularised in the 1960s with
-        </article>
+        <article>{translate("why_us", aboutcontent)}</article>
       </div>
     </div>
   );

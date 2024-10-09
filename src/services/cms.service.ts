@@ -1,3 +1,4 @@
+import { AboutContent } from './../models/api.data';
 import { fetchData } from "./api.service";
 import { API_END_POINTS } from "./api.constant";
 import {
@@ -5,7 +6,11 @@ import {
   DestinationList,
   FaqCategoryList,
   FaqData,
+  HomeCountObject,
+  HomeSpecialities,
   MasterLang,
+  ServiceHomePage,
+  SliderImages,
   SocialMediaLink,
   Testimonial,
 } from "@/models/api.data";
@@ -60,4 +65,46 @@ export const fetchSocialMedia = async () => {
   });
 
   return sociallinks || null;
+};
+
+export const fetchSliders = async () => {
+  const sliderImages = await fetchData<SliderImages[]>({
+    apiEndPoint: getapi.SLIDER,
+  });
+
+  return sliderImages || [];
+};
+
+export const fetchServices = async () => {
+  const serviceSections = await fetchData<ServiceHomePage[]>({
+    apiEndPoint: getapi.SERVICES,
+  });
+
+  return serviceSections || [];
+};
+
+export const fetchHomeCount = async () => {
+  const homeCount = await fetchData<HomeCountObject>({
+    apiEndPoint: getapi.HOMECOUNT,
+  });
+
+  return homeCount || null;
+};
+
+
+export const fetchHomeSpecialities = async () => {
+  const homeSpecialities = await fetchData<HomeSpecialities[]>({
+    apiEndPoint: getapi.HOME_SPECIALITY,
+  });
+
+  return homeSpecialities || [];
+};
+
+
+export const fetchAbout = async () => {
+  const aboutContent = await fetchData<AboutContent>({
+    apiEndPoint: getapi.ABOUT_CONTENT,
+  });
+
+  return aboutContent || null;
 };

@@ -12,11 +12,27 @@ const BlogCard: React.FC<UIComponent.BlogCardProps> = ({
   title,
   description,
   slug,
-  date
+  date,
+  delay
 }) => {
   const t = useTranslations("Common");
+
+
+  console.log("dat", date);
+
+
+  const animateScript = {
+    ...cardVariants,
+    onscreen: {
+      ...cardVariants?.onscreen,
+      transition: {
+        ...cardVariants?.transition,
+        delay,
+      },
+    },
+  };
   return (
-    <MotionDiv className={classes.blogCard} animateScript={cardVariants}>
+    <MotionDiv className={classes.blogCard} animateScript={animateScript}>
       <figure className={classes.blogImage}>
         <Image
           alt={title}

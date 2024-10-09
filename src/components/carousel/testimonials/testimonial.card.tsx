@@ -30,8 +30,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial }) => {
       </div>
       <div className={classes.profileSec}>
         <figure className={classes.profileImage}>
-          {/* <Image src="https://i.pravatar.cc/300" alt="" width={80} height={80} /> */}
-          <img src="https://i.pravatar.cc/300" alt="" width={60} height={60} />
+          <Image src={testimonial?.image || ""} alt="Asian Health Tourism" width={80} height={80} />
         </figure>
         <figure className={classes.persona}>
           <h6>{translate("name", testimonial)}</h6>

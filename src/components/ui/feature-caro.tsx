@@ -3,6 +3,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 
 import FeatureCard from "./feature.card";
+import { HomeSpecialities } from "@/models/api.data";
+import useAppLocale from "@/hooks/useAppLocale";
 
 const dummy_feat = [
   {
@@ -23,7 +25,13 @@ const dummy_feat = [
   },
 ];
 
-const FeatureCaro = () => {
+interface FeatureCaroProps {
+  specialities: HomeSpecialities[];
+  locale: string;
+}
+
+const FeatureCaro: React.FC<FeatureCaroProps> = ({ specialities = [], locale }) => {
+  const { translate } = useAppLocale({ locale });
   return (
     <Swiper
       slidesPerView={1}
@@ -48,11 +56,11 @@ const FeatureCaro = () => {
           spaceBetween: 50,
         },
       }}
-      modules={[Autoplay]}  
+      modules={[Autoplay]}
     >
-      {dummy_feat.map((feat) => (
+      {specialities.map((feat) => (
         <SwiperSlide key={feat?.id}>
-          <FeatureCard key={feat?.id} title={feat?.title} />
+          <FeatureCard key={feat?.id} title={translate("title", feat)} />
         </SwiperSlide>
       ))}
     </Swiper>

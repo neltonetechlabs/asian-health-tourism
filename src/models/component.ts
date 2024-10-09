@@ -1,12 +1,10 @@
-import { title } from 'process';
-import { title } from 'process';
 import { StaticImageData } from "next/image";
 import { ButtonType, ButtonVariant } from "@/enum/enum";
 import { ReactNode } from 'react';
 
 export interface PictureCompProps {
-    desktopImg: string | StaticImageData;
-    mobileImg: string | StaticImageData;
+    desktopImg: string;
+    mobileImg: string;
 }
 
 export interface ButtonProps {
@@ -45,6 +43,7 @@ export interface PrideCardProps {
     icon?: StaticImageData | string;
     title: string;
     count: string;
+    delay: number;
 }
 
 export interface BlogCardProps {
@@ -54,6 +53,7 @@ export interface BlogCardProps {
     description?: string;
     slug?: string;
     date: string;
+    delay?: number;
 }
 
 export interface BannerProps {
