@@ -22,7 +22,7 @@ body {
 }
 
 .app-btn {
-  @apply flex w-[200px] px-4 rounded-md h-[60px] leading-[55px] capitalize items-center gap-4 relative;
+  @apply flex w-[200px] px-4 rounded-md h-[56px] leading-[56px] font-semibold capitalize items-center gap-4 relative;
 }
 .app-btn.btn-primary {
   background-color: var(--primary);
@@ -69,14 +69,21 @@ html[dir="rtl"] .slider-action .app-btn {
 }
 .menu-ul li a {
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 600;
+  transition: 0.15s ease-in-out;
+}
+.menu-ul li a:hover {
+  color: var(--primary);
+}
+.menu-ul li a.active {
+  color: var(--blueSecondary);
 }
 .topbar {
   background: var(--blueSecondary);
-  @apply flex items-center text-[13px] h-10 text-white relative z-20;
+  @apply flex items-center text-[13px] h-10 text-white relative z-20 font-semibold;
 }
 .top-bar-content {
-  @apply flex justify-end gap-4;
+  @apply flex justify-end gap-8;
 }
 .top-contact {
   @apply flex gap-2 items-center;
@@ -114,14 +121,15 @@ html[dir="rtl"] .logo-fig > img {
   @apply py-6;
 }
 .feature-card {
-  @apply flex items-start gap-3 py-3;
+  @apply flex items-center gap-3 py-3;
 }
 .feat-icon {
-  @apply w-6 h-6 min-w-6 relative top-[2px];
+  @apply w-[35px] h-[35px] min-w-[35px] relative;
 }
 .feature-card h3 {
-  font-size: 1rem;
-  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 600;
 }
 .right-sec {
   @apply text-right;
@@ -130,15 +138,15 @@ html[dir="rtl"] .link-btn {
   @apply md:mr-auto md:ml-0 flex-row-reverse m-auto
 }
 .sec-heading h4 {
-  font-size: 2rem;
-  font-weight: 500;
+  font-size: 35px;
+  font-weight: 600;
   color: #373740;
 }
 .link-btn {
   @apply flex w-fit md:m-0 md:ml-auto gap-3 items-center border-b-2 border-b-[#0078BD] pb-3 m-auto font-bold text-sm;
 }
 .link-btn img {
-  @apply relative left-0 transition-all delay-200 ease-in-out;
+  @apply relative left-0 transition-all delay-500 ease-linear;
 }
 .link-btn:hover img {
   @apply left-3;
@@ -149,6 +157,7 @@ html[dir="rtl"] .link-btn {
   background-image: url("../../assets/bg_parallax.jpg");
   background-size: cover;
   position: relative;
+  background-attachment: fixed;
 }
 .parallax-sec::after {
   content: "";
@@ -217,6 +226,17 @@ html[dir="rtl"] .link-btn {
 
 .pride-sec {
   @apply bg-black text-white h-[550px] flex flex-col justify-center relative overflow-hidden mb-[-100px];
+}
+
+.pride-sec::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+  z-index: 10;
 }
 
 .bg-image {
@@ -343,7 +363,7 @@ header .app-btn {
 
 .footer-item h3 {
   color: #fff;
-  font-weight: 500;
+  font-weight: 600;
   @apply md:mb-6 mb-4;
 }
 
@@ -406,9 +426,9 @@ header .app-btn {
 }
 
 @media only screen and (min-width: 1536px){
-  .app-container { max-width: 1440px; }
+  .app-container { max-width: 1300px; }
 }
 
 @media only screen and (max-width: 1400px) {
-  .app-container { max-width: 1320px; }
+  .app-container { max-width: 1300px; }
 }

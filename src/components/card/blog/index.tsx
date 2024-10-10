@@ -1,10 +1,11 @@
 import { UIComponent } from "@/models";
 import classes from "./style.module.css";
 import Image from "next/image";
-import { Demo1 } from "@/assets";
+import { BlueChevron, Demo1 } from "@/assets";
 import { useTranslations } from "next-intl";
 import MotionDiv from "@/components/common/motiondiv";
 import { cardVariants } from "@/utils/cardanimate";
+import moment from "moment";
 
 const BlogCard: React.FC<UIComponent.BlogCardProps> = ({
   id,
@@ -13,13 +14,11 @@ const BlogCard: React.FC<UIComponent.BlogCardProps> = ({
   description,
   slug,
   date,
-  delay
+  delay,
 }) => {
   const t = useTranslations("Common");
 
-
   console.log("dat", date);
-
 
   const animateScript = {
     ...cardVariants,
@@ -47,7 +46,12 @@ const BlogCard: React.FC<UIComponent.BlogCardProps> = ({
       <figcaption className={classes.blogDesc}>
         <h4>{title}</h4>
       </figcaption>
-      <div className={classes.blogDt}>{date}</div>
+      <div className={classes.blogFooter}>
+        <div className={classes.blogDt}>
+          {moment(date).format("DD MMMM yy")}
+        </div>
+        <Image src={BlueChevron} alt={title} />
+      </div>
     </MotionDiv>
   );
 };

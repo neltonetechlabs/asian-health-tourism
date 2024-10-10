@@ -23,7 +23,7 @@ const ImageWrapContent: React.FC<UIComponent.ImageWrapTemplProps> = ({
       <div className={classes.imgwrapsec}>
         <div className="grid grid-cols-2 gap-20 items-center">
           <div className={classes.imageWrap}>
-            <Image src={image} alt={title} />
+            <Image src={image} alt={title} width={600} height={600} />
           </div>
           <div className={classes.contentWrap}>
             {headerComp ? headerComp : <h4>{title}</h4>}

@@ -24,9 +24,9 @@
   @apply text-[var(--blueSecondary)] font-semibold flex gap-2 justify-start items-center text-[16px];
 }
 .pckgLink img {
-  @apply left-0 relative transition-all ease-in-out;
+  @apply left-0 relative transition-all duration-300 ease-in-out;
 }
-.pckgLink:hover img {
+.pckgcardlink:hover .pckgLink img {
   @apply left-3;
 }
 .pckgFeat {
@@ -46,6 +46,11 @@
   object-position: center;
   min-height: 100%;
   min-width: 100%;
+  @apply transition-all delay-500 ease-linear
+}
+
+.pckgcardlink:hover .pckgimg img {
+  @apply scale-125 
 }
 
 .destinationCard {

@@ -4,6 +4,11 @@
 .slider-wrap {
     @apply relative;
 }
+.slider-wrap::before {
+    content: "";
+    background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.3));
+    @apply absolute left-0 top-0 h-full w-full opacity-35
+}
 .slider-caption {
     top: 50%;
     transform: translate(0, -50%);
@@ -16,10 +21,10 @@
 .caption-content h3 {
     font-size: 3rem;
     line-height: 50px;
-    font-weight: 500;
+    font-weight: 600;
 }
 .caption-content h6 {
-    font-size: 1em;
+    font-size: 20px;
     margin-top: 25px;
     margin-bottom: 40px;
     font-weight: 300;

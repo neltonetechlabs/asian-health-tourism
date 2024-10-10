@@ -94,7 +94,7 @@ const AppFooter = () => {
               </div>
             </div>
             <div className="grid md:grid-cols-2 grid-cols-1">
-              <div className="footer-item md-mt-0 mt-4">
+              <div className="footer-item md:mt-0 mt-4">
                 <h3>Useful Links</h3>
                 <ul>
                   <li>

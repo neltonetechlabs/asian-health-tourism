@@ -17,7 +17,7 @@ const cardVariants: Variants = {
     opacity: 1,
     transition: {
       type: "spring",
-      bounce: 0.2,
+      bounce: 0.8,
       duration: 0.6,
     },
   },

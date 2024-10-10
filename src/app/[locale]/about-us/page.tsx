@@ -6,6 +6,8 @@ import { ImageWrapContent } from "@/components/templates";
 import { Demo } from "@/assets";
 import { NextPage } from "next";
 import { API_CLIENT } from "@/services";
+import { UIComponent } from "@/models";
+import useAppLocale from "@/hooks/useAppLocale";
 
 const demoItems = [
   "Patient online services (quote and consultation)",
@@ -16,10 +18,14 @@ const demoItems = [
 ];
 
 const demo = async (): Promise<string> => {
-  return ""
-}
+  return "";
+};
 
-const About: NextPage = async () => {
+const About: NextPage<UIComponent.DefaultPageParam> = async ({
+  params: { locale },
+}) => {
+  const aboutContent = await API_CLIENT.fetchAbout();
+  const { translate } = useAppLocale({ locale });
   return (
     <main className="about-page">
       <InnerBanner
@@ -28,21 +34,16 @@ const About: NextPage = async () => {
       />
       <section className="sec-padd">
         <div className="app-container">
-          <AboutSection />
+          <AboutSection aboutcontent={aboutContent} locale={locale} />
         </div>
       </section>
       <section className={classNames("sec-padd", classes.blueSec)}>
         <div className="app-container">
           <div className="grid lg:grid-cols-2 grid-cols-1">
             <div className={classes.serviceBack}>
-              <h3>
-                Our Services Are Backed By Our Many Years Of Expertise,
-                Knowledge, And Energy In These Areas:
-              </h3>
+              <h3>{translate("title", aboutContent)}</h3>
             </div>
-            <div>
-              <CheckList listItems={demoItems} />
-            </div>
+            <div>{translate("description", aboutContent)}</div>
           </div>
         </div>
       </section>
@@ -50,9 +51,13 @@ const About: NextPage = async () => {
         <div className="app-container">
           <ImageWrapContent
             title="Request a Free Consultation"
-            headerComp={<h4 className="large-head">Request a Free <br/>Consultation</h4>}
-            image={Demo}
-            content="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,"
+            headerComp={
+              <h4 className="large-head">
+                Request a Free Consultation
+              </h4>
+            }
+            image={aboutContent?.image || Demo}
+            content={translate('free_consultation_description', aboutContent)}
             primaryBtnText="free consultation"
             primaryLink="/"
             secondaryBtnText="Contact Now"
@@ -62,7 +67,6 @@ const About: NextPage = async () => {
       </section>
     </main>
   );
-}
-
+};
 
 export default About;
