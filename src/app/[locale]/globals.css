@@ -326,7 +326,7 @@ header .app-btn {
 }
 
 .blog-title h4 {
-  @apply text-[var(--textBlack)] text-4xl font-medium leading-[40px];
+  @apply text-[var(--textBlack)] text-4xl font-semibold leading-[40px];
 }
 
 /*--- Responsive -----*/
@@ -431,4 +431,16 @@ header .app-btn {
 
 @media only screen and (max-width: 1400px) {
   .app-container { max-width: 1300px; }
+}
+
+
+.more-info-sec {
+  background-color: #F0F9FF;
+  margin-bottom: 4rem;
+}
+
+.more-info-sec h4 {
+  margin-bottom: 24px;
+  font-size: 32px;
+  font-weight: 600;
 }

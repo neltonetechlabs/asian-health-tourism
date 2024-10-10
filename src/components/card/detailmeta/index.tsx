@@ -6,7 +6,17 @@ import { ButtonType, ButtonVariant } from "@/enum/enum";
 
 import style from './style.module.css';
 
-const DetailMeta = () => {
+interface DetailMetaProps {
+  title: string;
+  image: string;
+  description: string;
+}
+
+const DetailMeta: React.FC<DetailMetaProps> = ({
+  title,
+  image,
+  description
+}) => {
   return (
     <div className="sec-padd">
       <div className="app-container">
@@ -14,20 +24,13 @@ const DetailMeta = () => {
           <div className="col-span-1"></div>
           <div className="col-span-10">
             <div className="grid grid-cols-2 gap-20">
-              <figure className="rounded-xl overflow-hidden">
-                <Image alt="Destination" src={Demo1} />
+              <figure className="rounded-xl overflow-hidden md:max-h-[300px] max-h-auto">
+                <Image alt={title} src={image || Demo1} width={600} height={300} />
               </figure>
               <div className={style.contentSec}>
-                <h3>Isfahan</h3>
+                <h3>{title}</h3>
                 <article>
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s, when an unknown
-                  printer took a galley of type and scrambled it to make a type
-                  specimen book. It has survived not only five centuries, a
-                  galley of type and scrambled it to make a type specimen book.
-                  It has survived not only five centuries, It has survived not
-                  only five centuries, a galley of type and scrambled it to
+                  {description}
                 </article>
                 <AppButton
                   title="contact now"

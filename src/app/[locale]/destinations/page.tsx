@@ -67,6 +67,7 @@ const DestinationList: NextPage<UIComponent.DefaultPageParam> = async ({
                 image={destinaion?.image}
                 description={translate("small_description", destinaion)}
                 slug={destinaion?.slug || ""}
+                locale={locale}
               />
             ))}
           </div>

@@ -66,6 +66,7 @@ export interface BlogContent
     CommonSmallDescription {
   image: string | null;
   blog_date: string;
+  slug: string;
 }
 
 export interface BlogDetail
@@ -160,4 +161,19 @@ export interface AboutContent extends CommonTable, CommonLocaleTitle, CommonDesc
   years_of_experience: string;
   happy_clients: string;
   service: string;
+}
+
+export interface DestinationObject extends DestinationDetail {
+  more_info_en: string;
+  more_info_es: string | null;
+  more_info_ar: string | null;
+  more_info_ru: string | null;
+  more_info_fr: string | null;
+  more_info_Fa: string | null;
+  image: string | null;
+}
+
+export interface DestinationDetail {
+  destination: DestinationObject;
+  other_destinations: DestinationList[]
 }

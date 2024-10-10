@@ -22,6 +22,7 @@ const useAppLocale = ({
       return "";
     }
   };
+
   return {
     isArabic,
     translate,

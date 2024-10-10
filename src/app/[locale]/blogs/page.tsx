@@ -32,6 +32,7 @@ const Blog: NextPage<UIComponent.DefaultPageParam> = async ({
                 description={translate("small_description", blog)}
                 image={blog?.image}
                 date={blog?.blog_date}
+                slug={blog?.slug}
               />
             ))}
           </div>

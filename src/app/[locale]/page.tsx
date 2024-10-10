@@ -87,7 +87,7 @@ const Home: NextPage<UIComponent.DefaultPageParam> = async ({
           <div className="grid xl:grid-cols-5 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8">
             {services?.map((service: ServiceHomePage, index: number) => (
               <ServiceCard
-                delay={index + 1 / 10}
+                delay={0.01 + index}
                 key={service?.id}
                 count={index}
                 serviceItem={service}

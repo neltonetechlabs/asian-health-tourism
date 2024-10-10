@@ -82,6 +82,7 @@ export interface ListCardProps {
     image: string | StaticImageData | null;
     description: string;
     slug: string;
+    locale?: string;
 }
 
 export interface DefaultPageParam {

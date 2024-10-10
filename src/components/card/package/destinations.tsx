@@ -15,6 +15,7 @@ const DestinationCard: React.FC<UIComponent.ListCardProps> = ({
   title,
   description,
   slug,
+  locale
 }) => {
   const t = useTranslations("Common");
 
@@ -37,7 +38,7 @@ const DestinationCard: React.FC<UIComponent.ListCardProps> = ({
           <h5>{title}</h5>
           <p>{description}</p>
           <Link
-            href={slug}
+            href={`/${locale}/destinations/${slug}`}
             title={t("learn_more")}
             className={classes.pckgLink}
           >

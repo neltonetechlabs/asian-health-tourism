@@ -4,6 +4,7 @@ export const API_END_POINTS = {
         LANGUAGES: "languages",
         BLOG_LIST: "blogs",
         DESTINATIONS: "destinations",
+        DESTINATION_DETAIL: 'destinationdetail',
         FAQ_CATEGORY: "faq-category",
         FAQ_BY_CATEGORY: "faqbycategory",
         SOCIAL_MEDIA_LINKS: "social-media",

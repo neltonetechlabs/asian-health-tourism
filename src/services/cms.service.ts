@@ -1,4 +1,4 @@
-import { AboutContent } from './../models/api.data';
+import { AboutContent, DestinationDetail } from './../models/api.data';
 import { fetchData } from "./api.service";
 import { API_END_POINTS } from "./api.constant";
 import {
@@ -43,6 +43,13 @@ export const fetchDestinations = async () => {
     apiEndPoint: getapi.DESTINATIONS,
   });
   return destinations || [];
+};
+
+export const fetchDestinationDetail = async (slug: string) => {
+  const response = await fetchData<DestinationDetail>({
+    apiEndPoint: getapi.DESTINATION_DETAIL + '/' + slug,
+  });
+  return response || null;
 };
 
 export const fetchFaqCategories = async () => {
