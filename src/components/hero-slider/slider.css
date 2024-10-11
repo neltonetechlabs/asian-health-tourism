@@ -2,7 +2,7 @@
     @apply relative
 }
 .slider-wrap {
-    @apply relative;
+    @apply relative h-[550px] overflow-hidden;
 }
 .slider-wrap::before {
     content: "";

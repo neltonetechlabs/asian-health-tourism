@@ -5,6 +5,7 @@ import "./globals.css";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/effect-fade";
+import "swiper/css/effect-flip";
 import { Header, TopBar } from "@/components";
 import { routing } from "@/i18n/routing";
 import { getMessages } from "next-intl/server";
@@ -12,6 +13,7 @@ import Link from "next/link";
 import { ChatPrimary, Whatsapp } from "@/assets";
 import AppFooter from "@/components/layout/footer";
 import { Suspense } from "react";
+import SuspenseLoader from "@/components/ui/suspense";
 
 const opensans = Open_Sans({
   subsets: ["latin"],
@@ -39,7 +41,7 @@ export default async function RootLayout({
   return (
     <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
       <body className={opensans.className}>
-        <Suspense fallback={<p>Sorry We are loading</p>}>
+        <Suspense fallback={<SuspenseLoader />}>
           <TopBar />
           <Header />
           {children}

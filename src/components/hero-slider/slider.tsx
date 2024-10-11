@@ -1,8 +1,8 @@
 "use client";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectFade } from "swiper/modules";
-import { useSpring, animated } from "@react-spring/web";
+import { Autoplay, EffectFade, EffectCards } from "swiper/modules";
+import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 
 import { ArrowLeft, ArrowRight, Chevron, MobSlider, Slider } from "@/assets";
@@ -12,8 +12,6 @@ import Picture from "../common/picture";
 import { ButtonType, ButtonVariant } from "@/enum/enum";
 import AppButton from "../buttons/button.common";
 import { SliderImages } from "@/models/api.data";
-import MotionDiv from "../common/motiondiv";
-import { cardVariants } from "@/utils/cardanimate";
 import useAppLocale from "@/hooks/useAppLocale";
 
 const SliderCaption: React.FC<{ slide: SliderImages; index: number }> = ({
@@ -21,9 +19,9 @@ const SliderCaption: React.FC<{ slide: SliderImages; index: number }> = ({
   index,
 }) => {
   const { translate } = useAppLocale({});
+
   return (
-    <MotionDiv
-      animateScript={cardVariants}
+    <div
       className="caption-content"
       key={index}
     >
@@ -42,7 +40,7 @@ const SliderCaption: React.FC<{ slide: SliderImages; index: number }> = ({
           leftImage={Chevron}
         />
       </div>
-    </MotionDiv>
+    </div>
   );
 };
 
@@ -66,7 +64,7 @@ const HeroSlider: React.FC<SliderProps> = ({ sliders = [] }) => {
         onSwiper={(swiper) => setSwiperInst(swiper)}
         loop
         autoplay
-        modules={[EffectFade]}
+        modules={[EffectFade, Autoplay]}
         effect="fade"
         className="mySwiper"
       >
