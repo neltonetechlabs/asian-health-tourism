@@ -1,13 +1,25 @@
-import { BlogCard, BlogSearch, InnerBanner, SectionHead } from "@/components";
+import { BlogCard, BlogSearch, InnerBanner, MotionDiv, SectionHead } from "@/components";
 import useAppLocale from "@/hooks/useAppLocale";
 import { UIComponent } from "@/models";
 import { API_CLIENT } from "@/services";
-import { NextPage } from "next";
+import { Metadata, NextPage, ResolvingMetadata } from "next";
 import { getTranslations } from "next-intl/server";
 
-const Blog: NextPage<UIComponent.DefaultPageParam> = async ({
+export async function generateMetadata(
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const metadata = await API_CLIENT.fetchMetaData("blog");
+
+  return {
+    title: metadata?.meta_title,
+    description: metadata?.meta_description,
+    keywords: metadata?.meta_keywords,
+  };
+}
+
+export default async function Page({
   params: { locale },
-}) => {
+}: UIComponent.DefaultPageParam) {
   const t = await getTranslations("Common");
   const blogs = await API_CLIENT.fetchBlogs();
   const { translate } = useAppLocale({ locale });
@@ -16,14 +28,14 @@ const Blog: NextPage<UIComponent.DefaultPageParam> = async ({
       <InnerBanner title="Blogs" subTitle="Bluffering" />
       <section className="sec-padd">
         <div className="app-container">
-          <div className="grid grid-cols-1">
+          <MotionDiv className="grid grid-cols-1">
             <SectionHead
               title={t("search_blog")}
               rightSection={<BlogSearch />}
             />
-          </div>
-          <div className="h-10"></div>
-          <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-7">
+          </MotionDiv>
+          <div className="h-9"></div>
+          <MotionDiv className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-7">
             {blogs?.map((blog) => (
               <BlogCard
                 key={blog?.id}
@@ -35,11 +47,9 @@ const Blog: NextPage<UIComponent.DefaultPageParam> = async ({
                 slug={blog?.slug}
               />
             ))}
-          </div>
+          </MotionDiv>
         </div>
       </section>
     </main>
   );
-};
-
-export default Blog;
+}

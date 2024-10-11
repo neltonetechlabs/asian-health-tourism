@@ -4,11 +4,22 @@ import Link from "next/link";
 
 import { Facebook, Instagram, Youtube, Thread, LinkedIn } from "@/assets";
 import { API_CLIENT } from "@/services";
+import classNames from "classnames";
 
-const SocialMedia: NextComponentType<{}> = async () => {
+interface SocialMediaProps {
+  invert?: boolean;
+}
+
+const SocialMedia: NextComponentType<{}, {}, SocialMediaProps> = async ({
+  invert = false,
+}) => {
   const links = await API_CLIENT.fetchSocialMedia();
   return (
-    <ul className="flex justify-start gap-10 items-center">
+    <ul
+      className={classNames("flex justify-start gap-10 items-center", {
+        ["invert"]: invert,
+      })}
+    >
       {links?.facebook && (
         <li>
           <Link href={links?.facebook} target="_blank">

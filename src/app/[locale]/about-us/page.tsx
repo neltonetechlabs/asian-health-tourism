@@ -1,25 +1,26 @@
-import { AboutSection, CheckList, InnerBanner } from "@/components";
+import { AboutSection, CheckList, InnerBanner, MotionDiv } from "@/components";
 import classNames from "classnames";
 
 import classes from "./about.module.css";
 import { ImageWrapContent } from "@/components/templates";
 import { Demo } from "@/assets";
-import { NextPage } from "next";
+import { Metadata, NextPage, ResolvingMetadata } from "next";
 import { API_CLIENT } from "@/services";
 import { UIComponent } from "@/models";
 import useAppLocale from "@/hooks/useAppLocale";
 
-const demoItems = [
-  "Patient online services (quote and consultation)",
-  "Planning the highest international standards and quality hospitals and clinics (for all treatments and budgets)",
-  "Appointing treatments by most skilled and internationally trained doctors and surgeons (most of doctors and surgeons have more than 10 years of experience with international degrees)",
-  "Airport pick-up, pre-operative check-ups, 24-hours assistance, accommodation arrangements (for patients and their families)",
-  "Pre-hospitalization and post-hospitalization high-quality healthcare services",
-];
+export async function generateMetadata(
+  parent: ResolvingMetadata
+): Promise<Metadata> {
 
-const demo = async (): Promise<string> => {
-  return "";
-};
+  const metadata = await API_CLIENT.fetchMetaData("about");
+
+  return {
+    title: metadata?.meta_title,
+    description: metadata?.meta_description,
+    keywords: metadata?.meta_keywords,
+  };
+}
 
 const About: NextPage<UIComponent.DefaultPageParam> = async ({
   params: { locale },
@@ -37,16 +38,21 @@ const About: NextPage<UIComponent.DefaultPageParam> = async ({
           <AboutSection aboutcontent={aboutContent} locale={locale} />
         </div>
       </section>
-      <section className={classNames("sec-padd", classes.blueSec)}>
+      <MotionDiv className={classNames("sec-padd", classes.blueSec)}>
         <div className="app-container">
           <div className="grid lg:grid-cols-2 grid-cols-1">
-            <div className={classes.serviceBack}>
+            <MotionDiv className={classes.serviceBack}>
               <h3>{translate("title", aboutContent)}</h3>
-            </div>
-            <div>{translate("description", aboutContent)}</div>
+            </MotionDiv>
+            <MotionDiv className="about-html-content">
+            <div
+                dangerouslySetInnerHTML={{
+                  __html: translate("description", aboutContent) || "",
+                }}
+              ></div></MotionDiv>
           </div>
         </div>
-      </section>
+      </MotionDiv>
       <section className="sec-padd">
         <div className="app-container">
           <ImageWrapContent

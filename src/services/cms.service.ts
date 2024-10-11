@@ -1,4 +1,10 @@
-import { AboutContent, DestinationDetail } from './../models/api.data';
+import {
+  AboutContent,
+  BlogDetail,
+  BlogDetailResponse,
+  DestinationDetail,
+  MetaObject,
+} from "./../models/api.data";
 import { fetchData } from "./api.service";
 import { API_END_POINTS } from "./api.constant";
 import {
@@ -38,6 +44,18 @@ export const fetchBlogs = async () => {
   return blogs || [];
 };
 
+export const fetchBlogDetail = async (slug: string) => {
+  const blogdetail = await fetchData<BlogDetailResponse>({
+    apiEndPoint: getapi.BLOG_DETAIL + `/${slug}`,
+  });
+  return (
+    blogdetail || {
+      blog: null,
+      latest_blogs: [],
+    }
+  );
+};
+
 export const fetchDestinations = async () => {
   const destinations = await fetchData<DestinationList[]>({
     apiEndPoint: getapi.DESTINATIONS,
@@ -47,7 +65,7 @@ export const fetchDestinations = async () => {
 
 export const fetchDestinationDetail = async (slug: string) => {
   const response = await fetchData<DestinationDetail>({
-    apiEndPoint: getapi.DESTINATION_DETAIL + '/' + slug,
+    apiEndPoint: getapi.DESTINATION_DETAIL + "/" + slug,
   });
   return response || null;
 };
@@ -98,7 +116,6 @@ export const fetchHomeCount = async () => {
   return homeCount || null;
 };
 
-
 export const fetchHomeSpecialities = async () => {
   const homeSpecialities = await fetchData<HomeSpecialities[]>({
     apiEndPoint: getapi.HOME_SPECIALITY,
@@ -107,7 +124,6 @@ export const fetchHomeSpecialities = async () => {
   return homeSpecialities || [];
 };
 
-
 export const fetchAbout = async () => {
   const aboutContent = await fetchData<AboutContent>({
     apiEndPoint: getapi.ABOUT_CONTENT,
@@ -115,3 +131,13 @@ export const fetchAbout = async () => {
 
   return aboutContent || null;
 };
+
+
+export const fetchMetaData = async (page: string) => {
+  const metadata = await fetchData<MetaObject>({
+    apiEndPoint: getapi.META_DATA + `/${page}`,
+  });
+
+  return metadata || null;
+};
+

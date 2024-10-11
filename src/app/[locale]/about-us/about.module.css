@@ -1,5 +1,5 @@
 .blueSec {
-    @apply bg-[var(--blueSecondary)] text-white lg:py-36 py-16
+    @apply bg-[var(--blueSecondary)] text-white lg:py-20 py-12
 }
 
 .serviceBack {

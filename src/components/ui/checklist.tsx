@@ -7,7 +7,7 @@ const CheckList: React.FC<UIComponent.CheckListProps> = ({ listItems }) => {
     return (
       <ul className="checklist">
         {listItems?.map((item, index) => (
-          <li key={index}><span><Image src={CheckedBox} alt="" /> </span>{item}</li>
+          <li key={index}>{item}</li>
         ))}
       </ul>
     );

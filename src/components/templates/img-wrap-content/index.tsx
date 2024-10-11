@@ -6,6 +6,7 @@ import { ButtonType, ButtonVariant } from "@/enum/enum";
 import { BlueChevron, Chevron } from "@/assets";
 
 import classes from "./style.module.css";
+import MotionDiv from "@/components/common/motiondiv";
 
 const ImageWrapContent: React.FC<UIComponent.ImageWrapTemplProps> = ({
   image,
@@ -18,17 +19,17 @@ const ImageWrapContent: React.FC<UIComponent.ImageWrapTemplProps> = ({
   secondaryLink,
 }) => {
   return (
-    <div className="grid grid-cols-12 justify-center">
+    <MotionDiv className="grid grid-cols-12 justify-center">
       <div className="col-span-1"></div>
       <div className={classes.imgwrapsec}>
-        <div className="grid grid-cols-2 gap-20 items-center">
-          <div className={classes.imageWrap}>
+        <div className="grid md:grid-cols-2 grid-cols-1 md:gap-20 gap-10 items-center">
+          <MotionDiv className={classes.imageWrap}>
             <Image src={image} alt={title} width={600} height={600} />
-          </div>
-          <div className={classes.contentWrap}>
+          </MotionDiv>
+          <MotionDiv className={classes.contentWrap}>
             {headerComp ? headerComp : <h4>{title}</h4>}
-            <article>{content}</article>
-            <div className={classes.actionSec}>
+            <MotionDiv><article>{content}</article></MotionDiv>
+            <MotionDiv className={classes.actionSec}>
               {primaryBtnText && primaryLink ? (
                 <AppButton
                   title={primaryBtnText}
@@ -44,11 +45,11 @@ const ImageWrapContent: React.FC<UIComponent.ImageWrapTemplProps> = ({
                   leftImage={BlueChevron}
                 />
               ) : null}
-            </div>
-          </div>
+            </MotionDiv>
+          </MotionDiv>
         </div>
       </div>
-    </div>
+    </MotionDiv>
   );
 };
 

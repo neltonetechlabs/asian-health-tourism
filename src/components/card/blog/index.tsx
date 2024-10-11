@@ -1,7 +1,7 @@
 import { UIComponent } from "@/models";
 import classes from "./style.module.css";
 import Image from "next/image";
-import { BlueChevron, Demo1 } from "@/assets";
+import { Demo1, YellowChevron } from "@/assets";
 import { useTranslations } from "next-intl";
 import MotionDiv from "@/components/common/motiondiv";
 import { cardVariants } from "@/utils/cardanimate";
@@ -31,8 +31,8 @@ const BlogCard: React.FC<UIComponent.BlogCardProps> = async ({
     },
   };
   return (
-    <MotionDiv className={classes.blogCard} animateScript={animateScript}>
-      <Link href={`/${locale}/blogs/${slug}`}>
+    <div className={classes.blogCard}>
+      <Link href={`/${locale}/blogs/${slug}`} replace>
         <figure className={classes.blogImage}>
           <Image
             alt={title}
@@ -51,10 +51,10 @@ const BlogCard: React.FC<UIComponent.BlogCardProps> = async ({
           <div className={classes.blogDt}>
             {moment(date).format("DD MMMM yy")}
           </div>
-          <Image src={BlueChevron} alt={title} />
+          <Image src={YellowChevron} alt={title} />
         </div>
       </Link>
-    </MotionDiv>
+    </div>
   );
 };
 

@@ -1,6 +1,7 @@
 import useAppLocale from "@/hooks/useAppLocale";
 import StatCard from "./stat.card";
 import { AboutContent } from "@/models/api.data";
+import MotionDiv from "../common/motiondiv";
 
 interface AboutSectionProps {
   aboutcontent: AboutContent | null;
@@ -13,8 +14,8 @@ const AboutSection: React.FC<AboutSectionProps> = ({
 }) => {
   const { translate } = useAppLocale({ locale });
   return (
-    <div className="grid lg:grid-cols-2 grid-cols-1 gap-8">
-      <div className="left-sec-content">
+    <MotionDiv className="grid lg:grid-cols-2 grid-cols-1 gap-8">
+      <MotionDiv className="left-sec-content">
         <h2>{translate("caption", aboutcontent)}</h2>
         <div className="count-sec">
           <StatCard
@@ -30,12 +31,12 @@ const AboutSection: React.FC<AboutSectionProps> = ({
             title="Service"
           />
         </div>
-      </div>
-      <div className="why-content">
+      </MotionDiv>
+      <MotionDiv className="why-content">
         <h4>Why Asian Health Tourism Iran?</h4>
         <article>{translate("why_us", aboutcontent)}</article>
-      </div>
-    </div>
+      </MotionDiv>
+    </MotionDiv>
   );
 };
 

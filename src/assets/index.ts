@@ -22,6 +22,7 @@ import Thread from './threads.svg';
 import LinkedIn from './linkedin.svg';
 import TestimonialCaroLeft from './testimonial-left.svg';
 import TestimonialCaroRight from './testimonial-right.svg';
+import YellowChevron from './yellow_chevron.svg';
 /* Demo */
 import Slider from "./demo-images/slider.jpg";
 import MobSlider from "./demo-images/slider_mob.jpg";
@@ -64,6 +65,7 @@ export {
   Thread,
   TestimonialCaroLeft,
   TestimonialCaroRight,
+  YellowChevron,
   // Demo
   Slider,
   MobSlider,

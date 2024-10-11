@@ -3,6 +3,7 @@ export const API_END_POINTS = {
         TESTIMONIALS: "reviews",
         LANGUAGES: "languages",
         BLOG_LIST: "blogs",
+        BLOG_DETAIL: "blogdetail",
         DESTINATIONS: "destinations",
         DESTINATION_DETAIL: 'destinationdetail',
         FAQ_CATEGORY: "faq-category",
@@ -12,6 +13,7 @@ export const API_END_POINTS = {
         SERVICES: "services",
         HOMECOUNT: "homecount",
         HOME_SPECIALITY: "speciality",
-        ABOUT_CONTENT: "about"
+        ABOUT_CONTENT: "about",
+        META_DATA: "metatags"
     }
 }

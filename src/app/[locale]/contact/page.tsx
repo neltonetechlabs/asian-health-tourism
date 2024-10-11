@@ -2,7 +2,7 @@ import { NextPage } from "next";
 import { getTranslations } from "next-intl/server";
 
 import { UIComponent } from "@/models";
-import { AppButton, InnerBanner } from "@/components";
+import { AppButton, InnerBanner, MotionDiv } from "@/components";
 import SocialMedia from "@/components/ui/social-media";
 
 import style from "./style.module.css";
@@ -23,34 +23,38 @@ const ContactPage: NextPage<UIComponent.DefaultPageParam> = async ({
       />
       <section className="sec-padd">
         <div className="app-container">
-          <div className="mb-6">
+          <MotionDiv className="mb-6">
             <h3 className={style.contactHeader}>{t("page_head")}</h3>
-          </div>
+          </MotionDiv>
           <div className="grid grid-cols-12">
             <div className={style.contactDataSec}>
-              <div className={style.contactData}>
-                <h4>{t("address_label")}</h4>
-                <h6>118 Kazim Kazimzade St, Baku. +990123456789</h6>
-              </div>
-              <div className={style.contactData}>
-                <h4>{t("phone_label")}</h4>
-                <h6>+990123456789 / +990123456789</h6>
-              </div>
-              <div className={style.contactData}>
-                <h4>{t("email")}</h4>
-                <h6>info@asianhealthtourism.com</h6>
-              </div>
-              <div className={style.contactData}>
-                <h4>{t("social_media")}</h4>
-                <SocialMedia />
-              </div>
+              <MotionDiv>
+                <div className={style.contactData}>
+                  <h4>{t("address_label")}</h4>
+                  <h6>118 Kazim Kazimzade St, Baku. +990123456789</h6>
+                </div>
+                <div className={style.contactData}>
+                  <h4>{t("phone_label")}</h4>
+                  <h6>+990123456789 / +990123456789</h6>
+                </div>
+                <div className={style.contactData}>
+                  <h4>{t("email")}</h4>
+                  <h6>info@asianhealthtourism.com</h6>
+                </div>
+                <div className={style.contactData}>
+                  <h4 className={style.socioHead}>{t("social_media")}</h4>
+                  <SocialMedia invert />
+                </div>
+              </MotionDiv>
             </div>
             <div className="lg:col-span-7 col-span-12">
+              <MotionDiv>
               <form className={style.contactForm}>
                 <div className="grid grid-cols-2 gap-x-4 gap-y-8">
                   <div className={style.radioBtn}>
                     <label>
-                      <input type="radio" name="e" defaultChecked /> {t("radio_enquiry")}
+                      <input type="radio" name="e" defaultChecked />{" "}
+                      {t("radio_enquiry")}
                     </label>
                     <label>
                       <input type="radio" name="e" /> {t("radio_feedback")}
@@ -96,6 +100,7 @@ const ContactPage: NextPage<UIComponent.DefaultPageParam> = async ({
                   </div>
                 </div>
               </form>
+              </MotionDiv>
             </div>
           </div>
         </div>

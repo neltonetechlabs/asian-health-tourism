@@ -50,3 +50,5 @@
 .radioBtn label {
     @apply flex items-center gap-2 font-normal text-[#263036] cursor-pointer
 }
+
+.socioHead {margin-bottom: 10px;}

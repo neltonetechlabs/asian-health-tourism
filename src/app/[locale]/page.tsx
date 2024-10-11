@@ -39,12 +39,20 @@ const Home: NextPage<UIComponent.DefaultPageParam> = async ({
   const t = await getTranslations("Common");
   const { translate } = useAppLocale({ locale });
 
-  const [sliders, services, homecount, homeSpeciality, aboutContent ] = await Promise.all([
+  const [
+    sliders,
+    services,
+    homecount,
+    homeSpeciality,
+    aboutContent,
+    blog_list,
+  ] = await Promise.all([
     API_CLIENT.fetchSliders(),
     API_CLIENT.fetchServices(),
     API_CLIENT.fetchHomeCount(),
     API_CLIENT.fetchHomeSpecialities(),
-    API_CLIENT.fetchAbout()
+    API_CLIENT.fetchAbout(),
+    API_CLIENT.fetchBlogs(),
   ]);
 
   return (
@@ -141,7 +149,7 @@ const Home: NextPage<UIComponent.DefaultPageParam> = async ({
       </section>
 
       <TestimonialSection />
-      <LatestBlog />
+      <LatestBlog latestBlogs={blog_list} locale={locale} />
     </>
   );
 };

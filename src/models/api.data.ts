@@ -81,6 +81,11 @@ export interface BlogDetail
   blog_content_ru: string | null;
 }
 
+export interface BlogDetailResponse {
+  blog: BlogDetail;
+  latest_blogs: BlogContent[];
+}
+
 export interface DestinationList
   extends CommonTable,
     CommonLocaleTitle,
@@ -176,4 +181,10 @@ export interface DestinationObject extends DestinationDetail {
 export interface DestinationDetail {
   destination: DestinationObject;
   other_destinations: DestinationList[]
+}
+
+export interface MetaObject extends CommonTable{
+  meta_title: string;
+  meta_description: string;
+  meta_keywords: string;
 }

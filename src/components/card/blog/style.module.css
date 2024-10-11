@@ -6,7 +6,7 @@
     @apply text-[var(--primary)] text-sm font-normal my-4
 }
 .blogImage {
-    @apply rounded-md h-[260px] overflow-hidden
+    @apply rounded-md sm:h-[260px] h-[140px] overflow-hidden
 }
 .blogImage img {
     @apply w-full h-full min-w-full min-h-full object-cover object-center

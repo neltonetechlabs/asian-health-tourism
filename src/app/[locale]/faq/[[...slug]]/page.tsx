@@ -7,7 +7,7 @@ import {
 import Link from "next/link";
 import classNames from "classnames";
 
-import { InnerBanner } from "@/components";
+import { InnerBanner, MotionDiv } from "@/components";
 import { API_CLIENT } from "@/services";
 
 import style from "../style.module.css";
@@ -17,11 +17,12 @@ import FormSelect from "@/components/forms/formselect";
 
 interface FAQPageProps {
   params: { locale: string; slug: string };
+  searchParams: { category: string }
 }
 
-const FAQ: NextPage<FAQPageProps> = async ({ params: { locale, slug } }) => {
+const FAQ: NextPage<FAQPageProps> = async ({ params: { locale, slug }, searchParams: { category } }) => {
   const faqcategories = await API_CLIENT.fetchFaqCategories();
-  const activeId = slug ? slug[0] : faqcategories[0]?.id.toString();
+  const activeId = category ? category.toString() : faqcategories[0]?.id.toString();
   const faqList = await API_CLIENT.fetchFaqByCategory(activeId);
   const { translate } = useAppLocale({ locale });
   return (
@@ -36,7 +37,7 @@ const FAQ: NextPage<FAQPageProps> = async ({ params: { locale, slug } }) => {
             <div className="col-span-1"></div>
             <div className="md:col-span-10 col-span-12">
               <div className="grid md:grid-cols-3 grid-cols-1 gap-4">
-                <div className={style.faqcatlist}>
+                <MotionDiv className={style.faqcatlist}>
                   <ul className={style.faqMenu}>
                     {faqcategories?.map((faqcat) => (
                       <li
@@ -44,7 +45,7 @@ const FAQ: NextPage<FAQPageProps> = async ({ params: { locale, slug } }) => {
                         className={classNames(style.arrowbtn, style.arrowright)}
                       >
                         <Link
-                          href={`/${locale}/faq/${faqcat?.id}`}
+                          href={`/${locale}/faq?category=${faqcat?.id}`}
                           className={classNames({
                             [style.activeFaq]:
                               faqcat?.id.toString() === activeId,
@@ -55,12 +56,12 @@ const FAQ: NextPage<FAQPageProps> = async ({ params: { locale, slug } }) => {
                       </li>
                     ))}
                   </ul>
-                </div>
+                </MotionDiv>
                 <div className={style.faqSelect}>
                   <FormSelect activeFaq={activeId} locale={locale} faqcategories={faqcategories} />
                 </div>
                 <div className="col-span-2">
-                  <div className={style.faqlist}>
+                  <MotionDiv className={style.faqlist}>
                     {faqList?.map((faqda, index) => (
                       <Disclosure
                         as={"div"}
@@ -70,7 +71,7 @@ const FAQ: NextPage<FAQPageProps> = async ({ params: { locale, slug } }) => {
                           <span className="font-medium text-[#F5A604]">
                             {listNumber(index)}
                           </span>
-                          <span className="text-sm font-medium text-[#263036] group-data-[hover]:text-black/80">
+                          <span className="text-[18px] font-medium text-[#263036] group-data-[hover]:text-black/80">
                             {translate("title", faqda)}
                           </span>
                           <span className="ltr:ml-auto rtl:mr-auto text-2xl">
@@ -79,13 +80,13 @@ const FAQ: NextPage<FAQPageProps> = async ({ params: { locale, slug } }) => {
                         </DisclosureButton>
                         <DisclosurePanel
                           transition
-                          className="mt-2 text-sm/5 text-black/50"
+                          className="mt-2 text-[16px] text-black/50"
                         >
                           {translate("description", faqda)}
                         </DisclosurePanel>
                       </Disclosure>
                     ))}
-                  </div>
+                  </MotionDiv>
                 </div>
               </div>
             </div>

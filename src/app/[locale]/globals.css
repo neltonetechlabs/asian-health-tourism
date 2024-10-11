@@ -178,7 +178,7 @@ html[dir="rtl"] .link-btn {
 .left-sec-content h2 {
   font-size: 42px;
   line-height: 50px;
-  font-weight: 500;
+  font-weight: 600;
   @apply lg:text-left lg:rtl:text-right text-center;
 }
 .why-content {
@@ -189,11 +189,11 @@ html[dir="rtl"] .link-btn {
 }
 
 .left-sec-content {
-  @apply flex flex-col lg:gap-0 gap-y-4;
+  @apply flex flex-col lg:gap-0 gap-y-4 h-full;
 }
 
 .why-content article {
-  @apply lg:pr-10 pr-0 text-[16px] font-light;
+  @apply lg:pr-10 pr-0 text-[16px] font-light leading-[30px];
 }
 
 .count-sec {
@@ -205,7 +205,7 @@ html[dir="rtl"] .link-btn {
 }
 
 .sec-padd {
-  @apply md:py-20 py-10;
+  @apply md:py-14 py-10;
 }
 
 .sec-padd-sm {
@@ -228,7 +228,7 @@ html[dir="rtl"] .link-btn {
   @apply bg-black text-white h-[550px] flex flex-col justify-center relative overflow-hidden mb-[-100px];
 }
 
-.pride-sec::before {
+.pride-sec::before{
   content: '';
   position: absolute;
   left: 0;
@@ -265,15 +265,26 @@ html[dir="rtl"] .link-btn {
   color: var(--blueSecondary);
 }
 
-.checklist {
+.checklist,
+.about-html-content ul {
   @apply flex flex-col gap-4;
 }
-.checklist span {
-  @apply inline-block min-w-6 min-h-6
+
+.checklist li,
+.about-html-content li {
+  @apply flex justify-start gap-5 text-[18px] font-medium relative pl-10;
 }
 
-.checklist li {
-  @apply flex justify-start gap-5 text-xl;
+.checklist li::before,
+.about-html-content li::before {
+  content: '';
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: url('../../assets/checkedbox.svg') no-repeat center center / contain;
+  background-size: contain
 }
 
 .large-head {
@@ -305,7 +316,7 @@ header .app-btn {
 }
 
 .blog-image {
-  @apply h-[600px] mb-10;
+  @apply sm:h-[500px] mb-10 h-auto;
 }
 .blog-title {
   @apply mb-8;
@@ -323,10 +334,30 @@ header .app-btn {
 }
 .blog-meta .blog-tag {
   color: #464240;
+  opacity: 0.5;
 }
 
 .blog-title h4 {
   @apply text-[var(--textBlack)] text-4xl font-semibold leading-[40px];
+}
+.blog-content h1, 
+.blog-content h2,
+.blog-content h3,
+.blog-content h4,
+.blog-content h5,
+.blog-content h6 {
+  color: #000000;
+  font-weight: 600;
+  font-size: 24px;
+  margin: 30px 0;
+}
+.blog-content p {
+  color: #464240;
+  font-weight: 400;
+  line-height: 30px;
+}
+.blog-content p + p {
+  margin: 30px 0;
 }
 
 /*--- Responsive -----*/
@@ -429,7 +460,7 @@ header .app-btn {
   .app-container { max-width: 1300px; }
 }
 
-@media only screen and (max-width: 1400px) {
+@media only screen and (min-width: 1400px) {
   .app-container { max-width: 1300px; }
 }
 
