@@ -60,6 +60,7 @@ export interface BannerProps {
     image?: string;
     title?: string;
     subTitle?: string;
+    page: string;
 }
 
 export interface CheckListProps {

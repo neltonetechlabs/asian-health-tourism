@@ -1,11 +1,18 @@
 .contentSec {
-
 }
 
-.contentSec h3{
-    @apply text-[#263036] text-[30px] font-medium
+.contentSec h3 {
+  @apply text-[#263036] text-[30px] font-semibold;
 }
 
 .contentSec article {
-    @apply my-5 text-[14px] leading-6 font-normal text-[#263036]
+  @apply my-5 text-[16px] leading-[30px] font-normal text-[#263036];
+}
+
+.detailImage {
+  @apply rounded-xl overflow-hidden md:max-h-[450px] max-h-[auto];
+}
+
+.detailImage img {
+    @apply h-full w-full min-h-full min-w-full object-cover
 }

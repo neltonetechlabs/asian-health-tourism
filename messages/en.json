@@ -18,7 +18,8 @@
     "learn_more": "Learn More",
     "search_procedures": "Search for procedures",
     "search_blog": "Search for blog",
-    "get_free_consultation": "Get A Free Consultation"
+    "get_free_consultation": "Get A Free Consultation",
+    "procedure": "Procedures in { addOn }"
   },
   "QuickLinks": {
     "gallery": "Gallery",

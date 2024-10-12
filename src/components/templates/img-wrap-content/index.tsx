@@ -22,7 +22,7 @@ const ImageWrapContent: React.FC<UIComponent.ImageWrapTemplProps> = ({
     <MotionDiv className="grid grid-cols-12 justify-center">
       <div className="col-span-1"></div>
       <div className={classes.imgwrapsec}>
-        <div className="grid md:grid-cols-2 grid-cols-1 md:gap-20 gap-10 items-center">
+        <div className="grid lg:grid-cols-2 grid-cols-1 md:gap-20 gap-10 items-center">
           <MotionDiv className={classes.imageWrap}>
             <Image src={image} alt={title} width={600} height={600} />
           </MotionDiv>

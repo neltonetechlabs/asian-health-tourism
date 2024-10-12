@@ -14,6 +14,9 @@ export const API_END_POINTS = {
         HOMECOUNT: "homecount",
         HOME_SPECIALITY: "speciality",
         ABOUT_CONTENT: "about",
-        META_DATA: "metatags"
+        META_DATA: "metatags",
+        INNER_BANNER: "banners",
+        PROCEDURES: "procedures",
+        CONTACT_DATA: "contact"
     }
 }

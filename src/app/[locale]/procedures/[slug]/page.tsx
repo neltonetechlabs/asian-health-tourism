@@ -1,6 +1,4 @@
 import { NextPage } from "next";
-import Image from "next/image";
-import { Demo1 } from "@/assets";
 
 import { UIComponent } from "@/models";
 import DetailMeta from "@/components/card/detailmeta";
@@ -8,14 +6,13 @@ import { API_CLIENT } from "@/services";
 import useAppLocale from "@/hooks/useAppLocale";
 import {
   DestinationCard,
-  PackageCard,
   ProcedureCard,
   SectionHead,
 } from "@/components";
 import MoreInfoCard from "@/components/card/moreinfo";
 import { getTranslations } from "next-intl/server";
 
-const DestinationDetail: NextPage<UIComponent.DetailPageParam> = async ({
+const ProcedureDetail: NextPage<UIComponent.DetailPageParam> = async ({
   params: { slug, locale },
 }) => {
   const { destination, other_destinations, procedures } =
@@ -82,4 +79,4 @@ const DestinationDetail: NextPage<UIComponent.DetailPageParam> = async ({
   );
 };
 
-export default DestinationDetail;
+export default ProcedureDetail;

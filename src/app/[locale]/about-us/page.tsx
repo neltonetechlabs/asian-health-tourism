@@ -12,7 +12,6 @@ import useAppLocale from "@/hooks/useAppLocale";
 export async function generateMetadata(
   parent: ResolvingMetadata
 ): Promise<Metadata> {
-
   const metadata = await API_CLIENT.fetchMetaData("about");
 
   return {
@@ -29,10 +28,7 @@ const About: NextPage<UIComponent.DefaultPageParam> = async ({
   const { translate } = useAppLocale({ locale });
   return (
     <main className="about-page">
-      <InnerBanner
-        title="About Us"
-        subTitle="Asian Health Tourism is the biggest medical tourism and healthcare service provider in Iran"
-      />
+      <InnerBanner page="about" />
       <section className="sec-padd">
         <div className="app-container">
           <AboutSection aboutcontent={aboutContent} locale={locale} />
@@ -45,11 +41,12 @@ const About: NextPage<UIComponent.DefaultPageParam> = async ({
               <h3>{translate("title", aboutContent)}</h3>
             </MotionDiv>
             <MotionDiv className="about-html-content">
-            <div
+              <div
                 dangerouslySetInnerHTML={{
                   __html: translate("description", aboutContent) || "",
                 }}
-              ></div></MotionDiv>
+              ></div>
+            </MotionDiv>
           </div>
         </div>
       </MotionDiv>
@@ -58,12 +55,10 @@ const About: NextPage<UIComponent.DefaultPageParam> = async ({
           <ImageWrapContent
             title="Request a Free Consultation"
             headerComp={
-              <h4 className="large-head">
-                Request a Free Consultation
-              </h4>
+              <h4 className="large-head">Request a Free Consultation</h4>
             }
             image={aboutContent?.image || Demo}
-            content={translate('free_consultation_description', aboutContent)}
+            content={translate("free_consultation_description", aboutContent)}
             primaryBtnText="free consultation"
             primaryLink="/"
             secondaryBtnText="Contact Now"

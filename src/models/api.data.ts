@@ -1,3 +1,4 @@
+import { ProcedureCard } from '@/components';
 export interface CommonTable {
   id: number;
   status?: number;
@@ -178,13 +179,43 @@ export interface DestinationObject extends DestinationDetail {
   image: string | null;
 }
 
+export interface ProcedureData extends CommonTable, CommonLocaleTitle, CommonSmallDescription{
+  image: string | null;
+  slug: string;
+}
+
 export interface DestinationDetail {
   destination: DestinationObject;
-  other_destinations: DestinationList[]
+  other_destinations: DestinationList[];
+  procedures: ProcedureData[] | null;
 }
 
 export interface MetaObject extends CommonTable{
   meta_title: string;
   meta_description: string;
   meta_keywords: string;
+}
+
+export interface BannerObject extends CommonTable, CommonLocaleTitle {
+  caption_en: string;
+  caption_es: string | null;
+  caption_ar: string | null;
+  caption_ru: string | null;
+  caption_fr: string | null;
+  caption_fa: string | null;
+  image: string;
+}
+
+
+export interface ContactData extends CommonTable{
+  address_en: string;
+  address_es: string | null;
+  address_ru: string | null;
+  address_fa: string | null;
+  address_fr: string | null;
+  address_ar: string | null;
+  email: string;
+  location_url: string;
+  primary_phone_number: string;
+  secondary_phone_number: string;
 }

@@ -2,7 +2,7 @@
   @apply relative w-[230px];
 }
 .selectFilter {
-  @apply appearance-none h-[65px] border-2 border-[#949FA6] rounded-[5px] bg-white w-full px-6 box-border text-lg;
+  @apply appearance-none h-[56px] border-2 border-[#949FA6] rounded-[5px] bg-white w-full px-6 box-border text-lg;
 }
 .selectWrap::after {
   content: "";
@@ -23,7 +23,7 @@
 }
 
 .searchInp {
-    @apply appearance-none w-full h-[65px] border-2 border-[#949FA6] rounded-[5px] px-6 box-border focus:border-[var(--blueSecondary)] outline-none placeholder:text-[#263036]
+    @apply appearance-none w-full h-[56px] border-2 border-[#949FA6] rounded-[5px] px-6 box-border focus:border-[var(--blueSecondary)] outline-none placeholder:text-[#263036]
 }
 
 .searchIcon {

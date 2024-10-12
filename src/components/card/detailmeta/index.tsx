@@ -22,9 +22,9 @@ const DetailMeta: React.FC<DetailMetaProps> = ({
       <div className="app-container">
         <div className="grid grid-cols-12 items-center">
           <div className="col-span-1"></div>
-          <div className="col-span-10">
-            <div className="grid grid-cols-2 gap-20">
-              <figure className="rounded-xl overflow-hidden md:max-h-[300px] max-h-auto">
+          <div className="md:col-span-10 col-span-12">
+            <div className="grid xl:grid-cols-2 grid-cols-1 md:gap-20 gap-10">
+              <figure className={style.detailImage}>
                 <Image alt={title} src={image || Demo1} width={600} height={300} />
               </figure>
               <div className={style.contentSec}>

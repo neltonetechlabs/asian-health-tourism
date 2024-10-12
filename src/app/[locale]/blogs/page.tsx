@@ -25,7 +25,7 @@ export default async function Page({
   const { translate } = useAppLocale({ locale });
   return (
     <main>
-      <InnerBanner title="Blogs" subTitle="Bluffering" />
+      <InnerBanner page="blog" />
       <section className="sec-padd">
         <div className="app-container">
           <MotionDiv className="grid grid-cols-1">

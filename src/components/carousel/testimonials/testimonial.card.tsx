@@ -8,6 +8,7 @@ import classes from "./style.module.css";
 import { TestimonialIcon } from "@/assets";
 import { Testimonial } from "@/models/api.data";
 import useAppLocale from "@/hooks/useAppLocale";
+import StarRating from "./starrating";
 
 interface TestimonialCardProps {
   testimonial: Testimonial;
@@ -30,11 +31,18 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial }) => {
       </div>
       <div className={classes.profileSec}>
         <figure className={classes.profileImage}>
-          <Image src={testimonial?.image || ""} alt="Asian Health Tourism" width={80} height={80} />
+          <Image
+            src={testimonial?.image || ""}
+            alt="Asian Health Tourism"
+            width={80}
+            height={80}
+          />
         </figure>
         <figure className={classes.persona}>
           <h6>{translate("name", testimonial)}</h6>
-          <div className={classes.starRating}>***</div>
+          <div className={classes.starRating}>
+            <StarRating rating={testimonial?.star_rating || 1} />
+          </div>
         </figure>
       </div>
     </div>

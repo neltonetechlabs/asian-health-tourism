@@ -10,17 +10,18 @@ import classNames from "classnames";
 import FloatingInput from "@/components/forms/floatinput";
 import { Chevron } from "@/assets";
 import { ButtonType, ButtonVariant } from "@/enum/enum";
+import { API_CLIENT } from "@/services";
+import useAppLocale from "@/hooks/useAppLocale";
 
 const ContactPage: NextPage<UIComponent.DefaultPageParam> = async ({
   params: { locale },
 }) => {
   const t = await getTranslations("ContactPg");
+  const contactData = await API_CLIENT.fetchContact();
+  const { translate } = useAppLocale({ locale });
   return (
     <main>
-      <InnerBanner
-        title="Contact Us"
-        subTitle="Asian Health Tourism is the biggest medical tourism and healthcare service provider in Iran"
-      />
+      <InnerBanner page="contact" />
       <section className="sec-padd">
         <div className="app-container">
           <MotionDiv className="mb-6">
@@ -31,15 +32,20 @@ const ContactPage: NextPage<UIComponent.DefaultPageParam> = async ({
               <MotionDiv>
                 <div className={style.contactData}>
                   <h4>{t("address_label")}</h4>
-                  <h6>118 Kazim Kazimzade St, Baku. +990123456789</h6>
+                  <h6>{translate("address", contactData)}</h6>
                 </div>
                 <div className={style.contactData}>
                   <h4>{t("phone_label")}</h4>
-                  <h6>+990123456789 / +990123456789</h6>
+                  <h6>
+                    {contactData?.primary_phone_number}
+                    {contactData?.secondary_phone_number
+                      ? `/ ${contactData?.secondary_phone_number}`
+                      : ""}
+                  </h6>
                 </div>
                 <div className={style.contactData}>
                   <h4>{t("email")}</h4>
-                  <h6>info@asianhealthtourism.com</h6>
+                  <h6>{contactData?.email}</h6>
                 </div>
                 <div className={style.contactData}>
                   <h4 className={style.socioHead}>{t("social_media")}</h4>
@@ -49,57 +55,57 @@ const ContactPage: NextPage<UIComponent.DefaultPageParam> = async ({
             </div>
             <div className="lg:col-span-7 col-span-12">
               <MotionDiv>
-              <form className={style.contactForm}>
-                <div className="grid grid-cols-2 gap-x-4 gap-y-8">
-                  <div className={style.radioBtn}>
-                    <label>
-                      <input type="radio" name="e" defaultChecked />{" "}
-                      {t("radio_enquiry")}
-                    </label>
-                    <label>
-                      <input type="radio" name="e" /> {t("radio_feedback")}
-                    </label>
+                <form className={style.contactForm}>
+                  <div className="grid grid-cols-2 gap-x-4 gap-y-8">
+                    <div className={style.radioBtn}>
+                      <label>
+                        <input type="radio" name="e" defaultChecked />{" "}
+                        {t("radio_enquiry")}
+                      </label>
+                      <label>
+                        <input type="radio" name="e" /> {t("radio_feedback")}
+                      </label>
+                    </div>
+                    <div className={style.formgrp}>
+                      <FloatingInput
+                        name="name"
+                        inputKey="enter_name"
+                        label={t("name_label")}
+                      />
+                    </div>
+                    <div className={style.formgrp}>
+                      <FloatingInput
+                        name="phone"
+                        inputKey="enter_phone"
+                        label={t("phone_inp_label")}
+                      />
+                    </div>
+                    <div className="col-span-2">
+                      <FloatingInput
+                        name="phone"
+                        inputKey="enter_phone"
+                        label={t("email_inp_label")}
+                      />
+                    </div>
+                    <div className="col-span-2">
+                      <FloatingInput
+                        name="message"
+                        inputKey="message"
+                        label={t("message")}
+                        inputType="text"
+                      />
+                    </div>
+                    <div className="flex md:gap-10 gap-4 col-span-2">
+                      <AppButton
+                        title="Submit Message"
+                        type={ButtonType.FILLED}
+                        variant={ButtonVariant.PRIMARY}
+                        leftImage={Chevron}
+                      />
+                      <button type="button">Our Location Map</button>
+                    </div>
                   </div>
-                  <div className={style.formgrp}>
-                    <FloatingInput
-                      name="name"
-                      inputKey="enter_name"
-                      label={t("name_label")}
-                    />
-                  </div>
-                  <div className={style.formgrp}>
-                    <FloatingInput
-                      name="phone"
-                      inputKey="enter_phone"
-                      label={t("phone_inp_label")}
-                    />
-                  </div>
-                  <div className="col-span-2">
-                    <FloatingInput
-                      name="phone"
-                      inputKey="enter_phone"
-                      label={t("email_inp_label")}
-                    />
-                  </div>
-                  <div className="col-span-2">
-                    <FloatingInput
-                      name="message"
-                      inputKey="message"
-                      label={t("message")}
-                      inputType="text"
-                    />
-                  </div>
-                  <div className="flex md:gap-10 gap-4 col-span-2">
-                    <AppButton
-                      title="Submit Message"
-                      type={ButtonType.FILLED}
-                      variant={ButtonVariant.PRIMARY}
-                      leftImage={Chevron}
-                    />
-                    <button type="button">Our Location Map</button>
-                  </div>
-                </div>
-              </form>
+                </form>
               </MotionDiv>
             </div>
           </div>

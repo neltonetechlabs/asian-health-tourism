@@ -1,9 +1,12 @@
 import {
   AboutContent,
+  BannerObject,
   BlogDetail,
   BlogDetailResponse,
+  ContactData,
   DestinationDetail,
   MetaObject,
+  ProcedureData,
 } from "./../models/api.data";
 import { fetchData } from "./api.service";
 import { API_END_POINTS } from "./api.constant";
@@ -141,3 +144,29 @@ export const fetchMetaData = async (page: string) => {
   return metadata || null;
 };
 
+export const fetchBanners = async (page: string) => {
+  const innerbanner = await fetchData<BannerObject>({
+    apiEndPoint: getapi.INNER_BANNER + `/${page}`,
+  });
+
+  return innerbanner || null;
+};
+
+
+
+export const fetchProcedures = async () => {
+  const innerbanner = await fetchData<ProcedureData[]>({
+    apiEndPoint: getapi.PROCEDURES,
+  });
+
+  return innerbanner || null;
+};
+
+
+export const fetchContact = async () => {
+  const innerbanner = await fetchData<ContactData>({
+    apiEndPoint: getapi.CONTACT_DATA,
+  });
+
+  return innerbanner || null;
+};

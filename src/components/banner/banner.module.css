@@ -1,5 +1,11 @@
 .bannerSec {
-    @apply relative md:h-[400px] h-[300px] bg-[var(--primary)] flex items-center
+    @apply relative md:h-[400px] h-[300px] bg-[var(--primary)] flex items-center overflow-hidden;
+}
+.bannerSec figure {
+    @apply absolute left-0 top-0 w-full h-full
+}
+.bannerSec figure img {
+    @apply w-full h-full max-w-full max-h-full object-cover
 }
 .content {
     @apply text-white z-10 relative

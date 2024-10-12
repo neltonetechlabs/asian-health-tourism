@@ -6,9 +6,13 @@ import {
   ProcedureCard,
   SectionHead,
 } from "@/components";
+import useAppLocale from "@/hooks/useAppLocale";
+import { UIComponent } from "@/models";
 import { ListCardProps } from "@/models/component";
+import { API_CLIENT } from "@/services";
 import { NextPage } from "next";
 import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
 const demoProcedures: ListCardProps[] = [
   {
@@ -41,14 +45,16 @@ const demoProcedures: ListCardProps[] = [
   },
 ];
 
-const Procedures: NextPage = () => {
-  const t = useTranslations("Common");
+const Procedures: NextPage<UIComponent.DetailPageParam> = async ({
+  params: { locale },
+}) => {
+  const t = await getTranslations("Common");
+  const bloglists = await API_CLIENT.fetchBlogs();
+  const procedures = await API_CLIENT.fetchProcedures();
+  const { translate } = useAppLocale({ locale });
   return (
     <main>
-      <InnerBanner
-        title="Procedures"
-        subTitle="Asian Health Tourism is the biggest medical tourism and healthcare service provider in Iran"
-      />
+      <InnerBanner page="procedures" />
       <section className="sec-padd">
         <div className="app-container">
           <div className="grid grid-cols-1">
@@ -59,19 +65,20 @@ const Procedures: NextPage = () => {
           </div>
           <div className="h-10"></div>
           <div className="grid grid-cols-4 gap-7">
-            {demoProcedures?.map((item, index) => (
+            {procedures?.map((item, index) => (
               <ProcedureCard
-                key={index}
-                title={item?.title}
+                key={item?.id}
+                title={translate("title", item)}
                 image={item?.image}
-                description={item?.description}
+                description={translate("small_description", item)}
                 slug={item?.slug}
+                locale={locale}
               />
             ))}
           </div>
         </div>
       </section>
-      <LatestBlog />
+      <LatestBlog latestBlogs={bloglists} locale={locale} />
     </main>
   );
 };

@@ -54,12 +54,11 @@ const DestinationList: NextPage<UIComponent.DefaultPageParam> = async ({
   return (
     <main>
       <InnerBanner
-        title="Destinations"
-        subTitle="Asian Health Tourism is the biggest medical tourism and healthcare service provider in Iran"
+        page="destinations"
       />
       <section className="sec-padd">
         <div className="app-container">
-          <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-7">
+          <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2 grid-cols-1 gap-7">
             {destinations?.map((destinaion) => (
               <DestinationCard
                 key={destinaion?.id}

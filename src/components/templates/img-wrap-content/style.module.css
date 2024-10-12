@@ -1,5 +1,5 @@
 .imgwrapsec {
-    @apply col-span-10 mx-auto
+    @apply md:col-span-10 col-span-12 mx-auto
 }
 .imageWrap {
     @apply overflow-hidden rounded-xl h-[400px]

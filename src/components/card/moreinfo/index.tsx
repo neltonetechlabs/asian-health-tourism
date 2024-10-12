@@ -11,7 +11,9 @@ const MoreInfoCard: React.FC<MoreInfoCardProps> = ({ title, content }) => {
         <div className="app-container">
           <div className="more-info-sec-content">
             <h4>{title}</h4>
+            <div className="more-html-content">
             <div dangerouslySetInnerHTML={{ __html: content }}></div>
+            </div>
           </div>
         </div>
       </div>

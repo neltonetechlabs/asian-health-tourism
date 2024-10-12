@@ -5,7 +5,8 @@ import "./globals.css";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/effect-fade";
-import "swiper/css/effect-flip";
+import '@/css/fontello/css/fontello.css';
+
 import { Header, TopBar } from "@/components";
 import { routing } from "@/i18n/routing";
 import { getMessages } from "next-intl/server";

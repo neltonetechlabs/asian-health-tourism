@@ -1,24 +1,42 @@
 import React from "react";
-import classes from "./banner.module.css";
+import classNames from "classnames";
+import { getLocale } from "next-intl/server";
 
 import { UIComponent } from "@/models";
-import { url } from "inspector";
-import classNames from "classnames";
-import MotionDiv from "../common/motiondiv";
 import { cardVariants } from "@/utils/cardanimate";
+import { API_CLIENT } from "@/services";
 
-const InnerBanner: React.FC<UIComponent.BannerProps> = ({
+import classes from "./banner.module.css";
+import MotionDiv from "../common/motiondiv";
+import useAppLocale from "@/hooks/useAppLocale";
+import Image from "next/image";
+
+const InnerBanner: React.FC<UIComponent.BannerProps> = async ({
   image,
   title,
   subTitle,
+  page,
 }) => {
+  const banner = await API_CLIENT.fetchBanners(page);
+  const locale = await getLocale();
+  const { translate } = useAppLocale({ locale });
+  const bgBanner = banner?.image || "";
+  console.log("bgBanner: ", bgBanner);
   return (
-    <div className={classNames(classes.bannerSec, "bg-[url('https://images.pexels.com/photos/4033148/pexels-photo-4033148.jpeg')] bg-cover bg-top")}>
+    <div className={classNames(classes.bannerSec)}>
+      <figure>
+      <Image
+        src={bgBanner}
+        width={1200}
+        height={300}
+        alt={banner?.title_en || ""}
+      />
+      </figure>
       <div className="app-container">
         <MotionDiv animateScript={cardVariants} className={classes.content}>
-          <h4>{title}</h4>
+          <h4>{translate("title", banner)}</h4>
           <div className={classes.subTitle}>
-            <h5>{subTitle}</h5>
+            <h5>{translate("caption", banner)}</h5>
           </div>
         </MotionDiv>
       </div>

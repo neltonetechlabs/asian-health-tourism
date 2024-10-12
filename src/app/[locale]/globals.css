@@ -135,7 +135,7 @@ html[dir="rtl"] .logo-fig > img {
   @apply text-right;
 }
 html[dir="rtl"] .link-btn {
-  @apply md:mr-auto md:ml-0 flex-row-reverse m-auto
+  @apply md:mr-auto md:ml-0 flex-row-reverse m-auto;
 }
 .sec-heading h4 {
   font-size: 35px;
@@ -228,8 +228,8 @@ html[dir="rtl"] .link-btn {
   @apply bg-black text-white h-[550px] flex flex-col justify-center relative overflow-hidden mb-[-100px];
 }
 
-.pride-sec::before{
-  content: '';
+.pride-sec::before {
+  content: "";
   position: absolute;
   left: 0;
   top: 0;
@@ -266,25 +266,42 @@ html[dir="rtl"] .link-btn {
 }
 
 .checklist,
-.about-html-content ul {
+.about-html-content ul,
+.more-html-content ul {
   @apply flex flex-col gap-4;
 }
 
 .checklist li,
-.about-html-content li {
+.about-html-content li,
+.more-html-content li {
   @apply flex justify-start gap-5 text-[18px] font-medium relative pl-10;
 }
 
 .checklist li::before,
-.about-html-content li::before {
-  content: '';
+.about-html-content li::before,
+.more-html-content li::before {
+  content: "";
   width: 25px;
   height: 25px;
   position: absolute;
   left: 0;
   top: 0;
-  background: url('../../assets/checkedbox.svg') no-repeat center center / contain;
-  background-size: contain
+  background: url("../../assets/checkedbox.svg") no-repeat center center /
+    contain;
+  background-size: contain;
+}
+
+.more-html-content p + p {
+  margin-top: 30px;
+  font-size: 16px;
+  line-height: 30px;
+  font-weight: 400;
+  color: #263036;
+}
+
+.more-html-content li::before {
+  background: url("../../assets/checkedbox_blue.svg") no-repeat center center /
+    contain;
 }
 
 .large-head {
@@ -340,7 +357,7 @@ header .app-btn {
 .blog-title h4 {
   @apply text-[var(--textBlack)] text-4xl font-semibold leading-[40px];
 }
-.blog-content h1, 
+.blog-content h1,
 .blog-content h2,
 .blog-content h3,
 .blog-content h4,
@@ -456,17 +473,20 @@ header .app-btn {
   height: 60px;
 }
 
-@media only screen and (min-width: 1536px){
-  .app-container { max-width: 1300px; }
+@media only screen and (min-width: 1536px) {
+  .app-container {
+    max-width: 1300px;
+  }
 }
 
 @media only screen and (min-width: 1400px) {
-  .app-container { max-width: 1300px; }
+  .app-container {
+    max-width: 1300px;
+  }
 }
 
-
 .more-info-sec {
-  background-color: #F0F9FF;
+  background-color: #f0f9ff;
   margin-bottom: 4rem;
 }
 
@@ -475,7 +495,6 @@ header .app-btn {
   font-size: 32px;
   font-weight: 600;
 }
-
 
 /* Preloade */
 .loader {
@@ -487,6 +506,15 @@ header .app-btn {
   animation: spin 1s linear infinite;
 }
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.star-container {
+  display: flex;
+  color: var(--primary);
 }
