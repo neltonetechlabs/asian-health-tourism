@@ -1,7 +1,6 @@
 import React from "react";
 
 const StarRating: React.FC<{ rating: number }> = ({ rating }) => {
-    console.log('rating: ', rating);
   const stars = [1, 2, 3, 4, 5]; // Array for 5 stars
 
   return (

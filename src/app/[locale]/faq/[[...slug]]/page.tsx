@@ -1,4 +1,4 @@
-import { NextPage } from "next";
+import { Metadata, NextPage, ResolvingMetadata } from "next";
 import {
   Disclosure,
   DisclosureButton,
@@ -20,6 +20,20 @@ interface FAQPageProps {
   searchParams: { category: string }
 }
 
+
+export async function generateMetadata(
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const metadata = await API_CLIENT.fetchMetaData("faq");
+
+  return {
+    title: metadata?.meta_title,
+    description: metadata?.meta_description,
+    keywords: metadata?.meta_keywords,
+  };
+}
+
+
 const FAQ: NextPage<FAQPageProps> = async ({ params: { locale, slug }, searchParams: { category } }) => {
   const faqcategories = await API_CLIENT.fetchFaqCategories();
   const activeId = category ? category.toString() : faqcategories[0]?.id.toString();
@@ -28,8 +42,7 @@ const FAQ: NextPage<FAQPageProps> = async ({ params: { locale, slug }, searchPar
   return (
     <main>
       <InnerBanner
-        title="FAQ"
-        subTitle="Asian Health Tourism is the biggest medical tourism and healthcare service provider in Iran"
+        page="faq"
       />
       <section className="sec-padd">
         <div className="app-container">

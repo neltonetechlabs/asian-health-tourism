@@ -1,4 +1,4 @@
-import { NextPage } from "next";
+import { Metadata, NextPage, ResolvingMetadata } from "next";
 import { getTranslations } from "next-intl/server";
 
 import { UIComponent } from "@/models";
@@ -12,6 +12,19 @@ import { Chevron } from "@/assets";
 import { ButtonType, ButtonVariant } from "@/enum/enum";
 import { API_CLIENT } from "@/services";
 import useAppLocale from "@/hooks/useAppLocale";
+
+export async function generateMetadata(
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const metadata = await API_CLIENT.fetchMetaData("contact");
+
+  return {
+    title: metadata?.meta_title,
+    description: metadata?.meta_description,
+    keywords: metadata?.meta_keywords,
+  };
+}
+
 
 const ContactPage: NextPage<UIComponent.DefaultPageParam> = async ({
   params: { locale },

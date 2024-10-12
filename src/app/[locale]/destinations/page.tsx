@@ -11,39 +11,20 @@ import useAppLocale from "@/hooks/useAppLocale";
 import { UIComponent } from "@/models";
 import { ListCardProps } from "@/models/component";
 import { API_CLIENT } from "@/services";
-import { NextPage } from "next";
+import { Metadata, NextPage, ResolvingMetadata } from "next";
 import { getTranslations } from "next-intl/server";
 
-const demoProcedures: ListCardProps[] = [
-  {
-    title: "Rhinoplasty (Nose Job)",
-    description:
-      "Traveling abroad for nose surgery is not hassle-free if you want to do it on your own; that’s...",
-    slug: "/",
-    image: Demo1,
-  },
-  {
-    title: "Weight Loss",
-    description:
-      "Traveling abroad for nose surgery is not hassle-free if you want to do it on your own; that’s...",
-    slug: "/",
-    image: Demo2,
-  },
-  {
-    title: "Plastic Surgery",
-    description:
-      "Traveling abroad for nose surgery is not hassle-free if you want to do it on your own; that’s...",
-    slug: "/",
-    image: Demo3,
-  },
-  {
-    title: "Cosmetic Dentistry",
-    description:
-      "Traveling abroad for nose surgery is not hassle-free if you want to do it on your own; that’s...",
-    slug: "/",
-    image: Demo,
-  },
-];
+export async function generateMetadata(
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const metadata = await API_CLIENT.fetchMetaData("destinations");
+
+  return {
+    title: metadata?.meta_title,
+    description: metadata?.meta_description,
+    keywords: metadata?.meta_keywords,
+  };
+}
 
 const DestinationList: NextPage<UIComponent.DefaultPageParam> = async ({
   params: { locale }

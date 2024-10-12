@@ -17,6 +17,7 @@ export const API_END_POINTS = {
         META_DATA: "metatags",
         INNER_BANNER: "banners",
         PROCEDURES: "procedures",
-        CONTACT_DATA: "contact"
+        CONTACT_DATA: "contact",
+        PROCEDURE_DETAIL: "procedure-detail"
     }
 }

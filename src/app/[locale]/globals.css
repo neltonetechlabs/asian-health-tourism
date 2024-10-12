@@ -22,8 +22,31 @@ body {
 }
 
 .app-btn {
-  @apply flex w-[200px] px-4 rounded-md h-[56px] leading-[56px] font-semibold capitalize items-center gap-4 relative;
+  @apply flex w-[200px] px-4 rounded-md h-[56px] leading-[56px] font-semibold capitalize relative overflow-hidden;
+  transition: all 0.30s ease-in-out;
 }
+
+.app-btn:hover {
+  color: #fff;
+}
+
+.app-btn::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  opacity: 0;
+  height: 100%;
+  z-index: 3;
+  transition: all 0.30s ease-in-out;
+}
+.btn-content {
+  position: relative;
+  z-index: 7;
+  @apply flex items-center gap-4 w-full;
+}
+
 .app-btn.btn-primary {
   background-color: var(--primary);
   border: 2px solid var(--primary);
@@ -42,6 +65,21 @@ body {
   color: var(--blueSecondary);
 }
 
+.app-btn.app-btn.btn-stroke::before {
+  background-color: var(--blueSecondary);
+}
+.app-btn img {
+  transition: all 0.30s ease-in-out;
+}
+.app-btn:hover img {
+  filter: brightness(5);
+}
+
+.app-btn:hover::before {
+  opacity: 1;
+  width: 100%;
+}
+
 .app-btn.btn-blue {
   background-color: var(--bluePrimary);
   color: var(--textBlack);
@@ -54,8 +92,14 @@ body {
 }
 .app-btn .left-icon {
   @apply absolute right-4;
+  transition: all 0.30s ease-in-out;
 }
-html[dir="rtl"] .app-btn {
+
+.app-btn:hover .left-icon {
+  @apply right-2 
+}
+
+.app-btn.btn-stok html[dir="rtl"] .app-btn {
   @apply flex-row-reverse;
 }
 html[dir="rtl"] .slider-action .app-btn {
@@ -65,7 +109,7 @@ html[dir="rtl"] .slider-action .app-btn {
   @apply flex justify-between items-center gap-6;
 }
 .menu-ul {
-  @apply flex justify-end flex-1 gap-11;
+  @apply flex justify-end flex-1 xl:gap-11 lg:gap-6;
 }
 .menu-ul li a {
   font-size: 16px;
@@ -406,7 +450,7 @@ header .app-btn {
   font-size: 2.5rem;
   color: #fff;
   font-weight: bold;
-  @apply md:leading-[auto] leading-[45px] md:text-left text-center md:mb-0 mb-5;
+  @apply md:leading-[auto] leading-[45px] lg:text-center md:text-center text-center lg:mb-0 mb-5;
 }
 
 .footer-item h3 {
@@ -517,4 +561,85 @@ header .app-btn {
 .star-container {
   display: flex;
   color: var(--primary);
+}
+
+/*** Mobile Menu ***/
+/* Position and sizing of burger button */
+.bm-burger-button {
+  position: relative;
+  width: 30px;
+  height: 30px;
+}
+
+/* Color/shape of burger icon bars */
+.bm-burger-bars {
+  background: #373a47;
+}
+
+/* Color/shape of burger icon bars on hover*/
+.bm-burger-bars-hover {
+  background: #a90000;
+}
+
+/* Position and sizing of clickable cross button */
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+  font-size: 22px;
+}
+
+/* Color/shape of close button cross */
+.bm-cross {
+  background: #bdc3c7;
+  scale: 1.6;
+}
+
+/*
+Sidebar wrapper styles
+Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
+*/
+.bm-menu-wrap {
+  position: fixed;
+  height: 100%;
+  top: 0;
+}
+
+/* General sidebar styles */
+.bm-menu {
+  background: #373a47;
+  padding: 2.5em 1.5em 0;
+  font-size: 1.15em;
+}
+
+/* Morph shape necessary with bubble or elastic */
+.bm-morph-shape {
+  fill: #373a47;
+}
+
+/* Wrapper for item list */
+.bm-item-list {
+  color: #b8b7ad;
+  padding: 0.8em;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Individual item */
+.bm-item {
+  display: inline-block;
+
+}
+
+/* Styling of overlay */
+.bm-overlay {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+@media only screen and (max-width: 456px) {
+  .btn-content { text-indent: -9999px; gap: 0; }
+}
+.mobile-menu {display: none;}
+@media only screen and (max-width: 992px) {
+  .mobile-menu {  display: block;  }
 }

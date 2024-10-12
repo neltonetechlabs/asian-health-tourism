@@ -5,7 +5,7 @@ import "./globals.css";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/effect-fade";
-import '@/css/fontello/css/fontello.css';
+import "@/css/fontello/css/fontello.css";
 
 import { Header, TopBar } from "@/components";
 import { routing } from "@/i18n/routing";
@@ -15,6 +15,7 @@ import { ChatPrimary, Whatsapp } from "@/assets";
 import AppFooter from "@/components/layout/footer";
 import { Suspense } from "react";
 import SuspenseLoader from "@/components/ui/suspense";
+import { NextIntlClientProvider } from "next-intl";
 
 const opensans = Open_Sans({
   subsets: ["latin"],
@@ -41,28 +42,30 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
-      <body className={opensans.className}>
-        <Suspense fallback={<SuspenseLoader />}>
-          <TopBar />
-          <Header />
-          {children}
-          <div className="aside-chat-option">
-            <ul className="appearance-none flex flex-col gap-4">
-              <li>
-                <Link href="/">
-                  <Image src={Whatsapp} alt="ChatNow" />
-                </Link>
-              </li>
-              <li>
-                <Link href="/">
-                  <Image src={ChatPrimary} alt="ChatNow" />
-                </Link>
-              </li>
-            </ul>
-          </div>
-          <AppFooter />
-        </Suspense>
-      </body>
+      <NextIntlClientProvider messages={messages}>
+        <body className={opensans.className}>
+          <Suspense fallback={<SuspenseLoader />}>
+            <TopBar />
+            <Header />
+            {children}
+            <div className="aside-chat-option">
+              <ul className="appearance-none flex flex-col gap-4">
+                <li>
+                  <Link href="/">
+                    <Image src={Whatsapp} alt="ChatNow" />
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/">
+                    <Image src={ChatPrimary} alt="ChatNow" />
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <AppFooter />
+          </Suspense>
+        </body>
+      </NextIntlClientProvider>
     </html>
   );
 }

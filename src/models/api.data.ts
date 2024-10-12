@@ -169,7 +169,7 @@ export interface AboutContent extends CommonTable, CommonLocaleTitle, CommonDesc
   service: string;
 }
 
-export interface DestinationObject extends DestinationDetail {
+export interface DestinationObject extends CommonTable, CommonLocaleTitle, CommonSmallDescription, CommonDescription {
   more_info_en: string;
   more_info_es: string | null;
   more_info_ar: string | null;

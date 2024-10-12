@@ -1,4 +1,4 @@
-import { NextPage } from "next";
+import { Metadata, NextPage, ResolvingMetadata } from "next";
 import Image from "next/image";
 import { Demo1 } from "@/assets";
 
@@ -14,6 +14,23 @@ import {
 } from "@/components";
 import MoreInfoCard from "@/components/card/moreinfo";
 import { getTranslations } from "next-intl/server";
+
+type Props = {
+  params: { slug: string };
+};
+
+export async function generateMetadata(
+  parent: ResolvingMetadata,
+  { params }: Props
+): Promise<Metadata> {
+  const { slug } = params;
+  const { destination } = await API_CLIENT.fetchDestinationDetail(slug) || {};
+
+  return {
+    title: destination?.title_en,
+    description: destination?.small_description_en,
+  };
+}
 
 const DestinationDetail: NextPage<UIComponent.DetailPageParam> = async ({
   params: { slug, locale },

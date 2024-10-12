@@ -44,9 +44,7 @@ const BlogDetail: NextPage<BlogDetailPage> = async ({
 }) => {
   const t = await getTranslations("Common");
   const { translate } = useAppLocale({ locale });
-  console.log("slug", slug);
   const { blog, latest_blogs } = await API_CLIENT.fetchBlogDetail(slug || "");
-  console.log("blogdetail: ", blog?.blog_content_en);
   return (
     <main className="sec-padd">
       <div className="app-container">

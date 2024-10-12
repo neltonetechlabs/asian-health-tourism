@@ -29,7 +29,7 @@ const LatestBlog: React.FC<LatestBlogProps> = ({
           rightTarget="blogs"
         />
         <div className="h-8"></div>
-        <div className="grid md:grid-cols-3 grid-cols-1 gap-5">
+        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5">
           {blogs?.map((blog, index) => (
             <BlogCard
               title={translate("title", blog)}

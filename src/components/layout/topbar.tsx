@@ -6,19 +6,19 @@ import { fetchMasterLangs } from "@/services/cms.service";
 import { UIComponent } from "@/models";
 import { NextPage } from "next";
 import { getLocale } from "next-intl/server";
+import { API_CLIENT } from "@/services";
 
 const TopBar: React.FC<{}> = async () => {
   const langs = await fetchMasterLangs();
   const locale = await getLocale();
+  const contact = await API_CLIENT.fetchContact();
   return (
     <div className="topbar">
       <div className="app-container">
         <div className="top-bar-content">
           <div className="top-quick-links">
             <ul>
-              <li>
-                <Link href="/">Gallery</Link>
-              </li>
+             
               <li>
                 <Link href={`/${locale}/faq`}>FAQ</Link>
               </li>
@@ -29,7 +29,7 @@ const TopBar: React.FC<{}> = async () => {
           </div>
           <div className="top-contact">
             <Image alt="090809" src={PhoneIcon} />
-            <h6>+91 1234 5678 910</h6>
+            <h6>{contact?.primary_phone_number}</h6>
           </div>
           <LocaleSwitch langs={langs} />
         </div>

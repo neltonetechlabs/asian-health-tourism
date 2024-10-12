@@ -15,6 +15,7 @@ export interface ButtonProps {
     type?: ButtonType;
     variant?: ButtonVariant;
     customClass?: string;
+    linkUrl?: string;
 }
 
 export interface FeatureCardProps {

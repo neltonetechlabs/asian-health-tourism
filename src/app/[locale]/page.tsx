@@ -16,7 +16,7 @@ import Image from "next/image";
 import { CountryIcon, PrideBg, PrideIcon, SupportIcon } from "@/assets";
 import useAppLocale from "@/hooks/useAppLocale";
 import { UIComponent } from "@/models";
-import { NextPage } from "next";
+import { Metadata, NextPage, ResolvingMetadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { cardVariants } from "@/utils/cardanimate";
 import { API_CLIENT } from "@/services";
@@ -32,6 +32,19 @@ const animateScript = {
     },
   },
 };
+
+
+export async function generateMetadata(
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const metadata = await API_CLIENT.fetchMetaData("home");
+
+  return {
+    title: metadata?.meta_title,
+    description: metadata?.meta_description,
+    keywords: metadata?.meta_keywords,
+  };
+}
 
 const Home: NextPage<UIComponent.DefaultPageParam> = async ({
   params: { locale },

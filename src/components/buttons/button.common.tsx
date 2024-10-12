@@ -1,9 +1,11 @@
 "use client";
 import classNames from "classnames";
+import Image from "next/image";
 
 import { ButtonType } from "@/enum/enum";
 import { UIComponent } from "@/models";
-import Image from "next/image";
+import Link from "next/link";
+import { useLocale } from "next-intl";
 
 const AppButton: React.FC<UIComponent.ButtonProps> = ({
   title = "Click Me",
@@ -13,9 +15,12 @@ const AppButton: React.FC<UIComponent.ButtonProps> = ({
   type = ButtonType.FILLED,
   customClass = "",
   variant,
+  linkUrl = "contact",
 }) => {
+  const locale = useLocale();
   return (
-    <button
+    <Link
+      href={`/${locale}/${linkUrl}`}
       className={classNames(
         "app-btn",
         {
@@ -30,18 +35,20 @@ const AppButton: React.FC<UIComponent.ButtonProps> = ({
       title={title}
       style={{ backgroundColor: variant || "transparent" }}
     >
-      {rightImage && (
-        <div className="right-icon">
-          <Image src={rightImage} alt={title} />
-        </div>
-      )}
-      {title}
-      {leftImage && (
-        <span className="left-icon">
-          <Image src={leftImage} alt={title} />
-        </span>
-      )}
-    </button>
+      <div className="btn-content">
+        {rightImage && (
+          <div className="right-icon">
+            <Image src={rightImage} alt={title} />
+          </div>
+        )}
+        {title}
+        {leftImage && (
+          <span className="left-icon">
+            <Image src={leftImage} alt={title} />
+          </span>
+        )}
+      </div>
+    </Link>
   );
 };
 

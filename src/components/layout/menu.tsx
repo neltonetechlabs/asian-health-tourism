@@ -1,6 +1,5 @@
-import { link } from "fs";
 import { useLocale, useTranslations } from "next-intl";
-import Link from "next/link";
+import ActiveLink from "./activelink";
 
 const main_menu = [
   {
@@ -21,7 +20,7 @@ const main_menu = [
   {
     id: 4,
     title: "patient",
-    link: "",
+    link: "reviews",
   },
   {
     id: 6,
@@ -38,11 +37,12 @@ const main_menu = [
 const Menu: React.FC<{}> = () => {
   const t = useTranslations("MainMenu");
   const locale = useLocale();
+
   return (
     <ul className="menu-ul">
       {main_menu?.map((menuItem) => (
         <li key={menuItem?.id}>
-          <Link href={`/${locale}/${menuItem?.link}`}>{t(menuItem?.title)}</Link>
+          <ActiveLink link={menuItem?.link} title={t(menuItem?.title)} />
         </li>
       ))}
     </ul>

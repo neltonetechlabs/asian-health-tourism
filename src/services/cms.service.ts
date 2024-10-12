@@ -155,11 +155,21 @@ export const fetchBanners = async (page: string) => {
 
 
 export const fetchProcedures = async () => {
-  const innerbanner = await fetchData<ProcedureData[]>({
+  const procedures = await fetchData<ProcedureData[]>({
     apiEndPoint: getapi.PROCEDURES,
   });
 
-  return innerbanner || null;
+  return procedures || [];
+};
+
+
+
+export const fetchProcedureDetail = async (slug: string) => {
+  const procedure = await fetchData<ProcedureData>({
+    apiEndPoint: getapi.PROCEDURE_DETAIL + `/${slug}`,
+  });
+
+  return procedure || null;
 };
 
 
