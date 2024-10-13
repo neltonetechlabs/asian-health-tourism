@@ -467,6 +467,13 @@ header .app-btn {
   margin-bottom: 0.5rem;
   font-size: 14px;
 }
+.footer-item ul li a {
+  transition: all 0.30s ease-in-out;
+}
+.footer-item ul li a:hover {
+  color: var(--primary);  
+}
+
 
 .footer-sec + .footer-sec {
   margin-top: 1.5rem;
