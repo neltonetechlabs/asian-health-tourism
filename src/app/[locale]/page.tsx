@@ -64,8 +64,8 @@ const Home: NextPage<UIComponent.DefaultPageParam> = async ({
     API_CLIENT.fetchHomeCount(),
     API_CLIENT.fetchHomeSpecialities(),
     API_CLIENT.fetchAbout(),
-    API_CLIENT.fetchBlogs({offset: 0,limit: 3}),
-    API_CLIENT.fetchProcedures({offset: 0,limit: 4}),
+    API_CLIENT.fetchBlogs({offset: 0}),
+    API_CLIENT.fetchProcedures({offset: 0}),
   ]);
 
   return (

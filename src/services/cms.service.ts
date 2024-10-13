@@ -41,8 +41,8 @@ export const fetchTestimonials = async () => {
 };
 
 interface LimitParams {
-  offset: number;
-  limit: number;
+  offset?: number;
+  limit?: number;
 }
 
 function createQueryString(params: any) {

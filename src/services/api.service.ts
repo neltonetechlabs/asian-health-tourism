@@ -14,7 +14,6 @@ export const fetchData = async <T>({
   apiEndPoint,
 }: FetchDataProps): Promise<T | null> => {
   try {
-    console.log('apiEndPoint: ', apiEndPoint);
     const response = await instance.get(apiEndPoint);
     return response?.data?.data;
   } catch (error) {
