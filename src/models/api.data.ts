@@ -182,6 +182,16 @@ export interface DestinationObject extends CommonTable, CommonLocaleTitle, Commo
 export interface ProcedureData extends CommonTable, CommonLocaleTitle, CommonSmallDescription{
   image: string | null;
   slug: string;
+  package_features: {
+    id: string;
+    feature_en: string;
+    feature_es: string | null;
+    feature_ar: string | null;
+    feature_ru: string | null;
+    feature_fr: string | null;
+    feature_fa: string | null;
+    image: string;
+  }[]
 }
 
 export interface DestinationDetail {

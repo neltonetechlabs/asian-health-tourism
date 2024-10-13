@@ -1,47 +1,42 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { BlueChevron, Demo, Hotel, Transfer, Translator, Visa } from "@/assets";
+import { BlueChevron, CheckedBoxBlue, Demo, Hotel, Transfer, Translator, Visa } from "@/assets";
 
 import classes from "./style.module.css";
+import { ProcedureData } from "@/models/api.data";
+import useAppLocale from "@/hooks/useAppLocale";
+import ImageWithFallBack from "@/components/ui/imagewithfallback";
 
-const PackageCard = () => {
+const PackageCard: React.FC<{ data: ProcedureData; locale: string }> = ({
+  data,
+  locale,
+}) => {
+  const { translate } = useAppLocale({ locale });
   return (
-    <Link href="/" className={classes.pckgcardlink}>
+    <Link href={`/${locale}/${data?.slug}`} className={classes.pckgcardlink}>
       <div className={classes.packagecard}>
         <div className={classes.pckgimg}>
-          <Image alt="Surgery" src={Demo} />
+          <ImageWithFallBack alt={data?.title_en} src={data?.image || ""} />
         </div>
         <div className={classes.pckgContent}>
-          <h5>Surgery</h5>
-          <div className={classes.pckgFeatures}>
-            <ul>
-              <li className={classes.pckgFeat}>
-                <div className={classes.pckgicon}>
-                  <Image alt="Hotel" src={Hotel} />
-                </div>
-                <h4>Hotel</h4>
-              </li>
-              <li className={classes.pckgFeat}>
-                <div className={classes.pckgicon}>
-                  <Image alt="Transfer" src={Transfer} />
-                </div>
-                <h4>Transfer</h4>
-              </li>
-              <li className={classes.pckgFeat}>
-                <div className={classes.pckgicon}>
-                  <Image alt="Visa" src={Visa} />
-                </div>
-                <h4>Visa</h4>
-              </li>
-              <li className={classes.pckgFeat}>
-                <div className={classes.pckgicon}>
-                  <Image alt="Interpreter" src={Translator} />
-                </div>
-                <h4>Interpreter</h4>
-              </li>
-            </ul>
-          </div>
+          <h5>{translate("title", data)}</h5>
+          {data?.package_features.length ?? 0 ? (
+            <div className={classes.pckgFeatures}>
+              <ul>
+                {data?.package_features?.map((pckgFeat) => (
+                  <li className={classes.pckgFeat} key={pckgFeat?.id}>
+                    <div className={classes.pckgicon}>
+                      <Image alt="Hotel" src={pckgFeat?.image || Translator} />
+                    </div>
+                    <h4>{translate("feature", pckgFeat)}</h4>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : (
+            <></>
+          )}
           <div className={classes.pckgLink}>
             <span>See Prices</span>
             <Image alt="See prices" src={BlueChevron} />

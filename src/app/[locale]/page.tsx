@@ -21,6 +21,7 @@ import { getTranslations } from "next-intl/server";
 import { cardVariants } from "@/utils/cardanimate";
 import { API_CLIENT } from "@/services";
 import { ServiceHomePage } from "@/models/api.data";
+import ScrollContext from "@/components/wrapper/scrollcontext";
 
 const animateScript = {
   ...cardVariants,
@@ -33,9 +34,7 @@ const animateScript = {
   },
 };
 
-
-export async function generateMetadata(
-): Promise<Metadata> {
+export async function generateMetadata(): Promise<Metadata> {
   const metadata = await API_CLIENT.fetchMetaData("home");
 
   return {
@@ -58,6 +57,7 @@ const Home: NextPage<UIComponent.DefaultPageParam> = async ({
     homeSpeciality,
     aboutContent,
     blog_list,
+    procedures,
   ] = await Promise.all([
     API_CLIENT.fetchSliders(),
     API_CLIENT.fetchServices(),
@@ -65,6 +65,7 @@ const Home: NextPage<UIComponent.DefaultPageParam> = async ({
     API_CLIENT.fetchHomeSpecialities(),
     API_CLIENT.fetchAbout(),
     API_CLIENT.fetchBlogs(),
+    API_CLIENT.fetchProcedures(),
   ]);
 
   return (
@@ -75,21 +76,24 @@ const Home: NextPage<UIComponent.DefaultPageParam> = async ({
           <FeatureCaro locale={locale} specialities={homeSpeciality} />
         </div>
       </MotionDiv>
-      <section className="sec-wrap pb-20">
-        <div className="app-container">
-          <SectionHead
-            title={t("top_packages_iran")}
-            rightTitle={t("see_all_package")}
-            rightTarget="/"
-          />
-          <div className="grid xl:grid-cols-4 sm:grid-cols-2 gap-8 mt-12">
-            <PackageCard />
-            <PackageCard />
-            <PackageCard />
-            <PackageCard />
+      {procedures?.length ?? 0 ? (
+        <section className="sec-wrap pb-20">
+          <div className="app-container">
+            <SectionHead
+              title={t("top_packages_iran")}
+              rightTitle={t("see_all_package")}
+              rightTarget="/"
+            />
+            <div className="grid xl:grid-cols-4 sm:grid-cols-2 gap-8 mt-12">
+              {procedures?.map((proc) => (
+                <PackageCard data={proc} key={proc?.id} locale={locale} />
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      ) : (
+        <></>
+      )}
       <section className="parallax-sec">
         <div className="app-container">
           <div className="parallax-sec-content">
@@ -134,13 +138,14 @@ const Home: NextPage<UIComponent.DefaultPageParam> = async ({
           </MotionDiv>
         </div>
       </section>
+      
       <section className="pride-count">
         <div className="app-container">
           <div className="pride-count-cards">
             <div className="xl:col-span-2 lg:block lg:col-span-1 hidden"></div>
             <PrideCard
               delay={0.3}
-              count={`${homecount?.languages_supported}+` || ""}
+              count={`${homecount?.languages_supported}+` || "0"}
               title={t("lang_support")}
               icon={PrideIcon}
             />

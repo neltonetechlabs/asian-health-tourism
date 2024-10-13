@@ -1,6 +1,6 @@
 .prideCountCard {
   box-shadow: 0px 3px 30px #f5a6041a;
-  @apply bg-white rounded-[10px] pt-7 pb-10 px-9 h-full transition-all duration-500 opacity-0;
+  @apply bg-white rounded-[10px] pt-7 pb-10 px-9 h-full transition-all duration-500;
 }
 .prideCountCard:hover {
     box-shadow: 0px 5px 30px 0px #f5a60473;

@@ -22,19 +22,19 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   count = 0,
   delay
 }) => {
-  const animateScript = {
-    ...cardVariants,
+ 
+  const fadeInVariants = {
+    offscreen: { opacity: 0, y: 0 },
     onscreen: {
-      ...cardVariants?.onscreen,
-      transition: {
-        ...cardVariants?.transition,
-        delay: delay
-      }
-    }
-  }
+      opacity: 1,
+      y: 0,
+      transition: { duration: 1 },
+    },
+  };
+
   const { translate } = useAppLocale({ locale });
   return (
-    <MotionDiv animateScript={animateScript} className={classes.servicecard}>
+    <MotionDiv animateScript={fadeInVariants} className={classes.servicecard}>
       <div className={classes.hoverImage}>
         <Image alt="Service" src={serviceItem?.image} width={200} height={200} />
       </div>
