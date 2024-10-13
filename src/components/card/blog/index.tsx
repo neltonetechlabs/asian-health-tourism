@@ -8,6 +8,7 @@ import { cardVariants } from "@/utils/cardanimate";
 import moment from "moment";
 import Link from "next/link";
 import { getLocale } from "next-intl/server";
+import ImageWithFallBack from "@/components/ui/imagewithfallback";
 
 const BlogCard: React.FC<UIComponent.BlogCardProps> = async ({
   id,
@@ -34,7 +35,7 @@ const BlogCard: React.FC<UIComponent.BlogCardProps> = async ({
     <div className={classes.blogCard}>
       <Link href={`/${locale}/blogs/${slug}`} className={classes.bloglink} replace prefetch>
         <figure className={classes.blogImage}>
-          <Image
+          <ImageWithFallBack
             alt={title}
             src={image || Demo1}
             height={260}

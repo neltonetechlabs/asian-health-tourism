@@ -3,6 +3,7 @@
   padding: 16px;
   border-radius: 10px;
   box-shadow: 0px 3px 6px #0000001f;
+  position: relative;
 }
 
 .pckgContent h5 {
@@ -12,7 +13,7 @@
   margin-top: 1rem
 }
 .pckgContent p {
-  @apply mt-4 mb-6 font-light text-[16px]
+  @apply mt-4 mb-6 font-light text-[16px] min-h-[80px] max-h-[80px] text-ellipsis
 }
 .pckgFeatures {
   @apply py-6;
@@ -64,4 +65,8 @@
 
 .destinationCard .pckgimg {
   @apply md:h-[220px] sm:h-[200] h-[130px]
+}
+
+.pckglinkText {
+  @apply text-[var(--blueSecondary)] font-semibold flex gap-2 justify-start items-center text-[16px];
 }

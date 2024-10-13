@@ -1,4 +1,4 @@
-import { useLocale } from "next-intl";
+import { getLocale } from "next-intl/server";
 
 interface useAppLocaleProps {
   locale?: string | null;
@@ -7,7 +7,8 @@ interface useAppLocaleProps {
 const pattern = /^<p><br><\/p>$/;
 
 const useAppLocale = ({ locale }: useAppLocaleProps) => {
-  const localeCode = locale ? locale : useLocale();
+  const fetchLocale = async () => await getLocale();
+  const localeCode = locale ? locale : fetchLocale();
   const isArabic = localeCode === "ar";
   const translate = (primaryKey: string, data: any): string => {
     try {

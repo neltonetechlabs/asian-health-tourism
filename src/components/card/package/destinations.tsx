@@ -9,6 +9,7 @@ import { BlueChevron } from "@/assets";
 import classes from "./style.module.css";
 import MotionDiv from "@/components/common/motiondiv";
 import { cardVariants } from "@/utils/cardanimate";
+import ImageWithFallBack from "@/components/ui/imagewithfallback";
 
 const DestinationCard: React.FC<UIComponent.ListCardProps> = ({
   image,
@@ -31,7 +32,7 @@ const DestinationCard: React.FC<UIComponent.ListCardProps> = ({
       >
         <div className={classes.cardBody}>
           <figure className={classes.pckgimg}>
-            <Image
+            <ImageWithFallBack
               src={image || ""}
               width={100}
               height={100}
