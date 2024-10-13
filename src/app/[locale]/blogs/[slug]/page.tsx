@@ -4,8 +4,7 @@ import useAppLocale from "@/hooks/useAppLocale";
 import { API_CLIENT } from "@/services";
 import { cardVariants } from "@/utils/cardanimate";
 import moment from "moment";
-import { Metadata, NextPage, ResolvingMetadata } from "next";
-import { useTranslations } from "next-intl";
+import { Metadata, NextPage } from "next";
 import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 
@@ -20,21 +19,15 @@ type Props = {
 
 export async function generateMetadata(
   { params }: Props,
-  parent: ResolvingMetadata
 ): Promise<Metadata> {
   // read route params
   const { slug } = params;
 
   const { blog } = await API_CLIENT.fetchBlogDetail(slug);
 
-  const previousImages = (await parent).openGraph?.images || [];
-
   return {
     title: blog?.title_en,
-    description: blog?.small_description_en,
-    openGraph: {
-      images: [blog?.image!, ...previousImages],
-    },
+    description: blog?.small_description_en
   };
 }
 

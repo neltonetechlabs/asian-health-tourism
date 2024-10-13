@@ -1,4 +1,4 @@
-import { Metadata, NextPage, ResolvingMetadata } from "next";
+import { Metadata, NextPage } from "next";
 
 import { UIComponent } from "@/models";
 import DetailMeta from "@/components/card/detailmeta";
@@ -15,7 +15,6 @@ type Props = {
 };
 
 export async function generateMetadata(
-  parent: ResolvingMetadata,
   { params }: Props,
 ): Promise<Metadata> {
   const { slug } = params;

@@ -1,4 +1,4 @@
-import { Metadata, NextPage, ResolvingMetadata } from "next";
+import { Metadata, NextPage } from "next";
 import {
   Disclosure,
   DisclosureButton,
@@ -22,7 +22,6 @@ interface FAQPageProps {
 
 
 export async function generateMetadata(
-  parent: ResolvingMetadata
 ): Promise<Metadata> {
   const metadata = await API_CLIENT.fetchMetaData("faq");
 
@@ -78,6 +77,7 @@ const FAQ: NextPage<FAQPageProps> = async ({ params: { locale, slug }, searchPar
                     {faqList?.map((faqda, index) => (
                       <Disclosure
                         as={"div"}
+                        key={faqda?.id}
                         className="border-b border-[#263036] pb-5 data-[open]:active-accordion mb-4"
                       >
                         <DisclosureButton className="group flex w-full md:items-center items-start justify-start gap-4 text-left">

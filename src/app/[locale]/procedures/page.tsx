@@ -10,13 +10,12 @@ import useAppLocale from "@/hooks/useAppLocale";
 import { UIComponent } from "@/models";
 import { ListCardProps } from "@/models/component";
 import { API_CLIENT } from "@/services";
-import { Metadata, NextPage, ResolvingMetadata } from "next";
+import { Metadata, NextPage } from "next";
 import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
 
 
 export async function generateMetadata(
-  parent: ResolvingMetadata
 ): Promise<Metadata> {
   const metadata = await API_CLIENT.fetchMetaData("procedures");
 

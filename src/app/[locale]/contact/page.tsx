@@ -1,4 +1,4 @@
-import { Metadata, NextPage, ResolvingMetadata } from "next";
+import { Metadata, NextPage } from "next";
 import { getTranslations } from "next-intl/server";
 
 import { UIComponent } from "@/models";
@@ -6,16 +6,13 @@ import { AppButton, InnerBanner, MotionDiv } from "@/components";
 import SocialMedia from "@/components/ui/social-media";
 
 import style from "./style.module.css";
-import classNames from "classnames";
 import FloatingInput from "@/components/forms/floatinput";
 import { Chevron } from "@/assets";
 import { ButtonType, ButtonVariant } from "@/enum/enum";
 import { API_CLIENT } from "@/services";
 import useAppLocale from "@/hooks/useAppLocale";
 
-export async function generateMetadata(
-  parent: ResolvingMetadata
-): Promise<Metadata> {
+export async function generateMetadata(): Promise<Metadata> {
   const metadata = await API_CLIENT.fetchMetaData("contact");
 
   return {

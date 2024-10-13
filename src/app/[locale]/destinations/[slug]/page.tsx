@@ -1,4 +1,4 @@
-import { Metadata, NextPage, ResolvingMetadata } from "next";
+import { Metadata, NextPage } from "next";
 import Image from "next/image";
 import { Demo1 } from "@/assets";
 

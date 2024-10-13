@@ -29,7 +29,7 @@ const LocaleSwitch: React.FC<LocaleSwitchProps> = ({ langs = [] }) => {
       const currentLang = langs?.find((lang) => lang?.code === locale);
       if (currentLang) setSelectedLang(currentLang);
     }
-  }, [locale]);
+  }, [locale, langs]);
 
   const newPathname = pathname.replace(/^\/(en|ar|ru|es|fr|fa)/, "");
 

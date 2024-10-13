@@ -4,13 +4,12 @@ import classNames from "classnames";
 import classes from "./about.module.css";
 import { ImageWrapContent } from "@/components/templates";
 import { Demo } from "@/assets";
-import { Metadata, NextPage, ResolvingMetadata } from "next";
+import { Metadata, NextPage } from "next";
 import { API_CLIENT } from "@/services";
 import { UIComponent } from "@/models";
 import useAppLocale from "@/hooks/useAppLocale";
 
 export async function generateMetadata(
-  parent: ResolvingMetadata
 ): Promise<Metadata> {
   const metadata = await API_CLIENT.fetchMetaData("about");
 

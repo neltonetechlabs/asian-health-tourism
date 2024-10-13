@@ -1,4 +1,3 @@
-import { Demo, Demo1, Demo2, Demo3 } from "@/assets";
 import {
     DestinationCard,
   InnerBanner,
@@ -9,13 +8,11 @@ import {
 } from "@/components";
 import useAppLocale from "@/hooks/useAppLocale";
 import { UIComponent } from "@/models";
-import { ListCardProps } from "@/models/component";
 import { API_CLIENT } from "@/services";
-import { Metadata, NextPage, ResolvingMetadata } from "next";
+import { Metadata, NextPage } from "next";
 import { getTranslations } from "next-intl/server";
 
 export async function generateMetadata(
-  parent: ResolvingMetadata
 ): Promise<Metadata> {
   const metadata = await API_CLIENT.fetchMetaData("destinations");
 

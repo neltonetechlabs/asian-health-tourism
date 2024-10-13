@@ -8,11 +8,10 @@ import {
 import useAppLocale from "@/hooks/useAppLocale";
 import { UIComponent } from "@/models";
 import { API_CLIENT } from "@/services";
-import { Metadata, NextPage, ResolvingMetadata } from "next";
+import { Metadata, NextPage } from "next";
 import { getTranslations } from "next-intl/server";
 
 export async function generateMetadata(
-  parent: ResolvingMetadata
 ): Promise<Metadata> {
   const metadata = await API_CLIENT.fetchMetaData("blog");
 
