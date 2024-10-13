@@ -21,7 +21,6 @@ const InnerBanner: React.FC<UIComponent.BannerProps> = async ({
   const locale = await getLocale();
   const { translate } = useAppLocale({ locale });
   const bgBanner = banner?.image || "";
-  console.log("bgBanner: ", bgBanner);
   return (
     <div className={classNames(classes.bannerSec)}>
       <figure>

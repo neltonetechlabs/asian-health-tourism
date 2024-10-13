@@ -40,9 +40,22 @@ export const fetchTestimonials = async () => {
   return testimonials || [];
 };
 
-export const fetchBlogs = async () => {
+interface LimitParams {
+  offset: number;
+  limit: number;
+}
+
+function createQueryString(params: any) {
+  if (params) {
+    const queryString = new URLSearchParams(params).toString();
+    return `?${queryString}`;
+  }
+  return "";
+}
+
+export const fetchBlogs = async (funcParams?: LimitParams) => {
   const blogs = await fetchData<BlogContent[]>({
-    apiEndPoint: getapi.BLOG_LIST,
+    apiEndPoint: getapi.BLOG_LIST + `${createQueryString(funcParams)}`,
   });
   return blogs || [];
 };
@@ -59,9 +72,9 @@ export const fetchBlogDetail = async (slug: string) => {
   );
 };
 
-export const fetchDestinations = async () => {
+export const fetchDestinations = async (funcParams?: LimitParams) => {
   const destinations = await fetchData<DestinationList[]>({
-    apiEndPoint: getapi.DESTINATIONS,
+    apiEndPoint: getapi.DESTINATIONS + `${createQueryString(funcParams)}`,
   });
   return destinations || [];
 };
@@ -135,7 +148,6 @@ export const fetchAbout = async () => {
   return aboutContent || null;
 };
 
-
 export const fetchMetaData = async (page: string) => {
   const metadata = await fetchData<MetaObject>({
     apiEndPoint: getapi.META_DATA + `/${page}`,
@@ -152,17 +164,13 @@ export const fetchBanners = async (page: string) => {
   return innerbanner || null;
 };
 
-
-
-export const fetchProcedures = async () => {
+export const fetchProcedures = async (funcParams?: LimitParams) => {
   const procedures = await fetchData<ProcedureData[]>({
-    apiEndPoint: getapi.PROCEDURES,
+    apiEndPoint: getapi.PROCEDURES + `${createQueryString(funcParams)}`,
   });
 
   return procedures || [];
 };
-
-
 
 export const fetchProcedureDetail = async (slug: string) => {
   const procedure = await fetchData<ProcedureData>({
@@ -171,7 +179,6 @@ export const fetchProcedureDetail = async (slug: string) => {
 
   return procedure || null;
 };
-
 
 export const fetchContact = async () => {
   const innerbanner = await fetchData<ContactData>({
