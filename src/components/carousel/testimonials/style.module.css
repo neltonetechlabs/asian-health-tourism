@@ -1,20 +1,34 @@
 .testiCard {
-    @apply bg-[#F0F9FF] p-10 rounded-lg h-full flex justify-between flex-col
+  @apply bg-[#F0F9FF] p-10 rounded-lg h-full flex justify-between flex-col;
 }
-.testimonial{
-    @apply mt-5 mb-9 text-[#000000] text-[18px] font-light
+.testimonial {
+  @apply mt-5 mb-9 text-[#000000] text-[18px] font-light;
 }
 .profileSec {
-    @apply flex justify-start items-center gap-4 mt-auto
+  @apply flex justify-start items-center gap-4 mt-auto;
 }
 .profileImage {
-    @apply overflow-hidden rounded-full w-14 h-14
+  @apply overflow-hidden rounded-full w-14 h-14;
 }
 .profileImage img {
-    @apply object-fill object-center h-full w-full min-h-full min-w-full
+  @apply object-cover object-center h-full w-full min-h-full min-w-full;
 }
 .persona {
-    @apply font-normal
+  @apply font-normal;
 }
 
-.rtlCard {direction: rtl;}
+.rtlCard {
+  direction: rtl;
+}
+
+.pckgimg img {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+
+.pckglink:hover .pckgimg img {
+  -webkit-transform: scale(1.3);
+  transform: scale(1.3);
+}

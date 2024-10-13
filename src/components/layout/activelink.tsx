@@ -14,6 +14,8 @@ const ActiveLink: React.FC<{link: string, title: string, className?: string}> = 
     <Link
       className={`${className} ${pathname === `/${locale}/${link}` ? "active" : ""}`}
       href={`/${locale}/${link}`}
+      replace
+      prefetch
     >
       {title}
     </Link>

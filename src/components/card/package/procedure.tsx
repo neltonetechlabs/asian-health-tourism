@@ -12,34 +12,32 @@ const ProcedureCard: React.FC<UIComponent.ListCardProps> = ({
   description,
   slug,
   image,
-  locale
+  locale,
 }) => {
   const t = useTranslations("Common");
   return (
     <div className={classes.packagecard}>
-      <div className={classes.cardBody}>
-        <figure className={classes.pckgimg}>
-          <Image
-            src={image || ""}
-            alt={title}
-            className="img-fit cover obj_center"
-            width={600}
-            height={300}
-          />
-        </figure>
-        <div className={classes.pckgContent}>
-          <h5>{title}</h5>
-          <p>{description}</p>
-          <Link
-            href={`/${locale}/procedures/${slug}`}
-            title={t("learn_more")}
-            className={classes.pckgLink}
-          >
-            <span>{t("learn_more")}</span>
-            <Image alt={t("learn_more")} src={BlueChevron} />
-          </Link>
+      <Link className={classes.pckglink} href={`/${locale}/procedures/${slug}`} title={t("learn_more")}>
+        <div className={classes.cardBody}>
+          <figure className={classes.pckgimg}>
+            <Image
+              src={image || ""}
+              alt={title}
+              className="img-fit cover obj_center"
+              width={600}
+              height={300}
+            />
+          </figure>
+          <div className={classes.pckgContent}>
+            <h5>{title}</h5>
+            <p>{description}</p>
+            <div className={classes.pckgLink}>
+              <span>{t("learn_more")}</span>
+              <Image alt={t("learn_more")} src={BlueChevron} />
+            </div>
+          </div>
         </div>
-      </div>
+      </Link>
     </div>
   );
 };

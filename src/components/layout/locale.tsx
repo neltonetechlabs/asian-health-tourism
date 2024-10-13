@@ -1,5 +1,5 @@
 "use client";
-import { Fragment, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Listbox,
   ListboxButton,
@@ -8,19 +8,11 @@ import {
   Transition,
 } from "@headlessui/react";
 import { MasterLang } from "@/models/api.data";
-import { API_CLIENT } from "@/services";
 import { useLocale } from "next-intl";
 import { usePathname, useRouter } from "next/navigation";
-import { redirect } from "next/navigation";
 import Link from "next/link";
-
-const people = [
-  { id: 1, name: "Durward Reynolds" },
-  { id: 2, name: "Kenton Towne" },
-  { id: 3, name: "Therese Wunsch" },
-  { id: 4, name: "Benedict Kessler" },
-  { id: 5, name: "Katelyn Rohan" },
-];
+import { en } from "@/assets";
+import Image from "next/image";
 
 interface LocaleSwitchProps {
   langs: MasterLang[];
@@ -43,7 +35,19 @@ const LocaleSwitch: React.FC<LocaleSwitchProps> = ({ langs = [] }) => {
 
   return (
     <Listbox value={selectedLang} onChange={setSelectedLang}>
-      <ListboxButton>{selectedLang?.language || ''}</ListboxButton>
+      <ListboxButton>
+        <div className="flex justify-between items-center gap-2">
+          <figure className="flag-figure">
+            <Image
+              src={`/assets/images/${selectedLang?.code}.svg` || en}
+              alt=""
+              width={20}
+              height={20}
+            />
+          </figure>
+          {selectedLang?.language || ""}
+        </div>
+      </ListboxButton>
       <ListboxOptions
         className="bg-white rounded-sm p-2 shadow-sm top-4 z-10"
         anchor="bottom"
@@ -54,7 +58,19 @@ const LocaleSwitch: React.FC<LocaleSwitchProps> = ({ langs = [] }) => {
             value={lang}
             className="group flex gap-2 bg-white data-[focus]:bg-blue-100 py-1 cursor-pointer"
           >
-            <Link href={`/${lang?.code}/${newPathname}`}>{lang.language}</Link>
+            <Link href={`/${lang?.code}/${newPathname}`}>
+              <div className="flex justify-between items-center gap-2">
+                <figure className="flag-figure">
+                  <Image
+                    src={`/assets/images/${lang?.code}.svg` || en}
+                    alt=""
+                    width={20}
+                    height={20}
+                  />
+                </figure>
+                <span>{lang.language}</span>
+              </div>
+            </Link>
           </ListboxOption>
         ))}
       </ListboxOptions>

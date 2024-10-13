@@ -4,16 +4,17 @@ interface useAppLocaleProps {
   locale?: string | null;
 }
 
-const useAppLocale = ({
-  locale
-}: useAppLocaleProps) => {
+const pattern = /^<p><br><\/p>$/;
+
+const useAppLocale = ({ locale }: useAppLocaleProps) => {
   const localeCode = locale ? locale : useLocale();
   const isArabic = localeCode === "ar";
   const translate = (primaryKey: string, data: any): string => {
     try {
       if (primaryKey && data) {
-        if (data[`${primaryKey}_${localeCode}`]) {
-          return data[`${primaryKey}_${localeCode}`];
+        const keydata = data[`${primaryKey}_${localeCode}`];
+        if (keydata && !pattern.test(keydata)) {
+          return keydata;
         } else {
           return data[`${primaryKey}_en`];
         }

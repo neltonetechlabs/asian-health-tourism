@@ -34,6 +34,10 @@
     @apply flex gap-5
 }
 
+.slider-page button {
+    @apply rtl:rotate-180
+}
+
 .slider-page {
     @apply flex gap-10 mt-6 absolute bottom-3 w-full z-10 bottom-16
 }

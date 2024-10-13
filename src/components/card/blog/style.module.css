@@ -1,25 +1,37 @@
 .blogCard {
-    box-shadow: 0px 2px 8px #F5A6041A;
-    @apply px-4 py-5 bg-white rounded-[8px] h-full
+  box-shadow: 0px 2px 8px #f5a6041a;
+  @apply px-4 py-5 bg-white rounded-[8px] h-full;
 }
 .tag {
-    @apply text-[var(--primary)] text-sm font-normal my-4
+  @apply text-[var(--primary)] text-sm font-normal my-4;
 }
 .blogImage {
-    @apply rounded-md sm:h-[260px] h-[140px] overflow-hidden
+  @apply rounded-md sm:h-[260px] h-[140px] overflow-hidden;
 }
 .blogImage img {
-    @apply w-full h-full min-w-full min-h-full object-cover object-center
+  @apply w-full h-full min-w-full min-h-full object-cover object-center;
 }
 .blogFooter {
-    @apply text-[#263036] font-semibold text-sm border-t border-t-gray-200 pt-4 pb-2 mt-4 flex justify-between
+  @apply text-[#263036] font-semibold text-sm border-t border-t-gray-200 pt-4 pb-2 mt-4 flex justify-between;
 }
 .blogDesc {
-    @apply min-h-[55px]
+  @apply min-h-[55px];
 }
 .blogDesc h4 {
-    @apply text-[#373740] text-[18px] font-semibold line-clamp-2 text-ellipsis
+  @apply text-[#373740] text-[18px] font-semibold line-clamp-2 text-ellipsis;
 }
 .arrowBlog {
-    @apply ml-auto rtl:rotate-90
+  @apply ml-auto rtl:rotate-90;
+}
+
+.blogImage img {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+
+.bloglink:hover .blogImage img {
+  -webkit-transform: scale(1.3);
+  transform: scale(1.3);
 }

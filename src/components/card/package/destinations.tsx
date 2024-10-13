@@ -15,7 +15,7 @@ const DestinationCard: React.FC<UIComponent.ListCardProps> = ({
   title,
   description,
   slug,
-  locale
+  locale,
 }) => {
   const t = useTranslations("Common");
 
@@ -24,29 +24,31 @@ const DestinationCard: React.FC<UIComponent.ListCardProps> = ({
       className={classNames(classes.packagecard, classes.destinationCard)}
       animateScript={cardVariants}
     >
-      <div className={classes.cardBody}>
-        <figure className={classes.pckgimg}>
-          <Image
-            src={image || ""}
-            width={100}
-            height={100}
-            alt={title}
-            className="img-fit cover obj_center"
-          />
-        </figure>
-        <div className={classes.pckgContent}>
-          <h5>{title}</h5>
-          <p>{description}</p>
-          <Link
-            href={`/${locale}/destinations/${slug}`}
-            title={t("learn_more")}
-            className={classes.pckgLink}
-          >
-            <span>{t("learn_more")}</span>
-            <Image alt={t("learn_more")} src={BlueChevron} />
-          </Link>
+      <Link
+        className={classes.pckglink}
+        href={`/${locale}/destinations/${slug}`}
+        title={title}
+      >
+        <div className={classes.cardBody}>
+          <figure className={classes.pckgimg}>
+            <Image
+              src={image || ""}
+              width={100}
+              height={100}
+              alt={title}
+              className="img-fit cover obj_center"
+            />
+          </figure>
+          <div className={classes.pckgContent}>
+            <h5>{title}</h5>
+            <p>{description}</p>
+            <div className={classes.pckgLink}>
+              <span>{t("learn_more")}</span>
+              <Image alt={t("learn_more")} src={BlueChevron} />
+            </div>
+          </div>
         </div>
-      </div>
+      </Link>
     </MotionDiv>
   );
 };

@@ -2,7 +2,7 @@ export const API_END_POINTS = {
     GET_API: {
         TESTIMONIALS: "reviews",
         LANGUAGES: "languages",
-        BLOG_LIST: "blogs",
+        BLOG_LIST: "blog-list",
         BLOG_DETAIL: "blogdetail",
         DESTINATIONS: "destinations",
         DESTINATION_DETAIL: 'destinationdetail',

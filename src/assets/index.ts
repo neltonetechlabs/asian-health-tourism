@@ -24,6 +24,16 @@ import LinkedIn from './linkedin.svg';
 import TestimonialCaroLeft from './testimonial-left.svg';
 import TestimonialCaroRight from './testimonial-right.svg';
 import YellowChevron from './yellow_chevron.svg';
+
+/* Locale */
+import ar from './ar.svg';
+import en from './en.svg';
+import ru from './ru.svg';
+import fr from './fr.svg';
+import fa from './fa.svg';
+import es from './es.svg';
+/* Locale */
+
 /* Demo */
 import Slider from "./demo-images/slider.jpg";
 import MobSlider from "./demo-images/slider_mob.jpg";
@@ -68,6 +78,13 @@ export {
   TestimonialCaroLeft,
   TestimonialCaroRight,
   YellowChevron,
+  // Locale
+  ar,
+  en,
+  fa,
+  fr,
+  ru,
+  es,
   // Demo
   Slider,
   MobSlider,

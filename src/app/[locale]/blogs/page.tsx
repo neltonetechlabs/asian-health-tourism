@@ -1,4 +1,10 @@
-import { BlogCard, BlogSearch, InnerBanner, MotionDiv, SectionHead } from "@/components";
+import {
+  BlogCard,
+  BlogSearch,
+  InnerBanner,
+  MotionDiv,
+  SectionHead,
+} from "@/components";
 import useAppLocale from "@/hooks/useAppLocale";
 import { UIComponent } from "@/models";
 import { API_CLIENT } from "@/services";
@@ -35,19 +41,21 @@ export default async function Page({
             />
           </MotionDiv>
           <div className="h-9"></div>
-          <MotionDiv className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-7">
+          <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-7">
             {blogs?.map((blog) => (
-              <BlogCard
-                key={blog?.id}
-                id={blog?.id}
-                title={translate("title", blog)}
-                description={translate("small_description", blog)}
-                image={blog?.image}
-                date={blog?.blog_date}
-                slug={blog?.slug}
-              />
+              <MotionDiv key={blog?.id}>
+                <BlogCard
+                  key={blog?.id}
+                  id={blog?.id}
+                  title={translate("title", blog)}
+                  description={translate("small_description", blog)}
+                  image={blog?.image}
+                  date={blog?.blog_date}
+                  slug={blog?.slug}
+                />
+              </MotionDiv>
             ))}
-          </MotionDiv>
+          </div>
         </div>
       </section>
     </main>

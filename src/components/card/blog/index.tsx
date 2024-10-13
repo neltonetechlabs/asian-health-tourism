@@ -32,7 +32,7 @@ const BlogCard: React.FC<UIComponent.BlogCardProps> = async ({
   };
   return (
     <div className={classes.blogCard}>
-      <Link href={`/${locale}/blogs/${slug}`} replace>
+      <Link href={`/${locale}/blogs/${slug}`} className={classes.bloglink} replace prefetch>
         <figure className={classes.blogImage}>
           <Image
             alt={title}

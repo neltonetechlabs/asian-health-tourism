@@ -19,17 +19,25 @@ type Props = {
   params: { slug: string };
 };
 
-export async function generateMetadata(
-  parent: ResolvingMetadata,
-  { params }: Props
-): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = params;
-  const { destination } = await API_CLIENT.fetchDestinationDetail(slug) || {};
+  if (slug) {
+    const { destination } =
+      (await API_CLIENT.fetchDestinationDetail(slug)) || {};
 
-  return {
-    title: destination?.title_en,
-    description: destination?.small_description_en,
-  };
+    return {
+      title: destination?.title_en + ' | Asian Health Tourism',
+      description: destination?.small_description_en,
+    };
+  } else {
+    const metadata = await API_CLIENT.fetchMetaData("destinations");
+
+    return {
+      title: metadata?.meta_title,
+      description: metadata?.meta_description,
+      keywords: metadata?.meta_keywords,
+    };
+  }
 }
 
 const DestinationDetail: NextPage<UIComponent.DetailPageParam> = async ({

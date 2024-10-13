@@ -1,7 +1,6 @@
 import { Demo1 } from "@/assets";
 import { LatestBlog, MotionDiv } from "@/components";
 import useAppLocale from "@/hooks/useAppLocale";
-import { UIComponent } from "@/models";
 import { API_CLIENT } from "@/services";
 import { cardVariants } from "@/utils/cardanimate";
 import moment from "moment";
@@ -68,6 +67,8 @@ const BlogDetail: NextPage<BlogDetailPage> = async ({
                   src={blog?.image || Demo1}
                   alt={blog?.title_en || "Asian Health Tourism"}
                   className="img-fit cover object-center"
+                  width={600}
+                  height={500}
                 />
               </figure>
             </MotionDiv>

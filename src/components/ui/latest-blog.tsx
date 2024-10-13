@@ -21,28 +21,32 @@ const LatestBlog: React.FC<LatestBlogProps> = ({
   const t = useTranslations("Common");
   const { translate } = useAppLocale({ locale });
   return (
-    <MotionDiv animateScript={cardVariants} className="sec-padd-sm">
+    <div className="sec-padd-sm">
       <div className="app-container">
-        <SectionHead
-          title={t("latest_blog")}
-          rightTitle={t("all_blogs")}
-          rightTarget="blogs"
-        />
+        <MotionDiv>
+          <SectionHead
+            title={t("latest_blog")}
+            rightTitle={t("all_blogs")}
+            rightTarget="blogs"
+          />
+        </MotionDiv>
         <div className="h-8"></div>
         <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5">
           {blogs?.map((blog, index) => (
-            <BlogCard
-              title={translate("title", blog)}
-              id={blog?.id}
-              date={blog?.blog_date}
-              image={blog?.image}
-              key={blog?.id}
-              slug={blog?.slug}
-            />
+            <MotionDiv animateScript={cardVariants} key={blog?.id}>
+              <BlogCard
+                title={translate("title", blog)}
+                id={blog?.id}
+                date={blog?.blog_date}
+                image={blog?.image}
+                key={blog?.id}
+                slug={blog?.slug}
+              />
+            </MotionDiv>
           ))}
         </div>
       </div>
-    </MotionDiv>
+    </div>
   );
 };
 
