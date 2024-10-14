@@ -38,6 +38,21 @@ const main_menu = [
     title: "about",
     link: "about-us",
   },
+  {
+    id: 8,
+    title: "faq",
+    link: "faq",
+  },
+  {
+    id: 9,
+    title: "contact",
+    link: "contact",
+  },
+  {
+    id: 10,
+    title: "free_consultation",
+    link: "contact",
+  },
 ];
 
 const PushMenu = () => {
@@ -46,9 +61,28 @@ const PushMenu = () => {
   const locale = useLocale();
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   return (
-    <Menu noOverlay right isOpen={isMenuOpen} onStateChange={(state) => setIsMenuOpen(state?.isOpen)}>
+    <Menu
+      noOverlay
+      right
+      isOpen={isMenuOpen}
+      onStateChange={(state) => setIsMenuOpen(state?.isOpen)}
+      customBurgerIcon={
+        <span className="burger-icon">
+          <span></span>
+          <span></span>
+        </span>
+      }
+    >
       {main_menu?.map((menuItem) => (
-        <Link onClick={() => setIsMenuOpen(false)} className="menu-item" href={`/${locale}/${menuItem?.link}`} key={menuItem?.id} replace>{t(menuItem?.title)}</Link>
+        <Link
+          onClick={() => setIsMenuOpen(false)}
+          className="menu-item"
+          href={`/${locale}/${menuItem?.link}`}
+          key={menuItem?.id}
+          replace
+        >
+          {t(menuItem?.title)}
+        </Link>
       ))}
     </Menu>
   );

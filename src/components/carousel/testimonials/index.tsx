@@ -34,6 +34,11 @@ const TestimonialCarousel: React.FC<TestimonialCarouselProps> = ({ data }) => {
         className="mySwiper"
         onSwiper={(swp) => setSwiperIns(swp)}
         breakpoints={{
+          320: {
+            slidesPerView: 1,
+            spaceBetween: 10,
+            autoplay: true,
+          },
           640: {
             slidesPerView: 1,
             spaceBetween: 10,

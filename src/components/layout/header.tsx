@@ -14,12 +14,12 @@ const Header = () => {
     <header>
       <div className="app-container">
         <div className="grid grid-cols-12 items-center">
-          <div className="xl:col-span-3 lg:col-span-2 col-span-3">
+          <div className="xl:col-span-3 lg:col-span-2 col-span-6">
             <figure className="logo-fig">
               <Image alt={appConfig?.appname} src={Logo} />
             </figure>
           </div>
-          <div className="xl:col-span-9 lg:col-span-10 col-span-9">
+          <div className="xl:col-span-9 lg:col-span-10 col-span-6">
             <div className="header-actions">
               <Menu />
               <Search />
@@ -29,6 +29,7 @@ const Header = () => {
                 variant={ButtonVariant.LIGHT}
                 rightImage={ChatIcon}
                 linkUrl={"contact"}
+                customClass="free_cons_btn"
               />
               <div className="mobile-menu">
                 <PushMenu />

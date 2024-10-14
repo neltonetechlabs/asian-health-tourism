@@ -3,6 +3,7 @@ import TestimonialCarousel from "../carousel/testimonials";
 import SectionHead from "./section.head";
 import { API_CLIENT } from "@/services";
 import { getTranslations } from "next-intl/server";
+import MotionDiv from "../common/motiondiv";
 
 const TestimonialSection = async () => {
   const t = await getTranslations("Common");
@@ -11,13 +12,17 @@ const TestimonialSection = async () => {
     return (
       <section className="sec-padd-sm">
         <div className="app-container">
-          <SectionHead
-            title={t("happy_clients")}
-            rightTitle={t("more_testimonials")}
-            rightTarget="/"
-          />
+          <MotionDiv>
+            <SectionHead
+              title={t("happy_clients")}
+              rightTitle={t("more_testimonials")}
+              rightTarget="/"
+            />
+          </MotionDiv>
           <div className="h-8"></div>
-          <TestimonialCarousel data={testimonials} />
+          <MotionDiv>
+            <TestimonialCarousel data={testimonials} />
+          </MotionDiv>
         </div>
       </section>
     );

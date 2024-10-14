@@ -85,7 +85,7 @@ const HeroSlider: React.FC<SliderProps> = ({ sliders = [] }) => {
         ))}
       </Swiper>
 
-      <div className="app-container">
+      <div className="app-container container-p0">
         <div className="slider-page">
           <button onClick={goPrevSlide}>
             <Image alt="" src={ArrowRight} />

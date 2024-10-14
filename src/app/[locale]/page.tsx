@@ -64,8 +64,8 @@ const Home: NextPage<UIComponent.DefaultPageParam> = async ({
     API_CLIENT.fetchHomeCount(),
     API_CLIENT.fetchHomeSpecialities(),
     API_CLIENT.fetchAbout(),
-    API_CLIENT.fetchBlogs({offset: 0}),
-    API_CLIENT.fetchProcedures({offset: 0}),
+    API_CLIENT.fetchBlogs({ offset: 0 }),
+    API_CLIENT.fetchProcedures({ offset: 0 }),
   ]);
 
   return (
@@ -86,7 +86,9 @@ const Home: NextPage<UIComponent.DefaultPageParam> = async ({
             />
             <div className="grid xl:grid-cols-4 sm:grid-cols-2 gap-8 mt-12">
               {procedures?.map((proc) => (
-                <PackageCard data={proc} key={proc?.id} locale={locale} />
+                <MotionDiv key={proc?.id}>
+                  <PackageCard data={proc} locale={locale} />
+                </MotionDiv>
               ))}
             </div>
           </div>
@@ -138,7 +140,7 @@ const Home: NextPage<UIComponent.DefaultPageParam> = async ({
           </MotionDiv>
         </div>
       </section>
-      
+
       <section className="pride-count">
         <div className="app-container">
           <div className="pride-count-cards">

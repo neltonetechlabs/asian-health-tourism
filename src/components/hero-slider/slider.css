@@ -60,6 +60,8 @@
         line-height: 30px;
     }
     .slider-page {
-        @apply justify-center
+        @apply justify-center bottom-5
     }
+    .slider-action .app-btn:last-child {display: none;}
+    .container-p0 { padding: 0; }
 }

@@ -11,17 +11,9 @@ const PrideCard: React.FC<UIComponent.PrideCardProps> = ({
     count,
     delay
 }) => {
-  const fadeInVariants = {
-    offscreen: { opacity: 0, y: 0 },
-    onscreen: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 1 },
-    },
-  };
 
   return (
-    <MotionDiv animateScript={fadeInVariants} className={classes.prideCountCard}>
+    <MotionDiv animateScript={cardVariants} className={classes.prideCountCard}>
       <div className={classes.iconHolder}>
         <Image alt={title} src={icon} width={60} />
       </div>

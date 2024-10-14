@@ -2,7 +2,7 @@ import { Variants } from "framer-motion";
 
 export const cardVariants: Variants = {
   offscreen: {
-    y: 100,
+    y: 10,
     opacity: 0,
   },
   onscreen: {
@@ -10,8 +10,8 @@ export const cardVariants: Variants = {
     opacity: 1,
     transition: {
       type: "easeInOut",
-      bounce: 1,
-      duration: 1,
+      delay: 0,
+      duration: 0.65,
     },
   },
 };
@@ -39,8 +39,7 @@ export const fadeInVariants: Variants = {
   visible: {
     opacity: 1,
     transition: {
-      duration: 0.5,
-      ease: "easeInOut",
+      duration: 0.9,
     },
   },
 };
