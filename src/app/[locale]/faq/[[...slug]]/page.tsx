@@ -48,7 +48,7 @@ const FAQ: NextPage<FAQPageProps> = async ({ params: { locale, slug }, searchPar
           <div className="grid grid-cols-12">
             <div className="col-span-1"></div>
             <div className="md:col-span-10 col-span-12">
-              <div className="grid md:grid-cols-3 grid-cols-1 gap-4">
+              <div className="grid md:grid-cols-3 grid-cols-1 gap-12">
                 <MotionDiv className={style.faqcatlist}>
                   <ul className={style.faqMenu}>
                     {faqcategories?.map((faqcat) => (
@@ -93,7 +93,7 @@ const FAQ: NextPage<FAQPageProps> = async ({ params: { locale, slug }, searchPar
                         </DisclosureButton>
                         <DisclosurePanel
                           transition
-                          className="mt-2 text-[16px] text-black/50"
+                          className={style.faqContent}
                         >
                           {translate("description", faqda)}
                         </DisclosurePanel>
