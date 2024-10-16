@@ -18,6 +18,7 @@ export const API_END_POINTS = {
         INNER_BANNER: "banners",
         PROCEDURES: "procedures",
         CONTACT_DATA: "contact",
-        PROCEDURE_DETAIL: "procedure-detail"
+        PROCEDURE_DETAIL: "procedure-detail",
+        FAQ_LIST: "faq"
     }
 }

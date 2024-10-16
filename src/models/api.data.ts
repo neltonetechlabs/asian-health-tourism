@@ -100,7 +100,9 @@ export interface FaqCategoryList extends CommonTable, CommonLocaleTitle {}
 export interface FaqData
   extends CommonTable,
     CommonLocaleTitle,
-    CommonDescription {}
+    CommonDescription {
+      category: number;
+    }
 
 export interface SocialMediaLink extends CommonTable {
   facebook: string;

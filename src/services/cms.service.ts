@@ -100,6 +100,13 @@ export const fetchFaqByCategory = async (catId?: string) => {
   return faqdata || [];
 };
 
+export const fetchFAQList= async (catId?: string) => {
+  const faqdata = await fetchData<FaqData[]>({
+    apiEndPoint: getapi.FAQ_LIST,
+  });
+  return faqdata || [];
+};
+
 export const fetchSocialMedia = async () => {
   const sociallinks = await fetchData<SocialMediaLink>({
     apiEndPoint: getapi.SOCIAL_MEDIA_LINKS,
