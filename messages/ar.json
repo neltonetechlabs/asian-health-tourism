@@ -1,52 +1,54 @@
 {
   "Common": {
-    "top_packages_iran" : "Top Tour Packages in Iran",
-    "product_name": "Asian Health Tourism Services",
-    "product_tag": "Made Easy And Hassle-Free With The First Specialized Medical Tourism Facilitator In Iran",
-    "pride_head": "Asian Health Tourism Best Service In Iran",
-    "pride_content": "There are many variations of passages of Lorem Ipsum available, but the majority have, There are many variations of passages of Lorem Ipsum available, but the majority have", 
-    "lang_support": "International Languages Supported",
-    "online_consult": "Online Consultations Per Month",
-    "country_wide": "Countries From Where We Host Patients",
-    "happy_clients": "Happy Clients",
-    "see_all_package": "See All Packages",
-    "more_testimonials": "See More Testimonials",
-    "latest_blog": "Our Latest Blog",
-    "all_blogs": "See All Blogs",
-    "blog_tag": "@ Blog",
-    "#blog_tag": "# Blog",
-    "learn_more": "Learn More",
-    "search_procedures": "Search for procedures",
-    "search_blog": "Search for blog",
-    "get_free_consultation": "Get A Free Consultation",
-    "procedure": "Procedures in {{ addon }}"
-
+    "top_packages_iran": "أفضل باقات السفر إلى إيران",
+    "product_name": "خدمات السياحة الصحية الآسيوية",
+    "product_tag": "تسهيل وراحة مع أول ميسر للسياحة الطبية في إيران",
+    "pride_head": "أفضل خدمة للسياحة الصحية في إيران",
+    "pride_content": "هناك العديد من الاختلافات في مقاطع لوريم إيبسوم المتاحة، لكن الأغلبية قد، هناك العديد من الاختلافات في مقاطع لوريم إيبسوم المتاحة، لكن الأغلبية قد",
+    "lang_support": "اللغات الدولية المدعومة",
+    "online_consult": "استشارات عبر الإنترنت في الشهر",
+    "country_wide": "الدول التي نستضيف منها المرضى",
+    "happy_clients": "عملاء سعداء",
+    "see_all_package": "عرض جميع الباقات",
+    "more_testimonials": "عرض المزيد من الشهادات",
+    "latest_blog": "مدونتنا الأخيرة",
+    "all_blogs": "عرض جميع المدونات",
+    "blog_tag": "@ المدونة",
+    "#blog_tag": "# مدونة",
+    "learn_more": "تعلم المزيد",
+    "search_procedures": "ابحث عن الإجراءات",
+    "search_blog": "ابحث في المدونة",
+    "get_free_consultation": "احصل على استشارة مجانية",
+    "procedure": "الإجراءات في { addOn }"
   },
   "QuickLinks": {
-    "gallery": "Gallery",
-    "faq": "FAQ",
-    "contact": "Contact Us"
+    "gallery": "معرض الصور",
+    "faq": "أسئلة متكررة",
+    "contact": "اتصل بنا"
   },
   "MainMenu": {
-    "home": "Home",
-    "procedure": "Procedures",
-    "packages": "Packages",
-    "destination": "Destinations",
-    "patient": "Patient Reviews",
-    "blog": "Blog",
-    "about": "About"
+    "home": "الرئيسية",
+    "procedure": "الإجراءات",
+    "packages": "الباقات",
+    "destination": "الوجهات",
+    "patient": "آراء المرضى",
+    "blog": "مدونة",
+    "about": "معلومات عنا",
+    "faq": "أسئلة متكررة",
+    "contact": "اتصل بنا",
+    "free_consultation": "استشارة مجانية"
   },
   "ContactPg": {
-    "page_head": "Talk To One\nOf Our Experts Today",
-    "address_label": "Address",
-    "phone_label": "Phone",
-    "email": "Email",
-    "social_media": "Social Media",
-    "name_label": "Enter your Name",
-    "phone_inp_label": "Enter your Phone Number",
-    "email_inp_label": "Enter your Email Id",
-    "message": "Message"
+    "page_head": "تحدث إلى أحد خبرائنا اليوم",
+    "address_label": "العنوان",
+    "phone_label": "الهاتف",
+    "email": "البريد الإلكتروني",
+    "social_media": "وسائل التواصل الاجتماعي",
+    "name_label": "أدخل اسمك",
+    "phone_inp_label": "أدخل رقم هاتفك",
+    "email_inp_label": "أدخل بريدك الإلكتروني",
+    "message": "الرسالة",
+    "radio_enquiry": "استفسار",
+    "radio_feedback": "ملاحظات"
   }
 }
-
-

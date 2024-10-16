@@ -1,52 +1,54 @@
 {
   "Common": {
-    "top_packages_iran" : "Top Tour Packages in Iran",
-    "product_name": "Asian Health Tourism Services",
-    "product_tag": "Made Easy And Hassle-Free With The First Specialized Medical Tourism Facilitator In Iran",
-    "pride_head": "Asian Health Tourism Best Service In Iran",
-    "pride_content": "There are many variations of passages of Lorem Ipsum available, but the majority have, There are many variations of passages of Lorem Ipsum available, but the majority have", 
-    "lang_support": "International Languages Supported",
-    "online_consult": "Online Consultations Per Month",
-    "country_wide": "Countries From Where We Host Patients",
-    "happy_clients": "Happy Clients",
-    "see_all_package": "See All Packages",
-    "more_testimonials": "See More Testimonials",
-    "latest_blog": "Our Latest Blog",
-    "all_blogs": "See All Blogs",
-    "blog_tag": "@ Blog",
-    "#blog_tag": "# Blog",
-    "learn_more": "Learn More",
-    "search_procedures": "Search for procedures",
-    "search_blog": "Search for blog",
-    "get_free_consultation": "Get A Free Consultation",
-    "procedure": "Procedures in {{ addon }}"
-
+    "top_packages_iran": "Лучшие туристические пакеты в Иране",
+    "product_name": "Услуги медицинского туризма в Азии",
+    "product_tag": "Упрощено и без хлопот с первым специализированным посредником медицинского туризма в Иране",
+    "pride_head": "Лучшие услуги медицинского туризма в Иране",
+    "pride_content": "Существует множество вариантов текстов Лорем Ипсум, но большинство из них, существует множество вариантов текстов Лорем Ипсум, но большинство из них",
+    "lang_support": "Поддерживаемые международные языки",
+    "online_consult": "Онлайн-консультации в месяц",
+    "country_wide": "Страны, из которых мы принимаем пациентов",
+    "happy_clients": "Счастливые клиенты",
+    "see_all_package": "Смотреть все пакеты",
+    "more_testimonials": "Смотреть больше отзывов",
+    "latest_blog": "Наш последний блог",
+    "all_blogs": "Смотреть все блоги",
+    "blog_tag": "@ Блог",
+    "#blog_tag": "# Блог",
+    "learn_more": "Узнать больше",
+    "search_procedures": "Поиск процедур",
+    "search_blog": "Поиск в блоге",
+    "get_free_consultation": "Получить бесплатную консультацию",
+    "procedure": "Процедуры в { addOn }"
   },
   "QuickLinks": {
-    "gallery": "Gallery",
-    "faq": "FAQ",
-    "contact": "Contact Us"
+    "gallery": "Галерея",
+    "faq": "Часто задаваемые вопросы",
+    "contact": "Свяжитесь с нами"
   },
   "MainMenu": {
-    "home": "Home",
-    "procedure": "Procedures",
-    "packages": "Packages",
-    "destination": "Destinations",
-    "patient": "Patient Reviews",
-    "blog": "Blog",
-    "about": "About"
+    "home": "Главная",
+    "procedure": "Процедуры",
+    "packages": "Пакеты",
+    "destination": "Направления",
+    "patient": "Отзывы пациентов",
+    "blog": "Блог",
+    "about": "О нас",
+    "faq": "Часто задаваемые вопросы",
+    "contact": "Свяжитесь с нами",
+    "free_consultation": "Бесплатная консультация"
   },
   "ContactPg": {
-    "page_head": "Talk To One\nOf Our Experts Today",
-    "address_label": "Address",
-    "phone_label": "Phone",
-    "email": "Email",
-    "social_media": "Social Media",
-    "name_label": "Enter your Name",
-    "phone_inp_label": "Enter your Phone Number",
-    "email_inp_label": "Enter your Email Id",
-    "message": "Message"
+    "page_head": "Свяжитесь с одним из наших экспертов сегодня",
+    "address_label": "Адрес",
+    "phone_label": "Телефон",
+    "email": "Электронная почта",
+    "social_media": "Социальные сети",
+    "name_label": "Введите ваше имя",
+    "phone_inp_label": "Введите номер телефона",
+    "email_inp_label": "Введите ваш адрес электронной почты",
+    "message": "Сообщение",
+    "radio_enquiry": "Запрос",
+    "radio_feedback": "Обратная связь"
   }
 }
-
-

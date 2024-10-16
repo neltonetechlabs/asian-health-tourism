@@ -1,52 +1,54 @@
 {
   "Common": {
-    "top_packages_iran" : "Top Tour Packages in Iran",
-    "product_name": "Asian Health Tourism Services",
-    "product_tag": "Made Easy And Hassle-Free With The First Specialized Medical Tourism Facilitator In Iran",
-    "pride_head": "Asian Health Tourism Best Service In Iran",
-    "pride_content": "There are many variations of passages of Lorem Ipsum available, but the majority have, There are many variations of passages of Lorem Ipsum available, but the majority have", 
-    "lang_support": "International Languages Supported",
-    "online_consult": "Online Consultations Per Month",
-    "country_wide": "Countries From Where We Host Patients",
-    "happy_clients": "Happy Clients",
-    "see_all_package": "See All Packages",
-    "more_testimonials": "See More Testimonials",
-    "latest_blog": "Our Latest Blog",
-    "all_blogs": "See All Blogs",
+    "top_packages_iran": "Mejores Paquetes de Viaje a Irán",
+    "product_name": "Servicios de Turismo de Salud Asiático",
+    "product_tag": "Facilitado y Sin Complicaciones con el Primer Facilitador Especializado en Turismo Médico en Irán",
+    "pride_head": "El Mejor Servicio de Turismo de Salud en Irán",
+    "pride_content": "Hay muchas variaciones de pasajes de Lorem Ipsum disponibles, pero la mayoría han, hay muchas variaciones de pasajes de Lorem Ipsum disponibles, pero la mayoría han",
+    "lang_support": "Idiomas Internacionales Soportados",
+    "online_consult": "Consultas en Línea por Mes",
+    "country_wide": "Países desde los cuales Hospedamos Pacientes",
+    "happy_clients": "Clientes Satisfechos",
+    "see_all_package": "Ver Todos los Paquetes",
+    "more_testimonials": "Ver Más Testimonios",
+    "latest_blog": "Nuestro Último Blog",
+    "all_blogs": "Ver Todos los Blogs",
     "blog_tag": "@ Blog",
     "#blog_tag": "# Blog",
-    "learn_more": "Learn More",
-    "search_procedures": "Search for procedures",
-    "search_blog": "Search for blog",
-    "get_free_consultation": "Get A Free Consultation",
-    "procedure": "Procedures in {{ addon }}"
-
+    "learn_more": "Aprende Más",
+    "search_procedures": "Buscar Procedimientos",
+    "search_blog": "Buscar en el Blog",
+    "get_free_consultation": "Obtén una Consulta Gratuita",
+    "procedure": "Procedimientos en { addOn }"
   },
   "QuickLinks": {
-    "gallery": "Gallery",
-    "faq": "FAQ",
-    "contact": "Contact Us"
+    "gallery": "Galería",
+    "faq": "Preguntas Frecuentes",
+    "contact": "Contáctanos"
   },
   "MainMenu": {
-    "home": "Home",
-    "procedure": "Procedures",
-    "packages": "Packages",
-    "destination": "Destinations",
-    "patient": "Patient Reviews",
+    "home": "Inicio",
+    "procedure": "Procedimientos",
+    "packages": "Paquetes",
+    "destination": "Destinos",
+    "patient": "Opiniones de Pacientes",
     "blog": "Blog",
-    "about": "About"
+    "about": "Sobre Nosotros",
+    "faq": "Preguntas Frecuentes",
+    "contact": "Contáctanos",
+    "free_consultation": "Consulta Gratuita"
   },
   "ContactPg": {
-    "page_head": "Talk To One\nOf Our Experts Today",
-    "address_label": "Address",
-    "phone_label": "Phone",
-    "email": "Email",
-    "social_media": "Social Media",
-    "name_label": "Enter your Name",
-    "phone_inp_label": "Enter your Phone Number",
-    "email_inp_label": "Enter your Email Id",
-    "message": "Message"
+    "page_head": "Habla con Uno de Nuestros Expertos Hoy",
+    "address_label": "Dirección",
+    "phone_label": "Teléfono",
+    "email": "Correo Electrónico",
+    "social_media": "Redes Sociales",
+    "name_label": "Ingresa tu Nombre",
+    "phone_inp_label": "Ingresa tu Número de Teléfono",
+    "email_inp_label": "Ingresa tu Correo Electrónico",
+    "message": "Mensaje",
+    "radio_enquiry": "Consulta",
+    "radio_feedback": "Comentarios"
   }
 }
-
-
