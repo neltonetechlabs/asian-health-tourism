@@ -21,7 +21,7 @@ const AppFooter = async () => {
               <h4>{t("get_free_consultation")}</h4>
             </div>
             <div className="lg:col-span-2 col-span-4">
-              <div className="flex lg:justify-end justify-center gap-4">
+              <div className="footer-action-btn">
                 <AppButton
                   title="free consultation"
                   type={ButtonType.FILLED}

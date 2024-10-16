@@ -136,7 +136,7 @@ html[dir="rtl"] .slider-action .app-btn {
   @apply md:inline-block hidden;
 }
 .top-quick-links {
-  @apply flex items-center;
+  @apply flex items-center md:ltr:mr-0 md:rtl:ml-0 ltr:mr-auto rtl:ml-auto;
 }
 .top-quick-links ul {
   @apply flex gap-3 items-center;
@@ -162,10 +162,10 @@ html[dir="rtl"] .logo-fig > img {
   @apply object-right;
 }
 .feature-sec {
-  @apply py-6;
+  @apply py-8 mb-5;
 }
 .feature-card {
-  @apply flex items-center gap-3 py-3;
+  @apply flex items-center gap-3 py-3 md:justify-start justify-center;
 }
 .feat-icon {
   @apply w-[35px] h-[35px] min-w-[35px] relative;
@@ -190,10 +190,10 @@ html[dir="rtl"] .link-btn {
   @apply flex w-fit md:m-0 md:ml-auto gap-11 items-center border-b-2 border-b-[#0078BD] pb-3 m-auto font-bold text-sm;
 }
 .link-btn img {
-  @apply relative left-0 transition-all duration-[0.6s] ease-linear;
+  @apply relative -left-[6px] transition-all duration-[0.6s] ease-linear;
 }
 .link-btn:hover img {
-  @apply left-1;
+  @apply left-0;
 }
 .parallax-sec {
   padding-top: 150px;
@@ -667,14 +667,22 @@ Note: Beware of modifying this element as it can break the animations - you shou
   width: 100%;
 }
 
-@media only screen and (max-width: 600px) {
+.footer-action-btn {
+  @apply flex lg:justify-end justify-center gap-4 md:flex-row flex-col items-center
+}
+
+@media only screen and (max-width: 767px) {
   .free_cons_btn { display: none; }
+
+}
+
+@media only screen and (max-width: 600px) {
   .logo-fig { height: 70px; }
   header { padding: 5px 0; }
 }
 
 .mobile-menu {display: none;}
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 1024px) {
   .mobile-menu {  display: block;  }
 }
 

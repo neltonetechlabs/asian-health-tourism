@@ -84,7 +84,7 @@ const Home: NextPage<UIComponent.DefaultPageParam> = async ({
               rightTitle={t("see_all_package")}
               rightTarget="/"
             />
-            <div className="grid xl:grid-cols-4 sm:grid-cols-2 gap-8 mt-12">
+            <div className="grid xl:grid-cols-4 sm:grid-cols-2 gap-8 mt-10">
               {procedures?.map((proc) => (
                 <MotionDiv key={proc?.id}>
                   <PackageCard data={proc} locale={locale} />

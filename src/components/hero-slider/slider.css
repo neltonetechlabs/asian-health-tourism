@@ -4,6 +4,14 @@
 .slider-wrap {
     @apply relative h-[550px] overflow-hidden;
 }
+.slider-wrap img {
+    min-height: 100%;
+    height: 100%;
+    width: 100%;
+    min-width: 100%;
+    object-fit: cover;
+    object-position: top center;
+}
 .slider-wrap::before {
     content: "";
     background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.3));
@@ -64,4 +72,10 @@
     }
     .slider-action .app-btn:last-child {display: none;}
     .container-p0 { padding: 0; }
+}
+
+@media only screen and (min-width: 1500px) {
+    .slider-wrap {
+        height: calc(100dvh - 100px);
+    }
 }

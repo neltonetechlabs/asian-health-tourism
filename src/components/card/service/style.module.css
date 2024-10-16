@@ -71,8 +71,9 @@
 }
 
 .head {
-  font-size: 22px;
-  font-weight: 500;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 22px;
 }
 
 .servicecard:hover .content {

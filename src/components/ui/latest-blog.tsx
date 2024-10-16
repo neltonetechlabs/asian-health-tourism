@@ -21,7 +21,7 @@ const LatestBlog: React.FC<LatestBlogProps> = ({
   const t = useTranslations("Common");
   const { translate } = useAppLocale({ locale });
   return (
-    <div className="sec-padd-sm">
+    <div className="sec-padd">
       <div className="app-container">
         <MotionDiv>
           <SectionHead

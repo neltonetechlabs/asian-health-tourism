@@ -8,7 +8,7 @@ const Picture: React.FC<UIComponent.PictureCompProps> = ({
 }) => {
   return (
     <picture>
-      <source media="(min-width: 768px)" srcSet={desktopImg} />
+      <source media="(min-width: 677px)" srcSet={desktopImg} />
       <source media="(min-width: 676px)" srcSet={mobileImg} />
       <img src={mobileImg} style={{ width: "100%", height: "auto" }} loading="lazy"  />
     </picture>
