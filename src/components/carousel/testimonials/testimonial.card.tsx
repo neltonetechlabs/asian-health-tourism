@@ -9,13 +9,15 @@ import { TestimonialIcon } from "@/assets";
 import { Testimonial } from "@/models/api.data";
 import useAppLocale from "@/hooks/useAppLocale";
 import StarRating from "./starrating";
+import { useLocale } from "next-intl";
 
 interface TestimonialCardProps {
   testimonial: Testimonial;
 }
 
 const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial }) => {
-  const { isArabic, translate } = useAppLocale({});
+  const locale = useLocale();
+  const { isArabic, translate } = useAppLocale({locale});
 
   return (
     <div

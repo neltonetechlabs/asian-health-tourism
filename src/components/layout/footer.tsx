@@ -97,8 +97,8 @@ const AppFooter = async () => {
                 </div>
               </div>
             </div>
-            <div className="grid md:grid-cols-2 sm:grid-cols-2 grid-cols-1">
-              <div className="footer-item md:mt-0 mt-4">
+            <div className="grid md:grid-cols-2 grid-cols-2">
+              <div className="footer-item md:mt-0 mt-2">
                 <h3>Useful Links</h3>
                 <ul>
                   <li>
@@ -124,7 +124,7 @@ const AppFooter = async () => {
                   </li>
                 </ul>
               </div>
-              <div className="footer-item md:mt-0 mt-4">
+              <div className="footer-item md:mt-0 mt-2">
                 <h3>Contact Us</h3>
                 <div className="footer-sec">
                   <h5>Email:</h5>
@@ -149,7 +149,7 @@ const AppFooter = async () => {
         </div>
         <div className="copyright-sec">
           <div className="grid md:grid-cols-2 grid-cols-1 md:grid-flow-row grid-flow-row-dense items-center md:gap-0 gap-5">
-            <div className="md:text-left text-center">
+            <div className="text-left">
               <h6>
                 Copyright © 2024 Asian Health Tourism. All Rights Reserved.
               </h6>

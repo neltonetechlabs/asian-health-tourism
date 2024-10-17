@@ -30,7 +30,7 @@ const LatestBlog: React.FC<LatestBlogProps> = ({
             rightTarget="blogs"
           />
         </MotionDiv>
-        <div className="h-8"></div>
+        <div className="md:h-8 h-4"></div>
         <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5">
           {blogs?.map((blog, index) => (
             <MotionDiv animateScript={cardVariants} key={blog?.id}>

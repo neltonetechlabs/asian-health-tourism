@@ -45,6 +45,7 @@ const ProcedureDetail: NextPage<UIComponent.DetailPageParam> = async ({
         content={translate("more_info", procedure) || ""}
       />      
       <TestimonialSection />
+      <div className="md:h-0 h-5"></div>
     </main>
   );
 };

@@ -16,7 +16,7 @@
   margin-top: 1rem
 }
 .pckgContent p {
-  @apply mt-4 mb-6 font-light text-[16px] min-h-[80px] max-h-[80px] text-ellipsis
+  @apply md:mt-4 mt-0 mb-6 font-light md:text-[16px] text-[14px] md:min-h-[80px] md:max-h-[80px] max-h-max line-clamp-2 text-ellipsis
 }
 .pckgFeatures {
   @apply py-6;
@@ -27,10 +27,12 @@
 .pckgLink {
   @apply text-[var(--blueSecondary)] font-semibold flex gap-2 justify-start items-center text-[16px] text-[#263036];
 }
-.pckgLink img {
+.pckgLink img,
+.pckglinkText img {
   @apply left-0 relative transition-all duration-300 ease-in-out;
 }
-.pckgcardlink:hover .pckgLink img {
+.pckgcardlink:hover .pckgLink img,
+.pckgcardlink:hover .pckglinkText img {
   @apply left-1;
 }
 .pckgFeat {
@@ -63,8 +65,12 @@
 }
 
 .destinationCard {
-  box-shadow: 0px 2px 8px #F5A6041A;
+  transition: 0.6s ease-in-out all;
   @apply bg-white h-full
+}
+
+.destinationCard:hover {
+  box-shadow: 0px 2px 8px #F5A6041A;
 }
 
 .destinationCard .pckgimg {
@@ -72,13 +78,14 @@
 }
 
 .pckglinkText {
-  @apply text-[var(--blueSecondary)] font-semibold flex gap-2 justify-start items-center text-[16px];
+  @apply text-[var(--blueSecondary)] font-semibold flex md:gap-2 gap-1 justify-start items-center text-[16px];
 }
 
 @media only screen and (max-width: 600px) {
   .packagecard { padding: 10px; }
   .packagecard .pckgimg { height: 120px; }
   .pckgContent h5 { font-size: 14px; white-space: nowrap; text-overflow: ellipsis;}
-  .pckgLink { font-size: 12px; }
+  .pckgLink, .pckglinkText { font-size: 12px; }
   .pckgFeatures { display: none; }
+  .pckglinkText img { width: 7px; }
 }

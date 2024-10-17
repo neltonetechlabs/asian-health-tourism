@@ -89,7 +89,7 @@ const DestinationDetail: NextPage<UIComponent.DetailPageParam> = async ({
             rightTitle="See All Destinations"
             rightTarget="/"
           />
-          <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-7 mt-9">
+          <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-2 md:gap-7 gap-4 md:mt-9 mt-0">
             {other_destinations?.map((destinaion) => (
               <DestinationCard
                 key={destinaion?.id}
@@ -103,6 +103,8 @@ const DestinationDetail: NextPage<UIComponent.DetailPageParam> = async ({
           </div>
         </div>
       </div>
+      <div className="md:h-0 h-5"></div>
+
     </main>
   );
 };

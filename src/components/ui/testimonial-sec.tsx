@@ -19,7 +19,7 @@ const TestimonialSection = async () => {
               rightTarget="/"
             />
           </MotionDiv>
-          <div className="h-8"></div>
+          <div className="md:h-8 h-4"></div>
           <MotionDiv>
             <TestimonialCarousel data={testimonials} />
           </MotionDiv>

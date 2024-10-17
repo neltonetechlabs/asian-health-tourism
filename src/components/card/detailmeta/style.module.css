@@ -2,11 +2,11 @@
 }
 
 .contentSec h3 {
-  @apply text-[#263036] text-[30px] font-semibold;
+  @apply text-[#263036] md:text-[30px] text-[22px] font-semibold;
 }
 
 .contentSec article {
-  @apply my-5 text-[16px] leading-[30px] font-normal text-[#263036];
+  @apply md:my-5 my-3 text-[16px] md:leading-[30px] leading-7 font-normal text-[#263036];
 }
 
 .detailImage {

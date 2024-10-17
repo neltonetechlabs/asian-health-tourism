@@ -88,6 +88,7 @@ const ContactPage: NextPage<UIComponent.DefaultPageParam> = async ({
                         name="phone"
                         inputKey="enter_phone"
                         label={t("phone_inp_label")}
+                        type="tel"
                       />
                     </div>
                     <div className="col-span-2">

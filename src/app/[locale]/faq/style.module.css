@@ -13,7 +13,7 @@
   @apply md:block hidden;
 }
 .faqSelect {
-  @apply md:hidden block;
+  @apply md:hidden block col-span-2 mb-8;
 }
 
 .arrowbtn {

@@ -166,10 +166,10 @@ html[dir="rtl"] .logo-fig > img {
   @apply py-8 mb-5;
 }
 .feature-card {
-  @apply flex items-center gap-3 py-3;
+  @apply flex md:items-center items-start gap-3 py-3;
 }
 .feat-icon {
-  @apply md:w-[35px] md:h-[35px] md:min-w-[35px] relative w-[20px] h-[20px];
+  @apply md:w-[30px] md:h-[30px] md:min-w-[30px] relative min-w-[20px] w-[20px] h-[20px] md:top-0 top-1;
 }
 .feature-card h3 {
   font-size: 18px;
@@ -224,10 +224,10 @@ html[dir="rtl"] .link-btn {
   font-size: 42px;
   line-height: 50px;
   font-weight: 600;
-  @apply lg:text-left lg:rtl:text-right text-center;
+  @apply text-left rtl:text-right;
 }
 .why-content {
-  @apply lg:mt-0 mt-5 lg:text-left text-center;
+  @apply lg:mt-0 mt-5 text-left;
 }
 .why-content h4 {
   @apply font-semibold text-[30px] mb-5;
@@ -238,11 +238,11 @@ html[dir="rtl"] .link-btn {
 }
 
 .why-content article {
-  @apply lg:pr-10 pr-0 text-[16px] font-light leading-[26px];
+  @apply lg:pr-10 pr-0 md:text-[16px] font-normal md:leading-[26px] text-base;
 }
 
 .count-sec {
-  @apply lg:w-[80%] w-full flex lg:justify-between justify-around mt-auto md:flex-nowrap md:gap-0 flex-wrap gap-4 md:text-left md:rtl:text-right text-center;
+  @apply lg:w-[80%] w-full flex justify-between mt-auto md:flex-nowrap md:gap-0 flex-wrap gap-4 md:text-left md:rtl:text-right text-center;
 }
 
 .count-sec h2 {
@@ -293,13 +293,13 @@ html[dir="rtl"] .link-btn {
 }
 
 .pride-sec h2 {
-  @apply text-[46px] font-semibold leading-[50px] mb-4;
+  @apply md:text-[46px] text-[35px] font-semibold md:leading-[50px] leading-10 md:mb-4 mb-2;
 }
 .pride-content {
   @apply lg:w-1/4 md:w-1/2 w-full inline-block z-10 relative;
 }
 .pride-content h6 {
-  @apply text-[18px] font-light;
+  @apply md:text-[18px] md:font-light font-normal;
 }
 
 .pride-count-cards {
@@ -319,7 +319,7 @@ html[dir="rtl"] .link-btn {
 .checklist li,
 .about-html-content li,
 .more-html-content li {
-  @apply flex justify-start gap-5 text-[18px] font-medium relative ltr:pl-10 rtl:pr-10 pb-[14px];
+  @apply flex justify-start gap-5 md:text-[18px] font-medium relative ltr:pl-10 rtl:pr-10 md:pb-[14px] pb-0 text-base;
 }
 
 .checklist li::before,
@@ -350,7 +350,7 @@ html[dir="rtl"] .link-btn {
 }
 
 .large-head {
-  @apply text-5xl font-semibold leading-[55px];
+  @apply md:text-5xl font-semibold md:leading-[55px] text-3xl;
 }
 
 header {
@@ -400,7 +400,7 @@ header .app-btn {
 }
 
 .blog-title h4 {
-  @apply text-[var(--textBlack)] text-4xl font-semibold leading-[40px];
+  @apply text-[var(--textBlack)] md:text-4xl text-2xl font-semibold md:leading-[40px];
 }
 .blog-content h1,
 .blog-content h2,
@@ -408,10 +408,7 @@ header .app-btn {
 .blog-content h4,
 .blog-content h5,
 .blog-content h6 {
-  color: #000000;
-  font-weight: 600;
-  font-size: 24px;
-  margin: 30px 0;
+  @apply text-black font-semibold md:text-[24px] md:my-[30px] text-[18px] my-[15px]
 }
 .blog-content p {
   color: #464240;
@@ -448,16 +445,15 @@ header .app-btn {
 }
 
 .footer .top-sec h4 {
-  font-size: 2.5rem;
   color: #fff;
   font-weight: bold;
-  @apply md:leading-[auto] leading-[45px] lg:text-left md:text-center text-center lg:mb-0 mb-5;
+  @apply md:leading-[auto] lg:leading-[45px] text-left lg:mb-0 mb-5 md:text-[2.5rem] text-[1.5rem] leading-5;
 }
 
 .footer-item h3 {
   color: #fff;
   font-weight: 600;
-  @apply md:mb-6 mb-4;
+  @apply md:mb-6 mb-2;
 }
 
 .footer-item {
@@ -477,7 +473,7 @@ header .app-btn {
 
 
 .footer-sec + .footer-sec {
-  margin-top: 1.5rem;
+  @apply md:mt-6 mt-3 
 }
 
 .footer-sec h5 {
@@ -538,8 +534,7 @@ header .app-btn {
 }
 
 .more-info-sec {
-  background-color: #f0f9ff;
-  margin-bottom: 4rem;
+  @apply bg-[#f0f9ff] md:mb-16 mb-0
 }
 
 .more-info-sec h4 {
@@ -614,7 +609,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
 /* General sidebar styles */
 .bm-menu {
-  background: #002438;
+  background: #263036;
   padding: 2.5em 0 0;
   font-size: 1.15em;
 }
@@ -638,12 +633,11 @@ Note: Beware of modifying this element as it can break the animations - you shou
 /* Individual item */
 .bm-item {
   display: inline-block;
-  border-bottom: 0.1px dashed #19394B;
-  padding: 0 1.5rem 1.2rem;
+  padding: 0 2rem 0.5rem;
   color: #E8EBED;
   transition: 0.6s ease-in-out;
-  font-size: 16px;
-  font-weight: 400;
+  font-size: 15px;
+  font-weight: 500;
 }
 .bm-item:hover {
   color: #fff;
@@ -669,8 +663,9 @@ Note: Beware of modifying this element as it can break the animations - you shou
 }
 
 .footer-action-btn {
-  @apply flex lg:justify-end justify-center gap-4 md:flex-row flex-col items-center
+  @apply flex lg:justify-end justify-start gap-4 md:flex-row flex-col md:items-center items-start
 }
+
 
 @media only screen and (max-width: 767px) {
   .free_cons_btn { display: none; }
@@ -716,4 +711,26 @@ Note: Beware of modifying this element as it can break the animations - you shou
   .only-mobile { 
     @apply flex m-0 ltr:mr-auto rtl:ml-auto
    }
+   .app-btn {
+    height: 48px;
+    line-height: 48px;
+    font-size: 15px;
+    padding-left: 0.6rem;
+    padding-right: 0.5rem;
+    width: 100%;
+   }
+   .parallax-sec { padding-top: 60px; padding-bottom: 60px; }
+   .left-sec-content h2,
+   .why-content h4 { font-size: 34px; line-height:38px;}
+   .count-sec .stat-card h2 { font-size: 28px; line-height: 28px; }
+   .count-sec { justify-content: space-between; }
+   .count-sec .stat-card h6 {
+      @apply text-[12px] ltr:text-left rtl:text-right
+   }
+   .heading-sec h3 { font-weight: 600; font-size: 24px; margin-bottom: 5px; }
+   .heading-sec h6 { font-size: 16px; }
+   .footer-action-btn .app-btn:last-child { display: none; }
+   .footer .top-sec { padding-bottom: 20px; margin-bottom: 20px; }
+   .footer { padding-top: 30px; }
+   .more-info-sec h4 { font-size: 22px; }
 }

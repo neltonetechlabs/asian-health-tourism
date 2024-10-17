@@ -44,8 +44,8 @@ const Procedures: NextPage<UIComponent.DetailPageParam> = async ({
               // rightSection={<PackageSearch />}
             />
           </div>
-          <div className="h-10"></div>
-          <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-7">
+          <div className="md:h-10 h-4"></div>
+          <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-2 md:gap-7 gap-2">
             {procedures?.map((item, index) => (
               <ProcedureCard
                 key={item?.id}
