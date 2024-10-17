@@ -78,7 +78,7 @@ const Home: NextPage<UIComponent.DefaultPageParam> = async ({
         </div>
       </MotionDiv>
       {procedures?.length ?? 0 ? (
-        <section className="sec-wrap pb-20">
+        <section className="sec-wrap md:pb-20 pb-10">
           <div className="app-container">
             <SectionHead
               title={t("top_packages_iran")}

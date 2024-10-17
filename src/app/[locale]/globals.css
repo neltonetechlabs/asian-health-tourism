@@ -373,8 +373,7 @@ header .app-btn {
 
 .aside-chat-option {
   transform: translate(0, -50%);
-  width: 60px;
-  @apply fixed right-1 top-auto left-auto bottom-10 z-10;
+  @apply fixed md:right-1 right-3 top-auto left-auto bottom-10 z-10 md:w-[60px] w-11;
 }
 
 .blog-image {
