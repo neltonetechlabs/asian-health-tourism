@@ -51,8 +51,16 @@
 }
 
 @media only screen and (max-width: 576px){
+    .slider-wrap {
+        height: 500px;
+    }
+    .slider-wrap::before {
+        background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.3));
+        @apply absolute left-0 top-auto bottom-0 opacity-50
+
+    }
     .caption-content {
-        text-align: center;
+        text-align: left;
         padding: 0;
     }
     .slider-caption {
@@ -61,14 +69,18 @@
         transform: translate(0);
     }
     .slider-action {
-        @apply justify-center
+        @apply justify-start
     }
     .caption-content h3 {
-        font-size: 2rem;
-        line-height: 30px;
+        font-size: 1.8rem;
+        line-height: 33px;
+    }
+    .caption-content h6 {
+        font-size: 16px;
+        margin: 20px 0;
     }
     .slider-page {
-        @apply justify-center bottom-5
+        @apply justify-start bottom-5
     }
     .slider-action .app-btn:last-child {display: none;}
     .container-p0 { padding: 0; }

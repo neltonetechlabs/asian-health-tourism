@@ -33,6 +33,7 @@ export interface SecHeadTitle {
 export interface SectionLink {
     title: string;
     to: string;
+    isMobile?: boolean;
 }
 
 export interface StatCardProps {

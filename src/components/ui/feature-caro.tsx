@@ -6,25 +6,6 @@ import FeatureCard from "./feature.card";
 import { HomeSpecialities } from "@/models/api.data";
 import useAppLocale from "@/hooks/useAppLocale";
 
-const dummy_feat = [
-  {
-    id: 0,
-    title: "Free Consultation",
-  },
-  {
-    id: 1,
-    title: "Transparent Prices",
-  },
-  {
-    id: 2,
-    title: "Best Doctors And Surgeons",
-  },
-  {
-    id: 3,
-    title: "All-Inclusive First-Rate Services",
-  },
-];
-
 interface FeatureCaroProps {
   specialities: HomeSpecialities[];
   locale: string;
@@ -34,19 +15,18 @@ const FeatureCaro: React.FC<FeatureCaroProps> = ({ specialities = [], locale }) 
   const { translate } = useAppLocale({ locale });
   return (
     <Swiper
-      slidesPerView={1}
+      slidesPerView={2}
       spaceBetween={0}
       pagination={{
         clickable: true,
       }}
       autoplay={{
-        delay: 2500,
+        delay: 1500,
       }}
+      loop
       breakpoints={{
         640: {
-          slidesPerView: 1,
-          spaceBetween: 20,
-          centeredSlides: true
+          slidesPerView: 2,          
         },
         768: {
           slidesPerView: 2,

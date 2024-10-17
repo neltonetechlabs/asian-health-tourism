@@ -9,6 +9,7 @@ import {
   PackageCard,
   PrideCard,
   SectionHead,
+  SectionHeadLink,
   ServiceCard,
   TestimonialSection,
 } from "@/components";
@@ -82,15 +83,16 @@ const Home: NextPage<UIComponent.DefaultPageParam> = async ({
             <SectionHead
               title={t("top_packages_iran")}
               rightTitle={t("see_all_package")}
-              rightTarget="/"
+              rightTarget="procedures"
             />
-            <div className="grid xl:grid-cols-4 sm:grid-cols-2 gap-8 mt-10">
+            <div className="grid xl:grid-cols-4 grid-cols-2 md:gap-8 gap-4 md:mt-10 mt-0 md:mb-0 mb-10">
               {procedures?.map((proc) => (
                 <MotionDiv key={proc?.id}>
                   <PackageCard data={proc} locale={locale} />
                 </MotionDiv>
               ))}
             </div>
+              <SectionHeadLink isMobile title={t("see_all_package")} to={`/${locale}/procedures`} />
           </div>
         </section>
       ) : (

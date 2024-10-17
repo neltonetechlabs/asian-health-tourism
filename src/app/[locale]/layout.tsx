@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import Image from "next/image";
 import { Open_Sans } from "next/font/google";
 import "./globals.css";
@@ -22,7 +22,12 @@ import Script from "next/script";
 const opensans = Open_Sans({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700", "800"],
+  display: "swap"
 });
+
+export const viewport: Viewport = {
+  themeColor: '#0078bd',
+}
 
 export const metadata: Metadata = {
   title: "Asian Health Tourism",

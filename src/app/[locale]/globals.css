@@ -15,6 +15,7 @@ body {
   width: 100%;
   height: 100%;
   overflow-x: hidden;
+  scroll-behavior: smooth
 }
 
 .app-container {
@@ -165,10 +166,10 @@ html[dir="rtl"] .logo-fig > img {
   @apply py-8 mb-5;
 }
 .feature-card {
-  @apply flex items-center gap-3 py-3 md:justify-start justify-center;
+  @apply flex items-center gap-3 py-3;
 }
 .feat-icon {
-  @apply w-[35px] h-[35px] min-w-[35px] relative;
+  @apply md:w-[35px] md:h-[35px] md:min-w-[35px] relative w-[20px] h-[20px];
 }
 .feature-card h3 {
   font-size: 18px;
@@ -679,6 +680,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
 @media only screen and (max-width: 600px) {
   .logo-fig { height: 70px; }
   header { padding: 5px 0; }
+  .feature-card h3 {font-size: 16px;}
 }
 
 .mobile-menu {display: none;}
@@ -703,4 +705,15 @@ Note: Beware of modifying this element as it can break the animations - you shou
   background: var(--blueSecondary);
   will-change: transform;
   border-radius: 30px
+}
+.only-mobile { display: none; }
+
+@media only screen and (max-width: 600px) {
+  .app-container { padding: 0 15px; }
+  .feature-card { padding: 0 10px; }
+  .sec-heading h4 { font-size: 25px; }
+  .right-sec { display: none; }
+  .only-mobile { 
+    @apply flex m-0 ltr:mr-auto rtl:ml-auto
+   }
 }
