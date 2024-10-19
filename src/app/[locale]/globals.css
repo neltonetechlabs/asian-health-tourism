@@ -751,6 +751,9 @@ select.minimal:focus {
   @apply hover:rotate-[360deg] transition-transform duration-700 ease-in-out
 }
 
+.sec-padd + .sec-padd {
+  padding-top: 0;
+}
 
 @media only screen and (max-width: 600px) {
   .app-container {

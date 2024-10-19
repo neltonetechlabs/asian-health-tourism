@@ -31,7 +31,7 @@ const Procedures: NextPage<UIComponent.DetailPageParam> = async ({
 }) => {
   const t = await getTranslations("Common");
   const bloglists = await API_CLIENT.fetchBlogs();
-  const procedures = await API_CLIENT.fetchProcedures();
+  const procedures = await API_CLIENT.fetchProcedures({offset: 0, limit: 12});
   const { translate } = useAppLocale({ locale });
   return (
     <main>

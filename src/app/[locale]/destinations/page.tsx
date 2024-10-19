@@ -27,7 +27,7 @@ const DestinationList: NextPage<UIComponent.DefaultPageParam> = async ({
   params: { locale }
 }) => {
   const t = await getTranslations("Common");
-  const destinations = await API_CLIENT.fetchDestinations();
+  const destinations = await API_CLIENT.fetchDestinations({ offset: 0, limit: 9 });
   const { translate } = useAppLocale({ locale })
   return (
     <main>
