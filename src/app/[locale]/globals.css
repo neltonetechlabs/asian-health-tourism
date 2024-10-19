@@ -15,7 +15,7 @@ body {
   width: 100%;
   height: 100%;
   overflow-x: hidden;
-  scroll-behavior: smooth
+  scroll-behavior: smooth;
 }
 
 .app-container {
@@ -40,7 +40,7 @@ body {
   opacity: 0;
   height: 100%;
   z-index: 3;
-  transition: all 0.30s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 .btn-content {
   position: relative;
@@ -70,7 +70,7 @@ body {
   background-color: var(--blueSecondary);
 }
 .app-btn img {
-  transition: all 0.30s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 .app-btn:hover img {
   filter: brightness(5);
@@ -93,11 +93,11 @@ body {
 }
 .app-btn .left-icon {
   @apply absolute right-[6px];
-  transition: all 0.30s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .app-btn:hover .left-icon {
-  @apply right-1 
+  @apply right-1;
 }
 
 .app-btn.btn-stok html[dir="rtl"] .app-btn {
@@ -188,7 +188,7 @@ html[dir="rtl"] .link-btn {
   color: #373740;
 }
 .link-btn {
-  @apply flex w-fit md:m-0 md:ml-auto gap-11 items-center border-b-2 border-b-[#0078BD] pb-3 m-auto font-bold text-sm;
+  @apply flex w-fit md:m-0 md:ml-auto md:gap-11 gap-3 items-center md:border-b-2 border-b-[#0078BD] border-b-0 pb-3 m-auto font-bold text-sm;
 }
 .link-btn img {
   @apply relative -left-[6px] transition-all duration-[0.6s] ease-linear;
@@ -227,7 +227,7 @@ html[dir="rtl"] .link-btn {
   @apply text-left rtl:text-right;
 }
 .why-content {
-  @apply lg:mt-0 mt-5 text-left;
+  @apply lg:mt-0 md:mt-5 mt-2 text-left;
 }
 .why-content h4 {
   @apply font-semibold text-[30px] mb-5;
@@ -238,7 +238,7 @@ html[dir="rtl"] .link-btn {
 }
 
 .why-content article {
-  @apply lg:pr-10 pr-0 md:text-[16px] font-normal md:leading-[26px] text-base;
+  @apply lg:pr-10 pr-0 md:text-[16px] font-normal md:leading-[26px] text-[14px] leading-5;
 }
 
 .count-sec {
@@ -319,7 +319,7 @@ html[dir="rtl"] .link-btn {
 .checklist li,
 .about-html-content li,
 .more-html-content li {
-  @apply flex justify-start gap-5 md:text-[18px] font-medium relative ltr:pl-10 rtl:pr-10 md:pb-[14px] pb-0 text-base;
+  @apply flex justify-start gap-5 md:text-[18px] font-medium relative ltr:pl-8 rtl:pr-8 md:pb-[14px] pb-0 text-[14px] leading-5;
 }
 
 .checklist li::before,
@@ -333,7 +333,7 @@ html[dir="rtl"] .link-btn {
   background: url("../../assets/checkedbox.svg") no-repeat center center /
     contain;
   background-size: contain;
-  @apply ltr:left-0 rtl:right-0
+  @apply ltr:left-0 rtl:right-0;
 }
 
 .more-html-content p + p {
@@ -407,7 +407,7 @@ header .app-btn {
 .blog-content h4,
 .blog-content h5,
 .blog-content h6 {
-  @apply text-black font-semibold md:text-[24px] md:my-[30px] text-[18px] my-[15px]
+  @apply text-black font-semibold md:text-[24px] md:my-[30px] text-[18px] my-[15px];
 }
 .blog-content p {
   color: #464240;
@@ -452,7 +452,7 @@ header .app-btn {
 .footer-item h3 {
   color: #fff;
   font-weight: 600;
-  @apply md:mb-6 mb-2;
+  @apply md:mb-6 mb-3;
 }
 
 .footer-item {
@@ -464,15 +464,14 @@ header .app-btn {
   font-size: 14px;
 }
 .footer-item ul li a {
-  transition: all 0.30s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 .footer-item ul li a:hover {
-  color: var(--primary);  
+  color: var(--primary);
 }
 
-
 .footer-sec + .footer-sec {
-  @apply md:mt-6 mt-3 
+  @apply md:mt-6 mt-3;
 }
 
 .footer-sec h5 {
@@ -533,7 +532,7 @@ header .app-btn {
 }
 
 .more-info-sec {
-  @apply bg-[#f0f9ff] md:mb-16 mb-0
+  @apply bg-[#f0f9ff] md:mb-16 mb-0;
 }
 
 .more-info-sec h4 {
@@ -570,7 +569,7 @@ header .app-btn {
 .bm-burger-button {
   position: relative;
   width: 30px;
-  height: 15px;
+  height: 13px;
 }
 
 /* Color/shape of burger icon bars */
@@ -613,8 +612,6 @@ Note: Beware of modifying this element as it can break the animations - you shou
   font-size: 1.15em;
 }
 
-
-
 /* Morph shape necessary with bubble or elastic */
 .bm-morph-shape {
   fill: #373a47;
@@ -633,7 +630,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
 .bm-item {
   display: inline-block;
   padding: 0 2rem 0.5rem;
-  color: #E8EBED;
+  color: #e8ebed;
   transition: 0.6s ease-in-out;
   font-size: 15px;
   font-weight: 500;
@@ -656,80 +653,182 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
 .burger-icon span {
   display: inline-block;
-  height: 2px;
+  height: 3px;
   background-color: #000;
   width: 100%;
 }
 
 .footer-action-btn {
-  @apply flex lg:justify-end justify-start gap-4 md:flex-row flex-col md:items-center items-start
+  @apply flex lg:justify-end justify-start gap-4 md:flex-row flex-col md:items-center items-start;
 }
 
-
 @media only screen and (max-width: 767px) {
-  .free_cons_btn { display: none; }
-
+  .free_cons_btn {
+    display: none;
+  }
 }
 
 @media only screen and (max-width: 600px) {
-  .logo-fig { height: 70px; }
-  header { padding: 5px 0; }
-  .feature-card h3 {font-size: 16px;}
+  .logo-fig {
+    height: 70px;
+  }
+  header {
+    padding: 5px 0;
+  }
+  .feature-card h3 {
+    font-size: 16px;
+  }
 }
 
-.mobile-menu {display: none;}
+.mobile-menu {
+  display: none;
+}
 @media only screen and (max-width: 1024px) {
-  .mobile-menu {  display: block;  }
+  .mobile-menu {
+    display: block;
+  }
 }
 
 .flag-figure {
-  @apply rounded-full w-5 h-5 overflow-hidden
+  @apply rounded-full w-5 h-5 overflow-hidden;
 }
 
 .flag-figure img {
-  @apply w-full h-full object-cover min-h-full
+  @apply w-full h-full object-cover min-h-full;
 }
 
-
 ::-webkit-scrollbar {
-  width: 5px
+  width: 5px;
 }
 
 ::-webkit-scrollbar-thumb {
   background: var(--blueSecondary);
   will-change: transform;
-  border-radius: 30px
+  border-radius: 30px;
 }
-.only-mobile { display: none; }
+.only-mobile {
+  display: none;
+}
+
+
+
+select.minimal {
+  background-image:
+    linear-gradient(45deg, transparent 50%, gray 50%),
+    linear-gradient(135deg, gray 50%, transparent 50%),
+    linear-gradient(to right, #ccc, #ccc);
+  background-position:
+    calc(100% - 20px) calc(1em + 2px),
+    calc(100% - 15px) calc(1em + 2px),
+    calc(100% - 2.5em) 0.5em;
+  background-size:
+    5px 5px,
+    5px 5px,
+    1px 1.5em;
+  background-repeat: no-repeat;
+  @apply text-ellipsis overflow-hidden whitespace-nowrap pr-12
+}
+
+select.minimal:focus {
+  background-image:
+    linear-gradient(45deg, green 50%, transparent 50%),
+    linear-gradient(135deg, transparent 50%, green 50%),
+    linear-gradient(to right, #ccc, #ccc);
+  background-position:
+    calc(100% - 15px) 1em,
+    calc(100% - 20px) 1em,
+    calc(100% - 2.5em) 0.5em;
+  background-size:
+    5px 5px,
+    5px 5px,
+    1px 1.5em;
+  background-repeat: no-repeat;
+  border-color: green;
+  outline: 0;
+}
+
+.rotate-hover img {
+  @apply hover:rotate-[360deg] transition-transform duration-700 ease-in-out
+}
+
 
 @media only screen and (max-width: 600px) {
-  .app-container { padding: 0 15px; }
-  .feature-card { padding: 0 10px; }
-  .sec-heading h4 { font-size: 25px; }
-  .right-sec { display: none; }
-  .only-mobile { 
-    @apply flex m-0 ltr:mr-auto rtl:ml-auto
-   }
-   .app-btn {
+  .app-container {
+    padding: 0 15px;
+  }
+  .feature-card {
+    padding: 0 10px;
+  }
+  .sec-heading h4 {
+    font-size: 25px;
+  }
+  .right-sec {
+    display: none;
+  }
+  .only-mobile {
+    @apply flex m-0 ltr:mr-auto rtl:ml-auto;
+  }
+  .app-btn {
     height: 48px;
     line-height: 48px;
     font-size: 15px;
     padding-left: 0.6rem;
     padding-right: 0.5rem;
     width: 100%;
-   }
-   .parallax-sec { padding-top: 60px; padding-bottom: 60px; }
-   .left-sec-content h2,
-   .why-content h4 { font-size: 34px; line-height:38px;}
-   .count-sec .stat-card h2 { font-size: 28px; line-height: 28px; }
-   .count-sec { justify-content: space-between; }
-   .count-sec .stat-card h6 {
-      @apply text-[12px] ltr:text-left rtl:text-right
-   }
-   .heading-sec h3 { font-weight: 600; font-size: 24px; margin-bottom: 5px; }
-   .heading-sec h6 { font-size: 16px; }
-   .footer-action-btn .app-btn:last-child { display: none; }
-   .footer .top-sec { padding-bottom: 20px; margin-bottom: 20px; }
-   .footer { padding-top: 30px; }
-   .more-info-sec h4 { font-size: 22px; }
+  }
+  .parallax-sec {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+  .left-sec-content h2,
+  .why-content h4 {
+    font-size: 25px;
+    line-height: 28px;
+  }
+  .count-sec .stat-card h2 {
+    font-size: 23px;
+    line-height: 24px;
+  }
+  .count-sec {
+    justify-content: space-between;
+  }
+  .count-sec .stat-card h6 {
+    @apply text-[12px] ltr:text-left rtl:text-right;
+  }
+  .heading-sec h3 {
+    font-weight: 600;
+    font-size: 24px;
+    margin-bottom: 5px;
+    line-height: 28px;
+    @apply rtl:text-right ltr:text-left;
+  }
+  .heading-sec h6 {
+    font-size: 16px;
+    line-height: 20px;
+    @apply rtl:text-right ltr:text-left;
+  }
+  .footer-action-btn .app-btn:last-child {
+    display: none;
+  }
+  .footer .top-sec {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+  }
+  .footer {
+    padding-top: 30px;
+  }
+  .more-info-sec h4 {
+    font-size: 22px;
+  }
+  .topbar {
+    display: none;
+  }
+
+  .checklist li::before,
+  .about-html-content li::before,
+  .more-html-content li::before {
+    width: 20px;
+    height: 20px;
+  }
+  .hidden-mob { display: none; }
 }

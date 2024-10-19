@@ -108,7 +108,7 @@ const Home: NextPage<UIComponent.DefaultPageParam> = async ({
 
       <section className="sec-padd">
         <div className="app-container">
-          <MotionDiv animateScript={cardVariants} className="heading-sec lg:mb-16 md:mb-14 mb-10">
+          <MotionDiv animateScript={cardVariants} className="heading-sec lg:mb-16 md:mb-14 mb-8">
             <h3>{t("product_name")}</h3>
             <h6>{t("product_tag")}</h6>
           </MotionDiv>

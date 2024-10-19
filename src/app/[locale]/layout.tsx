@@ -59,12 +59,12 @@ export default async function RootLayout({
             <div className="aside-chat-option">
               <ul className="appearance-none flex flex-col gap-4">
                 <li>
-                  <Link href="/">
+                  <Link href="/" className="rotate-hover">
                     <Image src={Whatsapp} alt="ChatNow" />
                   </Link>
                 </li>
                 <li>
-                  <Link href="/">
+                  <Link href="/" className="rotate-hover">
                     <Image src={ChatPrimary} alt="ChatNow" />
                   </Link>
                 </li>

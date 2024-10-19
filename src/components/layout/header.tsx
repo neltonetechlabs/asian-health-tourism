@@ -8,16 +8,19 @@ import { ButtonType, ButtonVariant } from "@/enum/enum";
 import AppButton from "../buttons/button.common";
 import { fetchMasterLangs } from "@/services/cms.service";
 import PushMenu from "./pushmenu";
+import Link from "next/link";
 
 const Header = () => {
   return (
-    <header>
+    <header className="sticky top-0 mt-0 z-30">
       <div className="app-container">
         <div className="grid grid-cols-12 items-center">
           <div className="xl:col-span-3 lg:col-span-2 col-span-6">
-            <figure className="logo-fig">
-              <Image alt={appConfig?.appname} src={Logo} />
-            </figure>
+            <Link href="/">
+              <figure className="logo-fig">
+                <Image alt={appConfig?.appname} src={Logo} />
+              </figure>
+            </Link>
           </div>
           <div className="xl:col-span-9 lg:col-span-10 col-span-6">
             <div className="header-actions">

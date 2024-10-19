@@ -26,7 +26,7 @@ const FormSelect: React.FC<FormSelectProps> = ({
     <>
       <select
         onChange={handleFaqSelectChange}
-        className="text-black border border-slate-500 w-full p-2 rounded-md"
+        className="appearance-none text-black border border-slate-500 w-full p-2 rounded-md minimal"
       >
         {faqcategories?.map((category) => (
           <option

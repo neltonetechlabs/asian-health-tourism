@@ -66,7 +66,7 @@ const ContactPage: NextPage<UIComponent.DefaultPageParam> = async ({
             <div className="lg:col-span-7 col-span-12">
               <MotionDiv>
                 <form className={style.contactForm}>
-                  <div className="grid grid-cols-2 gap-x-4 gap-y-8">
+                  <div className="grid md:grid-cols-2 grid-cols-1 gap-x-4 gap-y-8">
                     <div className={style.radioBtn}>
                       <label>
                         <input type="radio" name="e" defaultChecked />{" "}
@@ -113,7 +113,7 @@ const ContactPage: NextPage<UIComponent.DefaultPageParam> = async ({
                         variant={ButtonVariant.PRIMARY}
                         leftImage={Chevron}
                       />
-                      <button type="button">Our Location Map</button>
+                      <button type="button" className="hidden-mob">Our Location Map</button>
                     </div>
                   </div>
                 </form>

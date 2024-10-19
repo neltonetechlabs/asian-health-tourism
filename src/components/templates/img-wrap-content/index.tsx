@@ -36,6 +36,7 @@ const ImageWrapContent: React.FC<UIComponent.ImageWrapTemplProps> = ({
                   type={ButtonType.FILLED}
                   leftImage={Chevron}
                   variant={ButtonVariant.PRIMARY}
+                  customClass="hidden-mob"
                 />
               ) : null}
               {secondaryBtnText && secondaryLink ? (

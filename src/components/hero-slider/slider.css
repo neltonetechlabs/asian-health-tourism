@@ -83,7 +83,7 @@
     .slider-page {
         @apply justify-start bottom-5
     }
-    .slider-action .app-btn:last-child {display: none;}
+    .slider-action .app-btn {display: none;}
     .container-p0 { padding: 0; }
 }
 

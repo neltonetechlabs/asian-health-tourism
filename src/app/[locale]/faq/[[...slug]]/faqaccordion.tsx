@@ -85,7 +85,7 @@ const FAQAccordion: React.FC<FAQAccordionProps> = ({
                 <span className="font-medium text-[#F5A604]">
                   {listNumber(index)}
                 </span>
-                <span className="text-[18px] font-medium text-[#263036] group-data-[hover]:text-black/80">
+                <span className="text-[18px] font-medium text-[#263036] group-data-[hover]:text-black/80 rtl:text-right">
                   {translate("title", faqda)}
                 </span>
                 <span className="ltr:ml-auto rtl:mr-auto text-2xl">+</span>

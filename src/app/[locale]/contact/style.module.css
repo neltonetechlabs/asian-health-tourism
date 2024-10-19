@@ -2,23 +2,23 @@
   @apply lg:col-span-4 col-span-12;
 }
 .contactData {
-  @apply mb-8;
+  @apply md:mb-8 mb-3;
 }
 .contactData h4 {
   @apply text-[#0078BD] text-[14px] font-medium;
 }
 .contactHeader {
-  @apply text-[36px] leading-[40px] md:whitespace-pre-line font-semibold;
+  @apply md:text-[36px] md:leading-[40px] md:whitespace-pre-line font-semibold text-[25px] leading-7;
 }
 .contactData h6 {
   @apply text-[16px];
 }
 .formgrp {
-  @apply relative z-0;
+  @apply relative z-0 md:col-auto col-span-2;
 }
 
 .contactForm {
-  @apply md:pr-10 pr-0;
+  @apply md:pr-10 pr-0 md:mt-0 mt-4;
 }
 .radioBtn {
     @apply flex items-center col-span-2 gap-8

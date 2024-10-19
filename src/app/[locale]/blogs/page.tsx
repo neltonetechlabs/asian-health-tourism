@@ -26,7 +26,7 @@ export default async function Page({
   params: { locale },
 }: UIComponent.DefaultPageParam) {
   const t = await getTranslations("Common");
-  const blogs = await API_CLIENT.fetchBlogs();
+  const blogs = await API_CLIENT.fetchBlogs({ offset: 0, limit: 9 });
   const { translate } = useAppLocale({ locale });
   return (
     <main>

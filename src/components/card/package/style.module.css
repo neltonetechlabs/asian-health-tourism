@@ -83,6 +83,7 @@
 
 @media only screen and (max-width: 600px) {
   .packagecard { padding: 10px; }
+  .destinationCard { padding: 0; }
   .packagecard .pckgimg { height: 120px; }
   .pckgContent h5 { font-size: 14px; white-space: nowrap; text-overflow: ellipsis;}
   .pckgLink, .pckglinkText { font-size: 12px; }
