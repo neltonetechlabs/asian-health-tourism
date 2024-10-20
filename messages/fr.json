@@ -19,7 +19,9 @@
     "search_procedures": "Rechercher des Procédures",
     "search_blog": "Rechercher dans le Blog",
     "get_free_consultation": "Obtenez une Consultation Gratuite",
-    "procedure": "Procédures dans { addOn }"
+    "procedure": "Procédures dans { addOn }",
+    "see_all_blogs": "See all blogs"
+
   },
   "QuickLinks": {
     "gallery": "Galerie",

@@ -7,12 +7,17 @@ import {
 } from "@/components";
 import useAppLocale from "@/hooks/useAppLocale";
 import { UIComponent } from "@/models";
+import { BlogContent } from "@/models/api.data";
 import { API_CLIENT } from "@/services";
 import { Metadata, NextPage } from "next";
 import { getTranslations } from "next-intl/server";
+import { redirect } from "next/navigation";
+import { NextRouter } from "next/router";
+import { FormEvent } from "react";
+import Image from "next/image";
+import { YellowChevron } from "@/assets";
 
-export async function generateMetadata(
-): Promise<Metadata> {
+export async function generateMetadata(): Promise<Metadata> {
   const metadata = await API_CLIENT.fetchMetaData("blog");
 
   return {
@@ -22,12 +27,27 @@ export async function generateMetadata(
   };
 }
 
+interface BlogListParams {
+  params: { locale: string };
+  searchParams: { page: string };
+}
+
 export default async function Page({
   params: { locale },
-}: UIComponent.DefaultPageParam) {
+  searchParams: { page },
+}: BlogListParams) {
   const t = await getTranslations("Common");
-  const blogs = await API_CLIENT.fetchBlogs({ offset: 0, limit: 9 });
+  const blogs = await API_CLIENT.fetchBlogs({
+    offset: 0,
+    limit: Boolean(page) ? Number(page) * 2 : 9,
+  });
   const { translate } = useAppLocale({ locale });
+  const handleSubmit = async (): Promise<null> => {
+    "use server";
+    redirect(
+      `/${locale}/blogs/?page=${Boolean(page) ? Number(page) + 1 : "2"}`
+    );
+  };
   return (
     <main>
       <InnerBanner page="blog" />
@@ -51,9 +71,23 @@ export default async function Page({
                   image={blog?.image}
                   date={blog?.blog_date}
                   slug={blog?.slug}
+                  locale={locale}
                 />
               </MotionDiv>
             ))}
+          </div>
+          <div className="load-more">
+            <form action={handleSubmit}>
+              <input
+                name="offset"
+                type="hidden"
+                value={blogs[blogs?.length - 1]?.id}
+              />
+              <button type="submit">
+                <span>{t("see_all_blogs")}</span>
+                <Image src={YellowChevron} alt={t("see_all_blogs")} />
+              </button>
+            </form>
           </div>
         </div>
       </section>

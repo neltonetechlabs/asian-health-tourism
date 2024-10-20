@@ -6,7 +6,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/effect-fade";
 import "@/css/fontello/css/fontello.css";
-import 'lenis/dist/lenis.css'
+import "lenis/dist/lenis.css";
 import { Header, TopBar } from "@/components";
 import { routing } from "@/i18n/routing";
 import { getMessages } from "next-intl/server";
@@ -18,16 +18,17 @@ import SuspenseLoader from "@/components/ui/suspense";
 import { NextIntlClientProvider } from "next-intl";
 import ScrollContext from "@/components/wrapper/scrollcontext";
 import Script from "next/script";
+import { API_CLIENT } from "@/services";
 
 const opensans = Open_Sans({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700", "800"],
-  display: "swap"
+  display: "swap",
 });
 
 export const viewport: Viewport = {
-  themeColor: '#0078bd',
-}
+  themeColor: "#0078bd",
+};
 
 export const metadata: Metadata = {
   title: "Asian Health Tourism",
@@ -46,31 +47,33 @@ export default async function RootLayout({
   params: { locale: string };
 }>) {
   const messages = await getMessages();
+  const langs = await API_CLIENT.fetchMasterLangs();
+  const contact = await API_CLIENT.fetchContact();
 
   return (
     <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
       <NextIntlClientProvider messages={messages}>
         <body className={opensans.className}>
           <Suspense fallback={<SuspenseLoader />}>
-          <ScrollContext>
-            <TopBar />
-            <Header />
-            {children}
-            <div className="aside-chat-option">
-              <ul className="appearance-none flex flex-col gap-4">
-                <li>
-                  <Link href="/" className="rotate-hover">
-                    <Image src={Whatsapp} alt="ChatNow" />
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/" className="rotate-hover">
-                    <Image src={ChatPrimary} alt="ChatNow" />
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <AppFooter />
+            <ScrollContext>
+              <TopBar langs={langs} contact={contact} locale={locale} />
+              <Header langs={langs} />
+              {children}
+              <div className="aside-chat-option">
+                <ul className="appearance-none flex flex-col gap-4">
+                  <li>
+                    <Link href="/" className="rotate-hover">
+                      <Image src={Whatsapp} alt="ChatNow" />
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/" className="rotate-hover">
+                      <Image src={ChatPrimary} alt="ChatNow" />
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+              <AppFooter />
             </ScrollContext>
           </Suspense>
           <Script

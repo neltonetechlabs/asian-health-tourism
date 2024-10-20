@@ -10,7 +10,7 @@ import Link from "next/link";
 import { getLocale } from "next-intl/server";
 import ImageWithFallBack from "@/components/ui/imagewithfallback";
 
-const BlogCard: React.FC<UIComponent.BlogCardProps> = async ({
+const BlogCard: React.FC<UIComponent.BlogCardProps> = ({
   id,
   image,
   title,
@@ -18,9 +18,9 @@ const BlogCard: React.FC<UIComponent.BlogCardProps> = async ({
   slug,
   date,
   delay,
+  locale
 }) => {
   const t = useTranslations("Common");
-  const locale = await getLocale();
   const animateScript = {
     ...cardVariants,
     onscreen: {

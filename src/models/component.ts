@@ -56,6 +56,7 @@ export interface BlogCardProps {
     slug?: string;
     date: string;
     delay?: number;
+    locale: string;
 }
 
 export interface BannerProps {

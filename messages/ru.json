@@ -19,7 +19,9 @@
     "search_procedures": "Поиск процедур",
     "search_blog": "Поиск в блоге",
     "get_free_consultation": "Получить бесплатную консультацию",
-    "procedure": "Процедуры в { addOn }"
+    "procedure": "Процедуры в { addOn }",
+    "see_all_blogs": "See all blogs"
+
   },
   "QuickLinks": {
     "gallery": "Галерея",

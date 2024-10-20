@@ -9,12 +9,13 @@
   --textBlack: #263036;
 }
 
+html{padding: 0 !important;overflow-x: hidden;}
+
 html,
 body {
   margin: 0;
   width: 100%;
   height: 100%;
-  overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
@@ -755,6 +756,29 @@ select.minimal:focus {
   padding-top: 0;
 }
 
+.load-more { 
+  @apply md:mt-20 mt-8
+}
+
+.load-more button {
+  border: 1px solid #F5A604;
+  @apply mx-auto px-5 text-[14px] font-bold text-[#263036] md:h-14 h-12 rounded-md tracking-wide flex gap-5 items-center
+}
+
+.load-more button > img {
+  @apply rotate-90 transition-all duration-700 bottom-0 relative
+}
+
+.load-more button:hover img {
+  @apply -bottom-1
+}
+
+.visible-mob{ display: none; }
+
+.locale-list {
+  @apply bg-white rounded-sm p-2 shadow-sm md:top-4 z-10
+}
+
 @media only screen and (max-width: 600px) {
   .app-container {
     padding: 0 15px;
@@ -834,4 +858,6 @@ select.minimal:focus {
     height: 20px;
   }
   .hidden-mob { display: none; }
+  .visible-mob { display: inline-block; }
+  .locale-list { top: 5rem !important; }
 }

@@ -19,7 +19,9 @@
     "search_procedures": "ابحث عن الإجراءات",
     "search_blog": "ابحث في المدونة",
     "get_free_consultation": "احصل على استشارة مجانية",
-    "procedure": "الإجراءات في { addOn }"
+    "procedure": "الإجراءات في { addOn }",
+    "see_all_blogs": "See all blogs"
+
   },
   "QuickLinks": {
     "gallery": "معرض الصور",

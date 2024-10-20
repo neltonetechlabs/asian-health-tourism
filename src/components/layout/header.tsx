@@ -9,10 +9,17 @@ import AppButton from "../buttons/button.common";
 import { fetchMasterLangs } from "@/services/cms.service";
 import PushMenu from "./pushmenu";
 import Link from "next/link";
+import Locale from "./locale";
+import { MasterLang } from "@/models/api.data";
 
-const Header = () => {
+interface HeaderProps {
+  langs: MasterLang[];
+}
+
+const Header: React.FC<HeaderProps> = (props) => {
+  const { langs } = props;
   return (
-    <header className="sticky top-0 mt-0 z-30">
+    <header className="sticky top-0 bg-white z-30">
       <div className="app-container">
         <div className="grid grid-cols-12 items-center">
           <div className="xl:col-span-3 lg:col-span-2 col-span-6">
@@ -25,6 +32,9 @@ const Header = () => {
           <div className="xl:col-span-9 lg:col-span-10 col-span-6">
             <div className="header-actions">
               <Menu />
+              <div className="mobile-locale visible-mob">
+                <Locale langs={langs} />
+              </div>
               <Search />
               <AppButton
                 title="free consultation"

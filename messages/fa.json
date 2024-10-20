@@ -19,7 +19,9 @@
     "search_procedures": "جستجوی روش‌ها",
     "search_blog": "جستجوی وبلاگ",
     "get_free_consultation": "مشاوره رایگان دریافت کنید",
-    "procedure": "روش‌ها در { addOn }"
+    "procedure": "روش‌ها در { addOn }",
+    "see_all_blogs": "See all blogs"
+
   },
   "QuickLinks": {
     "gallery": "گالری",

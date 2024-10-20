@@ -45,12 +45,15 @@ const LocaleSwitch: React.FC<LocaleSwitchProps> = ({ langs = [] }) => {
               height={20}
             />
           </figure>
-          {selectedLang?.language || ""}
+          <span className="hidden-mob"> {selectedLang?.language || ""}</span>
+          <span className="visible-mob uppercase"> {selectedLang?.code || ""}</span>
         </div>
       </ListboxButton>
       <ListboxOptions
-        className="bg-white rounded-sm p-2 shadow-sm top-4 z-10"
-        anchor="bottom"
+        className="locale-list"
+        anchor={{
+          to: "top start",
+        }}
       >
         {langs.map((lang) => (
           <ListboxOption
