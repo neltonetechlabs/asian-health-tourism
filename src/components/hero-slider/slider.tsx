@@ -13,18 +13,17 @@ import { ButtonType, ButtonVariant } from "@/enum/enum";
 import AppButton from "../buttons/button.common";
 import { SliderImages } from "@/models/api.data";
 import useAppLocale from "@/hooks/useAppLocale";
+import { useLocale } from "next-intl";
 
 const SliderCaption: React.FC<{ slide: SliderImages; index: number }> = ({
   slide,
   index,
 }) => {
-  const { translate } = useAppLocale({});
+  const locale = useLocale();
+  const { translate } = useAppLocale({ locale });
 
   return (
-    <div
-      className="caption-content"
-      key={index}
-    >
+    <div className="caption-content" key={index}>
       <h3>{translate("title", slide)}</h3>
       <h6>{translate("description", slide)}</h6>
       <div className="slider-action">
