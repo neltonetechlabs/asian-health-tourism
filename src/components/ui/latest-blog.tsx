@@ -41,6 +41,7 @@ const LatestBlog: React.FC<LatestBlogProps> = ({
                 image={blog?.image}
                 key={blog?.id}
                 slug={blog?.slug}
+                locale={locale}
               />
             </MotionDiv>
           ))}
