@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import Head from 'next/head';
 import Image from "next/image";
 import { Open_Sans } from "next/font/google";
 import "./globals.css";
@@ -60,6 +61,9 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
+      <Head>
+      <meta name="googlebot" content="noindex,nofollow" />
+      </Head>
       <NextIntlClientProvider messages={messages}>
         <body className={opensans.className}>
           <Suspense fallback={<SuspenseLoader />}>
