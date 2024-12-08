@@ -9,7 +9,7 @@ import "@/css/fontello/css/fontello.css";
 import "lenis/dist/lenis.css";
 import { Header, TopBar } from "@/components";
 import { routing } from "@/i18n/routing";
-import { getMessages } from "next-intl/server";
+import { getMessages, unstable_setRequestLocale } from "next-intl/server";
 import Link from "next/link";
 import { ChatPrimary, Whatsapp } from "@/assets";
 import AppFooter from "@/components/layout/footer";
@@ -19,6 +19,7 @@ import { NextIntlClientProvider } from "next-intl";
 import ScrollContext from "@/components/wrapper/scrollcontext";
 import Script from "next/script";
 import { API_CLIENT } from "@/services";
+import { notFound } from "next/navigation";
 
 const opensans = Open_Sans({
   subsets: ["latin"],
@@ -46,9 +47,16 @@ export default async function RootLayout({
   children: React.ReactNode;
   params: { locale: string };
 }>) {
+  unstable_setRequestLocale(locale);
   const messages = await getMessages();
   const langs = await API_CLIENT.fetchMasterLangs();
   const contact = await API_CLIENT.fetchContact();
+
+  // Ensure that the incoming `locale` is valid
+  if (!routing.locales.includes(locale as any)) {
+    notFound();
+  }
+
 
   return (
     <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
@@ -85,3 +93,7 @@ export default async function RootLayout({
     </html>
   );
 }
+function setRequestLocale(locale: string) {
+  throw new Error("Function not implemented.");
+}
+

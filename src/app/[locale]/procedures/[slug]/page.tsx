@@ -6,7 +6,8 @@ import { API_CLIENT } from "@/services";
 import useAppLocale from "@/hooks/useAppLocale";
 import { DestinationCard, ProcedureCard, SectionHead, TestimonialSection } from "@/components";
 import MoreInfoCard from "@/components/card/moreinfo";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
+import { notFound } from "next/navigation";
 
 
 
@@ -30,9 +31,13 @@ export async function generateMetadata(
 const ProcedureDetail: NextPage<UIComponent.DetailPageParam> = async ({
   params: { slug, locale },
 }) => {
+  unstable_setRequestLocale(locale);
   const procedure = await API_CLIENT.fetchProcedureDetail(slug);
   const { translate } = useAppLocale({ locale });
   const t = await getTranslations("Common");
+
+  if (!procedure) return notFound();
+
   return (
     <main>
       <DetailMeta

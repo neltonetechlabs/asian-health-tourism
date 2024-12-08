@@ -1,5 +1,6 @@
-import { AboutSection, CheckList, InnerBanner, MotionDiv } from "@/components";
+import { AboutSection, InnerBanner, MotionDiv } from "@/components";
 import classNames from "classnames";
+import { unstable_setRequestLocale } from "next-intl/server";
 
 import classes from "./about.module.css";
 import { ImageWrapContent } from "@/components/templates";
@@ -8,9 +9,9 @@ import { Metadata, NextPage } from "next";
 import { API_CLIENT } from "@/services";
 import { UIComponent } from "@/models";
 import useAppLocale from "@/hooks/useAppLocale";
+import { notFound } from "next/navigation";
 
-export async function generateMetadata(
-): Promise<Metadata> {
+export async function generateMetadata(): Promise<Metadata> {
   const metadata = await API_CLIENT.fetchMetaData("about");
 
   return {
@@ -23,8 +24,11 @@ export async function generateMetadata(
 const About: NextPage<UIComponent.DefaultPageParam> = async ({
   params: { locale },
 }) => {
+  unstable_setRequestLocale(locale);
   const aboutContent = await API_CLIENT.fetchAbout();
+  
   const { translate } = useAppLocale({ locale });
+  if (!aboutContent) return notFound();
   return (
     <main className="about-page">
       <InnerBanner page="about" />

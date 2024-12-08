@@ -1,5 +1,5 @@
 import { Metadata, NextPage } from "next";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 
 import { UIComponent } from "@/models";
 import { AppButton, InnerBanner, MotionDiv } from "@/components";
@@ -11,6 +11,7 @@ import { Chevron } from "@/assets";
 import { ButtonType, ButtonVariant } from "@/enum/enum";
 import { API_CLIENT } from "@/services";
 import useAppLocale from "@/hooks/useAppLocale";
+import { notFound } from "next/navigation";
 
 export async function generateMetadata(): Promise<Metadata> {
   const metadata = await API_CLIENT.fetchMetaData("contact");
@@ -26,9 +27,13 @@ export async function generateMetadata(): Promise<Metadata> {
 const ContactPage: NextPage<UIComponent.DefaultPageParam> = async ({
   params: { locale },
 }) => {
+  unstable_setRequestLocale(locale);
   const t = await getTranslations("ContactPg");
   const contactData = await API_CLIENT.fetchContact();
   const { translate } = useAppLocale({ locale });
+
+  if (!contactData) return notFound();
+
   return (
     <main>
       <InnerBanner page="contact" />

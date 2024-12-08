@@ -3,11 +3,17 @@ import TestimonialCard from "@/components/carousel/testimonials/testimonial.card
 import { UIComponent } from "@/models";
 import { API_CLIENT } from "@/services";
 import { NextPage } from "next";
+import { unstable_setRequestLocale } from "next-intl/server";
+import { notFound } from "next/navigation";
 
 const PatientReviews: NextPage<UIComponent.DefaultPageParam> = async ({
   params: { locale },
 }) => {
+  unstable_setRequestLocale(locale);
   const testimonials = await API_CLIENT.fetchTestimonials();
+
+  if (!testimonials?.length) return notFound();
+
   return (
     <main>
       <InnerBanner page="reviews" />

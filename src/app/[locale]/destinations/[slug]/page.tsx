@@ -13,7 +13,8 @@ import {
   SectionHead,
 } from "@/components";
 import MoreInfoCard from "@/components/card/moreinfo";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
+import { notFound } from "next/navigation";
 
 type Props = {
   params: { slug: string };
@@ -43,10 +44,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 const DestinationDetail: NextPage<UIComponent.DetailPageParam> = async ({
   params: { slug, locale },
 }) => {
+  unstable_setRequestLocale(locale);
   const { destination, other_destinations, procedures } =
     (await API_CLIENT.fetchDestinationDetail(slug)) || {};
   const { translate } = useAppLocale({ locale });
   const t = await getTranslations("Common");
+
+  if (!destination) return notFound();
+
   return (
     <main>
       <DetailMeta

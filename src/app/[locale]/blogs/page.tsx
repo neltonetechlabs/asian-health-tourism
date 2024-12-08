@@ -6,14 +6,10 @@ import {
   SectionHead,
 } from "@/components";
 import useAppLocale from "@/hooks/useAppLocale";
-import { UIComponent } from "@/models";
-import { BlogContent } from "@/models/api.data";
 import { API_CLIENT } from "@/services";
-import { Metadata, NextPage } from "next";
-import { getTranslations } from "next-intl/server";
-import { redirect } from "next/navigation";
-import { NextRouter } from "next/router";
-import { FormEvent } from "react";
+import { Metadata } from "next";
+import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
+import { notFound } from "next/navigation";
 import Image from "next/image";
 import { YellowChevron } from "@/assets";
 
@@ -21,33 +17,33 @@ export async function generateMetadata(): Promise<Metadata> {
   const metadata = await API_CLIENT.fetchMetaData("blog");
 
   return {
-    title: metadata?.meta_title,
-    description: metadata?.meta_description,
-    keywords: metadata?.meta_keywords,
+    title: metadata?.meta_title || "Blog",
+    description: metadata?.meta_description || "Explore our blogs",
+    keywords: metadata?.meta_keywords || "",
   };
 }
 
 interface BlogListParams {
   params: { locale: string };
-  searchParams: { page: string };
+  searchParams: { page?: string };
 }
 
 export default async function Page({
   params: { locale },
   searchParams: { page },
 }: BlogListParams) {
+  unstable_setRequestLocale(locale);
   const t = await getTranslations("Common");
+  const { translate } = useAppLocale({ locale });
+  const limit = Boolean(page) ? Number(page) * 2 : 9;
+
   const blogs = await API_CLIENT.fetchBlogs({
     offset: 0,
-    limit: Boolean(page) ? Number(page) * 2 : 9,
+    limit,
   });
-  const { translate } = useAppLocale({ locale });
-  const handleSubmit = async (): Promise<null> => {
-    "use server";
-    redirect(
-      `/${locale}/blogs/?page=${Boolean(page) ? Number(page) + 1 : "2"}`
-    );
-  };
+
+  if (!blogs?.length) return notFound();
+
   return (
     <main>
       <InnerBanner page="blog" />
@@ -61,27 +57,26 @@ export default async function Page({
           </MotionDiv>
           <div className="h-9"></div>
           <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-7">
-            {blogs?.map((blog) => (
-              <MotionDiv key={blog?.id}>
+            {blogs.map((blog) => (
+              <MotionDiv key={blog.id}>
                 <BlogCard
-                  key={blog?.id}
-                  id={blog?.id}
+                  id={blog.id}
                   title={translate("title", blog)}
                   description={translate("small_description", blog)}
-                  image={blog?.image}
-                  date={blog?.blog_date}
-                  slug={blog?.slug}
+                  image={blog.image}
+                  date={blog.blog_date}
+                  slug={blog.slug}
                   locale={locale}
                 />
               </MotionDiv>
             ))}
           </div>
           <div className="load-more">
-            <form action={handleSubmit}>
+            <form method="GET" action={`/${locale}/blogs`}>
               <input
-                name="offset"
+                name="page"
                 type="hidden"
-                value={blogs[blogs?.length - 1]?.id}
+                value={Boolean(page) ? Number(page) + 1 : 2}
               />
               <button type="submit">
                 <span>{t("see_all_blogs")}</span>

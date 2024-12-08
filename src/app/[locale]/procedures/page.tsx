@@ -12,7 +12,8 @@ import { ListCardProps } from "@/models/component";
 import { API_CLIENT } from "@/services";
 import { Metadata, NextPage } from "next";
 import { useTranslations } from "next-intl";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
+import { notFound } from "next/navigation";
 
 
 export async function generateMetadata(
@@ -29,10 +30,14 @@ export async function generateMetadata(
 const Procedures: NextPage<UIComponent.DetailPageParam> = async ({
   params: { locale },
 }) => {
+  unstable_setRequestLocale(locale);
   const t = await getTranslations("Common");
   const bloglists = await API_CLIENT.fetchBlogs();
   const procedures = await API_CLIENT.fetchProcedures({offset: 0, limit: 12});
   const { translate } = useAppLocale({ locale });
+
+  if (!procedures?.length) return notFound();
+
   return (
     <main>
       <InnerBanner page="procedures" />

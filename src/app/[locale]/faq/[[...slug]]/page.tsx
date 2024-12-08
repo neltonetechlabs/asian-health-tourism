@@ -16,6 +16,8 @@ import { listNumber } from "@/utils/utility";
 import FormSelect from "@/components/forms/formselect";
 import { FaqData } from "@/models/api.data";
 import FAQAccordion from "./faqaccordion";
+import { unstable_setRequestLocale } from "next-intl/server";
+import { notFound } from "next/navigation";
 
 interface FAQPageProps {
   params: { locale: string; slug: string };
@@ -35,10 +37,15 @@ export async function generateMetadata(
 }
 
 const FAQ: NextPage<FAQPageProps> = async ({ params: { locale, slug }, searchParams: { category } }) => {
+  unstable_setRequestLocale(locale);
   const faqcategories = await API_CLIENT.fetchFaqCategories();
   const activeId = category ? category.toString() : faqcategories[0]?.id.toString();
   const faqList = await API_CLIENT.fetchFAQList();
   const { translate } = useAppLocale({ locale });
+
+  if (!faqList?.length) return notFound();
+
+
   return (
     <main>
       <InnerBanner

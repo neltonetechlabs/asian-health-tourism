@@ -10,7 +10,8 @@ import useAppLocale from "@/hooks/useAppLocale";
 import { UIComponent } from "@/models";
 import { API_CLIENT } from "@/services";
 import { Metadata, NextPage } from "next";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
+import { notFound } from "next/navigation";
 
 export async function generateMetadata(
 ): Promise<Metadata> {
@@ -26,9 +27,13 @@ export async function generateMetadata(
 const DestinationList: NextPage<UIComponent.DefaultPageParam> = async ({
   params: { locale }
 }) => {
+  unstable_setRequestLocale(locale);
   const t = await getTranslations("Common");
   const destinations = await API_CLIENT.fetchDestinations({ offset: 0, limit: 9 });
-  const { translate } = useAppLocale({ locale })
+  const { translate } = useAppLocale({ locale });
+
+  if (!destinations?.length) return notFound();
+
   return (
     <main>
       <InnerBanner

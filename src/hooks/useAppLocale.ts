@@ -1,5 +1,3 @@
-import { getLocale } from "next-intl/server";
-
 interface useAppLocaleProps {
   locale: string | null;
 }

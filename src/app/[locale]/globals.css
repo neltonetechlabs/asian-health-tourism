@@ -776,7 +776,7 @@ select.minimal:focus {
 .visible-mob{ display: none; }
 
 .locale-list {
-  @apply bg-white rounded-sm p-2 shadow-sm md:top-4 z-10
+  @apply bg-white rounded-sm p-2 shadow-sm md:top-4 z-50
 }
 
 @media only screen and (max-width: 600px) {

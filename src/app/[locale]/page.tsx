@@ -18,11 +18,12 @@ import { CountryIcon, PrideBg, PrideIcon, SupportIcon } from "@/assets";
 import useAppLocale from "@/hooks/useAppLocale";
 import { UIComponent } from "@/models";
 import { Metadata, NextPage } from "next";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import { cardVariants } from "@/utils/cardanimate";
 import { API_CLIENT } from "@/services";
 import { ServiceHomePage } from "@/models/api.data";
 import ScrollContext from "@/components/wrapper/scrollcontext";
+import { notFound } from "next/navigation";
 
 const animateScript = {
   ...cardVariants,
@@ -48,6 +49,8 @@ export async function generateMetadata(): Promise<Metadata> {
 const Home: NextPage<UIComponent.DefaultPageParam> = async ({
   params: { locale },
 }) => {
+  unstable_setRequestLocale(locale);
+
   const t = await getTranslations("Common");
   const { translate } = useAppLocale({ locale });
 
@@ -68,6 +71,17 @@ const Home: NextPage<UIComponent.DefaultPageParam> = async ({
     API_CLIENT.fetchBlogs({ offset: 0 }),
     API_CLIENT.fetchProcedures({ offset: 0 }),
   ]);
+
+  if (
+    !sliders?.length ||
+    !services?.length ||
+    !homecount ||
+    !homeSpeciality?.length ||
+    !aboutContent ||
+    !blog_list?.length ||
+    !procedures?.length
+  )
+    return notFound();
 
   return (
     <>
@@ -92,7 +106,11 @@ const Home: NextPage<UIComponent.DefaultPageParam> = async ({
                 </MotionDiv>
               ))}
             </div>
-              <SectionHeadLink isMobile title={t("see_all_package")} to={`/${locale}/procedures`} />
+            <SectionHeadLink
+              isMobile
+              title={t("see_all_package")}
+              to={`/${locale}/procedures`}
+            />
           </div>
         </section>
       ) : (
@@ -108,7 +126,10 @@ const Home: NextPage<UIComponent.DefaultPageParam> = async ({
 
       <section className="sec-padd">
         <div className="app-container">
-          <MotionDiv animateScript={cardVariants} className="heading-sec lg:mb-16 md:mb-14 mb-8">
+          <MotionDiv
+            animateScript={cardVariants}
+            className="heading-sec lg:mb-16 md:mb-14 mb-8"
+          >
             <h3>{t("product_name")}</h3>
             <h6>{t("product_tag")}</h6>
           </MotionDiv>

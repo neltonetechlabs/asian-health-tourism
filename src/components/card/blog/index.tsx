@@ -7,7 +7,7 @@ import MotionDiv from "@/components/common/motiondiv";
 import { cardVariants } from "@/utils/cardanimate";
 import moment from "moment";
 import Link from "next/link";
-import { getLocale } from "next-intl/server";
+import { getLocale, unstable_setRequestLocale } from "next-intl/server";
 import ImageWithFallBack from "@/components/ui/imagewithfallback";
 
 const BlogCard: React.FC<UIComponent.BlogCardProps> = ({
@@ -20,6 +20,8 @@ const BlogCard: React.FC<UIComponent.BlogCardProps> = ({
   delay,
   locale
 }) => {
+  unstable_setRequestLocale(locale);
+
   const t = useTranslations("Common");
   const animateScript = {
     ...cardVariants,

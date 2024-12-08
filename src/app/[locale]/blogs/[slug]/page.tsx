@@ -1,42 +1,50 @@
 import { Demo1 } from "@/assets";
 import { LatestBlog, MotionDiv } from "@/components";
+import SuspenseLoader from "@/components/ui/suspense";
 import useAppLocale from "@/hooks/useAppLocale";
 import { API_CLIENT } from "@/services";
 import { cardVariants } from "@/utils/cardanimate";
 import moment from "moment";
 import { Metadata, NextPage } from "next";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 
 interface BlogDetailPage {
   params: { locale: string; slug: string };
 }
 
-
 type Props = {
   params: { slug: string };
 };
 
-export async function generateMetadata(
-  { params }: Props,
-): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // read route params
   const { slug } = params;
-
-  const { blog } = await API_CLIENT.fetchBlogDetail(slug);
-
-  return {
-    title: blog?.title_en,
-    description: blog?.small_description_en
-  };
+  if (slug) {
+    const { blog } = await API_CLIENT.fetchBlogDetail(slug);
+    return {
+      title: blog?.title_en,
+      description: blog?.small_description_en,
+    };
+  } else {
+    return {
+      title: "Asia Health Tourism",
+      description: "",
+    };
+  }
 }
 
 const BlogDetail: NextPage<BlogDetailPage> = async ({
   params: { locale, slug },
 }) => {
+  unstable_setRequestLocale(locale);
   const t = await getTranslations("Common");
   const { translate } = useAppLocale({ locale });
   const { blog, latest_blogs } = await API_CLIENT.fetchBlogDetail(slug || "");
+
+  if (!blog) return notFound();
+
   return (
     <main className="sec-padd">
       <div className="app-container">
