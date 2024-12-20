@@ -9,7 +9,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "cms.albusthan.com",
+        hostname: "api.albusthan.com",
         port: "",
         pathname: "/images/**",
       },
