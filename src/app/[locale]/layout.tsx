@@ -63,9 +63,10 @@ export default async function RootLayout({
     <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
       <Head>
       <meta name="googlebot" content="noindex,nofollow" />
+      <meta name="robots" content="noindex,nofollow" />
       </Head>
       <NextIntlClientProvider messages={messages}>
-        <body className={opensans.className}>
+        <body className={`${opensans.className} ${locale}`}>
           <Suspense fallback={<SuspenseLoader />}>
             <ScrollContext>
               <TopBar langs={langs} contact={contact} locale={locale} />

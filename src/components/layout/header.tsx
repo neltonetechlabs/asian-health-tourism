@@ -35,7 +35,7 @@ const Header: React.FC<HeaderProps> = (props) => {
               <div className="mobile-locale visible-mob">
                 <Locale langs={langs} />
               </div>
-              <Search />
+              {/* <Search /> */}
               <AppButton
                 title="free consultation"
                 type={ButtonType.STROKE}

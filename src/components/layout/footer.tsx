@@ -47,50 +47,50 @@ const AppFooter = async () => {
                   <div>
                     <ul>
                       <li>
-                        <Link href="#">About Us</Link>
+                        <Link href={`/${locale}/about`}>About Us</Link>
                       </li>
                       <li>
-                        <Link href="#">Contact Us</Link>
+                        <Link href={`/${locale}/contact`}>Contact Us</Link>
                       </li>
                       <li>
-                        <Link href="#">Blog</Link>
+                        <Link href={`/${locale}/blogs`}>Blog</Link>
                       </li>
                       <li>
-                        <Link href="#">FAQ</Link>
+                        <Link href={`/${locale}/faq`}>FAQ</Link>
                       </li>
                       <li>
-                        <Link href="#">Packages</Link>
+                        <Link href={`/${locale}/procedures`}>Packages</Link>
                       </li>
                       <li>
-                        <Link href="#">Free Quote</Link>
+                        <Link href={`/${locale}/contact`}>Free Quote</Link>
                       </li>
                       <li>
-                        <Link href="#">Sitemap</Link>
+                        <Link href={`/sitemap.xml`}>Sitemap</Link>
                       </li>
                     </ul>
                   </div>
                   <div>
                     <ul>
                       <li>
-                        <Link href={`${locale}/about`}>About Us</Link>
+                        <Link href={`/${locale}/about`}>About Us</Link>
                       </li>
                       <li>
-                        <Link href={`${locale}/contact`}>Contact Us</Link>
+                        <Link href={`/${locale}/contact`}>Contact Us</Link>
                       </li>
                       <li>
-                        <Link href={`${locale}/blogs`}>Blog</Link>
+                        <Link href={`/${locale}/blogs`}>Blog</Link>
                       </li>
                       <li>
-                        <Link href={`${locale}/faq`}>FAQ</Link>
+                        <Link href={`/${locale}/faq`}>FAQ</Link>
                       </li>
                       <li>
-                        <Link href={`${locale}/procedures`}>Packages</Link>
+                        <Link href={`/${locale}/procedures`}>Packages</Link>
                       </li>
                       <li>
-                        <Link href={`${locale}/contact`}>Free Quote</Link>
+                        <Link href={`/${locale}/contact`}>Free Quote</Link>
                       </li>
                       <li>
-                        <Link href={`${locale}/about`}>Sitemap</Link>
+                        <Link href={`/sitemap.xml`}>Sitemap</Link>
                       </li>
                     </ul>
                   </div>
@@ -102,25 +102,25 @@ const AppFooter = async () => {
                 <h3>Useful Links</h3>
                 <ul>
                   <li>
-                    <Link href="#">About Us</Link>
+                    <Link href={`/${locale}/about`}>About Us</Link>
                   </li>
                   <li>
-                    <Link href="#">Contact Us</Link>
+                    <Link href={`/${locale}/contact`}>Contact Us</Link>
                   </li>
                   <li>
-                    <Link href="#">Blog</Link>
+                    <Link href={`/${locale}/blog`}>Blog</Link>
                   </li>
                   <li>
-                    <Link href="#">FAQ</Link>
+                    <Link href={`/${locale}/faq`}>FAQ</Link>
                   </li>
                   <li>
-                    <Link href="#">Packages</Link>
+                    <Link href={`/${locale}/procedures`}>Packages</Link>
                   </li>
                   <li>
-                    <Link href="#">Free Quote</Link>
+                    <Link href={`/${locale}/contact`}>Free Quote</Link>
                   </li>
                   <li>
-                    <Link href="#">Sitemap</Link>
+                    <Link href={`/${locale}/about`}>Sitemap</Link>
                   </li>
                 </ul>
               </div>
@@ -151,7 +151,7 @@ const AppFooter = async () => {
           <div className="grid md:grid-cols-2 grid-cols-1 md:grid-flow-row grid-flow-row-dense items-center md:gap-0 gap-5">
             <div className="text-left">
               <h6>
-                Copyright © 2024 Asian Health Tourism. All Rights Reserved.
+                Copyright © {new Date().getFullYear()} Asian Health Tourism. All Rights Reserved.
               </h6>
             </div>
             <div className="top-quick-links md:justify-end justify-center">

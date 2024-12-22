@@ -8,10 +8,10 @@
   @apply text-[#0078BD] text-[14px] font-medium;
 }
 .contactHeader {
-  @apply md:text-[36px] md:leading-[40px] md:whitespace-pre-line font-semibold text-[25px] leading-7;
+  @apply md:text-[36px] md:leading-[40px] md:whitespace-pre-line font-semibold text-[25px] leading-7 xl:w-1/2 lg:w-2/3;
 }
 .contactData h6 {
-  @apply text-[16px];
+  @apply text-[16px] whitespace-pre-wrap ltr:pr-8 rtl:pl-8 rtl:pr-0;
 }
 .formgrp {
   @apply relative z-0 md:col-auto col-span-2;

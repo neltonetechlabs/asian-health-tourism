@@ -111,7 +111,10 @@ html[dir="rtl"] .slider-action .app-btn {
   @apply flex justify-between items-center gap-6;
 }
 .menu-ul {
-  @apply flex justify-end flex-1 xl:gap-11 lg:gap-6;
+  @apply flex justify-end flex-1 xl:gap-8 lg:gap-6;
+}
+.es .menu-ul {
+  @apply xl:gap-6
 }
 .menu-ul li a {
   font-size: 16px;
