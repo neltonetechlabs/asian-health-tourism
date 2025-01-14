@@ -11,6 +11,8 @@ import { API_CLIENT } from "@/services";
 const AppFooter = async () => {
   const locale = await getLocale();
   const t = await getTranslations("Common");
+  const main = await getTranslations("MainMenu");
+  const contact = await getTranslations("ContactPg");
   const contactData = await API_CLIENT.fetchContact();
   return (
     <footer className="footer">
@@ -42,24 +44,24 @@ const AppFooter = async () => {
           <div className="grid md:grid-cols-2 grid-cols-1">
             <div className="md:col-span-1 col-span-2">
               <div className="footer-item">
-                <h3>Procedures</h3>
+                <h3>{main('procedure')}</h3>
                 <div className="grid grid-cols-2">
                   <div>
                     <ul>
                       <li>
-                        <Link href={`/${locale}/about`}>About Us</Link>
+                        <Link href={`/${locale}/about`}>{main('about')}</Link>
                       </li>
                       <li>
-                        <Link href={`/${locale}/contact`}>Contact Us</Link>
+                        <Link href={`/${locale}/contact`}>{main('contact')}</Link>
                       </li>
                       <li>
-                        <Link href={`/${locale}/blogs`}>Blog</Link>
+                        <Link href={`/${locale}/blogs`}>{main('blog')}</Link>
                       </li>
                       <li>
                         <Link href={`/${locale}/faq`}>FAQ</Link>
                       </li>
                       <li>
-                        <Link href={`/${locale}/procedures`}>Packages</Link>
+                        <Link href={`/${locale}/procedures`}>{main('procedure')}</Link>
                       </li>
                       <li>
                         <Link href={`/${locale}/contact`}>Free Quote</Link>
@@ -99,39 +101,39 @@ const AppFooter = async () => {
             </div>
             <div className="grid md:grid-cols-2 grid-cols-2">
               <div className="footer-item md:mt-0 mt-2">
-                <h3>Useful Links</h3>
+                <h3>Usefull Links</h3>
                 <ul>
                   <li>
-                    <Link href={`/${locale}/about`}>About Us</Link>
+                    <Link href={`/${locale}/about`}>{main('about')}</Link>
                   </li>
                   <li>
-                    <Link href={`/${locale}/contact`}>Contact Us</Link>
+                    <Link href={`/${locale}/contact`}>{main('contact')}</Link>
                   </li>
                   <li>
-                    <Link href={`/${locale}/blog`}>Blog</Link>
+                    <Link href={`/${locale}/blog`}>{main('blog')}</Link>
                   </li>
                   <li>
-                    <Link href={`/${locale}/faq`}>FAQ</Link>
+                    <Link href={`/${locale}/faq`}>{main('faq')}</Link>
                   </li>
                   <li>
-                    <Link href={`/${locale}/procedures`}>Packages</Link>
+                    <Link href={`/${locale}/procedures`}>{main('procedure')}</Link>
                   </li>
                   <li>
-                    <Link href={`/${locale}/contact`}>Free Quote</Link>
+                    <Link href={`/${locale}/contact`}>{main('free_consultation')}</Link>
                   </li>
                   <li>
-                    <Link href={`/${locale}/about`}>Sitemap</Link>
+                    <Link href={`/${locale}/about`}>{main('sitemap')}</Link>
                   </li>
                 </ul>
               </div>
               <div className="footer-item md:mt-0 mt-2">
-                <h3>Contact Us</h3>
+                <h3>{main("contact")}</h3>
                 <div className="footer-sec">
-                  <h5>Email:</h5>
+                  <h5>{contact('email')}:</h5>
                   <h6>{contactData?.email}</h6>
                 </div>
                 <div className="footer-sec">
-                  <h5>Whatsapp:</h5>
+                  <h5>{contact('whatsapp')}:</h5>
                   <h6>
                     {contactData?.primary_phone_number}
                     {contactData?.secondary_phone_number
@@ -140,7 +142,7 @@ const AppFooter = async () => {
                   </h6>
                 </div>
                 <div className="footer-sec">
-                  <h5>Follow us:</h5>
+                  <h5>{t('follow_us')}:</h5>
                   <SocialMedia />
                 </div>
               </div>
@@ -157,10 +159,10 @@ const AppFooter = async () => {
             <div className="top-quick-links md:justify-end justify-center">
               <ul>
                 <li>
-                  <Link href="#">Privacy/Policy</Link>
+                  <Link href="#">{main('privacy')}</Link>
                 </li>
                 <li>
-                  <Link href="#">Terms & Conditions</Link>
+                  <Link href="#">{main('terms')}</Link>
                 </li>
               </ul>
             </div>

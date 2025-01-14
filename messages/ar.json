@@ -1,6 +1,7 @@
 {
   "Common": {
     "top_packages_iran": "أفضل باقات السفر إلى إيران",
+    "top_procedures_iran": "أهم الإجراءات في إيران",
     "product_name": "خدمات السياحة الصحية الآسيوية",
     "product_tag": "تسهيل وراحة مع أول ميسر للسياحة الطبية في إيران",
     "pride_head": "أفضل خدمة للسياحة الصحية في إيران",
@@ -20,8 +21,9 @@
     "search_blog": "ابحث في المدونة",
     "get_free_consultation": "احصل على استشارة مجانية",
     "procedure": "الإجراءات في { addOn }",
-    "see_all_blogs": "See all blogs"
-
+    "see_all_blogs": "See all blogs",
+    "moreinfo": "{ procedure } مزيد من المعلومات",
+    "follow_us": "تابعنا"
   },
   "QuickLinks": {
     "gallery": "معرض الصور",
@@ -38,7 +40,10 @@
     "about": "معلومات عنا",
     "faq": "أسئلة متكررة",
     "contact": "اتصل بنا",
-    "free_consultation": "استشارة مجانية"
+    "free_consultation": "استشارة مجانية",
+    "sitemap": "خريطة الموقع",
+    "privacy": "سياسة الخصوصية",
+    "terms": "الشروط والأحكام"
   },
   "ContactPg": {
     "page_head": "تحدث إلى أحد خبرائنا اليوم",
@@ -51,6 +56,8 @@
     "email_inp_label": "أدخل بريدك الإلكتروني",
     "message": "الرسالة",
     "radio_enquiry": "استفسار",
-    "radio_feedback": "ملاحظات"
+    "radio_feedback": "ملاحظات",
+    "whatsapp": "واتس اب"
+
   }
 }

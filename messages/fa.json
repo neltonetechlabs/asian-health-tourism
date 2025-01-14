@@ -1,6 +1,7 @@
 {
   "Common": {
     "top_packages_iran": "بهترین بسته‌های سفر به ایران",
+    "top_procedures_iran": "برترین رویه ها در ایران",
     "product_name": "خدمات گردشگری سلامت آسیایی",
     "product_tag": "تسهیل شده و بدون دردسر با اولین تسهیل‌گر تخصصی گردشگری پزشکی در ایران",
     "pride_head": "بهترین خدمات گردشگری سلامت در ایران",
@@ -20,8 +21,9 @@
     "search_blog": "جستجوی وبلاگ",
     "get_free_consultation": "مشاوره رایگان دریافت کنید",
     "procedure": "روش‌ها در { addOn }",
-    "see_all_blogs": "See all blogs"
-
+    "see_all_blogs": "مشاهده همه وبلاگ ها",
+    "moreinfo": "{ procedure } اطلاعات بیشتر",
+    "follow_us": "ما را دنبال کنید"
   },
   "QuickLinks": {
     "gallery": "گالری",
@@ -38,7 +40,10 @@
     "about": "درباره ما",
     "faq": "سؤالات متداول",
     "contact": "تماس با ما",
-    "free_consultation": "مشاوره رایگان"
+    "free_consultation": "مشاوره رایگان",
+    "sitemap": "نقشه سایت",
+    "privacy": "حریم خصوصی / سیاست",
+    "terms": "شرایط و ضوابط"
   },
   "ContactPg": {
     "page_head": "امروز با یکی از کارشناسان ما صحبت کنید",
@@ -51,6 +56,7 @@
     "email_inp_label": "ایمیل خود را وارد کنید",
     "message": "پیام",
     "radio_enquiry": "استعلام",
-    "radio_feedback": "بازخورد"
+    "radio_feedback": "بازخورد",
+    "whatsapp": "واتساپ"
   }
 }

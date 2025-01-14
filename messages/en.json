@@ -1,6 +1,7 @@
 {
   "Common": {
     "top_packages_iran": "Top Tour Packages in Iran",
+    "top_procedures_iran": "Top Procedures in Iran",
     "product_name": "Asian Health Tourism Services",
     "product_tag": "Made Easy And Hassle-Free With The First Specialized Medical Tourism Facilitator In Iran",
     "pride_head": "Asian Health Tourism Best Service In Iran",
@@ -20,7 +21,9 @@
     "search_blog": "Search for blog",
     "get_free_consultation": "Get A Free Consultation",
     "procedure": "Procedures in { addOn }",
-    "see_all_blogs": "See all blogs"
+    "see_all_blogs": "See all blogs",
+    "moreinfo": "{ procedure } More Information",
+    "follow_us": "Follow us"
   },
   "QuickLinks": {
     "gallery": "Gallery",
@@ -37,8 +40,10 @@
     "about": "About",
     "faq": "FAQ",
     "contact": "Contact Us",
-    "free_consultation": "Free Consultation"
-
+    "free_consultation": "Free Consultation",
+    "sitemap": "Sitemap",
+    "privacy": "Privacy/Policy",
+    "terms": "Terms & Conditions"
   },
   "ContactPg": {
     "page_head": "Talk To One\nOf Our Experts Today",
@@ -51,6 +56,7 @@
     "email_inp_label": "Enter your Email Id",
     "message": "Message",
     "radio_enquiry": "Enquiry",
-    "radio_feedback": "Feedback"
+    "radio_feedback": "Feedback",
+    "whatsapp": "Whatsapp"
   }
 }

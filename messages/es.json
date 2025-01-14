@@ -1,6 +1,7 @@
 {
   "Common": {
     "top_packages_iran": "Mejores Paquetes de Viaje a Irán",
+    "top_procedures_iran": "Principales procedimientos en Irán",
     "product_name": "Servicios de Turismo de Salud Asiático",
     "product_tag": "Facilitado y Sin Complicaciones con el Primer Facilitador Especializado en Turismo Médico en Irán",
     "pride_head": "El Mejor Servicio de Turismo de Salud en Irán",
@@ -20,7 +21,9 @@
     "search_blog": "Buscar en el Blog",
     "get_free_consultation": "Obtén una Consulta Gratuita",
     "procedure": "Procedimientos en { addOn }",
-    "see_all_blogs": "See all blogs"
+    "see_all_blogs": "See all blogs",
+    "moreinfo": "{ procedure } Más información",
+    "follow_us": "Síganoss"
 
   },
   "QuickLinks": {
@@ -38,7 +41,10 @@
     "about": "Sobre Nosotros",
     "faq": "Preguntas Frecuentes",
     "contact": "Contáctanos",
-    "free_consultation": "Consulta Gratuita"
+    "free_consultation": "Consulta Gratuita",
+    "sitemap": "Mapa del sitio",
+    "privacy": "Política de privacidad",
+    "terms": "Términos y condiciones"
   },
   "ContactPg": {
     "page_head": "Habla con Uno de Nuestros Expertos Hoy",
@@ -51,6 +57,7 @@
     "email_inp_label": "Ingresa tu Correo Electrónico",
     "message": "Mensaje",
     "radio_enquiry": "Consulta",
-    "radio_feedback": "Comentarios"
+    "radio_feedback": "Comentarios",
+    "whatsapp": "Whatsapp"
   }
 }

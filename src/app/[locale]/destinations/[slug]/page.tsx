@@ -60,7 +60,7 @@ const DestinationDetail: NextPage<UIComponent.DetailPageParam> = async ({
         image={destination?.image || ""}
       />
       <MoreInfoCard
-        title="Isfahan More Information"
+        title={t("moreinfo", { procedure: translate("title", destination)})}
         content={translate("more_info", destination) || ""}
       />
       {procedures?.length ?? 0 > 0 ? (

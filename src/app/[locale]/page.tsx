@@ -93,7 +93,7 @@ const Home: NextPage<UIComponent.DefaultPageParam> = async ({
         <section className="sec-wrap md:pb-20 pb-10">
           <div className="app-container">
             <SectionHead
-              title={t("top_packages_iran")}
+              title={t("top_procedures_iran")}
               rightTitle={t("see_all_package")}
               rightTarget="procedures"
             />

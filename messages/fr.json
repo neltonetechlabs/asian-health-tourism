@@ -1,6 +1,7 @@
 {
   "Common": {
     "top_packages_iran": "Meilleurs Paquets de Voyage en Iran",
+    "top_procedures_iran": "Principales procédures en Iran",
     "product_name": "Services de Tourisme de Santé Asiatique",
     "product_tag": "Facilité et Sans Tracas avec le Premier Facilitateur Spécialisé en Tourisme Médical en Iran",
     "pride_head": "Le Meilleur Service de Tourisme de Santé en Iran",
@@ -13,15 +14,16 @@
     "more_testimonials": "Voir Plus de Témoignages",
     "latest_blog": "Notre Dernier Blog",
     "all_blogs": "Voir Tous les Blogs",
-    "blog_tag": "@ Blog",
-    "#blog_tag": "# Blog",
+    "blog_tag": "@ Blogue",
+    "#blog_tag": "# Blogue",
     "learn_more": "En Savoir Plus",
     "search_procedures": "Rechercher des Procédures",
     "search_blog": "Rechercher dans le Blog",
     "get_free_consultation": "Obtenez une Consultation Gratuite",
     "procedure": "Procédures dans { addOn }",
-    "see_all_blogs": "See all blogs"
-
+    "see_all_blogs": "Voir tous les blogs",
+    "moreinfo": "{ procedure } Plus d'informations",
+    "follow_us": "Suivez-nous"
   },
   "QuickLinks": {
     "gallery": "Galerie",
@@ -38,7 +40,10 @@
     "about": "À Propos",
     "faq": "FAQ",
     "contact": "Contactez-nous",
-    "free_consultation": "Consultation Gratuite"
+    "free_consultation": "Consultation Gratuite",
+    "sitemap": "Plan du site",
+    "privacy": "Politique de confidentialité",
+    "terms": "Conditions générales"
   },
   "ContactPg": {
     "page_head": "Parlez à un de Nos Experts Aujourd'hui",
@@ -51,6 +56,7 @@
     "email_inp_label": "Entrez votre Email",
     "message": "Message",
     "radio_enquiry": "Demande d'information",
-    "radio_feedback": "Retour d'information"
+    "radio_feedback": "Retour d'information",
+    "whatsapp": "Whatsapp"
   }
 }

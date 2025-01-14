@@ -45,8 +45,8 @@ const Procedures: NextPage<UIComponent.DetailPageParam> = async ({
         <div className="app-container">
           <div className="grid grid-cols-1">
             <SectionHead
-              title={t("top_packages_iran")}
-              // rightSection={<PackageSearch />}
+              title={t("top_procedures_iran")}
+              //rightSection={<PackageSearch />}
             />
           </div>
           <div className="md:h-10 h-4"></div>
