@@ -18,7 +18,7 @@ const ProcedureCard: React.FC<UIComponent.ListCardProps> = ({
   const t = useTranslations("Common");
   return (
     <div className={classes.packagecard}>
-      <Link className={classes.pckglink} href={slug ? `/${locale}/procedures/${slug}` : `/${locale}/procedures`} title={t("learn_more")}>
+      <Link className={classes.pckglink} href={slug ? `/${locale}/procedures/${slug}` : `/${locale}/procedures`} title={title}>
         <div className={classes.cardBody}>
           <figure className={classes.pckgimg}>
             <ImageWithFallBack

@@ -16,27 +16,31 @@ import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 
 
-export async function generateMetadata(
-): Promise<Metadata> {
-  const metadata = await API_CLIENT.fetchMetaData("procedures");
-
-  return {
-    title: metadata?.meta_title,
-    description: metadata?.meta_description,
-    keywords: metadata?.meta_keywords,
-  };
-}
-
 
 type Props = {
   params: { slug: string, locale: string };
 };
 
 
+export async function generateMetadata(
+  { params }: Props,
+): Promise<Metadata> {
+  console.log('params?.slug: ', params?.slug);
+  const metadata = await API_CLIENT.fetchProcedureCategorDetail(params?.slug);
+
+  return {
+    title: metadata?.label_en,
+    description: metadata?.description_en,
+    // keywords: metadata?.meta_keywords,
+  };
+}
+
+
 const CategoryProcedures: NextPage<Props> = async ({
   params: { slug, locale },
 }) => {
   unstable_setRequestLocale(locale);
+  await generateMetadata(slug);
   const t = await getTranslations("Common");
   const bloglists = await API_CLIENT.fetchBlogs();
   const categoryData = await API_CLIENT.fetchProcedureCategorDetail(slug);
