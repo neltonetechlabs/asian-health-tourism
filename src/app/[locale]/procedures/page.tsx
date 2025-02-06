@@ -33,10 +33,10 @@ const Procedures: NextPage<UIComponent.DetailPageParam> = async ({
   unstable_setRequestLocale(locale);
   const t = await getTranslations("Common");
   const bloglists = await API_CLIENT.fetchBlogs();
-  const procedures = await API_CLIENT.fetchProcedures({offset: 0, limit: 100});
+  const proceduresCat = await API_CLIENT.fetchProcedureCategories();
   const { translate } = useAppLocale({ locale });
 
-  if (!procedures?.length) return notFound();
+  if (!proceduresCat?.length) return notFound();
 
   return (
     <main>
@@ -46,17 +46,16 @@ const Procedures: NextPage<UIComponent.DetailPageParam> = async ({
           <div className="grid grid-cols-1">
             <SectionHead
               title={t("top_procedures_iran")}
-              //rightSection={<PackageSearch />}
             />
           </div>
           <div className="md:h-10 h-4"></div>
           <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-2 md:gap-7 gap-2">
-            {procedures?.map((item, index) => (
+            {proceduresCat?.map((item, index) => (
               <ProcedureCard
                 key={item?.id}
-                title={translate("title", item)}
+                title={translate("label", item)}
                 image={item?.image}
-                description={translate("small_description", item)}
+                description={translate("description", item)}
                 slug={item?.slug}
                 locale={locale}
               />

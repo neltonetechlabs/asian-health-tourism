@@ -25,7 +25,7 @@ const InnerBanner: React.FC<UIComponent.BannerProps> = async ({
     <div className={classNames(classes.bannerSec)}>
       <figure>
       <Image
-        src={bgBanner}
+        src={image || bgBanner}
         width={1200}
         height={300}
         alt={banner?.title_en || ""}
@@ -33,9 +33,9 @@ const InnerBanner: React.FC<UIComponent.BannerProps> = async ({
       </figure>
       <div className="app-container">
         <MotionDiv animateScript={cardVariants} className={classes.content}>
-          <h4>{translate("title", banner)}</h4>
+          <h4>{title || translate("title", banner)}</h4>
           <div className={classes.subTitle}>
-            <h5>{translate("caption", banner)}</h5>
+            <h5>{subTitle || translate("caption", banner)}</h5>
           </div>
         </MotionDiv>
       </div>

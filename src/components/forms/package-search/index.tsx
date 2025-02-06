@@ -9,11 +9,11 @@ const PackageSearch = () => {
   const t = useTranslations("Common");
   return (
     <div>
-      <form className="flex gap-4">
-        <div className={classes.searchInpWrap}>
+      <form className="flex gap-4 justify-end">
+        {/* <div className={classes.searchInpWrap}>
           <Input className={classes.searchInp} placeholder={t("search_procedures")} />
           <div className={classes.searchIcon}><Image src={SearchIcon} alt="Search" /></div>
-        </div>
+        </div> */}
         <div className={classes.selectWrap}>
           <Select className={classes.selectFilter}>
             <option value="active" disabled>Filter</option>

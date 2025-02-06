@@ -13,10 +13,11 @@
   color: #000000;
   font-weight: 600;
   font-size: 1.3rem;
-  margin-top: 1rem
+  margin-top: 1rem;
+  @apply line-clamp-2 min-h-16;
 }
 .pckgContent p {
-  @apply md:mt-4 mt-0 mb-6 font-light md:text-[16px] text-[14px] md:min-h-[80px] md:max-h-[80px] max-h-max line-clamp-2 text-ellipsis
+  @apply md:mt-4 mt-0 mb-6 font-light md:text-[16px] text-[14px] max-h-max line-clamp-3
 }
 .pckgFeatures {
   @apply py-6;

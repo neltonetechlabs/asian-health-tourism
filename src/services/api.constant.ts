@@ -19,6 +19,8 @@ export const API_END_POINTS = {
         PROCEDURES: "procedures",
         CONTACT_DATA: "contact",
         PROCEDURE_DETAIL: "procedure-detail",
-        FAQ_LIST: "faq"
+        FAQ_LIST: "faq",
+        PACKAGE_CATEGORY: "package-category",
+        CATEGORY_DETAIL: "category-detail",
     }
 }

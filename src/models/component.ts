@@ -60,7 +60,7 @@ export interface BlogCardProps {
 }
 
 export interface BannerProps {
-    image?: string;
+    image?: string | null;
     title?: string;
     subTitle?: string;
     page: string;
@@ -93,5 +93,5 @@ export interface DefaultPageParam {
     params: { locale: string }
 }
 export interface DetailPageParam {
-    params: { locale: string; slug: string }
+    params: { locale: string; procedure: string }
 }

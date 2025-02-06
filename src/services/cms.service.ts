@@ -6,6 +6,7 @@ import {
   ContactData,
   DestinationDetail,
   MetaObject,
+  PackageCategory,
   ProcedureData,
 } from "./../models/api.data";
 import { fetchData } from "./api.service";
@@ -43,6 +44,7 @@ export const fetchTestimonials = async () => {
 interface LimitParams {
   offset?: number;
   limit?: number;
+  category?: string
 }
 
 function createQueryString(params: any) {
@@ -193,4 +195,23 @@ export const fetchContact = async () => {
   });
 
   return innerbanner || null;
+};
+
+
+export const fetchProcedureCategories = async () => {
+  const categories = await fetchData<PackageCategory[]>({
+    apiEndPoint: getapi.PACKAGE_CATEGORY,
+  });
+
+  return categories || [];
+};
+
+
+
+export const fetchProcedureCategorDetail = async (slug: string) => {
+  const category = await fetchData<PackageCategory>({
+    apiEndPoint: getapi.CATEGORY_DETAIL + `/${slug}`,
+  });
+
+  return category || null
 };

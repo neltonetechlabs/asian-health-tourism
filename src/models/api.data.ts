@@ -231,3 +231,22 @@ export interface ContactData extends CommonTable{
   primary_phone_number: string;
   secondary_phone_number: string;
 }
+
+
+export interface PackageCategory extends CommonTable{ 
+ label_en: string;
+ label_es: string | null;
+ label_ar: string | null;
+ label_ru: string | null;
+ label_fr: string | null;
+ label_fa: string | null;
+ image: string;
+ description_en: string;
+ description_es: string | null;
+ description_ar: string | null;
+ description_ru: string | null;
+ description_fr: string | null;
+ description_fa: string | null;
+ slug: string;
+ banner_image: string | null;
+}
