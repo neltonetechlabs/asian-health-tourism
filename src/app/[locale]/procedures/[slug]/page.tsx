@@ -40,7 +40,6 @@ const CategoryProcedures: NextPage<Props> = async ({
   params: { slug, locale },
 }) => {
   unstable_setRequestLocale(locale);
-  await generateMetadata(slug);
   const t = await getTranslations("Common");
   const bloglists = await API_CLIENT.fetchBlogs();
   const categoryData = await API_CLIENT.fetchProcedureCategorDetail(slug);

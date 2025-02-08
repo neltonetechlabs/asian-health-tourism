@@ -41,7 +41,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-const DestinationDetail: NextPage<UIComponent.DetailPageParam> = async ({
+const DestinationDetail: NextPage<UIComponent.DestinationDetailPageParam> = async ({
   params: { slug, locale },
 }) => {
   unstable_setRequestLocale(locale);

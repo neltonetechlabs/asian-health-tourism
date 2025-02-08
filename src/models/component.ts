@@ -95,3 +95,7 @@ export interface DefaultPageParam {
 export interface DetailPageParam {
     params: { locale: string; procedure: string }
 }
+
+export interface DestinationDetailPageParam {
+    params: { locale: string; slug: string }
+}
