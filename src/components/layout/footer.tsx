@@ -7,13 +7,16 @@ import Link from "next/link";
 import SocialMedia from "../ui/social-media";
 import { getLocale, getTranslations } from "next-intl/server";
 import { API_CLIENT } from "@/services";
+import useAppLocale from "@/hooks/useAppLocale";
 
 const AppFooter = async () => {
   const locale = await getLocale();
+  const { translate } = useAppLocale({ locale });
   const t = await getTranslations("Common");
   const main = await getTranslations("MainMenu");
   const contact = await getTranslations("ContactPg");
   const contactData = await API_CLIENT.fetchContact();
+  const procedureLinks = await API_CLIENT.fetchFooterLinks();
   return (
     <footer className="footer">
       <div className="app-container">
@@ -44,56 +47,28 @@ const AppFooter = async () => {
           <div className="grid md:grid-cols-2 grid-cols-1">
             <div className="md:col-span-1 col-span-2">
               <div className="footer-item">
-                <h3>{main('procedure')}</h3>
+                <h3>{main("procedure")}</h3>
                 <div className="grid grid-cols-2">
                   <div>
                     <ul>
-                      <li>
-                        <Link href={`/${locale}/about`}>{main('about')}</Link>
-                      </li>
-                      <li>
-                        <Link href={`/${locale}/contact`}>{main('contact')}</Link>
-                      </li>
-                      <li>
-                        <Link href={`/${locale}/blogs`}>{main('blog')}</Link>
-                      </li>
-                      <li>
-                        <Link href={`/${locale}/faq`}>FAQ</Link>
-                      </li>
-                      <li>
-                        <Link href={`/${locale}/procedures`}>{main('procedure')}</Link>
-                      </li>
-                      <li>
-                        <Link href={`/${locale}/contact`}>Free Quote</Link>
-                      </li>
-                      <li>
-                        <Link href={`/sitemap.xml`}>Sitemap</Link>
-                      </li>
+                      {procedureLinks?.slice(0, 7)?.map((procedure) => (
+                        <li>
+                          <Link href={`/${locale}/procedures/${procedure?.pckg_category}/${procedure?.slug}`}>
+                            {translate("title", procedure)}
+                          </Link>
+                        </li>
+                      ))}
                     </ul>
                   </div>
                   <div>
                     <ul>
-                      <li>
-                        <Link href={`/${locale}/about`}>About Us</Link>
-                      </li>
-                      <li>
-                        <Link href={`/${locale}/contact`}>Contact Us</Link>
-                      </li>
-                      <li>
-                        <Link href={`/${locale}/blogs`}>Blog</Link>
-                      </li>
-                      <li>
-                        <Link href={`/${locale}/faq`}>FAQ</Link>
-                      </li>
-                      <li>
-                        <Link href={`/${locale}/procedures`}>Packages</Link>
-                      </li>
-                      <li>
-                        <Link href={`/${locale}/contact`}>Free Quote</Link>
-                      </li>
-                      <li>
-                        <Link href={`/sitemap.xml`}>Sitemap</Link>
-                      </li>
+                      {procedureLinks?.slice(7, 14)?.map((procedure) => (
+                        <li>
+                          <Link href={`/${locale}/procedures/${procedure?.pckg_category}/${procedure?.slug}`}>
+                            {translate("title", procedure)}
+                          </Link>
+                        </li>
+                      ))}
                     </ul>
                   </div>
                 </div>
@@ -104,36 +79,40 @@ const AppFooter = async () => {
                 <h3>Usefull Links</h3>
                 <ul>
                   <li>
-                    <Link href={`/${locale}/about`}>{main('about')}</Link>
+                    <Link href={`/${locale}/about-us`}>{main("about")}</Link>
                   </li>
                   <li>
-                    <Link href={`/${locale}/contact`}>{main('contact')}</Link>
+                    <Link href={`/${locale}/contact`}>{main("contact")}</Link>
                   </li>
                   <li>
-                    <Link href={`/${locale}/blog`}>{main('blog')}</Link>
+                    <Link href={`/${locale}/blogs`}>{main("blog")}</Link>
                   </li>
                   <li>
-                    <Link href={`/${locale}/faq`}>{main('faq')}</Link>
+                    <Link href={`/${locale}/faq`}>{main("faq")}</Link>
                   </li>
                   <li>
-                    <Link href={`/${locale}/procedures`}>{main('procedure')}</Link>
+                    <Link href={`/${locale}/procedures`}>
+                      {main("procedure")}
+                    </Link>
                   </li>
                   <li>
-                    <Link href={`/${locale}/contact`}>{main('free_consultation')}</Link>
+                    <Link href={`/${locale}/contact`}>
+                      {main("free_consultation")}
+                    </Link>
                   </li>
                   <li>
-                    <Link href={`/${locale}/about`}>{main('sitemap')}</Link>
+                    <Link href={`/sitemap.xml`} target="_blank" rel="noreferrer">{main("sitemap")}</Link>
                   </li>
                 </ul>
               </div>
               <div className="footer-item md:mt-0 mt-2">
                 <h3>{main("contact")}</h3>
                 <div className="footer-sec">
-                  <h5>{contact('email')}:</h5>
+                  <h5>{contact("email")}:</h5>
                   <h6>{contactData?.email}</h6>
                 </div>
                 <div className="footer-sec">
-                  <h5>{contact('whatsapp')}:</h5>
+                  <h5>{contact("whatsapp")}:</h5>
                   <h6>
                     {contactData?.primary_phone_number}
                     {contactData?.secondary_phone_number
@@ -142,7 +121,7 @@ const AppFooter = async () => {
                   </h6>
                 </div>
                 <div className="footer-sec">
-                  <h5>{t('follow_us')}:</h5>
+                  <h5>{t("follow_us")}:</h5>
                   <SocialMedia />
                 </div>
               </div>
@@ -153,16 +132,17 @@ const AppFooter = async () => {
           <div className="grid md:grid-cols-2 grid-cols-1 md:grid-flow-row grid-flow-row-dense items-center md:gap-0 gap-5">
             <div className="text-left">
               <h6>
-                Copyright © {new Date().getFullYear()} Asian Health Tourism. All Rights Reserved.
+                Copyright © {new Date().getFullYear()} Asian Health Tourism. All
+                Rights Reserved.
               </h6>
             </div>
             <div className="top-quick-links md:justify-end justify-center">
               <ul>
                 <li>
-                  <Link href="#">{main('privacy')}</Link>
+                  <Link href="#">{main("privacy")}</Link>
                 </li>
                 <li>
-                  <Link href="#">{main('terms')}</Link>
+                  <Link href="#">{main("terms")}</Link>
                 </li>
               </ul>
             </div>

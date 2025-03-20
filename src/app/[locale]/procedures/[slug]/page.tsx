@@ -25,7 +25,6 @@ type Props = {
 export async function generateMetadata(
   { params }: Props,
 ): Promise<Metadata> {
-  console.log('params?.slug: ', params?.slug);
   const metadata = await API_CLIENT.fetchProcedureCategorDetail(params?.slug);
 
   return {
@@ -43,7 +42,7 @@ const CategoryProcedures: NextPage<Props> = async ({
   const t = await getTranslations("Common");
   const bloglists = await API_CLIENT.fetchBlogs();
   const categoryData = await API_CLIENT.fetchProcedureCategorDetail(slug);
-  const procedures = await API_CLIENT.fetchProcedures({offset: 0, limit: 100, category: slug });
+  const procedures = await API_CLIENT.fetchProcedures({offset: 0, limit: 100, pckg_category: slug });
   const { translate } = useAppLocale({ locale });
 
   if (!procedures?.length) return notFound();

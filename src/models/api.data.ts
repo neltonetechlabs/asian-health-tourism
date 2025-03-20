@@ -250,3 +250,14 @@ export interface PackageCategory extends CommonTable{
  slug: string;
  banner_image: string | null;
 }
+
+export interface FooterLinkData {
+  title_en: string;
+  title_ar: string;
+  title_ru: string;
+  title_fr: string;
+  title_fa: string;
+  title_es: string;
+  slug: string;
+  pckg_category: string;
+}

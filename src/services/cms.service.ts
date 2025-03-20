@@ -5,6 +5,7 @@ import {
   BlogDetailResponse,
   ContactData,
   DestinationDetail,
+  FooterLinkData,
   MetaObject,
   PackageCategory,
   ProcedureData,
@@ -44,7 +45,7 @@ export const fetchTestimonials = async () => {
 interface LimitParams {
   offset?: number;
   limit?: number;
-  category?: string
+  pckg_category?: string
 }
 
 function createQueryString(params: any) {
@@ -215,3 +216,12 @@ export const fetchProcedureCategorDetail = async (slug: string) => {
 
   return category || null
 };
+
+
+export const fetchFooterLinks = async () => {
+  const category = await fetchData<FooterLinkData[]>({
+    apiEndPoint: getapi.FOOTER_PACKAGE_LINKS,
+  });
+
+  return category || []
+}

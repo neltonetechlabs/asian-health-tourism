@@ -12,6 +12,7 @@ interface FetchDataProps {
 export const fetchData = async <T>({
   apiEndPoint,
 }: FetchDataProps): Promise<T | null> => {
+
   try {
     // const response = await instance.get(apiEndPoint, {
     //   headers: {
