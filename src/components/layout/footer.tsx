@@ -52,7 +52,7 @@ const AppFooter = async () => {
                   <div>
                     <ul>
                       {procedureLinks?.slice(0, 7)?.map((procedure) => (
-                        <li>
+                        <li key={procedure?.slug}>
                           <Link href={`/${locale}/procedures/${procedure?.pckg_category}/${procedure?.slug}`}>
                             {translate("title", procedure)}
                           </Link>
@@ -63,7 +63,7 @@ const AppFooter = async () => {
                   <div>
                     <ul>
                       {procedureLinks?.slice(7, 14)?.map((procedure) => (
-                        <li>
+                        <li key={procedure?.slug}>
                           <Link href={`/${locale}/procedures/${procedure?.pckg_category}/${procedure?.slug}`}>
                             {translate("title", procedure)}
                           </Link>
