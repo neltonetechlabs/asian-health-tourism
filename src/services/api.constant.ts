@@ -22,6 +22,7 @@ export const API_END_POINTS = {
         FAQ_LIST: "faq",
         PACKAGE_CATEGORY: "package-category",
         CATEGORY_DETAIL: "category-detail",
-        FOOTER_PACKAGE_LINKS: "footerslist"
+        FOOTER_PACKAGE_LINKS: "footerslist",
+        PAGE_VISIBILIY: "settings"
     }
 }

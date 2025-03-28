@@ -864,3 +864,23 @@ select.minimal:focus {
   .visible-mob { display: inline-block; }
   .locale-list { top: 5rem !important; }
 }
+
+.disable-page {
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+  height: 500px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.disable-page h4 {
+  font-size: 25px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.disable-page article {
+  color: #444;
+  line-height: 28px;
+}

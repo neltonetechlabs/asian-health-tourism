@@ -17,6 +17,7 @@ const AppFooter = async () => {
   const contact = await getTranslations("ContactPg");
   const contactData = await API_CLIENT.fetchContact();
   const procedureLinks = await API_CLIENT.fetchFooterLinks();
+  const settings = await API_CLIENT.fetchVisibilityConifg();
   return (
     <footer className="footer">
       <div className="app-container">
@@ -53,7 +54,9 @@ const AppFooter = async () => {
                     <ul>
                       {procedureLinks?.slice(0, 7)?.map((procedure) => (
                         <li key={procedure?.slug}>
-                          <Link href={`/${locale}/procedures/${procedure?.pckg_category}/${procedure?.slug}`}>
+                          <Link
+                            href={`/${locale}/procedures/${procedure?.pckg_category}/${procedure?.slug}`}
+                          >
                             {translate("title", procedure)}
                           </Link>
                         </li>
@@ -64,7 +67,9 @@ const AppFooter = async () => {
                     <ul>
                       {procedureLinks?.slice(7, 14)?.map((procedure) => (
                         <li key={procedure?.slug}>
-                          <Link href={`/${locale}/procedures/${procedure?.pckg_category}/${procedure?.slug}`}>
+                          <Link
+                            href={`/${locale}/procedures/${procedure?.pckg_category}/${procedure?.slug}`}
+                          >
                             {translate("title", procedure)}
                           </Link>
                         </li>
@@ -84,9 +89,11 @@ const AppFooter = async () => {
                   <li>
                     <Link href={`/${locale}/contact`}>{main("contact")}</Link>
                   </li>
-                  <li>
-                    <Link href={`/${locale}/blogs`}>{main("blog")}</Link>
-                  </li>
+                  {settings?.blogs && (
+                    <li>
+                      <Link href={`/${locale}/blogs`}>{main("blog")}</Link>
+                    </li>
+                  )}
                   <li>
                     <Link href={`/${locale}/faq`}>{main("faq")}</Link>
                   </li>
@@ -101,7 +108,13 @@ const AppFooter = async () => {
                     </Link>
                   </li>
                   <li>
-                    <Link href={`/sitemap.xml`} target="_blank" rel="noreferrer">{main("sitemap")}</Link>
+                    <Link
+                      href={`/sitemap.xml`}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {main("sitemap")}
+                    </Link>
                   </li>
                 </ul>
               </div>

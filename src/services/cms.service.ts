@@ -225,3 +225,22 @@ export const fetchFooterLinks = async () => {
 
   return category || []
 }
+
+
+
+export const fetchVisibilityConifg = async () => {
+  const settings = await fetchData<any[]>({
+    apiEndPoint: getapi.PAGE_VISIBILIY,
+  });
+
+  const result = settings?.reduce((acc, item) => {
+    for (let key in item) {
+      if (key !== 'id') {
+        acc[key] = !item[key]; // Flip the boolean value
+      }
+    }
+    return acc;
+  }, {});
+
+  return result || null
+}

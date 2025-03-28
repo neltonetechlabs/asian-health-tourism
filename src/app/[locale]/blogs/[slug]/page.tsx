@@ -42,53 +42,67 @@ const BlogDetail: NextPage<BlogDetailPage> = async ({
   const t = await getTranslations("Common");
   const { translate } = useAppLocale({ locale });
   const { blog, latest_blogs } = await API_CLIENT.fetchBlogDetail(slug || "");
+  const settings = await API_CLIENT.fetchVisibilityConifg();
 
   if (!blog) return notFound();
-
-  return (
-    <main className="sec-padd">
-      <div className="app-container">
-        <div className="grid grid-cols-6 justify-center items-center">
-          <div className="xl:col-start-2 xl:col-span-4 col-span-6">
-            <MotionDiv animateScript={cardVariants}>
-              <div className="blog-meta">
-                <div className="blog-date">
-                  {moment(blog?.blog_date).format("dddd, LL")}
+  if (settings?.blog) {
+    return (
+      <main className="sec-padd">
+        <div className="app-container">
+          <div className="grid grid-cols-6 justify-center items-center">
+            <div className="xl:col-start-2 xl:col-span-4 col-span-6">
+              <MotionDiv animateScript={cardVariants}>
+                <div className="blog-meta">
+                  <div className="blog-date">
+                    {moment(blog?.blog_date).format("dddd, LL")}
+                  </div>
+                  <span>/</span>
+                  <div className="blog-tag">{t("#blog_tag")}</div>
                 </div>
-                <span>/</span>
-                <div className="blog-tag">{t("#blog_tag")}</div>
-              </div>
-            </MotionDiv>
-            <MotionDiv animateScript={cardVariants} className="blog-title">
-              <h4>{translate("title", blog)}</h4>
-            </MotionDiv>
-            <MotionDiv animateScript={cardVariants}>
-              <figure className="blog-image">
-                <Image
-                  src={blog?.image || Demo1}
-                  alt={blog?.title_en || "Asian Health Tourism"}
-                  className="img-fit cover object-center"
-                  width={600}
-                  height={500}
-                />
-              </figure>
-            </MotionDiv>
+              </MotionDiv>
+              <MotionDiv animateScript={cardVariants} className="blog-title">
+                <h4>{translate("title", blog)}</h4>
+              </MotionDiv>
+              <MotionDiv animateScript={cardVariants}>
+                <figure className="blog-image">
+                  <Image
+                    src={blog?.image || Demo1}
+                    alt={blog?.title_en || "Asian Health Tourism"}
+                    className="img-fit cover object-center"
+                    width={600}
+                    height={500}
+                  />
+                </figure>
+              </MotionDiv>
 
-            <div className="blog-content">
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: translate("blog_content", blog) || "",
-                }}
-              ></div>
+              <div className="blog-content">
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: translate("blog_content", blog) || "",
+                  }}
+                ></div>
+              </div>
             </div>
           </div>
         </div>
+        <div className="grid grid-cols-1">
+          <LatestBlog latestBlogs={latest_blogs} locale={locale} />
+        </div>
+      </main>
+    );
+  } else {
+    return (
+      <div className="disable-page">
+        <h4>Something Exciting is Coming Soon!</h4>
+        <article>
+          We are working hard on something special just for you! Our team is
+          busy crafting a new page that will bring you even more value,
+          insights, and experiences. Stay tuned for updates, as we’ll be
+          unveiling new content and features shortly.
+        </article>
       </div>
-      <div className="grid grid-cols-1">
-        <LatestBlog latestBlogs={latest_blogs} locale={locale} />
-      </div>
-    </main>
-  );
+    );
+  }
 };
 
 export default BlogDetail;

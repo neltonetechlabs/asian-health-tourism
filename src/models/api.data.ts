@@ -261,3 +261,10 @@ export interface FooterLinkData {
   slug: string;
   pckg_category: string;
 }
+
+
+export interface PageVisibilityConfig {
+  id: number;
+  module: string;
+  status: boolean;
+}

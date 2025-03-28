@@ -60,6 +60,7 @@ const Home: NextPage<UIComponent.DefaultPageParam> = async ({
     aboutContent,
     blog_list,
     procedures,
+    settings,
   ] = await Promise.all([
     API_CLIENT.fetchSliders(),
     API_CLIENT.fetchServices(),
@@ -68,6 +69,7 @@ const Home: NextPage<UIComponent.DefaultPageParam> = async ({
     API_CLIENT.fetchAbout(),
     API_CLIENT.fetchBlogs({ offset: 0 }),
     API_CLIENT.fetchProcedures({ offset: 0 }),
+    API_CLIENT.fetchVisibilityConifg(),
   ]);
 
   if (
@@ -80,7 +82,6 @@ const Home: NextPage<UIComponent.DefaultPageParam> = async ({
     !procedures?.length
   )
     return notFound();
-
   return (
     <>
       <HeroSlider sliders={sliders} />
@@ -187,9 +188,11 @@ const Home: NextPage<UIComponent.DefaultPageParam> = async ({
           </div>
         </div>
       </section>
-
-      <TestimonialSection />
-      <LatestBlog latestBlogs={blog_list} locale={locale} />
+      {settings?.reviews && <TestimonialSection />}
+      {settings?.blogs && (
+        <LatestBlog latestBlogs={blog_list} locale={locale} />
+      )}
+      {!settings?.reviews && !settings?.blogs && <div style={{height: '60px'}}></div>}
     </>
   );
 };

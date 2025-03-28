@@ -11,13 +11,16 @@ import PushMenu from "./pushmenu";
 import Link from "next/link";
 import Locale from "./locale";
 import { MasterLang } from "@/models/api.data";
+import { API_CLIENT } from "@/services";
 
 interface HeaderProps {
   langs: MasterLang[];
 }
 
-const Header: React.FC<HeaderProps> = (props) => {
+const Header: React.FC<HeaderProps> = async (props) => {
   const { langs } = props;
+  const settings = await API_CLIENT.fetchVisibilityConifg();
+
   return (
     <header className="sticky top-0 bg-white z-30">
       <div className="app-container">
@@ -31,7 +34,7 @@ const Header: React.FC<HeaderProps> = (props) => {
           </div>
           <div className="xl:col-span-9 lg:col-span-10 col-span-6">
             <div className="header-actions">
-              <Menu />
+              <Menu settings={settings} />
               <div className="mobile-locale visible-mob">
                 <Locale langs={langs} />
               </div>
@@ -45,7 +48,7 @@ const Header: React.FC<HeaderProps> = (props) => {
                 customClass="free_cons_btn"
               />
               <div className="mobile-menu">
-                <PushMenu />
+                <PushMenu settings={settings}/>
               </div>
             </div>
           </div>

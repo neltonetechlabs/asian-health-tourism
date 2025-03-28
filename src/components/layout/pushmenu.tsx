@@ -55,7 +55,7 @@ const main_menu = [
   },
 ];
 
-const PushMenu = () => {
+const PushMenu = ({ settings }: any) => {
   const t = useTranslations("MainMenu");
   const pathname = usePathname();
   const locale = useLocale();
@@ -73,17 +73,24 @@ const PushMenu = () => {
         </span>
       }
     >
-      {main_menu?.map((menuItem) => (
-        <Link
-          onClick={() => setIsMenuOpen(false)}
-          className="menu-item"
-          href={`/${locale}/${menuItem?.link}`}
-          key={menuItem?.id}
-          replace
-        >
-          {t(menuItem?.title)}
-        </Link>
-      ))}
+      {main_menu?.map((menuItem) => {
+        const modifiedLink = settings.hasOwnProperty(menuItem?.link)
+          ? settings[menuItem?.link]
+          : true;
+        if (modifiedLink) {
+          return (
+            <Link
+              onClick={() => setIsMenuOpen(false)}
+              className="menu-item"
+              href={`/${locale}/${menuItem?.link}`}
+              key={menuItem?.id}
+              replace
+            >
+              {t(menuItem?.title)}
+            </Link>
+          );
+        }
+      })}
     </Menu>
   );
 };
