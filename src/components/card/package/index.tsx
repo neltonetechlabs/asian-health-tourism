@@ -14,7 +14,7 @@ const PackageCard: React.FC<{ data: ProcedureData; locale: string }> = ({
 }) => {
   const { translate } = useAppLocale({ locale });
   return (
-    <Link href={`/${locale}/procedures/${data?.slug}`} className={classes.pckgcardlink}>
+    <Link href={`/${locale}/procedures/${data.pckg_category}/${data?.slug}`} className={classes.pckgcardlink}>
       <div className={classes.packagecard}  style={{ height: "100%" }}>
         <div className={classes.pckgimg}>
           <ImageWithFallBack alt={data?.title_en} src={data?.image || ""} />
