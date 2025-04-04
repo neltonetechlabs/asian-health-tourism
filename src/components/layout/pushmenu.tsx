@@ -74,7 +74,7 @@ const PushMenu = ({ settings }: any) => {
       }
     >
       {main_menu?.map((menuItem) => {
-        const modifiedLink = settings.hasOwnProperty(menuItem?.link)
+        const modifiedLink = settings?.hasOwnProperty(menuItem?.link)
           ? settings[menuItem?.link]
           : true;
         if (modifiedLink) {

@@ -43,7 +43,7 @@ const Menu: React.FC<{ settings: any }> = ({ settings }) => {
     <ul className="menu-ul">
       {main_menu?.map((menuItem) => {
         // Check if the link is present in the visibility object
-        const modifiedLink = settings.hasOwnProperty(menuItem?.link)
+        const modifiedLink = settings?.hasOwnProperty(menuItem?.link)
           ? settings[menuItem?.link]
           : true;
         if (modifiedLink) {
