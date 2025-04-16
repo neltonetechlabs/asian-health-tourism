@@ -10,7 +10,7 @@ import {
   PackageCategory,
   ProcedureData,
 } from "./../models/api.data";
-import { fetchData } from "./api.service";
+import { fetchData, postData } from "./api.service";
 import { API_END_POINTS } from "./api.constant";
 import {
   BlogContent,
@@ -45,7 +45,7 @@ export const fetchTestimonials = async () => {
 interface LimitParams {
   offset?: number;
   limit?: number;
-  pckg_category?: string
+  pckg_category?: string;
 }
 
 function createQueryString(params: any) {
@@ -103,7 +103,7 @@ export const fetchFaqByCategory = async (catId?: string) => {
   return faqdata || [];
 };
 
-export const fetchFAQList= async (catId?: string) => {
+export const fetchFAQList = async (catId?: string) => {
   const faqdata = await fetchData<FaqData[]>({
     apiEndPoint: getapi.FAQ_LIST,
   });
@@ -198,7 +198,6 @@ export const fetchContact = async () => {
   return innerbanner || null;
 };
 
-
 export const fetchProcedureCategories = async () => {
   const categories = await fetchData<PackageCategory[]>({
     apiEndPoint: getapi.PACKAGE_CATEGORY,
@@ -207,40 +206,48 @@ export const fetchProcedureCategories = async () => {
   return categories || [];
 };
 
-
-
 export const fetchProcedureCategorDetail = async (slug: string) => {
   const category = await fetchData<PackageCategory>({
     apiEndPoint: getapi.CATEGORY_DETAIL + `/${slug}`,
   });
 
-  return category || null
+  return category || null;
 };
-
 
 export const fetchFooterLinks = async () => {
   const category = await fetchData<FooterLinkData[]>({
     apiEndPoint: getapi.FOOTER_PACKAGE_LINKS,
   });
 
-  return category || []
-}
+  return category || [];
+};
 
-
-
-export const fetchVisibilityConifg = async () => {
+export const fetchVisibilityConifg = async (): Promise<{
+  blogs: boolean;
+  reviews: boolean;
+}> => {
   const settings = await fetchData<any[]>({
     apiEndPoint: getapi.PAGE_VISIBILIY,
   });
 
   const result = settings?.reduce((acc, item) => {
     for (let key in item) {
-      if (key !== 'id') {
-        acc[key] = !item[key]; // Flip the boolean value
+      if (key !== "id") {
+        acc[key] = item[key]; // Flip the boolean value
       }
     }
     return acc;
   }, {});
 
-  return result || null
-}
+  console.log(result);
+  return result || null;
+};
+
+export const submiContactForm = async (data: Object) => {
+  const response = await postData({
+    api: "submit-contact-form",
+    payload: data,
+  });
+
+  return response || null;
+};

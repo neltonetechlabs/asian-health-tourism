@@ -1,4 +1,3 @@
-import { useTranslations } from "next-intl";
 
 import useAppLocale from "@/hooks/useAppLocale";
 import { BlogContent } from "@/models/api.data";
@@ -7,23 +6,25 @@ import SectionHead from "./section.head";
 import BlogCard from "../card/blog";
 import MotionDiv from "../common/motiondiv";
 import { cardVariants } from "@/utils/cardanimate";
-import { unstable_setRequestLocale } from "next-intl/server";
+import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
+import { API_CLIENT } from "@/services";
 
 interface LatestBlogProps {
   locale: string;
   latestBlogs: BlogContent[];
 }
 
-const LatestBlog: React.FC<LatestBlogProps> = ({
+const LatestBlog: React.FC<LatestBlogProps> = async ({
   latestBlogs = [],
   locale = "en",
 }) => {
   unstable_setRequestLocale(locale);
+  const settings = await API_CLIENT.fetchVisibilityConifg();
 
   const blogs = latestBlogs;
-  const t = useTranslations("Common");
+  const t = await getTranslations("Common");
   const { translate } = useAppLocale({ locale });
-  if (latestBlogs?.length > 0) {
+  if (latestBlogs?.length > 0 && settings?.blogs) {
     return (
       <div className="sec-padd">
         <div className="app-container">

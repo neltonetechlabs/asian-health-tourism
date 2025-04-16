@@ -21,7 +21,6 @@ const FloatingInput: React.FC<FloatingInputProps> = ({
           placeholder=" "
           name={name}
           rows={4}
-          required
         />
       ) : (
         <input

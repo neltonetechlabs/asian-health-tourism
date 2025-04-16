@@ -188,11 +188,11 @@ const Home: NextPage<UIComponent.DefaultPageParam> = async ({
           </div>
         </div>
       </section>
-      {settings?.reviews && <TestimonialSection />}
-      {settings?.blogs && (
-        <LatestBlog latestBlogs={blog_list} locale={locale} />
+      <TestimonialSection />
+      <LatestBlog latestBlogs={blog_list} locale={locale} />
+      {!settings?.reviews && !settings?.blogs && (
+        <div style={{ height: "60px" }}></div>
       )}
-      {!settings?.reviews && !settings?.blogs && <div style={{height: '60px'}}></div>}
     </>
   );
 };

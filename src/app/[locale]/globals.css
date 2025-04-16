@@ -884,3 +884,20 @@ select.minimal:focus {
   color: #444;
   line-height: 28px;
 }
+
+.header-actions {position: relative;}
+.search-form {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  background-color: #fff;
+  transform: translate(0, -50%);
+  width: calc(100% - 220px);
+}
+
+.search-form input {
+  width: 100%;
+  line-height: 45px;
+  padding: 0 15px;
+  outline: none;
+}

@@ -8,7 +8,9 @@ import MotionDiv from "../common/motiondiv";
 const TestimonialSection = async () => {
   const t = await getTranslations("Common");
   const testimonials = await API_CLIENT.fetchTestimonials();
-  if (testimonials) {
+  const settings = await API_CLIENT.fetchVisibilityConifg();
+
+  if (testimonials && settings?.reviews) {
     return (
       <section className="sec-padd pb-0">
         <div className="app-container">

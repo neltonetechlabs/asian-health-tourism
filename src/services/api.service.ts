@@ -9,10 +9,14 @@ interface FetchDataProps {
   apiEndPoint: string;
 }
 
+interface PostDataProps {
+  payload: any;
+  api: string;
+}
+
 export const fetchData = async <T>({
   apiEndPoint,
 }: FetchDataProps): Promise<T | null> => {
-
   try {
     // const response = await instance.get(apiEndPoint, {
     //   headers: {
@@ -23,7 +27,7 @@ export const fetchData = async <T>({
     // });
     // return response?.data?.data;
     const response = await fetch(process.env.API_HOST + apiEndPoint, {
-      cache: 'no-store', // Fetch fresh data for every request
+      cache: "no-store", // Fetch fresh data for every request
     });
     if (response?.ok) {
       const res = await response.json();
@@ -36,4 +40,21 @@ export const fetchData = async <T>({
   }
 };
 
-export const postData = () => {};
+export const postData = async ({ payload, api }: PostDataProps) => {
+  try {
+    console.log('process.env.API_HOST + api: ', process.env);
+    const response = await fetch('https://api.asiahealthtourism.org/' + api, {
+      cache: "no-store", // Fetch fresh data for every request
+      method: "POST",
+      body: payload
+    });
+    if (response?.ok) {
+      const res = await response.json();
+      return res?.data;
+    }
+    return null;
+  } catch (error) {
+    console.log("Something went wrong");
+    return null;
+  }
+};

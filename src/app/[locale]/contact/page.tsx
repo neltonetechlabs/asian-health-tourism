@@ -1,5 +1,6 @@
 import { Metadata, NextPage } from "next";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
+import Image from "next/image";
 
 import { UIComponent } from "@/models";
 import { AppButton, InnerBanner, MotionDiv } from "@/components";
@@ -8,10 +9,10 @@ import SocialMedia from "@/components/ui/social-media";
 import style from "./style.module.css";
 import FloatingInput from "@/components/forms/floatinput";
 import { Chevron } from "@/assets";
-import { ButtonType, ButtonVariant } from "@/enum/enum";
 import { API_CLIENT } from "@/services";
 import useAppLocale from "@/hooks/useAppLocale";
 import { notFound } from "next/navigation";
+import ContactForm from "./form";
 
 export async function generateMetadata(): Promise<Metadata> {
   const metadata = await API_CLIENT.fetchMetaData("contact");
@@ -22,7 +23,6 @@ export async function generateMetadata(): Promise<Metadata> {
     keywords: metadata?.meta_keywords,
   };
 }
-
 
 const ContactPage: NextPage<UIComponent.DefaultPageParam> = async ({
   params: { locale },
@@ -70,58 +70,7 @@ const ContactPage: NextPage<UIComponent.DefaultPageParam> = async ({
             </div>
             <div className="lg:col-span-7 col-span-12">
               <MotionDiv>
-                <form className={style.contactForm}>
-                  <div className="grid md:grid-cols-2 grid-cols-1 gap-x-4 gap-y-8">
-                    <div className={style.radioBtn}>
-                      <label>
-                        <input type="radio" name="e" defaultChecked />{" "}
-                        {t("radio_enquiry")}
-                      </label>
-                      <label>
-                        <input type="radio" name="e" /> {t("radio_feedback")}
-                      </label>
-                    </div>
-                    <div className={style.formgrp}>
-                      <FloatingInput
-                        name="name"
-                        inputKey="enter_name"
-                        label={t("name_label")}
-                      />
-                    </div>
-                    <div className={style.formgrp}>
-                      <FloatingInput
-                        name="phone"
-                        inputKey="enter_phone"
-                        label={t("phone_inp_label")}
-                        type="tel"
-                      />
-                    </div>
-                    <div className="col-span-2">
-                      <FloatingInput
-                        name="phone"
-                        inputKey="enter_phone"
-                        label={t("email_inp_label")}
-                      />
-                    </div>
-                    <div className="col-span-2">
-                      <FloatingInput
-                        name="message"
-                        inputKey="message"
-                        label={t("message")}
-                        inputType="text"
-                      />
-                    </div>
-                    <div className="flex md:gap-10 gap-4 col-span-2">
-                      <AppButton
-                        title="Submit Message"
-                        type={ButtonType.FILLED}
-                        variant={ButtonVariant.PRIMARY}
-                        leftImage={Chevron}
-                      />
-                      <button type="button" className="hidden-mob">Our Location Map</button>
-                    </div>
-                  </div>
-                </form>
+                <ContactForm />
               </MotionDiv>
             </div>
           </div>
