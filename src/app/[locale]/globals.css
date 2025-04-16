@@ -893,6 +893,7 @@ select.minimal:focus {
   background-color: #fff;
   transform: translate(0, -50%);
   width: calc(100% - 220px);
+  display: none;
 }
 
 .search-form input {

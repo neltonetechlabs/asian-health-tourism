@@ -14,7 +14,7 @@ const PatientReviews: NextPage<UIComponent.DefaultPageParam> = async ({
   const settings = await API_CLIENT.fetchVisibilityConifg();
 
   if (!testimonials?.length) return notFound();
-  if (settings?.review) {
+  if (settings?.reviews) {
     return (
       <main>
         <InnerBanner page="reviews" />

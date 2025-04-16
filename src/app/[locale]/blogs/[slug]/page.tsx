@@ -45,7 +45,7 @@ const BlogDetail: NextPage<BlogDetailPage> = async ({
   const settings = await API_CLIENT.fetchVisibilityConifg();
 
   if (!blog) return notFound();
-  if (settings?.blog) {
+  if (settings?.blogs) {
     return (
       <main className="sec-padd">
         <div className="app-container">
