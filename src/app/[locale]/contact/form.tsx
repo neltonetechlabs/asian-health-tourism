@@ -11,7 +11,6 @@ const ContactForm: React.FC<{}> = () => {
   const t = useTranslations("ContactPg");
 
   const handleFormSubmit = async (event: any) => {
-    console.log(event);
     event?.preventDefault();
     const payload = new FormData(event?.target);
     await API_CLIENT.submiContactForm(payload)

@@ -24,6 +24,8 @@ import LinkedIn from './linkedin.svg';
 import TestimonialCaroLeft from './testimonial-left.svg';
 import TestimonialCaroRight from './testimonial-right.svg';
 import YellowChevron from './yellow_chevron.svg';
+import CloseIcon from './close.svg';
+
 
 /* Locale */
 import ar from './ar.svg';
@@ -78,6 +80,7 @@ export {
   TestimonialCaroLeft,
   TestimonialCaroRight,
   YellowChevron,
+  CloseIcon,
   // Locale
   ar,
   en,

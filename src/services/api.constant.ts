@@ -23,6 +23,7 @@ export const API_END_POINTS = {
         PACKAGE_CATEGORY: "package-category",
         CATEGORY_DETAIL: "category-detail",
         FOOTER_PACKAGE_LINKS: "footerslist",
-        PAGE_VISIBILIY: "settings"
+        PAGE_VISIBILIY: "settings",
+        SEARCH_API: "search"
     }
 }

@@ -42,7 +42,6 @@ export const fetchData = async <T>({
 
 export const postData = async ({ payload, api }: PostDataProps) => {
   try {
-    console.log('process.env.API_HOST + api: ', process.env);
     const response = await fetch('https://api.asiahealthtourism.org/' + api, {
       cache: "no-store", // Fetch fresh data for every request
       method: "POST",

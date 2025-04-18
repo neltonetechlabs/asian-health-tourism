@@ -15,9 +15,7 @@ import { useTranslations } from "next-intl";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 
-
-export async function generateMetadata(
-): Promise<Metadata> {
+export async function generateMetadata(): Promise<Metadata> {
   const metadata = await API_CLIENT.fetchMetaData("procedures");
 
   return {
@@ -29,13 +27,14 @@ export async function generateMetadata(
 
 const Procedures: NextPage<UIComponent.DetailPageParam> = async ({
   params: { locale },
+  searchParams,
 }) => {
   unstable_setRequestLocale(locale);
   const t = await getTranslations("Common");
   const bloglists = await API_CLIENT.fetchBlogs();
-  const proceduresCat = await API_CLIENT.fetchProcedureCategories();
+  const proceduresCat = await API_CLIENT.fetchProcedureCategories(searchParams);
   const { translate } = useAppLocale({ locale });
-
+  const { search } = await searchParams;
   if (!proceduresCat?.length) return notFound();
 
   return (
@@ -44,13 +43,11 @@ const Procedures: NextPage<UIComponent.DetailPageParam> = async ({
       <section className="sec-padd">
         <div className="app-container">
           <div className="grid grid-cols-1">
-            <SectionHead
-              title={t("top_procedures_iran")}
-            />
+            <SectionHead title={t(search ? "serach_results" :"top_procedures_iran")} />
           </div>
           <div className="md:h-10 h-4"></div>
           <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-2 md:gap-7 gap-2">
-            {proceduresCat?.map((item, index) => (
+            {proceduresCat?.map((item: any, index: number) => (
               <ProcedureCard
                 key={item?.id}
                 title={translate("label", item)}

@@ -888,17 +888,30 @@ select.minimal:focus {
 .header-actions {position: relative;}
 .search-form {
   position: absolute;
-  top: 50%;
+  top: 45%;
   left: 0;
   background-color: #fff;
   transform: translate(0, -50%);
-  width: calc(100% - 220px);
-  display: none;
+  width: calc(100% - 230px);
+  opacity: 0;
+  z-index: -10;
+  display: flex;justify-content: space-between;
 }
 
 .search-form input {
   width: 100%;
-  line-height: 45px;
+  line-height: 56px;
   padding: 0 15px;
   outline: none;
+}
+
+.search-form.active-form {
+  opacity: 1;
+  z-index: 10;
+}
+
+.search-btn-set {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
 }

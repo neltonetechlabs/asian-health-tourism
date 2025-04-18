@@ -198,11 +198,17 @@ export const fetchContact = async () => {
   return innerbanner || null;
 };
 
-export const fetchProcedureCategories = async () => {
-  const categories = await fetchData<PackageCategory[]>({
-    apiEndPoint: getapi.PACKAGE_CATEGORY,
-  });
-
+export const fetchProcedureCategories = async (searchParam?: any) => {
+  let categories: any = [];
+  if (searchParam?.search) {
+    categories = await fetchData<PackageCategory[]>({
+      apiEndPoint: getapi.SEARCH_API,
+    });
+  } else {
+    categories = await fetchData<PackageCategory[]>({
+      apiEndPoint: getapi.PACKAGE_CATEGORY,
+    });
+  }
   return categories || [];
 };
 
@@ -239,7 +245,6 @@ export const fetchVisibilityConifg = async (): Promise<{
     return acc;
   }, {});
 
-  console.log(result);
   return result || null;
 };
 

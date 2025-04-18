@@ -43,7 +43,6 @@ export default async function Page({
     limit,
   });
 
-  console.log("settings: ", settings);
   if (!blogs?.length) return notFound();
 
   if (settings?.blogs) {
