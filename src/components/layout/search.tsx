@@ -18,7 +18,9 @@ const Search = () => {
     setIsSearch((prevState) => !prevState);
   };
 
-  const navigateToSearch = () => {
+  const navigateToSearch = (e: any) => {
+    console.log("on submit");
+    e.preventDefault();
     router.replace(`/${locale}/procedures?search=${searchText}`);
   };
 
@@ -31,7 +33,7 @@ const Search = () => {
 
   return (
     <div>
-      <form className={`search-form ${isSearch ? "active-form" : ""}`}>
+      <form className={`search-form ${isSearch ? "active-form" : ""}`} onSubmit={navigateToSearch}>
         <input
           type="search"
           value={searchText}
@@ -42,12 +44,12 @@ const Search = () => {
         <button type="button" onClick={handleSearch}>
           <Image src={CloseIcon} alt="Search" />
         </button>
-        <button type="button" onClick={navigateToSearch}>
+        <button type="submit">
           <Image src={SearchIcon} alt="Search" />
         </button>
         </div>
       </form>
-      <button type="button" onClick={handleSearch}>
+      <button type="submit" onClick={handleSearch}>
         <Image src={SearchIcon} alt="Search" />
       </button>
     </div>
