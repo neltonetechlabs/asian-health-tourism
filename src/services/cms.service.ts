@@ -202,7 +202,7 @@ export const fetchProcedureCategories = async (searchParam?: any) => {
   let categories: any = [];
   if (searchParam?.search) {
     categories = await fetchData<PackageCategory[]>({
-      apiEndPoint: getapi.SEARCH_API,
+      apiEndPoint: getapi.SEARCH_API + `?keyword=${searchParam?.search}`,
     });
   } else {
     categories = await fetchData<PackageCategory[]>({

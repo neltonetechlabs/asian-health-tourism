@@ -43,14 +43,14 @@ const Procedures: NextPage<UIComponent.DetailPageParam> = async ({
       <section className="sec-padd">
         <div className="app-container">
           <div className="grid grid-cols-1">
-            <SectionHead title={t(search ? "serach_results" :"top_procedures_iran")} />
+            <SectionHead title={t(search ? "serach_results" : "top_procedures_iran")} />
           </div>
           <div className="md:h-10 h-4"></div>
           <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-2 md:gap-7 gap-2">
             {proceduresCat?.map((item: any, index: number) => (
               <ProcedureCard
                 key={item?.id}
-                title={translate("label", item)}
+                title={translate(search? "title" : "label", item)}
                 image={item?.image}
                 description={translate("description", item)}
                 slug={item?.slug}
