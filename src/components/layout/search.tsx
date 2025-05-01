@@ -12,6 +12,8 @@ const Search = () => {
   const locale = useLocale();
   const router = useRouter();
   const searchParams = useSearchParams();
+  const searchKey = searchParams?.get('search');
+
   const handleSearch = (e: any) => {
     setIsSearch((prevState) => !prevState);
   };
@@ -21,7 +23,6 @@ const Search = () => {
   };
 
   useEffect(() => {
-    const searchKey = searchParams?.get('search');
     if (!searchKey && searchText) {
       setIsSearch(false);
       setSearchText('');

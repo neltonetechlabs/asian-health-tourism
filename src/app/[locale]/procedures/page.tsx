@@ -35,7 +35,7 @@ const Procedures: NextPage<UIComponent.DetailPageParam> = async ({
   const proceduresCat = await API_CLIENT.fetchProcedureCategories(searchParams);
   const { translate } = useAppLocale({ locale });
   const { search } = await searchParams;
-  if (!proceduresCat?.length) return notFound();
+  if (!proceduresCat?.length) return <div className="spacer-xl"><p>No Data Found</p></div>;
 
   return (
     <main>
